@@ -39,11 +39,11 @@
    CSS VARIABLES — Anthropic-inspired warm cream palette
    ============================================================ */
 :root {
-  --bg-primary: #faf9f5;
+  --bg-primary: #e3dacc;
   --bg-secondary: #e3dacc;
-  --bg-card: #f0eee6;
-  --border-light: #e8e6dc;
-  --border-medium: #d1cfc5;
+  --bg-card: #ffffff;
+  --border-light: #d1cfc5;
+  --border-medium: #b0aea5;
   --text-primary: #141413;
   --text-secondary: #3d3d3a;
   --text-tertiary: #5e5d59;
@@ -58,8 +58,8 @@
   --slate-300: #3d3d3a;
   --slate-200: #3d3d3a;
   --slate-100: #141413;
-  --navy-950: #faf9f5;
-  --navy-900: #f0eee6;
+  --navy-950: #e3dacc;
+  --navy-900: #e3dacc;
   --font-display: 'Anthropic Serif', 'Source Serif 4', Georgia, serif;
   --font-body: 'Anthropic Sans', 'DM Sans', -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
@@ -125,11 +125,11 @@ section:last-of-type { border-bottom: none; }
 }
 
 .section-subtitle {
-  font-size: 16px;
+  font-size: 17px;
   color: var(--text-tertiary);
   max-width: 640px;
   margin-bottom: 44px;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 /* HERO */
@@ -153,8 +153,8 @@ section:last-of-type { border-bottom: none; }
 
 /* TABLES */
 .comp-table-wrap { overflow-x: auto; margin: 0 -32px; padding: 0 32px; }
-.comp-table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 13.5px; min-width: 700px; background: var(--bg-card); border-radius: 12px; overflow: hidden; border: 1px solid var(--border-light); }
-.comp-table thead th { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 18px; text-align: left; border-bottom: 1px solid var(--border-light); background: var(--bg-secondary); color: var(--text-tertiary); }
+.comp-table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 14px; min-width: 700px; background: var(--bg-card); border-radius: 12px; overflow: hidden; border: 1px solid var(--border-light); box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+.comp-table thead th { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 18px; text-align: left; border-bottom: 1px solid var(--border-light); background: #f0eee6; color: var(--text-tertiary); }
 .comp-table thead th:first-child { color: var(--text-tertiary); width: 20%; }
 .comp-table thead th.col-a { color: var(--accent-a); }
 .comp-table thead th.col-b { color: var(--accent-b); }
@@ -170,7 +170,7 @@ section:last-of-type { border-bottom: none; }
 
 /* CARDS */
 .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
-.diff-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 28px; transition: border-color .25s, transform .25s, box-shadow .25s; }
+.diff-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 28px; transition: border-color .25s, transform .25s, box-shadow .25s; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
 .diff-card:hover { border-color: var(--border-medium); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.04); }
 .diff-card-badge { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; display: inline-block; margin-bottom: 14px; font-weight: 500; }
 .badge-anthropic { background: rgba(217,119,87,0.08); color: var(--accent-a); border: 1px solid rgba(217,119,87,0.18); }
@@ -185,7 +185,7 @@ section:last-of-type { border-bottom: none; }
 .timeline { position: relative; padding-left: 32px; }
 .timeline::before { content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 1px; background: linear-gradient(to bottom, var(--accent-a), var(--border-light)); }
 .tl-entry { position: relative; margin-bottom: 32px; }
-.tl-entry::before { content: ''; position: absolute; left: -29px; top: 7px; width: 9px; height: 9px; border-radius: 50%; background: var(--accent-a); border: 2px solid var(--bg-primary); }
+.tl-entry::before { content: ''; position: absolute; left: -29px; top: 7px; width: 9px; height: 9px; border-radius: 50%; background: var(--accent-a); border: 2px solid var(--bg-secondary); }
 .tl-date { font-family: var(--font-mono); font-size: 12px; color: var(--accent-a); letter-spacing: 0.04em; margin-bottom: 4px; }
 .tl-who { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; border-radius: 4px; display: inline-block; margin-bottom: 8px; }
 .tl-who.who-anthropic { background: rgba(217,119,87,0.08); color: var(--accent-a); }
@@ -208,7 +208,7 @@ section:last-of-type { border-bottom: none; }
 
 /* CHECKLIST */
 .checklist-table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 13.5px; min-width: 500px; background: var(--bg-card); border-radius: 12px; overflow: hidden; border: 1px solid var(--border-light); }
-.checklist-table thead th { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 12px 16px; text-align: center; border-bottom: 1px solid var(--border-light); background: var(--bg-secondary); }
+.checklist-table thead th { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 12px 16px; text-align: center; border-bottom: 1px solid var(--border-light); background: #f0eee6; }
 .checklist-table thead th:first-child { text-align: left; }
 .checklist-table td { padding: 10px 16px; border-bottom: 1px solid var(--border-light); text-align: center; font-size: 15px; }
 .checklist-table td:first-child { text-align: left; font-weight: 500; color: var(--text-primary); font-size: 13.5px; }
@@ -306,7 +306,7 @@ section:last-of-type { border-bottom: none; }
 <!-- ============================================================
      SECTION 1: MODEL COMPARISON TABLE
      ============================================================ -->
-<section id="models">
+<section id="models" style="background: var(--bg-secondary); padding: 80px 0;">
   <div class="container">
     <span class="section-label fade-in">01 — Models</span>
     <h2 class="section-title fade-in">Model Lineup by Use Case</h2>
@@ -381,7 +381,7 @@ section:last-of-type { border-bottom: none; }
 <!-- ============================================================
      SECTION 2: CODING — For Software Engineers
      ============================================================ -->
-<section id="coding">
+<section id="coding" style="background: var(--bg-secondary); padding: 80px 0;">
   <div class="container">
     <span class="section-label fade-in">02 — For Software Engineers</span>
     <h2 class="section-title fade-in">Claude Code vs. OpenAI Codex</h2>
@@ -466,7 +466,7 @@ section:last-of-type { border-bottom: none; }
 <!-- ============================================================
      SECTION 3: KNOWLEDGE WORKERS — For Non-Engineers
      ============================================================ -->
-<section id="knowledge-workers">
+<section id="knowledge-workers" style="background: var(--bg-secondary); padding: 80px 0;">
   <div class="container">
     <span class="section-label fade-in">03 — For Knowledge Workers</span>
     <h2 class="section-title fade-in">Beyond Engineering: Tools for Everyone Else</h2>
@@ -551,7 +551,7 @@ section:last-of-type { border-bottom: none; }
 <!-- ============================================================
      SECTION 4: INDUSTRY VERTICALS
      ============================================================ -->
-<section id="industries">
+<section id="industries" style="background: var(--bg-secondary); padding: 80px 0;">
   <div class="container">
     <span class="section-label fade-in">04 — Industry Verticals</span>
     <h2 class="section-title fade-in">Who Wins Where?</h2>
@@ -621,7 +621,7 @@ section:last-of-type { border-bottom: none; }
 <!-- ============================================================
      SECTION 5: PRICING COMPARISON
      ============================================================ -->
-<section id="pricing">
+<section id="pricing" style="background: var(--bg-secondary); padding: 80px 0;">
   <div class="container">
     <span class="section-label fade-in">05 — Pricing</span>
     <h2 class="section-title fade-in">Subscription Plans</h2>
@@ -723,7 +723,7 @@ section:last-of-type { border-bottom: none; }
      To add a new entry: copy a .tl-entry block and change the
      date, who-tag, title, and body text.
      ============================================================ -->
-<section id="developments">
+<section id="developments" style="background: var(--bg-secondary); padding: 80px 0;">
   <div class="container">
     <span class="section-label fade-in">06 — Updates</span>
     <h2 class="section-title fade-in">Recent Developments</h2>
@@ -810,7 +810,7 @@ section:last-of-type { border-bottom: none; }
 <!-- ============================================================
      SECTION 6: KEY DIFFERENTIATORS
      ============================================================ -->
-<section id="differentiators">
+<section id="differentiators" style="background: var(--bg-secondary); padding: 80px 0;">
   <div class="container">
     <span class="section-label fade-in">07 — Competitive Edge</span>
     <h2 class="section-title fade-in">Key Differentiators</h2>
@@ -913,7 +913,7 @@ section:last-of-type { border-bottom: none; }
 <!-- ============================================================
      SECTION 7: QUICK-REFERENCE FEATURE CHECKLIST
      ============================================================ -->
-<section id="checklist">
+<section id="checklist" style="background: var(--bg-secondary); padding: 80px 0;">
   <div class="container">
     <span class="section-label fade-in">08 — Quick Reference</span>
     <h2 class="section-title fade-in">Feature Checklist</h2>
@@ -965,12 +965,12 @@ section:last-of-type { border-bottom: none; }
   .wa-pill-role { background: rgba(0,0,0,0.03); color: var(--slate-400); border: 1px solid rgba(0,0,0,0.06); font-size: 10px; }
   .wa-roles { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border-light); }
   .wa-roles-label { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin-bottom: 6px; }
-  .wa-vert-card { background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: 12px; padding: 22px; transition: border-color 0.2s; }
+  .wa-vert-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 22px; transition: border-color 0.2s; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
   .wa-vert-card:hover { border-color: rgba(217,119,87,0.3); }
   .wa-vert-num { font-family: var(--font-display); font-size: 42px; font-weight: 700; color: rgba(217,119,87,0.12); line-height: 1; margin-bottom: 4px; }
   .wa-vert-name { font-family: var(--font-display); font-size: 18px; color: var(--pure-white); margin-bottom: 4px; }
   .wa-vert-thesis { font-size: 13px; color: var(--slate-300); line-height: 1.55; margin: 10px 0 14px; }
-  .wa-sp-card { position: relative; background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: 10px; padding: 16px 18px; }
+  .wa-sp-card { position: relative; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 10px; padding: 16px 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
   .wa-sp-title { font-size: 13px; font-weight: 600; color: var(--pure-white); margin-bottom: 4px; }
   .wa-sp-desc { font-size: 12px; color: var(--slate-400); line-height: 1.55; }
   .wa-sp-icon { font-size: 20px; margin-bottom: 8px; }
@@ -981,7 +981,7 @@ section:last-of-type { border-bottom: none; }
   .wa-flow-arrow { color: var(--text-muted); font-size: 18px; display: flex; align-items: center; justify-content: center; }
 </style>
 
-<section id="writing">
+<section id="writing" style="background: var(--bg-secondary); padding: 80px 0;">
   <div class="container">
     <span class="section-label fade-in">09 — Writing Assignment</span>
     <h2 class="section-title fade-in">Anthropic Writing Assignment</h2>
@@ -1087,23 +1087,23 @@ section:last-of-type { border-bottom: none; }
 
       <!-- Salesforce Overview Metrics -->
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; margin-bottom: 22px; margin-top: 20px;">
-        <div style="background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: 10px; padding: 14px; text-align: center;">
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 10px; padding: 14px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
           <div style="font-size: 20px; font-weight: 700; color: var(--accent-a);">$41.5B</div>
           <div style="font-size: 10px; color: var(--slate-400); text-transform: uppercase; letter-spacing: 0.05em;">Revenue</div>
         </div>
-        <div style="background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: 10px; padding: 14px; text-align: center;">
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 10px; padding: 14px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
           <div style="font-size: 20px; font-weight: 700; color: var(--accent-a);">76K</div>
           <div style="font-size: 10px; color: var(--slate-400); text-transform: uppercase; letter-spacing: 0.05em;">Employees</div>
         </div>
-        <div style="background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: 10px; padding: 14px; text-align: center;">
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 10px; padding: 14px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
           <div style="font-size: 20px; font-weight: 700; color: var(--accent-a);">150K+</div>
           <div style="font-size: 10px; color: var(--slate-400); text-transform: uppercase; letter-spacing: 0.05em;">Customers</div>
         </div>
-        <div style="background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: 10px; padding: 14px; text-align: center;">
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 10px; padding: 14px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
           <div style="font-size: 20px; font-weight: 700; color: var(--accent-a);">$540M</div>
           <div style="font-size: 10px; color: var(--slate-400); text-transform: uppercase; letter-spacing: 0.05em;">Agentforce ARR</div>
         </div>
-        <div style="background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: 10px; padding: 14px; text-align: center;">
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 10px; padding: 14px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
           <div style="font-size: 20px; font-weight: 700; color: var(--accent-a);">$5.8M</div>
           <div style="font-size: 10px; color: var(--slate-400); text-transform: uppercase; letter-spacing: 0.05em;">Anthropic Spend</div>
         </div>
@@ -1119,19 +1119,19 @@ section:last-of-type { border-bottom: none; }
         </div>
         <p style="font-size: 12.5px; color: var(--slate-300); line-height: 1.6; margin-bottom: 14px;">Salesforce&rsquo;s thesis: <em>agents without enterprise context don&rsquo;t drive real value.</em> Four pillars form their data moat &mdash; any agent on this foundation gets the context to drive real outcomes.</p>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
-          <div style="background: var(--bg-secondary); border-radius: 8px; padding: 12px 14px;">
+          <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
             <div style="font-size: 12px; font-weight: 600; color: var(--accent-b); margin-bottom: 3px;">Informatica</div>
             <div style="font-size: 11px; color: var(--slate-400); line-height: 1.45;">MDM, data lineage &amp; governance. Standardizes and catalogs enterprise data so agents operate on trusted, auditable sources.</div>
           </div>
-          <div style="background: var(--bg-secondary); border-radius: 8px; padding: 12px 14px;">
+          <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
             <div style="font-size: 12px; font-weight: 600; color: var(--accent-b); margin-bottom: 3px;">Data Cloud / Data 360</div>
             <div style="font-size: 11px; color: var(--slate-400); line-height: 1.45;">Unifies structured + unstructured data in real-time. Provides RAG and vector DB for agent grounding &mdash; the context layer Claude reasons over.</div>
           </div>
-          <div style="background: var(--bg-secondary); border-radius: 8px; padding: 12px 14px;">
+          <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
             <div style="font-size: 12px; font-weight: 600; color: var(--accent-b); margin-bottom: 3px;">MuleSoft</div>
             <div style="font-size: 11px; color: var(--slate-400); line-height: 1.45;">API &amp; agent governance. Agent Fabric orchestrates multi-agent workflows. Supports MCP for agent-to-tool communication across any platform.</div>
           </div>
-          <div style="background: var(--bg-secondary); border-radius: 8px; padding: 12px 14px;">
+          <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
             <div style="font-size: 12px; font-weight: 600; color: var(--accent-b); margin-bottom: 3px;">Tableau</div>
             <div style="font-size: 11px; color: var(--slate-400); line-height: 1.45;">Analytics &amp; insights layer. Tableau Next integrates natively for agentic analytics &mdash; turning agent outputs into decisions.</div>
           </div>
@@ -1166,15 +1166,15 @@ section:last-of-type { border-bottom: none; }
 
         <!-- Why / Risk / Ask — compact -->
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
-          <div style="background: var(--bg-secondary); border-radius: 8px; padding: 12px 14px;">
+          <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
             <div style="font-size: 11px; color: var(--accent-a); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">Why Slackbot Matters</div>
             <div style="font-size: 12px; color: var(--slate-300); line-height: 1.5;">Employees live in Slack. Every interaction flows through Claude reasoning. Massive token consumption.</div>
           </div>
-          <div style="background: var(--bg-secondary); border-radius: 8px; padding: 12px 14px;">
+          <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
             <div style="font-size: 11px; color: #e07070; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">Risk Without Action</div>
             <div style="font-size: 12px; color: var(--slate-300); line-height: 1.5;">OpenAI default on Agentforce. Gemini arriving soon. No contract = diluted position.</div>
           </div>
-          <div style="background: var(--bg-secondary); border-radius: 8px; padding: 12px 14px;">
+          <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
             <div style="font-size: 11px; color: var(--accent-b); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">The Ask</div>
             <div style="font-size: 12px; color: var(--slate-300); line-height: 1.5;">Default model language in term sheet. Slackbot is the non-negotiable floor.</div>
           </div>
@@ -1190,27 +1190,27 @@ section:last-of-type { border-bottom: none; }
               <div style="font-size: 11px; font-weight: 600; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">API &mdash; Critical</div>
               <div style="font-size: 11.5px; color: var(--slate-300); line-height: 1.5;">Default/co-default model status across Agentforce Reasoning Engine, Prompt Builder, Slackbot, and all new AI products. Drives token consumption at platform scale.</div>
             </div>
-            <div style="background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px;">
+            <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
               <div style="font-size: 11px; font-weight: 600; color: var(--accent-b); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">Claude Code</div>
               <div style="font-size: 11.5px; color: var(--slate-300); line-height: 1.5;">Ensure high adoption among current licensed users and expand to new engineering teams across the organization.</div>
             </div>
-            <div style="background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px;">
+            <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
               <div style="font-size: 11px; font-weight: 600; color: var(--accent-b); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">Cowork</div>
               <div style="font-size: 11.5px; color: var(--slate-300); line-height: 1.5;">Enterprise-wide deployment across 76K employees. Target non-engineering functions: PMs, marketing, customer success, legal, HR.</div>
             </div>
-            <div style="background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px;">
+            <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
               <div style="font-size: 11px; font-weight: 600; color: var(--accent-b); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">Claude in Excel / PowerPoint</div>
               <div style="font-size: 11.5px; color: var(--slate-300); line-height: 1.5;">Finance team for financial modeling, forecasting, and investor presentations. FP&amp;A, accounting, treasury.</div>
             </div>
-            <div style="background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px;">
+            <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
               <div style="font-size: 11px; font-weight: 600; color: var(--accent-b); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">SE Org</div>
               <div style="font-size: 11.5px; color: var(--slate-300); line-height: 1.5;">Solutions Engineers building customer demos, POCs, and technical architectures. Claude Code + Cowork for demo automation.</div>
             </div>
-            <div style="background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px;">
+            <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
               <div style="font-size: 11px; font-weight: 600; color: var(--accent-b); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">Professional Services</div>
               <div style="font-size: 11.5px; color: var(--slate-300); line-height: 1.5;">Implementation consultants deploying Salesforce for customers. Claude Code for building automations and integrations, Cowork for delivery acceleration and knowledge standardization.</div>
             </div>
-            <div style="background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px;">
+            <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
               <div style="font-size: 11px; font-weight: 600; color: var(--accent-b); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">Sell-To Leverage</div>
               <div style="font-size: 11.5px; color: var(--slate-300); line-height: 1.5;">Anthropic is a $5.8M Salesforce customer. Use the commercial relationship as leverage in partnership negotiations.</div>
             </div>
@@ -1254,11 +1254,11 @@ section:last-of-type { border-bottom: none; }
               <div style="font-size: 12px; font-weight: 600; color: var(--pure-white);">Parker Harris</div>
               <div style="font-size: 9px; color: var(--accent-b);">Co-Founder &amp; CTO</div>
             </div>
-            <div style="background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: 8px; padding: 8px 14px; text-align: center; min-width: 150px;">
+            <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; padding: 8px 14px; text-align: center; min-width: 150px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
               <div style="font-size: 12px; font-weight: 600; color: var(--slate-200);">David Ward</div>
               <div style="font-size: 9px; color: var(--slate-400);">President &amp; Chief Architect,<br>Office of CEO</div>
             </div>
-            <div style="background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: 8px; padding: 8px 14px; text-align: center; min-width: 150px;">
+            <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; padding: 8px 14px; text-align: center; min-width: 150px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
               <div style="font-size: 12px; font-weight: 600; color: var(--slate-200);">Jason Yau</div>
               <div style="font-size: 9px; color: var(--slate-400);">Chief Business Officer &amp;<br>Chief of Staff to CEO</div>
             </div>
@@ -1273,7 +1273,7 @@ section:last-of-type { border-bottom: none; }
 <!-- ============================================================
      SECTION 10: RESUME
      ============================================================ -->
-<section id="resume">
+<section id="resume" style="background: var(--bg-secondary); padding: 80px 0;">
   <div class="container">
     <span class="section-label fade-in">10 — Resume</span>
     <h2 class="section-title fade-in">Ryan Oakes-Rooney</h2>
@@ -1338,29 +1338,38 @@ section:last-of-type { border-bottom: none; }
     </div>
 
     <div class="comp-table-wrap fade-in" style="margin-top: 32px;">
-      <table class="comp-table">
+      <table class="comp-table" style="min-width: 0;">
         <thead>
           <tr>
-            <th style="width:30%">Key Strengths</th>
-            <th>Details</th>
+            <th>Core Competencies</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Core Competencies</td>
-            <td>Strategic Account Planning · AI Go-to-Market Strategy · Executive Engagement · Complex Negotiations · Deep Portfolio Expertise · Team Selling & Mentorship</td>
-          </tr>
-          <tr>
-            <td>Primary Reference</td>
-            <td><strong>Johnathan Jager-Hyman (JJH)</strong> — Previous: SVP of Agentforce at Salesforce. Incoming: Leading Industry team for Healthcare and Financial Services at Anthropic (starting week of February 23, 2026). Phone: (516) 586-0754</td>
+            <td style="word-wrap: break-word; white-space: normal;">Strategic Account Planning · AI Go-to-Market Strategy · Executive Engagement · Complex Negotiations · Deep Portfolio Expertise · Team Selling & Mentorship</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <div class="fade-in" style="margin-top: 32px; max-width: 720px;">
+    <div class="comp-table-wrap fade-in" style="margin-top: 32px;">
+      <table class="comp-table" style="min-width: 0;">
+        <thead>
+          <tr>
+            <th>Primary Reference</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="word-wrap: break-word; white-space: normal;"><strong>Johnathan Jager-Hyman (JJH)</strong> — Previous: SVP of Agentforce at Salesforce. Incoming: Leading Industry team for Healthcare and Financial Services at Anthropic (starting week of February 23, 2026). Phone: (516) 586-0754</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="fade-in" style="margin-top: 32px;">
       <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; overflow: hidden;">
-        <div style="background: var(--bg-secondary); padding: 14px 24px; border-bottom: 1px solid var(--border-light);">
+        <div style="background: #f0eee6; padding: 14px 24px; border-bottom: 1px solid var(--border-light);">
           <span style="font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary);">How Agentforce Fits Into the Technology Business</span>
         </div>
         <div style="padding: 24px; font-size: 13.5px; line-height: 1.7; color: var(--text-secondary);">
@@ -1493,7 +1502,7 @@ section:last-of-type { border-bottom: none; }
               </div>
               <!-- Fred under Sumaira -->
               <div style="margin-top: 8px; padding-left: 12px; border-left: 1px solid var(--border-light);">
-                <div style="background: var(--bg-secondary); border-radius: 8px; padding: 8px 10px;">
+                <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; padding: 8px 10px;">
                   <div style="font-size: 11px; font-weight: 600; color: var(--text-primary);">Fred Stern</div>
                   <div style="font-size: 9px; color: var(--text-tertiary);">Sr Dir – Cost Mgmt</div>
                   <div style="font-size: 9px; color: var(--text-muted); margin-top: 3px;">All IT vendor management. Left compression room for a negotiation win.</div>
@@ -1512,7 +1521,7 @@ section:last-of-type { border-bottom: none; }
               </div>
               <!-- Tony under Balroop -->
               <div style="margin-top: 8px; padding-left: 12px; border-left: 1px solid var(--border-light);">
-                <div style="background: var(--bg-secondary); border-radius: 8px; padding: 8px 10px;">
+                <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; padding: 8px 10px;">
                   <div style="font-size: 11px; font-weight: 600; color: var(--text-primary);">Tony Capretta</div>
                   <div style="font-size: 9px; color: var(--text-tertiary);">VP Business Solutions</div>
                   <div style="font-size: 9px; color: var(--text-muted); margin-top: 3px;">SugarCRM owner. Earliest touchpoint. Sat line by line through RFP requirements.</div>
