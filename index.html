@@ -281,6 +281,28 @@ section:last-of-type { border-bottom: none; }
   div[style*="grid-template-columns: repeat("] {
     grid-template-columns: 1fr !important;
   }
+  /* Timeline entries: 120px + 1fr → stacked */
+  div[style*="grid-template-columns: 120px"] {
+    grid-template-columns: 1fr !important;
+    gap: 4px !important;
+  }
+  /* Any fixed-width first column grids */
+  div[style*="grid-template-columns: 140px"] {
+    grid-template-columns: 1fr !important;
+    gap: 4px !important;
+  }
+  div[style*="grid-template-columns: 160px"] {
+    grid-template-columns: 1fr !important;
+    gap: 4px !important;
+  }
+  div[style*="grid-template-columns: 180px"] {
+    grid-template-columns: 1fr !important;
+    gap: 4px !important;
+  }
+  div[style*="grid-template-columns: 200px"] {
+    grid-template-columns: 1fr !important;
+    gap: 4px !important;
+  }
   
   /* Card padding reduction on mobile */
   div[style*="padding: 32px"] {
