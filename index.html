@@ -244,17 +244,8 @@ section:last-of-type { border-bottom: none; }
     font-size: 20px !important;
   }
   
-  /* Show hamburger, hide desktop nav, show mobile nav */
-  #mobile-menu-btn {
-    display: block !important;
-  }
-  #desktop-nav {
-    display: none !important;
-  }
-  #mobile-nav {
-    display: none !important;
-  }
-  #mobile-nav.open {
+  /* Nav dropdown in mobile */
+  #nav-dropdown.open {
     display: flex !important;
   }
   
@@ -429,6 +420,9 @@ section:last-of-type { border-bottom: none; }
 /* FADE IN */
 .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* Nav dropdown toggle */
+#nav-dropdown.open { display: flex !important; }
 </style>
 
 </style>
@@ -449,396 +443,31 @@ section:last-of-type { border-bottom: none; }
     <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
       <img src="1605072840689.jpeg" alt="Ryan Oakes-Rooney" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(217,119,87,0.4); flex-shrink: 0;">
       <div style="text-align: left; flex: 1;">
-        <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(217,119,87,0.9); font-weight: 500; margin-bottom: 2px;">Anthropic Research &amp; Findings</div>
-        <div style="font-family: var(--font-display); font-size: 28px; color: #ffffff; font-weight: 700; line-height: 1.1;">Ryan Oakes-Rooney</div>
+        <div style="font-family: var(--font-display); font-size: 34px; color: #ffffff; font-weight: 700; line-height: 1.1;">Ryan Oakes-Rooney</div>
       </div>
       <!-- Mobile hamburger button -->
-      <button id="mobile-menu-btn" onclick="document.getElementById('mobile-nav').classList.toggle('open'); this.classList.toggle('active')" style="display: none; background: none; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; padding: 8px 10px; cursor: pointer; flex-shrink: 0;">
+      <button id="nav-menu-btn" onclick="document.getElementById('nav-dropdown').classList.toggle('open'); this.classList.toggle('active')" style="background: none; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; padding: 8px 10px; cursor: pointer; flex-shrink: 0;">
         <svg width="20" height="14" viewBox="0 0 20 14" fill="none"><line x1="0" y1="1" x2="20" y2="1" stroke="rgba(217,119,87,0.9)" stroke-width="2"/><line x1="0" y1="7" x2="20" y2="7" stroke="rgba(217,119,87,0.9)" stroke-width="2"/><line x1="0" y1="13" x2="20" y2="13" stroke="rgba(217,119,87,0.9)" stroke-width="2"/></svg>
       </button>
     </div>
-    <!-- Desktop nav (simple links) -->
-    <div id="desktop-nav" style="display: flex; gap: 24px; text-align: left;">
-      <span onclick="document.getElementById('writing').scrollIntoView({behavior:'smooth'})" style="font-size: 12px; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; cursor: pointer; padding: 4px 0; display: inline-block; transition: color 0.15s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color=''">1. Writing Assignment</span>
-      <span onclick="document.getElementById('resume').scrollIntoView({behavior:'smooth'})" style="font-size: 12px; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; cursor: pointer; padding: 4px 0; display: inline-block; transition: color 0.15s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color=''">2. Resume</span>
-      <span onclick="document.getElementById('deal-story').scrollIntoView({behavior:'smooth'})" style="font-size: 12px; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; cursor: pointer; padding: 4px 0; display: inline-block; transition: color 0.15s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color=''">3. Deal Win Story</span>
-      <span onclick="document.getElementById('cross-functional').scrollIntoView({behavior:'smooth'})" style="font-size: 12px; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; cursor: pointer; padding: 4px 0; display: inline-block; transition: color 0.15s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color=''">4. Cross-Functional</span>
-      <span onclick="document.getElementById('leadership').scrollIntoView({behavior:'smooth'})" style="font-size: 12px; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; cursor: pointer; padding: 4px 0; display: inline-block; transition: color 0.15s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color=''">5. Leadership Chat</span>
-      <span onclick="document.getElementById('culture').scrollIntoView({behavior:'smooth'})" style="font-size: 12px; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; cursor: pointer; padding: 4px 0; display: inline-block; transition: color 0.15s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color=''">6. Culture</span>
-      <span onclick="document.getElementById('models').scrollIntoView({behavior:'smooth'})" style="font-size: 12px; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; cursor: pointer; padding: 4px 0; display: inline-block; transition: color 0.15s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color=''">7. Model Research</span>
-    </div>
-    <!-- Mobile nav dropdown -->
-    <div id="mobile-nav" style="display: none; flex-direction: column; gap: 2px; background: rgba(0,0,0,0.3); border-radius: 10px; padding: 8px; margin-top: -8px;">
-      <a onclick="document.getElementById('writing').scrollIntoView({behavior:'smooth'}); document.getElementById('mobile-nav').classList.remove('open'); document.getElementById('mobile-menu-btn').classList.remove('active')" style="color: var(--accent-a); font-size: 13px; font-weight: 600; padding: 10px 12px; cursor: pointer; border-radius: 6px; text-decoration: none;">1. Writing Assignment</a>
-      <a onclick="document.getElementById('resume').scrollIntoView({behavior:'smooth'}); document.getElementById('mobile-nav').classList.remove('open'); document.getElementById('mobile-menu-btn').classList.remove('active')" style="color: var(--accent-a); font-size: 13px; font-weight: 600; padding: 10px 12px; cursor: pointer; border-radius: 6px; text-decoration: none;">2. Resume</a>
-      <a onclick="document.getElementById('deal-story').scrollIntoView({behavior:'smooth'}); document.getElementById('mobile-nav').classList.remove('open'); document.getElementById('mobile-menu-btn').classList.remove('active')" style="color: var(--accent-a); font-size: 13px; font-weight: 600; padding: 10px 12px; cursor: pointer; border-radius: 6px; text-decoration: none;">3. Deal Win Story</a>
-      <a onclick="document.getElementById('cross-functional').scrollIntoView({behavior:'smooth'}); document.getElementById('mobile-nav').classList.remove('open'); document.getElementById('mobile-menu-btn').classList.remove('active')" style="color: var(--accent-a); font-size: 13px; font-weight: 600; padding: 10px 12px; cursor: pointer; border-radius: 6px; text-decoration: none;">4. Cross-Functional</a>
-      <a onclick="document.getElementById('leadership').scrollIntoView({behavior:'smooth'}); document.getElementById('mobile-nav').classList.remove('open'); document.getElementById('mobile-menu-btn').classList.remove('active')" style="color: var(--accent-a); font-size: 13px; font-weight: 600; padding: 10px 12px; cursor: pointer; border-radius: 6px; text-decoration: none;">5. Leadership Chat</a>
-      <a onclick="document.getElementById('culture').scrollIntoView({behavior:'smooth'}); document.getElementById('mobile-nav').classList.remove('open'); document.getElementById('mobile-menu-btn').classList.remove('active')" style="color: var(--accent-a); font-size: 13px; font-weight: 600; padding: 10px 12px; cursor: pointer; border-radius: 6px; text-decoration: none;">6. Culture</a>
-      <a onclick="document.getElementById('models').scrollIntoView({behavior:'smooth'}); document.getElementById('mobile-nav').classList.remove('open'); document.getElementById('mobile-menu-btn').classList.remove('active')" style="color: var(--accent-a); font-size: 13px; font-weight: 600; padding: 10px 12px; cursor: pointer; border-radius: 6px; text-decoration: none;">7. Model Research</a>
+    <!-- Nav dropdown (all screen sizes) -->
+    <div id="nav-dropdown" style="display: none; flex-direction: column; gap: 2px; background: rgba(0,0,0,0.3); border-radius: 10px; padding: 8px; margin-top: 4px;">
+      <a onclick="document.getElementById('resume').scrollIntoView({behavior:'smooth'}); document.getElementById('nav-dropdown').classList.remove('open'); document.getElementById('nav-menu-btn').classList.remove('active')" style="color: var(--accent-a); font-size: 13px; font-weight: 600; padding: 10px 12px; cursor: pointer; border-radius: 6px; text-decoration: none;">Resume</a>
+      <a onclick="document.getElementById('writing').scrollIntoView({behavior:'smooth'}); document.getElementById('nav-dropdown').classList.remove('open'); document.getElementById('nav-menu-btn').classList.remove('active')" style="color: var(--accent-a); font-size: 13px; font-weight: 600; padding: 10px 12px; cursor: pointer; border-radius: 6px; text-decoration: none;">Writing Assignment</a>
+      <a onclick="document.getElementById('deal-story').scrollIntoView({behavior:'smooth'}); document.getElementById('nav-dropdown').classList.remove('open'); document.getElementById('nav-menu-btn').classList.remove('active')" style="color: var(--accent-a); font-size: 13px; font-weight: 600; padding: 10px 12px; cursor: pointer; border-radius: 6px; text-decoration: none;">Deal Win Story</a>
+      <a onclick="document.getElementById('cross-functional').scrollIntoView({behavior:'smooth'}); document.getElementById('nav-dropdown').classList.remove('open'); document.getElementById('nav-menu-btn').classList.remove('active')" style="color: var(--accent-a); font-size: 13px; font-weight: 600; padding: 10px 12px; cursor: pointer; border-radius: 6px; text-decoration: none;">Cross-Functional</a>
+      <a onclick="document.getElementById('leadership').scrollIntoView({behavior:'smooth'}); document.getElementById('nav-dropdown').classList.remove('open'); document.getElementById('nav-menu-btn').classList.remove('active')" style="color: var(--accent-a); font-size: 13px; font-weight: 600; padding: 10px 12px; cursor: pointer; border-radius: 6px; text-decoration: none;">Leadership Chat</a>
+      <a onclick="document.getElementById('culture').scrollIntoView({behavior:'smooth'}); document.getElementById('nav-dropdown').classList.remove('open'); document.getElementById('nav-menu-btn').classList.remove('active')" style="color: var(--accent-a); font-size: 13px; font-weight: 600; padding: 10px 12px; cursor: pointer; border-radius: 6px; text-decoration: none;">Culture</a>
+      <a onclick="document.getElementById('models').scrollIntoView({behavior:'smooth'}); document.getElementById('nav-dropdown').classList.remove('open'); document.getElementById('nav-menu-btn').classList.remove('active')" style="color: var(--accent-a); font-size: 13px; font-weight: 600; padding: 10px 12px; cursor: pointer; border-radius: 6px; text-decoration: none;">Model Research</a>
     </div>
   </div>
 </section>
-
-<!-- ============================================================
-     SECTION 1: MODEL COMPARISON TABLE
-     ============================================================ -->
-
-
-<!-- ============================================================
-     SECTION 9: WRITING ASSIGNMENT
-     ============================================================ -->
-<style>
-  .wa-pill { display: inline-block; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; margin: 2px 3px 2px 0; }
-  .wa-pill-product { background: rgba(217,119,87,0.08); color: var(--accent-a); border: 1px solid rgba(217,119,87,0.15); }
-  .wa-pill-metric { background: rgba(120,140,93,0.08); color: var(--accent-b); border: 1px solid rgba(120,140,93,0.15); }
-  .wa-pill-red { background: rgba(234,56,76,0.08); color: #ea384c; border: 1px solid rgba(234,56,76,0.15); }
-  .wa-pill-role { background: rgba(0,0,0,0.03); color: var(--text-tertiary); border: 1px solid rgba(0,0,0,0.06); font-size: 10px; }
-  .wa-roles { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border-light); }
-  .wa-roles-label { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin-bottom: 6px; }
-  .wa-vert-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 22px; transition: border-color 0.2s; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
-  .wa-vert-card:hover { border-color: rgba(217,119,87,0.3); }
-  .wa-vert-num { font-family: var(--font-display); font-size: 42px; font-weight: 700; color: rgba(217,119,87,0.12); line-height: 1; margin-bottom: 4px; }
-  .wa-vert-name { font-family: var(--font-display); font-size: 18px; color: var(--text-primary); margin-bottom: 4px; }
-  .wa-vert-thesis { font-size: 13px; color: var(--text-secondary); line-height: 1.55; margin: 10px 0 14px; }
-  .wa-sp-card { position: relative; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 10px; padding: 16px 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
-  .wa-sp-title { font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
-  .wa-sp-desc { font-size: 12px; color: var(--text-tertiary); line-height: 1.55; }
-  .wa-sp-icon { font-size: 20px; margin-bottom: 8px; }
-  .wa-flow-box { text-align: center; border-radius: 10px; padding: 14px 16px; }
-  .wa-flow-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; margin-bottom: 4px; }
-  .wa-flow-name { font-family: var(--font-display); font-size: 15px; font-weight: 600; }
-  .wa-flow-sub { font-size: 11px; margin-top: 2px; }
-  .wa-flow-arrow { color: var(--text-muted); font-size: 18px; display: flex; align-items: center; justify-content: center; }
-</style>
-
-<section id="writing" style="background: var(--bg-secondary); padding: 80px 0;">
-  <div class="container">
-    <span class="section-label fade-in">09 — Writing Assignment</span>
-    <h2 class="section-title fade-in">Anthropic Writing Assignment Summary</h2>
-    <p class="section-subtitle fade-in">Three-part strategic analysis.</p>
-
-    <div id="wa-verticals"></div>
-    <!-- ——— PART 1: VERTICAL ANALYSIS ——— -->
-    <div class="fade-in" style="margin-top: 40px;">
-      <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 20px;">
-        <span style="background: var(--accent-a); color: #ffffff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.06em;">Part 1</span>
-        <h3 style="font-family: var(--font-display); font-size: 20px; color: var(--text-primary); margin: 0;">Vertical Analysis</h3>
-        <span style="font-size: 12px; color: var(--text-tertiary);">— 8 Gartner reports · Full product portfolio mapped</span>
-      </div>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px;">
-        <div class="wa-vert-card">
-          <div class="wa-vert-num">01</div>
-          <div class="wa-vert-name">Services</div>
-          <div><span class="wa-pill wa-pill-metric">$2.38T spend by 2029</span><span class="wa-pill wa-pill-metric">$257B+ Big 4 + MBB revenue</span></div>
-          <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">1.6M knowledge workers across Big 4 + MBB alone</div>
-          <div class="wa-vert-thesis"><strong>Why it fits:</strong> Output value tied directly to knowledge worker expertise and speed. Any tool that improves quality and speed increases margins. Big 4 + MBB: $257B+ revenue, 1.6M knowledge workers.<br><br><strong>How Claude drives value:</strong> Cowork standardizes deliverable quality. Excel accelerates financial modeling. PowerPoint creates client-ready decks in minutes. API powers RFP agents and firm-wide automation. Revenue from enterprise seats at scale plus API.</div>
-          <div><span class="wa-pill wa-pill-product">Cowork</span><span class="wa-pill wa-pill-product">Claude in Excel</span><span class="wa-pill wa-pill-product">Claude in PPT</span><span class="wa-pill wa-pill-product">API</span></div>
-          <div class="wa-roles">
-            <div class="wa-roles-label">Target Personas</div>
-            <span class="wa-pill wa-pill-role">Managing Director</span><span class="wa-pill wa-pill-role">Partner</span><span class="wa-pill wa-pill-role">Engagement Manager</span><span class="wa-pill wa-pill-role">Senior Consultant</span><span class="wa-pill wa-pill-role">Analyst</span><span class="wa-pill wa-pill-role">Tax Advisor</span><span class="wa-pill wa-pill-role">Auditor</span><span class="wa-pill wa-pill-role">Deal Professional</span>
-          </div>
-        </div>
-        <div class="wa-vert-card">
-          <div class="wa-vert-num">02</div>
-          <div class="wa-vert-name">Technology</div>
-          <div><span class="wa-pill wa-pill-metric">$1.3T CMS spend by 2029</span><span class="wa-pill wa-pill-metric">66% IT Services &amp; Software (2026)</span></div>
-          <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Communications, Media &amp; Services industry</div>
-          <div class="wa-vert-thesis"><strong>Why it fits:</strong> AI vendor race forcing software companies to reinvent as AI-first. Cowork threatens seat-based licensing, Claude Code lowers barriers for new competitors. Partnering with Anthropic becomes existential, not optional.<br><br><strong>How Claude drives value:</strong> API powers reasoning inside customer products (e.g. Agentforce on Bedrock within Salesforce's trust boundary). Claude Code for engineering teams. Cowork for non-engineering workers. Multi-cloud (AWS, GCP, Azure). Revenue from API consumption plus enterprise seats.</div>
-          <div><span class="wa-pill wa-pill-product">Claude Code</span><span class="wa-pill wa-pill-product">API</span><span class="wa-pill wa-pill-product">Cowork</span><span class="wa-pill wa-pill-product">Multi-cloud</span></div>
-          <div class="wa-roles">
-            <div class="wa-roles-label">Target Personas</div>
-            <span class="wa-pill wa-pill-role">CTO / CIO</span><span class="wa-pill wa-pill-role">VP Engineering</span><span class="wa-pill wa-pill-role">Staff Engineer</span><span class="wa-pill wa-pill-role">Product Manager</span><span class="wa-pill wa-pill-role">Solutions Engineer</span><span class="wa-pill wa-pill-role">DevOps Lead</span><span class="wa-pill wa-pill-role">Platform Architect</span>
-          </div>
-        </div>
-        <div class="wa-vert-card">
-          <div class="wa-vert-num">03</div>
-          <div class="wa-vert-name">Banking & Investing</div>
-          <div><span class="wa-pill wa-pill-metric">$1.1T IT spend by 2029</span><span class="wa-pill wa-pill-metric">#1 CIO priority</span></div>
-          <div class="wa-vert-thesis"><strong>Why it fits:</strong> Explainability and trust are regulatory requirements. Constitutional AI addresses banking's top GenAI concerns: privacy, data quality, auditability. AI is CIOs' #1 spend priority. Quarterly procurement cycles mean faster revenue than government or education.<br><br><strong>How Claude drives value:</strong> Opus 4.6 leads finance benchmarks. Cowork augments wealth advisors, deal teams, and compliance officers. Excel handles valuations and stress testing. Claude Code modernizes legacy systems (COBOL). Revenue from enterprise seats plus API for risk models and compliance.</div>
-          <div><span class="wa-pill wa-pill-product">Cowork</span><span class="wa-pill wa-pill-product">Claude in Excel</span><span class="wa-pill wa-pill-product">Claude Code</span><span class="wa-pill wa-pill-product">Opus 4.6</span></div>
-          <div class="wa-roles">
-            <div class="wa-roles-label">Target Personas</div>
-            <span class="wa-pill wa-pill-role">Investment Banker</span><span class="wa-pill wa-pill-role">Portfolio Manager</span><span class="wa-pill wa-pill-role">Wealth Advisor</span><span class="wa-pill wa-pill-role">Risk Analyst</span><span class="wa-pill wa-pill-role">Compliance Officer</span><span class="wa-pill wa-pill-role">Quant Researcher</span><span class="wa-pill wa-pill-role">Actuarial Analyst</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="wa-sales"></div>
-    <!-- ——— PART 2: SALES PROCESS ——— -->
-    <div class="fade-in" style="margin-top: 56px;">
-      <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 20px;">
-        <span style="background: var(--accent-a); color: #ffffff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.06em;">Part 2</span>
-        <h3 style="font-family: var(--font-display); font-size: 20px; color: var(--text-primary); margin: 0;">What Makes Ryan's Sales Approach Different</h3>
-      </div>
-
-      <!-- Compact principle cards - single row -->
-      <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-bottom: 40px;">
-        <div class="wa-sp-card" style="text-align: center; padding: 18px 14px;">
-          <div class="wa-sp-icon" style="margin-bottom: 8px;">&#x1F527;</div>
-          <div class="wa-sp-title" style="font-size: 12px;">Practitioner, Not Just Seller</div>
-        </div>
-        <div class="wa-sp-card" style="text-align: center; padding: 18px 14px;">
-          <div class="wa-sp-icon" style="margin-bottom: 8px;">&#x1F50D;</div>
-          <div class="wa-sp-title" style="font-size: 12px;">Customer-Specific POV</div>
-        </div>
-        <div class="wa-sp-card" style="text-align: center; padding: 18px 14px;">
-          <div class="wa-sp-icon" style="margin-bottom: 8px;">&#x1F465;</div>
-          <div class="wa-sp-title" style="font-size: 12px;">Exec Relationships as Currency</div>
-        </div>
-        <div class="wa-sp-card" style="text-align: center; padding: 18px 14px;">
-          <div class="wa-sp-icon" style="margin-bottom: 8px;">&#x1F310;</div>
-          <div class="wa-sp-title" style="font-size: 12px;">Ecosystem & Team Orchestration</div>
-        </div>
-        <div class="wa-sp-card" style="text-align: center; padding: 18px 14px;">
-          <div class="wa-sp-icon" style="margin-bottom: 8px;">&#x2694;&#xFE0F;</div>
-          <div class="wa-sp-title" style="font-size: 12px;">Engineers the Outcome</div>
-        </div>
-        <div class="wa-sp-card" style="text-align: center; padding: 18px 14px;">
-          <div class="wa-sp-icon" style="margin-bottom: 8px;">&#x1F91D;</div>
-          <div class="wa-sp-title" style="font-size: 12px;">Trust-Based, Long-Game</div>
-        </div>
-      </div>
-
-      <!-- Applied: Flex Story -->
-      <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 14px; padding: 32px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
-        <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-a); margin-bottom: 6px;">Applied Example</div>
-        <div style="font-family: var(--font-display); font-size: 22px; color: var(--text-primary); margin-bottom: 6px;">Winning Back Flex: $1.5M Against Microsoft</div>
-        <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 24px;">$26B Fortune 500 manufacturer · 160K employees · 2.5-year sales cycle · Full story below</div>
-
-        <!-- Compact visual timeline -->
-        <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px;">
-
-          <div style="border-top: 3px solid #ea384c; border-radius: 0; padding-top: 12px;">
-            <div style="font-family: var(--font-mono); font-size: 9px; color: var(--accent-a); letter-spacing: 0.04em;">Apr 2020</div>
-            <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin: 4px 0;">Inherited</div>
-            <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Trust destroyed. CRM lost to SugarCRM. $1M attrition. Set 3 goals.</div>
-          </div>
-
-          <div style="border-top: 3px solid var(--accent-a); border-radius: 0; padding-top: 12px;">
-            <div style="font-family: var(--font-mono); font-size: 9px; color: var(--accent-a); letter-spacing: 0.04em;">2020–2021</div>
-            <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin: 4px 0;">Research & POV</div>
-            <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Deep industry immersion. Built <em>product 360</em> thesis no competitor had.</div>
-          </div>
-
-          <div style="border-top: 3px solid var(--accent-a); border-radius: 0; padding-top: 12px;">
-            <div style="font-family: var(--font-mono); font-size: 9px; color: var(--accent-a); letter-spacing: 0.04em;">Ongoing</div>
-            <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin: 4px 0;">CIO Relationship</div>
-            <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Quarterly QBRs. 4-part framework. Golf course via KPMG. Earned full leadership access.</div>
-          </div>
-
-          <div style="border-top: 3px solid #ea384c; border-radius: 0; padding-top: 12px;">
-            <div style="font-family: var(--font-mono); font-size: 9px; color: var(--accent-a); letter-spacing: 0.04em;">Late 2021</div>
-            <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin: 4px 0;">Microsoft Threat</div>
-            <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">New CSO with Dynamics bias. Built champion on his team. Neutralized via exec LinkedIn play.</div>
-          </div>
-
-          <div style="border-top: 3px solid var(--accent-a); border-radius: 0; padding-top: 12px;">
-            <div style="font-family: var(--font-mono); font-size: 9px; color: var(--accent-a); letter-spacing: 0.04em;">Spring 2022</div>
-            <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin: 4px 0;">Full Blitz</div>
-            <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">15+ resources mobilized. SIC on Floor 60. Customer references from AWS & Informatica. Blew MSFT out of the water.</div>
-          </div>
-
-          <div style="border-top: 3px solid var(--accent-b); border-radius: 0; padding-top: 12px;">
-            <div style="font-family: var(--font-mono); font-size: 9px; color: var(--accent-b); letter-spacing: 0.04em;">Oct 2022</div>
-            <div style="font-size: 12px; font-weight: 700; color: var(--accent-b); margin: 4px 0;">Closed Won ✓</div>
-            <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">$1.5M Manufacturing Cloud. All 3 goals achieved. Dreamforce stage.</div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <div id="wa-salesforce"></div>
-    <!-- ——— PART 3: SALESFORCE ACCOUNT PLAN ——— -->
-    <div class="fade-in" style="margin-top: 56px;">
-      <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 8px;">
-        <span style="background: var(--accent-a); color: #ffffff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.06em;">Part 3</span>
-        <h3 style="font-family: var(--font-display); font-size: 20px; color: var(--text-primary); margin: 0;">Salesforce Account Plan Summary</h3>
-      </div>
-
-      <!-- Salesforce Overview Metrics -->
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; margin-bottom: 22px; margin-top: 20px;">
-        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 10px; padding: 14px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
-          <div style="font-size: 20px; font-weight: 700; color: var(--accent-a);">$41.5B</div>
-          <div style="font-size: 10px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.05em;">Revenue</div>
-        </div>
-        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 10px; padding: 14px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
-          <div style="font-size: 20px; font-weight: 700; color: var(--accent-a);">76K</div>
-          <div style="font-size: 10px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.05em;">Employees</div>
-        </div>
-        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 10px; padding: 14px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
-          <div style="font-size: 20px; font-weight: 700; color: var(--accent-a);">150K+</div>
-          <div style="font-size: 10px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.05em;">Customers</div>
-        </div>
-        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 10px; padding: 14px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
-          <div style="font-size: 20px; font-weight: 700; color: var(--accent-a);">$540M</div>
-          <div style="font-size: 10px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.05em;">Agentforce ARR</div>
-        </div>
-        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 10px; padding: 14px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
-          <div style="font-size: 20px; font-weight: 700; color: var(--accent-a);">$5.8M</div>
-          <div style="font-size: 10px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.05em;">Anthropic Spend</div>
-        </div>
-      </div>
-
-      <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px;">Global CRM leader going all-in on agentic AI. Agentforce hit $540M ARR. Dual superagent strategy: <strong>Slackbot</strong> (employee-facing) and <strong>Agentforce</strong> (customer-facing). Stock pressure from AI disruption fears presents a window to accelerate the Anthropic partnership.</p>
-
-      <!-- Data Foundation Moat -->
-      <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 22px; margin-bottom: 22px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
-        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 14px; flex-wrap: wrap;">
-          <span style="background: rgba(120,140,93,0.15); color: var(--accent-b); font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.08em;">Strategic Context</span>
-          <span style="font-size: 14px; font-weight: 600; color: var(--text-primary);">The Data Foundation Moat</span>
-        </div>
-        <p style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 14px;">Salesforce&rsquo;s thesis: <em>agents without enterprise context don&rsquo;t drive real value.</em> Four pillars form their data moat &mdash; any agent on this foundation gets the context to drive real outcomes.</p>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
-          <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px;">
-            <div style="font-size: 12px; font-weight: 600; color: var(--accent-b); margin-bottom: 3px;">Informatica</div>
-            <div style="font-size: 11px; color: var(--text-tertiary); line-height: 1.45;">MDM, data lineage &amp; governance. Ensures agents operate on trusted, auditable data.</div>
-          </div>
-          <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px;">
-            <div style="font-size: 12px; font-weight: 600; color: var(--accent-b); margin-bottom: 3px;">Data Cloud / Data 360</div>
-            <div style="font-size: 11px; color: var(--text-tertiary); line-height: 1.45;">Unifies structured + unstructured data in real-time. RAG and vector DB provide the context layer Claude reasons over.</div>
-          </div>
-          <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px;">
-            <div style="font-size: 12px; font-weight: 600; color: var(--accent-b); margin-bottom: 3px;">MuleSoft</div>
-            <div style="font-size: 11px; color: var(--text-tertiary); line-height: 1.45;">API &amp; agent governance. Agent Fabric orchestrates multi-agent workflows with MCP support across platforms.</div>
-          </div>
-          <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px;">
-            <div style="font-size: 12px; font-weight: 600; color: var(--accent-b); margin-bottom: 3px;">Tableau</div>
-            <div style="font-size: 11px; color: var(--text-tertiary); line-height: 1.45;">Analytics &amp; insights layer. Tableau Next integrates natively for agentic analytics.</div>
-          </div>
-        </div>
-        <p style="font-size: 12px; color: var(--text-tertiary); line-height: 1.5; margin-top: 12px; margin-bottom: 0;">This data foundation is Salesforce&rsquo;s moat against hyperscalers and point solutions. Customers who invest here are locked into the Salesforce ecosystem &mdash; and every agent grounded on this stack needs a reasoning engine to power it.</p>
-      </div><!-- Superagent Architecture Visual -->
-      <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 14px; padding: 28px; margin-bottom: 22px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
-        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 20px; flex-wrap: wrap;">
-          <span style="background: rgba(212,132,90,0.25); color: var(--accent-a); font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.08em;">&#x1F525; Critical</span>
-          <span style="font-size: 14px; font-weight: 600; color: var(--text-primary);">Lock default model status in term sheet</span>
-        </div>
-
-        <!-- Architecture Diagram -->
-        <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px; align-items: center; margin-bottom: 20px;">
-          <div class="wa-flow-box" style="background: #fdf5f0; border: 1px solid rgba(217,119,87,0.3);">
-            <div class="wa-flow-label" style="color: var(--accent-a);">Employee Superagent</div>
-            <div class="wa-flow-name" style="color: var(--text-primary);">Slackbot</div>
-            <div class="wa-flow-sub" style="color: var(--text-secondary);">Claude-powered &middot; Orchestration layer</div>
-            <div style="margin-top: 8px;"><span class="wa-pill wa-pill-product" style="margin:0;">&#x2713; Claude is default today</span></div>
-          </div>
-          <div style="display: flex; flex-direction: column; align-items: center; gap: 2px;">
-            <div class="wa-flow-arrow">&#x27F7;</div>
-            <div style="font-size: 9px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">orchestrates</div>
-          </div>
-          <div class="wa-flow-box" style="background: #f0f3eb; border: 1px solid rgba(120,140,93,0.3);">
-            <div class="wa-flow-label" style="color: var(--accent-b);">Customer Superagent</div>
-            <div class="wa-flow-name" style="color: var(--text-primary);">Agentforce</div>
-            <div class="wa-flow-sub" style="color: var(--text-secondary);">CRM workflows &middot; Customer service</div>
-            <div style="margin-top: 8px;"><span class="wa-pill wa-pill-red" style="margin:0;">&#x2717; OpenAI is default today</span></div>
-          </div>
-        </div>
-
-        <!-- Why / Risk / Ask — compact -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
-          <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px;">
-            <div style="font-size: 11px; color: var(--accent-a); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">Why Slackbot Matters</div>
-            <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">Employees live in Slack. Every interaction flows through Claude reasoning. Massive token consumption.</div>
-          </div>
-          <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px;">
-            <div style="font-size: 11px; color: #e07070; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">Risk Without Action</div>
-            <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">OpenAI default on Agentforce. Gemini arriving soon. No contract = diluted position.</div>
-          </div>
-          <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px;">
-            <div style="font-size: 11px; color: var(--accent-b); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">The Ask</div>
-            <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">Default model language in term sheet. Slackbot is the non-negotiable floor.</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bottom grid: Expansion + Exec Mapping -->
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px;">
-        <div class="wa-vert-card" style="grid-column: 1 / -1;">
-          <div style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 14px;">Expansion Plays</div>
-          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
-            <div style="background: #fdf5f0; border: 1px solid rgba(217,119,87,0.25); border-radius: 8px; padding: 12px 14px;">
-              <div style="font-size: 11px; font-weight: 600; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">API — Critical</div>
-              <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.5;">Default model across Agentforce, Prompt Builder, Slackbot. Token consumption at platform scale.</div>
-            </div>
-            <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px;">
-              <div style="font-size: 11px; font-weight: 600; color: var(--accent-b); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">Enterprise Seats</div>
-              <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.5;"><strong>Cowork:</strong> 76K employees — PMs, marketing, legal, HR.<br><strong>Excel/PPT:</strong> FP&A, accounting, treasury.</div>
-            </div>
-            <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px;">
-              <div style="font-size: 11px; font-weight: 600; color: var(--accent-b); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">Engineering & Services</div>
-              <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.5;"><strong>Claude Code:</strong> Engineering, SEs, Pro Services.<br><strong>Cowork:</strong> Demo automation, delivery acceleration.</div>
-            </div>
-            <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px;">
-              <div style="font-size: 11px; font-weight: 600; color: var(--accent-b); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">Sell-To Leverage</div>
-              <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.5;">Anthropic is a $5.8M Salesforce customer. Commercial relationship = partnership leverage.</div>
-            </div>
-          </div>
-        </div>
-        <div class="wa-vert-card" style="grid-column: 1 / -1;">
-          <div style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 16px;">Salesforce Executive Leadership Team</div>
-          
-          <!-- Benioff -->
-          <div style="text-align: center; margin-bottom: 4px;">
-            <div style="display: inline-block; background: rgba(217,119,87,0.08); border: 1px solid rgba(212,132,90,0.25); border-radius: 10px; padding: 10px 20px;">
-              <div style="font-size: 13px; font-weight: 600; color: var(--text-primary);">Marc Benioff</div>
-              <div style="font-size: 10px; color: var(--accent-a);">Chair &amp; CEO</div>
-            </div>
-          </div>
-          <div style="text-align: center; color: var(--slate-600); font-size: 11px; line-height: 1.2;">&#9474;</div>
-
-          <!-- Direct reports to Marc -->
-          <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 4px;">
-            <div style="background: #f0f2f8; border: 1px solid var(--border-light); border-radius: 8px; padding: 8px 14px; text-align: center; min-width: 150px;">
-              <div style="font-size: 12px; font-weight: 600; color: var(--text-primary);">Srini Tallapragada</div>
-              <div style="font-size: 9px; color: var(--accent-b);">President &amp; Chief Engineering<br>&amp; Customer Success Officer</div>
-            </div>
-            <div style="background: #f0f2f8; border: 1px solid var(--border-light); border-radius: 8px; padding: 8px 14px; text-align: center; min-width: 150px;">
-              <div style="font-size: 12px; font-weight: 600; color: var(--text-primary);">Miguel Milano</div>
-              <div style="font-size: 9px; color: var(--accent-b);">President &amp; Chief Revenue Officer</div>
-            </div>
-            <div style="background: #f0f2f8; border: 1px solid var(--border-light); border-radius: 8px; padding: 8px 14px; text-align: center; min-width: 150px;">
-              <div style="font-size: 12px; font-weight: 600; color: var(--text-primary);">Steve Fisher</div>
-              <div style="font-size: 9px; color: var(--accent-b);">Chief Product Officer</div>
-            </div>
-            <div style="background: #f0f2f8; border: 1px solid var(--border-light); border-radius: 8px; padding: 8px 14px; text-align: center; min-width: 150px;">
-              <div style="font-size: 12px; font-weight: 600; color: var(--text-primary);">Robin Washington</div>
-              <div style="font-size: 9px; color: var(--accent-b);">Chief Financial Officer</div>
-            </div>
-            <div style="background: #f0f2f8; border: 1px solid var(--border-light); border-radius: 8px; padding: 8px 14px; text-align: center; min-width: 150px;">
-              <div style="font-size: 12px; font-weight: 600; color: var(--text-primary);">David Schmaier</div>
-              <div style="font-size: 9px; color: var(--accent-b);">President &amp; Chief Strategy Officer</div>
-            </div>
-            <div style="background: #f0f2f8; border: 1px solid var(--border-light); border-radius: 8px; padding: 8px 14px; text-align: center; min-width: 150px;">
-              <div style="font-size: 12px; font-weight: 600; color: var(--text-primary);">Parker Harris</div>
-              <div style="font-size: 9px; color: var(--accent-b);">Co-Founder &amp; CTO</div>
-            </div>
-            <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; padding: 8px 14px; text-align: center; min-width: 150px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
-              <div style="font-size: 12px; font-weight: 600; color: var(--slate-200);">David Ward</div>
-              <div style="font-size: 9px; color: var(--text-tertiary);">President &amp; Chief Architect,<br>Office of CEO</div>
-            </div>
-            <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; padding: 8px 14px; text-align: center; min-width: 150px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
-              <div style="font-size: 12px; font-weight: 600; color: var(--slate-200);">Jason Yau</div>
-              <div style="font-size: 9px; color: var(--text-tertiary);">Chief Business Officer &amp;<br>Chief of Staff to CEO</div>
-            </div>
-          </div>
-          <div style="font-size: 11px; color: var(--text-muted); text-align: center; margin-top: 12px;">All report directly to Marc Benioff</div>
-        </div>
-    </div>
-
-  </div>
-</section>
-
 <!-- ============================================================
      SECTION 10: RESUME
      ============================================================ -->
 <section id="resume" style="background: var(--bg-secondary); padding: 80px 0;">
   <div class="container">
-    <span class="section-label fade-in">10 — Resume</span>
-    <h2 class="section-title fade-in">Ryan Oakes-Rooney</h2>
+    <span class="section-label fade-in">Resume</span>
     <p class="section-subtitle fade-in">Strategic Enterprise Sales Executive · AI & SaaS · Salesforce</p>
 
     <!-- Performance Highlights -->
@@ -1081,6 +710,375 @@ section:last-of-type { border-bottom: none; }
     </div>
   </div>
 </section>
+
+<!-- ============================================================
+     SECTION 1: MODEL COMPARISON TABLE
+     ============================================================ -->
+
+
+<!-- ============================================================
+     SECTION 9: WRITING ASSIGNMENT
+     ============================================================ -->
+<style>
+  .wa-pill { display: inline-block; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; margin: 2px 3px 2px 0; }
+  .wa-pill-product { background: rgba(217,119,87,0.08); color: var(--accent-a); border: 1px solid rgba(217,119,87,0.15); }
+  .wa-pill-metric { background: rgba(120,140,93,0.08); color: var(--accent-b); border: 1px solid rgba(120,140,93,0.15); }
+  .wa-pill-red { background: rgba(234,56,76,0.08); color: #ea384c; border: 1px solid rgba(234,56,76,0.15); }
+  .wa-pill-role { background: rgba(0,0,0,0.03); color: var(--text-tertiary); border: 1px solid rgba(0,0,0,0.06); font-size: 10px; }
+  .wa-roles { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border-light); }
+  .wa-roles-label { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin-bottom: 6px; }
+  .wa-vert-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 22px; transition: border-color 0.2s; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+  .wa-vert-card:hover { border-color: rgba(217,119,87,0.3); }
+  .wa-vert-num { font-family: var(--font-display); font-size: 42px; font-weight: 700; color: rgba(217,119,87,0.12); line-height: 1; margin-bottom: 4px; }
+  .wa-vert-name { font-family: var(--font-display); font-size: 18px; color: var(--text-primary); margin-bottom: 4px; }
+  .wa-vert-thesis { font-size: 13px; color: var(--text-secondary); line-height: 1.55; margin: 10px 0 14px; }
+  .wa-sp-card { position: relative; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 10px; padding: 16px 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+  .wa-sp-title { font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+  .wa-sp-desc { font-size: 12px; color: var(--text-tertiary); line-height: 1.55; }
+  .wa-sp-icon { font-size: 20px; margin-bottom: 8px; }
+  .wa-flow-box { text-align: center; border-radius: 10px; padding: 14px 16px; }
+  .wa-flow-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; margin-bottom: 4px; }
+  .wa-flow-name { font-family: var(--font-display); font-size: 15px; font-weight: 600; }
+  .wa-flow-sub { font-size: 11px; margin-top: 2px; }
+  .wa-flow-arrow { color: var(--text-muted); font-size: 18px; display: flex; align-items: center; justify-content: center; }
+</style>
+
+<section id="writing" style="background: var(--bg-secondary); padding: 80px 0;">
+  <div class="container">
+    <span class="section-label fade-in">Writing Assignment</span>
+    <h2 class="section-title fade-in">Anthropic Writing Assignment Summary</h2>
+    <p class="section-subtitle fade-in">Three-part strategic analysis.</p>
+
+    <div id="wa-verticals"></div>
+    <!-- ——— PART 1: VERTICAL ANALYSIS ——— -->
+    <div class="fade-in" style="margin-top: 40px;">
+      <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 20px;">
+        <span style="background: var(--accent-a); color: #ffffff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.06em;">Part 1</span>
+        <h3 style="font-family: var(--font-display); font-size: 20px; color: var(--text-primary); margin: 0;">Vertical Analysis</h3>
+        <span style="font-size: 12px; color: var(--text-tertiary);">— 8 Gartner reports · Full product portfolio mapped</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;">
+        <div class="wa-vert-card" style="display: flex; flex-direction: column;">
+          <div class="wa-vert-num">01</div>
+          <div class="wa-vert-name">Services</div>
+          <div style="display: flex; flex-direction: column; gap: 4px; margin-bottom: 4px; min-height: 52px;"><span class="wa-pill wa-pill-metric" style="display: inline-block; width: fit-content;">$2.38T spend by 2029</span><span class="wa-pill wa-pill-metric" style="display: inline-block; width: fit-content;">$257B+ Big 4 + MBB revenue</span></div>
+          <div style="margin: 14px 0 10px; padding-left: 12px; border-left: 2px solid var(--accent-a); min-height: 85px;">
+            <div style="font-size: 12px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Why it fits</div>
+            <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Output value tied to knowledge worker expertise and speed. Quality + speed = margins.</div>
+          </div>
+          <div style="margin-bottom: 14px; padding-left: 12px; border-left: 2px solid var(--accent-b); min-height: 105px;">
+            <div style="font-size: 12px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">How Claude drives value</div>
+            <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Cowork → deliverable quality. Excel → financial modeling. PPT → client decks. API → RFP agents & automation.</div>
+          </div>
+          <div class="wa-roles" style="margin-top: auto;">
+            <div class="wa-roles-label">Target Personas</div>
+            <span class="wa-pill wa-pill-role">Managing Director</span><span class="wa-pill wa-pill-role">Partner</span><span class="wa-pill wa-pill-role">Engagement Manager</span><span class="wa-pill wa-pill-role">Senior Consultant</span><span class="wa-pill wa-pill-role">Analyst</span><span class="wa-pill wa-pill-role">Tax Advisor</span><span class="wa-pill wa-pill-role">Auditor</span><span class="wa-pill wa-pill-role">Deal Professional</span>
+          </div>
+        </div>
+        <div class="wa-vert-card" style="display: flex; flex-direction: column;">
+          <div class="wa-vert-num">02</div>
+          <div class="wa-vert-name">Technology</div>
+          <div style="display: flex; flex-direction: column; gap: 4px; margin-bottom: 4px; min-height: 52px;"><span class="wa-pill wa-pill-metric" style="display: inline-block; width: fit-content;">$1.3T CMS spend by 2029</span><span class="wa-pill wa-pill-metric" style="display: inline-block; width: fit-content;">66% IT Services &amp; Software (2026)</span></div>
+          <div style="margin: 14px 0 10px; padding-left: 12px; border-left: 2px solid var(--accent-a); min-height: 85px;">
+            <div style="font-size: 12px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Why it fits</div>
+            <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">AI race forcing reinvention as AI-first. Cowork + Claude Code create dual disruption. Anthropic partnership becomes existential.</div>
+          </div>
+          <div style="margin-bottom: 14px; padding-left: 12px; border-left: 2px solid var(--accent-b); min-height: 105px;">
+            <div style="font-size: 12px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">How Claude drives value</div>
+            <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">API → reasoning inside customer products (e.g. Agentforce on Bedrock). Claude Code → engineering. Cowork → knowledge workers. Multi-cloud available.</div>
+          </div>
+          <div class="wa-roles" style="margin-top: auto;">
+            <div class="wa-roles-label">Target Personas</div>
+            <span class="wa-pill wa-pill-role">CTO / CIO</span><span class="wa-pill wa-pill-role">VP Engineering</span><span class="wa-pill wa-pill-role">Staff Engineer</span><span class="wa-pill wa-pill-role">Product Manager</span><span class="wa-pill wa-pill-role">Solutions Engineer</span><span class="wa-pill wa-pill-role">DevOps Lead</span><span class="wa-pill wa-pill-role">Platform Architect</span>
+          </div>
+        </div>
+        <div class="wa-vert-card" style="display: flex; flex-direction: column;">
+          <div class="wa-vert-num">03</div>
+          <div class="wa-vert-name">Banking & Investing</div>
+          <div style="display: flex; flex-direction: column; gap: 4px; margin-bottom: 4px; min-height: 52px;"><span class="wa-pill wa-pill-metric" style="display: inline-block; width: fit-content;">$1.1T IT spend by 2029</span><span class="wa-pill wa-pill-metric" style="display: inline-block; width: fit-content;">#1 CIO spend priority</span></div>
+          <div style="margin: 14px 0 10px; padding-left: 12px; border-left: 2px solid var(--accent-a); min-height: 85px;">
+            <div style="font-size: 12px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Why it fits</div>
+            <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Explainability and trust are regulatory requirements. Constitutional AI addresses top GenAI concerns.</div>
+          </div>
+          <div style="margin-bottom: 14px; padding-left: 12px; border-left: 2px solid var(--accent-b); min-height: 105px;">
+            <div style="font-size: 12px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">How Claude drives value</div>
+            <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Opus 4.6 → finance benchmarks. Cowork → advisors & compliance. Excel → valuations & stress testing. Claude Code → legacy modernization.</div>
+          </div>
+          <div class="wa-roles" style="margin-top: auto;">
+            <div class="wa-roles-label">Target Personas</div>
+            <span class="wa-pill wa-pill-role">Investment Banker</span><span class="wa-pill wa-pill-role">Portfolio Manager</span><span class="wa-pill wa-pill-role">Wealth Advisor</span><span class="wa-pill wa-pill-role">Risk Analyst</span><span class="wa-pill wa-pill-role">Compliance Officer</span><span class="wa-pill wa-pill-role">Quant Researcher</span><span class="wa-pill wa-pill-role">Actuarial Analyst</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="wa-sales"></div>
+    <!-- ——— PART 2: SALES PROCESS ——— -->
+    <div class="fade-in" style="margin-top: 56px;">
+      <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 20px;">
+        <span style="background: var(--accent-a); color: #ffffff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.06em;">Part 2</span>
+        <h3 style="font-family: var(--font-display); font-size: 20px; color: var(--text-primary); margin: 0;">What Makes Ryan's Sales Approach Different</h3>
+      </div>
+
+      <!-- Compact principle cards - single row -->
+      <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-bottom: 40px;">
+        <div class="wa-sp-card" style="text-align: center; padding: 18px 14px;">
+          <div class="wa-sp-icon" style="margin-bottom: 8px;">&#x1F527;</div>
+          <div class="wa-sp-title" style="font-size: 12px;">Practitioner, Not Just Seller</div>
+        </div>
+        <div class="wa-sp-card" style="text-align: center; padding: 18px 14px;">
+          <div class="wa-sp-icon" style="margin-bottom: 8px;">&#x1F50D;</div>
+          <div class="wa-sp-title" style="font-size: 12px;">Customer-Specific POV</div>
+        </div>
+        <div class="wa-sp-card" style="text-align: center; padding: 18px 14px;">
+          <div class="wa-sp-icon" style="margin-bottom: 8px;">&#x1F465;</div>
+          <div class="wa-sp-title" style="font-size: 12px;">Exec Relationships as Currency</div>
+        </div>
+        <div class="wa-sp-card" style="text-align: center; padding: 18px 14px;">
+          <div class="wa-sp-icon" style="margin-bottom: 8px;">&#x1F310;</div>
+          <div class="wa-sp-title" style="font-size: 12px;">Ecosystem & Team Orchestration</div>
+        </div>
+        <div class="wa-sp-card" style="text-align: center; padding: 18px 14px;">
+          <div class="wa-sp-icon" style="margin-bottom: 8px;">&#x2694;&#xFE0F;</div>
+          <div class="wa-sp-title" style="font-size: 12px;">Engineers the Outcome</div>
+        </div>
+        <div class="wa-sp-card" style="text-align: center; padding: 18px 14px;">
+          <div class="wa-sp-icon" style="margin-bottom: 8px;">&#x1F91D;</div>
+          <div class="wa-sp-title" style="font-size: 12px;">Trust-Based, Long-Game</div>
+        </div>
+      </div>
+
+      <!-- Applied: Flex Story -->
+      <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 14px; padding: 32px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+        <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-a); margin-bottom: 6px;">Applied Example</div>
+        <div style="font-family: var(--font-display); font-size: 22px; color: var(--text-primary); margin-bottom: 6px;">Winning Back Flex: $1.5M Against Microsoft</div>
+        <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 24px;">$26B Fortune 500 manufacturer · 160K employees · 2.5-year sales cycle · Full story below</div>
+
+        <!-- Compact visual timeline -->
+        <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px;">
+
+          <div style="border-top: 3px solid #ea384c; border-radius: 0; padding-top: 12px;">
+            <div style="font-family: var(--font-mono); font-size: 9px; color: var(--accent-a); letter-spacing: 0.04em;">Apr 2020</div>
+            <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin: 4px 0;">Inherited</div>
+            <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Trust destroyed. CRM lost to SugarCRM. $1M attrition. Set 3 goals.</div>
+          </div>
+
+          <div style="border-top: 3px solid var(--accent-a); border-radius: 0; padding-top: 12px;">
+            <div style="font-family: var(--font-mono); font-size: 9px; color: var(--accent-a); letter-spacing: 0.04em;">2020–2021</div>
+            <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin: 4px 0;">Research & POV</div>
+            <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Deep industry immersion. Built <em>product 360</em> thesis no competitor had.</div>
+          </div>
+
+          <div style="border-top: 3px solid var(--accent-a); border-radius: 0; padding-top: 12px;">
+            <div style="font-family: var(--font-mono); font-size: 9px; color: var(--accent-a); letter-spacing: 0.04em;">Ongoing</div>
+            <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin: 4px 0;">CIO Relationship</div>
+            <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Quarterly QBRs. 4-part framework. Golf course via KPMG. Earned full leadership access.</div>
+          </div>
+
+          <div style="border-top: 3px solid #ea384c; border-radius: 0; padding-top: 12px;">
+            <div style="font-family: var(--font-mono); font-size: 9px; color: var(--accent-a); letter-spacing: 0.04em;">Late 2021</div>
+            <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin: 4px 0;">Microsoft Threat</div>
+            <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">New CSO with Dynamics bias. Built champion on his team. Neutralized via exec LinkedIn play.</div>
+          </div>
+
+          <div style="border-top: 3px solid var(--accent-a); border-radius: 0; padding-top: 12px;">
+            <div style="font-family: var(--font-mono); font-size: 9px; color: var(--accent-a); letter-spacing: 0.04em;">Spring 2022</div>
+            <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin: 4px 0;">Full Blitz</div>
+            <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">15+ resources mobilized. SIC on Floor 60. Customer references from AWS & Informatica. Blew MSFT out of the water.</div>
+          </div>
+
+          <div style="border-top: 3px solid var(--accent-b); border-radius: 0; padding-top: 12px;">
+            <div style="font-family: var(--font-mono); font-size: 9px; color: var(--accent-b); letter-spacing: 0.04em;">Oct 2022</div>
+            <div style="font-size: 12px; font-weight: 700; color: var(--accent-b); margin: 4px 0;">Closed Won ✓</div>
+            <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">$1.5M Manufacturing Cloud. All 3 goals achieved. Dreamforce stage.</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div id="wa-salesforce"></div>
+    <!-- ——— PART 3: SALESFORCE ACCOUNT PLAN ——— -->
+    <div class="fade-in" style="margin-top: 56px;">
+      <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 8px;">
+        <span style="background: var(--accent-a); color: #ffffff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.06em;">Part 3</span>
+        <h3 style="font-family: var(--font-display); font-size: 20px; color: var(--text-primary); margin: 0;">Salesforce Account Plan Summary</h3>
+      </div>
+
+      <!-- Salesforce Overview Metrics -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; margin-bottom: 22px; margin-top: 20px;">
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 10px; padding: 14px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+          <div style="font-size: 20px; font-weight: 700; color: var(--accent-a);">$41.5B</div>
+          <div style="font-size: 10px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.05em;">Revenue</div>
+        </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 10px; padding: 14px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+          <div style="font-size: 20px; font-weight: 700; color: var(--accent-a);">76K</div>
+          <div style="font-size: 10px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.05em;">Employees</div>
+        </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 10px; padding: 14px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+          <div style="font-size: 20px; font-weight: 700; color: var(--accent-a);">150K+</div>
+          <div style="font-size: 10px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.05em;">Customers</div>
+        </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 10px; padding: 14px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+          <div style="font-size: 20px; font-weight: 700; color: var(--accent-a);">$540M</div>
+          <div style="font-size: 10px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.05em;">Agentforce ARR</div>
+        </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 10px; padding: 14px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+          <div style="font-size: 20px; font-weight: 700; color: var(--accent-a);">$5.8M</div>
+          <div style="font-size: 10px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.05em;">Anthropic Spend</div>
+        </div>
+      </div>
+
+      <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px;">Global CRM leader going all-in on agentic AI. Agentforce hit $540M ARR. Dual superagent strategy: <strong>Slackbot</strong> (employee-facing) and <strong>Agentforce</strong> (customer-facing). Stock pressure from AI disruption fears presents a window to accelerate the Anthropic partnership.</p>
+
+      <!-- Data Foundation Moat -->
+      <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 22px; margin-bottom: 22px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 14px; flex-wrap: wrap;">
+          <span style="background: rgba(120,140,93,0.15); color: var(--accent-b); font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.08em;">Strategic Context</span>
+          <span style="font-size: 14px; font-weight: 600; color: var(--text-primary);">The Data Foundation Moat</span>
+        </div>
+        <p style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 14px;">Benioff&rsquo;s thesis: <em>trusted enterprise data is what makes AI actually work.</em> Without grounding, agents lack context. Connected to Salesforce&rsquo;s 230PB of customer data, accuracy and relevance increase dramatically. Four pillars form this foundation:</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
+          <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px;">
+            <div style="font-size: 12px; font-weight: 600; color: var(--accent-b); margin-bottom: 3px;">Informatica</div>
+            <div style="font-size: 11px; color: var(--text-tertiary); line-height: 1.45;">MDM, data lineage &amp; governance. Ensures agents operate on trusted, auditable data.</div>
+          </div>
+          <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px;">
+            <div style="font-size: 12px; font-weight: 600; color: var(--accent-b); margin-bottom: 3px;">Data Cloud / Data 360</div>
+            <div style="font-size: 11px; color: var(--text-tertiary); line-height: 1.45;">Unifies structured + unstructured data in real-time. RAG and vector DB provide the context layer Claude reasons over.</div>
+          </div>
+          <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px;">
+            <div style="font-size: 12px; font-weight: 600; color: var(--accent-b); margin-bottom: 3px;">MuleSoft</div>
+            <div style="font-size: 11px; color: var(--text-tertiary); line-height: 1.45;">API &amp; agent governance. Agent Fabric orchestrates multi-agent workflows with MCP support across platforms.</div>
+          </div>
+          <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px;">
+            <div style="font-size: 12px; font-weight: 600; color: var(--accent-b); margin-bottom: 3px;">Tableau</div>
+            <div style="font-size: 11px; color: var(--text-tertiary); line-height: 1.45;">Analytics &amp; insights layer. Tableau Next integrates natively for agentic analytics.</div>
+          </div>
+        </div>
+
+      </div><!-- Superagent Architecture Visual -->
+      <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 14px; padding: 28px; margin-bottom: 22px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 20px; flex-wrap: wrap;">
+          <span style="background: rgba(212,132,90,0.25); color: var(--accent-a); font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.08em;">&#x1F525; Critical</span>
+          <span style="font-size: 14px; font-weight: 600; color: var(--text-primary);">Lock default model status in term sheet</span>
+        </div>
+
+        <!-- Architecture Diagram -->
+        <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px; align-items: center; margin-bottom: 20px;">
+          <div class="wa-flow-box" style="background: #fdf5f0; border: 1px solid rgba(217,119,87,0.3);">
+            <div class="wa-flow-label" style="color: var(--accent-a);">Employee Superagent</div>
+            <div class="wa-flow-name" style="color: var(--text-primary);">Slackbot</div>
+            <div class="wa-flow-sub" style="color: var(--text-secondary);">Claude-powered &middot; Orchestration layer</div>
+            <div style="margin-top: 8px;"><span class="wa-pill wa-pill-product" style="margin:0;">&#x2713; Claude is default today</span></div>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 2px;">
+            <div class="wa-flow-arrow">&#x27F7;</div>
+            <div style="font-size: 9px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">orchestrates</div>
+          </div>
+          <div class="wa-flow-box" style="background: #f0f3eb; border: 1px solid rgba(120,140,93,0.3);">
+            <div class="wa-flow-label" style="color: var(--accent-b);">Customer Superagent</div>
+            <div class="wa-flow-name" style="color: var(--text-primary);">Agentforce</div>
+            <div class="wa-flow-sub" style="color: var(--text-secondary);">CRM workflows &middot; Customer service</div>
+            <div style="margin-top: 8px;"><span class="wa-pill wa-pill-red" style="margin:0;">&#x2717; OpenAI is default today</span></div>
+          </div>
+        </div>
+
+        <!-- Why / Risk / Ask — compact -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
+          <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px;">
+            <div style="font-size: 11px; color: var(--accent-a); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">Why Slackbot Matters</div>
+            <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">Employees live in Slack. Every interaction flows through Claude reasoning. Massive token consumption.</div>
+          </div>
+          <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px;">
+            <div style="font-size: 11px; color: #e07070; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">Risk Without Action</div>
+            <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">OpenAI default on Agentforce. Gemini arriving soon. No contract = diluted position.</div>
+          </div>
+          <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px;">
+            <div style="font-size: 11px; color: var(--accent-b); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">The Ask</div>
+            <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">Default model language in term sheet. Slackbot is the non-negotiable floor.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom grid: Expansion + Exec Mapping -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px;">
+        <div class="wa-vert-card" style="grid-column: 1 / -1;">
+          <div style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 14px;">Expansion Plays</div>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+            <div style="background: #fdf5f0; border: 1px solid rgba(217,119,87,0.25); border-radius: 8px; padding: 12px 14px;">
+              <div style="font-size: 11px; font-weight: 600; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">API — Critical</div>
+              <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.5;">Default model across Agentforce, Prompt Builder, Slackbot. Token consumption at platform scale.</div>
+            </div>
+            <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px;">
+              <div style="font-size: 11px; font-weight: 600; color: var(--accent-b); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">Enterprise Seats</div>
+              <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.5;"><strong>Cowork:</strong> 76K employees — PMs, marketing, legal, HR.<br><strong>Excel/PPT:</strong> FP&A, accounting, treasury.</div>
+            </div>
+            <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px;">
+              <div style="font-size: 11px; font-weight: 600; color: var(--accent-b); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">Engineering & Services</div>
+              <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.5;"><strong>Claude Code:</strong> Engineering, SEs, Pro Services.<br><strong>Cowork:</strong> Demo automation, delivery acceleration.</div>
+            </div>
+            <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px;">
+              <div style="font-size: 11px; font-weight: 600; color: var(--accent-b); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">Sell-To Leverage</div>
+              <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.5;">Anthropic is a $5.8M Salesforce customer. Commercial relationship = partnership leverage.</div>
+            </div>
+          </div>
+        </div>
+        <div class="wa-vert-card" style="grid-column: 1 / -1;">
+          <div style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 16px;">Salesforce Executive Leadership Team</div>
+          
+          <!-- Benioff -->
+          <div style="text-align: center; margin-bottom: 4px;">
+            <div style="display: inline-block; background: rgba(217,119,87,0.08); border: 1px solid rgba(212,132,90,0.25); border-radius: 10px; padding: 10px 20px;">
+              <div style="font-size: 13px; font-weight: 600; color: var(--text-primary);">Marc Benioff</div>
+              <div style="font-size: 10px; color: var(--accent-a);">Chair &amp; CEO</div>
+            </div>
+          </div>
+          <div style="text-align: center; color: var(--slate-600); font-size: 11px; line-height: 1.2;">&#9474;</div>
+
+          <!-- Direct reports to Marc -->
+          <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 4px;">
+            <div style="background: #f0f2f8; border: 1px solid var(--border-light); border-radius: 8px; padding: 8px 14px; text-align: center; min-width: 150px;">
+              <div style="font-size: 12px; font-weight: 600; color: var(--text-primary);">Srini Tallapragada</div>
+              <div style="font-size: 9px; color: var(--accent-b);">President &amp; Chief Engineering<br>&amp; Customer Success Officer</div>
+            </div>
+            <div style="background: #f0f2f8; border: 1px solid var(--border-light); border-radius: 8px; padding: 8px 14px; text-align: center; min-width: 150px;">
+              <div style="font-size: 12px; font-weight: 600; color: var(--text-primary);">Miguel Milano</div>
+              <div style="font-size: 9px; color: var(--accent-b);">President &amp; Chief Revenue Officer</div>
+            </div>
+            <div style="background: #f0f2f8; border: 1px solid var(--border-light); border-radius: 8px; padding: 8px 14px; text-align: center; min-width: 150px;">
+              <div style="font-size: 12px; font-weight: 600; color: var(--text-primary);">Steve Fisher</div>
+              <div style="font-size: 9px; color: var(--accent-b);">Chief Product Officer</div>
+            </div>
+            <div style="background: #f0f2f8; border: 1px solid var(--border-light); border-radius: 8px; padding: 8px 14px; text-align: center; min-width: 150px;">
+              <div style="font-size: 12px; font-weight: 600; color: var(--text-primary);">Robin Washington</div>
+              <div style="font-size: 9px; color: var(--accent-b);">Chief Financial Officer</div>
+            </div>
+            <div style="background: #f0f2f8; border: 1px solid var(--border-light); border-radius: 8px; padding: 8px 14px; text-align: center; min-width: 150px;">
+              <div style="font-size: 12px; font-weight: 600; color: var(--text-primary);">David Schmaier</div>
+              <div style="font-size: 9px; color: var(--accent-b);">President &amp; Chief Strategy Officer</div>
+            </div>
+            <div style="background: #f0f2f8; border: 1px solid var(--border-light); border-radius: 8px; padding: 8px 14px; text-align: center; min-width: 150px;">
+              <div style="font-size: 12px; font-weight: 600; color: var(--text-primary);">Parker Harris</div>
+              <div style="font-size: 9px; color: var(--accent-b);">Co-Founder &amp; CTO</div>
+            </div>
+            <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; padding: 8px 14px; text-align: center; min-width: 150px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+              <div style="font-size: 12px; font-weight: 600; color: var(--slate-200);">David Ward</div>
+              <div style="font-size: 9px; color: var(--text-tertiary);">President &amp; Chief Architect,<br>Office of CEO</div>
+            </div>
+            <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; padding: 8px 14px; text-align: center; min-width: 150px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+              <div style="font-size: 12px; font-weight: 600; color: var(--slate-200);">Jason Yau</div>
+              <div style="font-size: 9px; color: var(--text-tertiary);">Chief Business Officer &amp;<br>Chief of Staff to CEO</div>
+            </div>
+          </div>
+          <div style="font-size: 11px; color: var(--text-muted); text-align: center; margin-top: 12px;">All report directly to Marc Benioff</div>
+        </div>
+    </div>
+
+  </div>
+</section>
+
 
 <section id="deal-story" style="background: var(--bg-secondary); padding: 80px 0;">
   <div class="container">
@@ -1637,103 +1635,61 @@ section:last-of-type { border-bottom: none; }
       <!-- Use Cases Mapped to Priorities -->
       <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 14px; padding: 32px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin-bottom: 24px;">
         <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-a); margin-bottom: 6px;">AI Use Cases Mapped to Flex's Strategic Priorities</div>
-        <p style="font-size: 13px; color: var(--text-tertiary); margin-bottom: 20px; line-height: 1.6;">Each use case ties to a publicly stated Flex priority — validated through earnings calls, investor presentations, and my direct experience with the account.</p>
 
-        <div style="display: flex; flex-direction: column; gap: 0;">
 
-          <!-- Use Case 1 -->
-          <div style="display: grid; grid-template-columns: 180px 1fr; gap: 16px; align-items: start; padding: 14px 0; border-bottom: 1px solid var(--border-light);">
-            <div>
-              <div style="font-size: 11px; font-weight: 600; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em;">Flex Priority</div>
-              <div style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-top: 2px;">Operational Efficiency</div>
-            </div>
-            <div>
-              <div style="font-size: 13px; font-weight: 600; color: var(--text-primary);">Cowork for Operations & Corporate Teams</div>
-              <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.55; margin-top: 2px;">Thousands of knowledge workers across 100+ facilities. Cowork automates reporting, standardizes processes, and accelerates procurement analysis. Enterprise seat licensing at scale.</div>
-              <div style="margin-top: 6px;"><span style="font-size: 10px; background: rgba(217,119,87,0.08); color: var(--accent-a); padding: 2px 8px; border-radius: 20px; margin-right: 4px;">Cowork</span><span style="font-size: 10px; background: rgba(217,119,87,0.08); color: var(--accent-a); padding: 2px 8px; border-radius: 20px;">Enterprise Seats</span></div>
-            </div>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 12px;">
+
+          <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 10px; padding: 16px;">
+            <div style="font-size: 10px; font-weight: 600; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.04em;">Operational Efficiency</div>
+            <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin: 6px 0 4px;">Cowork for Corporate Teams</div>
+            <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Automates reporting & procurement across 100+ facilities.</div>
+            <div style="margin-top: 8px;"><span style="font-size: 10px; background: rgba(217,119,87,0.08); color: var(--accent-a); padding: 2px 8px; border-radius: 20px;">Cowork</span></div>
           </div>
 
-          <!-- Use Case 2 -->
-          <div style="display: grid; grid-template-columns: 180px 1fr; gap: 16px; align-items: start; padding: 14px 0; border-bottom: 1px solid var(--border-light);">
-            <div>
-              <div style="font-size: 11px; font-weight: 600; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em;">Flex Priority</div>
-              <div style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-top: 2px;">Supply Chain Resilience</div>
-            </div>
-            <div>
-              <div style="font-size: 13px; font-weight: 600; color: var(--text-primary);">Claude API for Supply Chain Intelligence</div>
-              <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.55; margin-top: 2px;">30,000+ monthly change orders, 4–6 week quoting cycles. API powers change order triage, supplier risk analysis, and demand forecasting. Explainability matters when rerouting a supply chain.</div>
-              <div style="margin-top: 6px;"><span style="font-size: 10px; background: rgba(217,119,87,0.08); color: var(--accent-a); padding: 2px 8px; border-radius: 20px; margin-right: 4px;">API</span><span style="font-size: 10px; background: rgba(217,119,87,0.08); color: var(--accent-a); padding: 2px 8px; border-radius: 20px;">Opus 4.6</span></div>
-            </div>
+          <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 10px; padding: 16px;">
+            <div style="font-size: 10px; font-weight: 600; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.04em;">Supply Chain Resilience</div>
+            <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin: 6px 0 4px;">API for Supply Chain Intelligence</div>
+            <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">30K+ monthly change orders. Triage, risk analysis, demand forecasting.</div>
+            <div style="margin-top: 8px;"><span style="font-size: 10px; background: rgba(217,119,87,0.08); color: var(--accent-a); padding: 2px 8px; border-radius: 20px;">API</span></div>
           </div>
 
-          <!-- Use Case 3 -->
-          <div style="display: grid; grid-template-columns: 180px 1fr; gap: 16px; align-items: start; padding: 14px 0; border-bottom: 1px solid var(--border-light);">
-            <div>
-              <div style="font-size: 11px; font-weight: 600; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em;">Flex Priority</div>
-              <div style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-top: 2px;">Digital Transformation</div>
-            </div>
-            <div>
-              <div style="font-size: 13px; font-weight: 600; color: var(--text-primary);">Claude Code for Legacy System Modernization</div>
-              <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.55; margin-top: 2px;">Thousands of applications across 100+ sites — custom ERP integrations, proprietary tooling, legacy codebases. Claude Code reads, understands, and refactors. Force multiplier without doubling headcount.</div>
-              <div style="margin-top: 6px;"><span style="font-size: 10px; background: rgba(217,119,87,0.08); color: var(--accent-a); padding: 2px 8px; border-radius: 20px; margin-right: 4px;">Claude Code</span><span style="font-size: 10px; background: rgba(217,119,87,0.08); color: var(--accent-a); padding: 2px 8px; border-radius: 20px;">Engineering Teams</span></div>
-            </div>
+          <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 10px; padding: 16px;">
+            <div style="font-size: 10px; font-weight: 600; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.04em;">Digital Transformation</div>
+            <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin: 6px 0 4px;">Claude Code for Legacy Modernization</div>
+            <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Thousands of apps across 100+ sites. Reads, understands, refactors.</div>
+            <div style="margin-top: 8px;"><span style="font-size: 10px; background: rgba(217,119,87,0.08); color: var(--accent-a); padding: 2px 8px; border-radius: 20px;">Claude Code</span></div>
           </div>
 
-          <!-- Use Case 4 -->
-          <div style="display: grid; grid-template-columns: 180px 1fr; gap: 16px; align-items: start; padding: 14px 0; border-bottom: 1px solid var(--border-light);">
-            <div>
-              <div style="font-size: 11px; font-weight: 600; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em;">Flex Priority</div>
-              <div style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-top: 2px;">Quality & Compliance</div>
-            </div>
-            <div>
-              <div style="font-size: 13px; font-weight: 600; color: var(--text-primary);">Claude in Excel for Quality Analysis</div>
-              <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.55; margin-top: 2px;">Automotive, healthcare, aerospace — quality failures are catastrophic. Defect pattern analysis, root cause investigation, and compliance reporting across global sites.</div>
-              <div style="margin-top: 6px;"><span style="font-size: 10px; background: rgba(217,119,87,0.08); color: var(--accent-a); padding: 2px 8px; border-radius: 20px; margin-right: 4px;">Claude in Excel</span><span style="font-size: 10px; background: rgba(217,119,87,0.08); color: var(--accent-a); padding: 2px 8px; border-radius: 20px;">Quality Teams</span></div>
-            </div>
+          <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 10px; padding: 16px;">
+            <div style="font-size: 10px; font-weight: 600; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.04em;">Quality & Compliance</div>
+            <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin: 6px 0 4px;">Excel for Quality Analysis</div>
+            <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Defect patterns, root cause, compliance reporting. Auto, healthcare, aerospace.</div>
+            <div style="margin-top: 8px;"><span style="font-size: 10px; background: rgba(217,119,87,0.08); color: var(--accent-a); padding: 2px 8px; border-radius: 20px;">Claude in Excel</span></div>
           </div>
 
-          <!-- Use Case 5 -->
-          <div style="display: grid; grid-template-columns: 180px 1fr; gap: 16px; align-items: start; padding: 14px 0; border-bottom: 1px solid var(--border-light);">
-            <div>
-              <div style="font-size: 11px; font-weight: 600; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em;">Flex Priority</div>
-              <div style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-top: 2px;">Smart Manufacturing</div>
-            </div>
-            <div>
-              <div style="font-size: 13px; font-weight: 600; color: var(--text-primary);">Claude API for Line Intelligence</div>
-              <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.55; margin-top: 2px;">Heavy IoT and Industry 4.0 investment across 100+ sites, but turning data into decisions is the bottleneck. Predictive maintenance, anomaly detection, automated shift handoffs. Claude's reasoning bridges IoT data to action.</div>
-              <div style="margin-top: 6px;"><span style="font-size: 10px; background: rgba(217,119,87,0.08); color: var(--accent-a); padding: 2px 8px; border-radius: 20px; margin-right: 4px;">API</span><span style="font-size: 10px; background: rgba(217,119,87,0.08); color: var(--accent-a); padding: 2px 8px; border-radius: 20px; margin-right: 4px;">Sonnet 4.5</span><span style="font-size: 10px; background: rgba(217,119,87,0.08); color: var(--accent-a); padding: 2px 8px; border-radius: 20px;">100+ Sites</span></div>
-            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+
+          <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 10px; padding: 16px;">
+            <div style="font-size: 10px; font-weight: 600; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.04em;">Smart Manufacturing</div>
+            <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin: 6px 0 4px;">API for Line Intelligence</div>
+            <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Predictive maintenance, anomaly detection, shift handoffs. Bridges IoT data to action.</div>
+            <div style="margin-top: 8px;"><span style="font-size: 10px; background: rgba(217,119,87,0.08); color: var(--accent-a); padding: 2px 8px; border-radius: 20px;">API</span></div>
           </div>
 
-          <!-- Use Case 6 -->
-          <div style="display: grid; grid-template-columns: 180px 1fr; gap: 16px; align-items: start; padding: 14px 0; border-bottom: 1px solid var(--border-light);">
-            <div>
-              <div style="font-size: 11px; font-weight: 600; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em;">Flex Priority</div>
-              <div style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-top: 2px;">Employee Experience</div>
-            </div>
-            <div>
-              <div style="font-size: 13px; font-weight: 600; color: var(--text-primary);">Claude Assistant for 160K Deskless Workers</div>
-              <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.55; margin-top: 2px;">Most employees are on factory floors, not behind computers. Mobile/kiosk assistant for SOPs, safety protocols, training, and equipment troubleshooting — in local languages across 30+ countries.</div>
-              <div style="margin-top: 6px;"><span style="font-size: 10px; background: rgba(217,119,87,0.08); color: var(--accent-a); padding: 2px 8px; border-radius: 20px; margin-right: 4px;">API</span><span style="font-size: 10px; background: rgba(217,119,87,0.08); color: var(--accent-a); padding: 2px 8px; border-radius: 20px; margin-right: 4px;">Haiku 4.5</span><span style="font-size: 10px; background: rgba(217,119,87,0.08); color: var(--accent-a); padding: 2px 8px; border-radius: 20px;">160K Employees</span></div>
-            </div>
+          <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 10px; padding: 16px;">
+            <div style="font-size: 10px; font-weight: 600; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.04em;">Employee Experience</div>
+            <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin: 6px 0 4px;">Claude for 160K Deskless Workers</div>
+            <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Mobile/kiosk assistant for SOPs, safety, training in local languages across 30+ countries.</div>
+            <div style="margin-top: 8px;"><span style="font-size: 10px; background: rgba(217,119,87,0.08); color: var(--accent-a); padding: 2px 8px; border-radius: 20px;">Haiku 4.5</span></div>
           </div>
 
-          <!-- Use Case 7 -->
-          <div style="display: grid; grid-template-columns: 200px 1fr; gap: 16px; align-items: start;">
-            <div>
-              <div style="font-size: 11px; font-weight: 600; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em;">Flex Priority</div>
-              <div style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-top: 2px;">Customer Experience</div>
-            </div>
-            <div>
-              <div style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Agentforce + Claude as the Reasoning Engine</div>
-              <div style="font-size: 13px; color: var(--text-secondary); line-height: 1.6;">Flex already runs Manufacturing Cloud — the platform I sold them. Agentforce agents powered by Claude sit on top of that foundation: intelligent quoting agents, customer service agents with product lifecycle context, and seller copilots. Claude is already the model behind Agentforce. This is the natural next step.</div>
-              <div style="margin-top: 8px;">
-                <span style="font-size: 10px; background: rgba(217,119,87,0.08); color: var(--accent-a); padding: 3px 8px; border-radius: 20px; margin-right: 4px;">API</span>
-                <span style="font-size: 10px; background: rgba(217,119,87,0.08); color: var(--accent-a); padding: 3px 8px; border-radius: 20px; margin-right: 4px;">Agentforce</span>
-                <span style="font-size: 10px; background: rgba(217,119,87,0.08); color: var(--accent-a); padding: 3px 8px; border-radius: 20px;">Existing Salesforce Footprint</span>
-              </div>
-            </div>
+          <div style="background: rgba(217,119,87,0.06); border: 1px solid rgba(217,119,87,0.25); border-radius: 10px; padding: 16px;">
+            <div style="font-size: 10px; font-weight: 600; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.04em;">Customer Experience</div>
+            <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin: 6px 0 4px;">Agentforce + Claude</div>
+            <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Flex already runs Manufacturing Cloud. Claude powers Agentforce agents on top of that foundation.</div>
+            <div style="margin-top: 8px;"><span style="font-size: 10px; background: rgba(217,119,87,0.08); color: var(--accent-a); padding: 2px 8px; border-radius: 20px;">API</span> <span style="font-size: 10px; background: rgba(217,119,87,0.08); color: var(--accent-a); padding: 2px 8px; border-radius: 20px;">Agentforce</span></div>
           </div>
 
         </div>
@@ -2179,659 +2135,192 @@ section:last-of-type { border-bottom: none; }
 </section>
 <section id="models" style="background: var(--bg-secondary); padding: 80px 0;">
   <div class="container">
-    <span class="section-label fade-in">01 — Models</span>
-    <h2 class="section-title fade-in">Model Lineup by Use Case</h2>
-    <p class="section-subtitle fade-in">Which model to reach for, mapped to the job it needs to do.</p>
+    <span class="section-label fade-in">Model Research</span>
+    <h2 class="section-title fade-in">Claude vs. OpenAI — Current Landscape</h2>
+    <p class="section-subtitle fade-in">Independent research across models, products, and enterprise positioning. Updated February 2026.</p>
 
-    <div class="comp-table-wrap fade-in">
-      <table class="comp-table">
-        <thead>
-          <tr>
-            <th>Use Case</th>
-            <th class="col-a">Anthropic (Claude)</th>
-            <th class="col-b">OpenAI (GPT)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Most Intelligent</td>
-            <td><span class="cell-highlight">Claude Opus 4.6</span> — Feb 2026. 1M token context (beta), 128K output. Top marks on finance, legal, and coding benchmarks. Agent teams, document/presentation creation, deep research, long-context retrieval.</td>
-            <td><span class="cell-highlight">GPT-5.2 Pro</span> — Dec 2025. Maximum-compute reasoning mode. 256K context. Best for complex analysis, multi-step problems, and professional knowledge work.</td>
-          </tr>
-          <tr>
-            <td>Daily Workhorse</td>
-            <td><span class="cell-highlight">Claude Sonnet 4.5</span> — fast, high-quality. $3/$15 per M tokens. 75% of enterprise customers run Sonnet or Opus in production. Great balance of speed and capability.</td>
-            <td><span class="cell-highlight">GPT-5.2 Instant</span> — quick responses for everyday tasks. Warm conversational tone. Default for most ChatGPT users. Auto-routes to Thinking mode for harder questions.</td>
-          </tr>
-          <tr>
-            <td>High-Volume / Cost-Sensitive</td>
-            <td>Claude Haiku 4.5 — fast, cost-efficient for latency-sensitive and high-volume workloads. $0.80/$4 per M tokens.</td>
-            <td>GPT-5.2 Thinking Mini — free reasoning tier for Enterprise. No credit consumption. Good for batch processing.</td>
-          </tr>
-          <tr>
-            <td>Deep Reasoning</td>
-            <td>Extended thinking built into all Claude models. Configurable compute budget — no separate reasoning model. Thinking is a dial, not a product.</td>
-            <td>o3 / o3-pro — dedicated deep reasoning. Being folded into GPT-5 as "Thinking" mode. GPT-5.2 auto-routes to it when needed.</td>
-          </tr>
-          <tr>
-            <td>Long Documents</td>
-            <td class="has-icon"><span class="icon-yes">✓</span> <strong>1M tokens</strong> (Opus 4.6 beta) · 200K standard. Industry-leading for contracts, codebases, research corpora.</td>
-            <td class="has-icon"><span class="icon-partial">~</span> 256K tokens (GPT-5.2). Sufficient for most tasks but ~4× smaller max window.</td>
-          </tr>
-          <tr>
-            <td>Image Generation</td>
-            <td class="has-icon"><span class="icon-no">✗</span> Not supported</td>
-            <td class="has-icon"><span class="icon-yes">✓</span> GPT Image 1.5 + DALL-E — native in ChatGPT</td>
-          </tr>
-          <tr>
-            <td>Video / Voice</td>
-            <td class="has-icon"><span class="icon-partial">~</span> Voice piloting in mobile. No video gen.</td>
-            <td class="has-icon"><span class="icon-yes">✓</span> Sora 2 Pro video, Advanced Voice, Realtime API, STT/TTS</td>
-          </tr>
-          <tr>
-            <td>Open-Weight / Self-Host</td>
-            <td class="has-icon"><span class="icon-no">✗</span> No open-weight models</td>
-            <td class="has-icon"><span class="icon-yes">✓</span> gpt-oss 120B/20B (Apache 2.0) — self-hosted, text only</td>
-          </tr>
-          <tr>
-            <td>Multi-Cloud Deployment</td>
-            <td class="has-icon"><span class="icon-yes">✓</span> <strong>AWS Bedrock + GCP Vertex AI + Azure Foundry</strong> — deploy where your data already lives</td>
-            <td class="has-icon"><span class="icon-no">✗</span> Azure only. Not on AWS or GCP managed services.</td>
-          </tr>
-          <tr>
-            <td>API Pricing (per M tokens)</td>
-            <td>Opus: $5/$25 · Sonnet: $3/$15 · Haiku: $0.80/$4</td>
-            <td>GPT-5.2 varies by mode · Instant: ~$2.50/$10 · Codex: usage-based via ChatGPT tiers</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     SECTION 2: CODING — For Software Engineers
-     ============================================================ -->
-<section id="coding" style="background: var(--bg-secondary); padding: 80px 0;">
-  <div class="container">
-    <span class="section-label fade-in">02 — For Software Engineers</span>
-    <h2 class="section-title fade-in">Claude Code vs. OpenAI Codex</h2>
-    <p class="section-subtitle fade-in">Two different philosophies for AI-assisted development. Engineers are picking one or the other — here's what matters.</p>
-
-    <div class="comp-table-wrap fade-in">
-      <table class="comp-table">
-        <thead>
-          <tr>
-            <th>Dimension</th>
-            <th class="col-a">Claude Code</th>
-            <th class="col-b">OpenAI Codex</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Philosophy</td>
-            <td><strong>Local-first, CLI-native.</strong> Runs in your terminal with full filesystem access. You watch it work and steer in real-time. Think "AI pair programmer sitting at your desk."</td>
-            <td><strong>Cloud-first, async delegation.</strong> Tasks run in isolated cloud sandboxes. Fire-and-forget, come back to a PR. Think "AI teammate working in parallel."</td>
-          </tr>
-          <tr>
-            <td>Primary Model</td>
-            <td>Claude Opus 4.6 / Sonnet 4.5 — configurable per session</td>
-            <td>GPT-5.3-Codex — optimized for agentic coding. 77.3 Terminal-Bench 2.0</td>
-          </tr>
-          <tr>
-            <td>Architecture</td>
-            <td>CLI tool installed via npm. Runs locally on your machine. Direct filesystem + terminal access. No sandbox — full power, full responsibility.</td>
-            <td>Cloud sandboxes preloaded with your repo. Internet disabled by default (optional live mode). Tasks return commits you review.</td>
-          </tr>
-          <tr>
-            <td>Parallelism</td>
-            <td><span class="cell-highlight">Subagents + Agent Teams.</span> Subagents (up to 7) handle focused tasks and report back. Agent Teams (experimental) are fully independent sessions that communicate directly with each other — can debate, challenge, and self-coordinate via shared task lists.</td>
-            <td><span class="cell-highlight">Multi-thread cloud tasks.</span> Multiple tasks run in parallel cloud sandboxes. Each task is isolated. No inter-task communication — coordination happens through you.</td>
-          </tr>
-          <tr>
-            <td>Context Continuity</td>
-            <td><strong>CLAUDE.md files</strong> — persistent per-project context files. Auto-loaded on every session. Claude remembers past decisions, architecture notes, team conventions across sessions.</td>
-            <td><strong>AGENTS.md files</strong> — similar repo-level config. Threads are resumable. Codex builds "memories" from past interactions for improvement over time.</td>
-          </tr>
-          <tr>
-            <td>Tool Integration</td>
-            <td><span class="cell-highlight">MCP protocol (open standard)</span> — 100s of integrations. GitHub, Slack, Jira, databases, Notion, Salesforce. Add servers via <code>claude mcp add</code>. Ecosystem growing rapidly.</td>
-            <td><strong>Skills system</strong> — bundled instructions + scripts for workflows. Figma design-to-code, Linear project mgmt, Cloudflare/Vercel deploy, image gen. Open-source skill library on GitHub.</td>
-          </tr>
-          <tr>
-            <td>Long Sessions</td>
-            <td>Interactive pairing sessions. Context compaction keeps long conversations alive. Agent teams can run extended parallel explorations. Typical use: hours of active pairing.</td>
-            <td>Tasks typically 1–30 min. GPT-5.3-Codex tested up to 7+ hours on complex tasks. Adapts thinking time dynamically based on complexity.</td>
-          </tr>
-          <tr>
-            <td>Surfaces</td>
-            <td>Terminal (primary). VS Code, JetBrains IDEs. GitHub Copilot (as cloud agent via Copilot Pro+). Also available via API.</td>
-            <td>ChatGPT sidebar (web), Codex CLI, VS Code IDE extension, <span class="cell-highlight">Codex macOS app</span> (Feb 2026 — command center for multi-agent orchestration), ChatGPT iOS.</td>
-          </tr>
-          <tr>
-            <td>CI/CD</td>
-            <td>Via MCP integrations + GitHub Actions. Custom workflows through Claude Code SDK.</td>
-            <td><strong>Codex Autofix</strong> — automated CI failure investigation. Automations run on schedule (issue triage, release briefs, monitoring).</td>
-          </tr>
-          <tr>
-            <td>Security Model</td>
-            <td>No sandbox — full local access. Permission modes (ask, auto-accept, yolo). CLAUDE.md can enforce per-project boundaries. Trust model mirrors giving a dev SSH access.</td>
-            <td>Sandboxed by default. Internet disabled. Cached or live web search optional. Configurable per-project via settings. Open-source sandbox code.</td>
-          </tr>
-          <tr>
-            <td>Pricing</td>
-            <td>Claude Max ($100–200/mo) for unlimited usage. Pay-as-you-go API billing also available. Teams/Enterprise included.</td>
-            <td>Included with ChatGPT Plus ($20/mo), Pro ($200/mo for 6× limits). Business/Enterprise. API via Responses API.</td>
-          </tr>
-          <tr>
-            <td>Market Position</td>
-            <td class="has-icon"><span class="icon-yes">✓</span> <strong>42% coding agent market share.</strong> $2.5B+ ARR. Used internally at Microsoft and Google. Fastest-growing developer tool in history.</td>
-            <td class="has-icon"><span class="icon-partial">~</span> 21% share. Strong async delegation story. Codex app positions it as "command center." Rapidly iterating (9 months of upgrades since launch).</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     SECTION 3: KNOWLEDGE WORKERS — For Non-Engineers
-     ============================================================ -->
-<section id="knowledge-workers" style="background: var(--bg-secondary); padding: 80px 0;">
-  <div class="container">
-    <span class="section-label fade-in">03 — For Knowledge Workers</span>
-    <h2 class="section-title fade-in">Beyond Engineering: Tools for Everyone Else</h2>
-    <p class="section-subtitle fade-in">What does each platform offer the non-technical knowledge worker — the analyst, marketer, sales rep, operations lead, or executive?</p>
-
-    <div class="comp-table-wrap fade-in">
-      <table class="comp-table">
-        <thead>
-          <tr>
-            <th>Capability</th>
-            <th class="col-a">Anthropic (Claude)</th>
-            <th class="col-b">OpenAI (ChatGPT)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>AI Chat / Assistant</td>
-            <td><strong>Claude.ai</strong> — web, mobile, desktop. Projects, memory, custom styles. File creation (docx, pptx, xlsx, pdf). Deep research mode. Ad-free.</td>
-            <td><strong>ChatGPT</strong> — web, mobile, desktop. Custom GPTs, GPT Store, Canvas editing. Image/video gen built in. 800M+ weekly users. Connectors to Slack, Drive, SharePoint.</td>
-          </tr>
-          <tr>
-            <td>Desktop Agent</td>
-            <td><span class="cell-highlight">Claude Cowork</span> — macOS + Windows. Point it at a folder, describe the outcome, walk away. Reads/writes local files. Parallel sub-agents. 11+ plugins for sales, finance, legal, marketing, data analysis. MCP connectors to CRMs, databases, tools. Persistent per-folder instructions. Built on same agent architecture as Claude Code.</td>
-            <td><strong>ChatGPT Desktop</strong> — quick-access overlay. Can read open apps via screenshot. Keyboard shortcut to summon. <strong>Operator</strong> — browser automation agent for web tasks (booking, forms, purchasing). Less focus on local file manipulation.</td>
-          </tr>
-          <tr>
-            <td>Enterprise Platform</td>
-            <td><strong>Claude Enterprise</strong> — SSO, SCIM, audit logs, expanded context, shared projects. Multi-cloud (AWS/GCP/Azure). Ad-free commitment. 300K+ business customers.</td>
-            <td><strong>ChatGPT Enterprise</strong> — unlimited GPT-5.2, RBAC, admin console, custom data retention. <strong>Frontier</strong> (Feb 2026) — new agent management platform for deploying "AI coworkers" with identity, permissions, memory. Uber, State Farm, Oracle as early adopters.</td>
-          </tr>
-          <tr>
-            <td>Spreadsheets</td>
-            <td><span class="cell-highlight">Claude in Excel</span> — direct manipulation via computer use. Works inside the actual Excel app. Also creates xlsx files natively in Claude.ai and Cowork.</td>
-            <td>ChatGPT Data Analysis — upload CSVs, code interpreter runs Python for charts and analysis. No direct Excel integration. GPT-5.2 improved spreadsheet artifact creation.</td>
-          </tr>
-          <tr>
-            <td>Presentations</td>
-            <td><span class="cell-highlight">Claude in PowerPoint</span> (Opus 4.6). Also creates .pptx natively in Claude.ai and Cowork from scratch or from data.</td>
-            <td>Canva integration in ChatGPT. No native .pptx creation. Gamma and other third-party GPTs fill the gap.</td>
-          </tr>
-          <tr>
-            <td>Browser Agent</td>
-            <td><strong>Claude for Chrome</strong> — controls tabs, browses, extracts data, fills forms. Pairs with Cowork for end-to-end desktop + web automation.</td>
-            <td><strong>Atlas</strong> (ChatGPT in Chrome) — embeds ChatGPT in browser. Smart quick actions, proactive suggestions. More assistant than agent.</td>
-          </tr>
-          <tr>
-            <td>Deep Research</td>
-            <td>Research mode (beta) — 220+ sources, multi-step web research, produces detailed reports with citations.</td>
-            <td>Deep Research — agent browses web for 5–30 min, produces comprehensive reports. Can target specific sites and use connected apps as sources.</td>
-          </tr>
-          <tr>
-            <td>Connectors & Data</td>
-            <td>MCP protocol (open standard) — connects to Slack, Google Drive, Jira, Salesforce, databases, and 100s more. Extensible by anyone.</td>
-            <td>Native apps — Slack, SharePoint, Drive, GitHub, Dropbox, Box. MCP connectors: Amplitude, Stripe, Monday, Vercel. "Company Knowledge" indexes internal data.</td>
-          </tr>
-          <tr>
-            <td>Scientific / Specialized</td>
-            <td>No dedicated product. Claude.ai handles science tasks generally.</td>
-            <td><strong>Prism</strong> — free AI workspace for scientists. LaTeX rendering, literature review, GPT-5.2 embedded. <strong>ChatGPT Health</strong> — consumer health app.</td>
-          </tr>
-          <tr>
-            <td>Multimodal Input</td>
-            <td>Text, images, PDFs. No native image/video generation.</td>
-            <td>Text, images, PDFs, audio, video. Native image gen (GPT Image 1.5), video gen (Sora 2), Advanced Voice with emotion detection.</td>
-          </tr>
-          <tr>
-            <td>Cloud & Security</td>
-            <td><span class="cell-highlight">Multi-cloud</span> — AWS Bedrock, GCP Vertex AI, Azure Foundry. SOC 2 Type II. No training on business data. Data residency via cloud regions.</td>
-            <td>Azure only for managed API. SOC 2 Type II, ISO 27001. No training on Business/Enterprise data. EU + Asia data residency options.</td>
-          </tr>
-          <tr>
-            <td>Ads Policy</td>
-            <td class="has-icon"><span class="icon-yes">✓</span> Committed ad-free across all products</td>
-            <td class="has-icon"><span class="icon-no">✗</span> Testing ads in Free/Go tiers (Jan 2026). Paid tiers ad-free.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     SECTION 4: INDUSTRY VERTICALS
-     ============================================================ -->
-<section id="industries" style="background: var(--bg-secondary); padding: 80px 0;">
-  <div class="container">
-    <span class="section-label fade-in">04 — Industry Verticals</span>
-    <h2 class="section-title fade-in">Who Wins Where?</h2>
-    <p class="section-subtitle fade-in">Both platforms are pushing into regulated, high-value verticals. Here's how each is positioned by industry.</p>
-
-    <div class="comp-table-wrap fade-in">
-      <table class="comp-table">
-        <thead>
-          <tr>
-            <th>Industry</th>
-            <th class="col-a">Anthropic (Claude)</th>
-            <th class="col-b">OpenAI (ChatGPT)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Financial Services</td>
-            <td><span class="cell-highlight">Strong advantage.</span> Opus 4.6 leads GDPval-AA (finance benchmark). Claude for Financial Services integrates with FactSet, Daloopa, Databricks, Snowflake, PitchBook, S&amp;P Global. Builds financial models in Excel, generates pitch decks. Goldman Sachs, hedge funds, banks as customers. Finance plugin for Cowork automates due diligence, market research, investment memos.</td>
-            <td>ChatGPT Enterprise with Compliance API for regulated logging/audit. Carlyle uses AgentKit for multi-agent due diligence (50% faster dev, 30% accuracy gains). Data Analysis mode for financial modeling. Frontier platform for deploying finance-specific AI coworkers. Strong at broad analysis but lacks dedicated financial data connectors.</td>
-          </tr>
-          <tr>
-            <td>Healthcare</td>
-            <td><span class="cell-highlight">Claude for Healthcare</span> (Jan 2026). HIPAA-ready infrastructure, BAA available. Native connectors to CMS Coverage Database, ICD-10 codes, PubMed. HealthEx integration for EHR access. Extends Claude for Life Sciences (Oct 2025) into clinical ops and regulatory. Available via Microsoft Foundry for healthcare orgs. Enterprise-focused: prior auth, claims appeals, care coordination.</td>
-            <td><span class="cell-highlight">OpenAI for Healthcare</span> (Jan 2026). ChatGPT for Healthcare workspace with GPT-5 physician-tested models. Citations from peer-reviewed studies. Templates for discharge summaries, prior auth, clinical letters. BAA available. Early adopters: Boston Children's, Cedars-Sinai, Stanford Medicine, HCA, Memorial Sloan Kettering. ChatGPT Health (consumer) — 40M+ daily health queries. Deeper consumer health play.</td>
-          </tr>
-          <tr>
-            <td>Legal</td>
-            <td><span class="cell-highlight">Legal plugin for Cowork</span> (Jan 2026). Automates contract review, NDAs, compliance checks. Opus 4.6 leads legal benchmarks on GDPval-AA. 1M token context ideal for long contracts and regulatory filings. Direct document creation (docx) in Claude.ai and Cowork. Triggered stock selloff in legal tech companies on announcement.</td>
-            <td>ChatGPT Enterprise used by law firms for research, document drafting. Enterprise Compliance API supports eDiscovery and DLP for regulated legal workflows. Canvas mode for collaborative document editing. No dedicated legal product or plugin yet. Relies on general-purpose capabilities + custom GPTs.</td>
-          </tr>
-          <tr>
-            <td>Government &amp; Defense</td>
-            <td>Available on AWS GovCloud (via Bedrock) and Azure Government (via Foundry). Multi-cloud gives agencies deployment flexibility. $200M Pentagon "frontier AI" contract alongside OpenAI, Google, xAI. SOC 2, FedRAMP pathways via cloud partners.</td>
-            <td>ChatGPT integrated into Pentagon's GenAI.mil platform (Feb 2026) — available to all 3M DOD personnel. $200M frontier AI contract. Azure Government deployment. Strong government adoption story through Microsoft partnership. 1M+ GenAI.mil users already.</td>
-          </tr>
-          <tr>
-            <td>Life Sciences &amp; Pharma</td>
-            <td><span class="cell-highlight">Claude for Life Sciences</span> (Oct 2025). Extended to clinical operations and regulatory affairs. Preclinical R&amp;D, clinical trial design, regulatory submissions. Biology Research plugin for Cowork. PubMed and scientific database connectors. Low hallucination rates emphasized for scientific integrity.</td>
-            <td>OpenAI for Healthcare extends to pharma/biotech. <strong>Prism</strong> — free AI workspace for scientists with LaTeX, literature review. API with HIPAA compliance for custom pharma workflows. Less specialized tooling than Anthropic but Prism is a unique dedicated science product.</td>
-          </tr>
-          <tr>
-            <td>Professional Services</td>
-            <td>Consulting, advisory, audit firms. Strong fit for long-document analysis (1M context), report generation (docx/pptx/xlsx), and multi-source research. Cowork plugins for sales, finance, marketing. PwC, Deloitte-type workflows: due diligence, benchmarking, deliverable creation.</td>
-            <td>ChatGPT Enterprise widely adopted at consulting firms. Canvas for collaborative editing. Deep Research for client-facing reports. Custom GPTs for firm-specific workflows. Broader multimodal capabilities (presentations via Canva, image gen for client decks). GPT Store for sharing internal tools.</td>
-          </tr>
-          <tr>
-            <td>Software &amp; Technology</td>
-            <td><span class="cell-highlight">Dominant via Claude Code.</span> 42% coding market share. Used internally at Microsoft and Google. Agent Teams for complex engineering. MCP ecosystem for DevOps toolchain. Cowork for non-eng tech workers (PMs, designers, analysts). Multi-cloud deployment aligns with tech companies' existing infra.</td>
-            <td>Strong with Codex ecosystem (CLI, app, IDE, cloud). Codex Autofix for CI/CD. GitHub integration is native. Frontier platform for custom agent deployment. 10× Codex usage growth since Aug 2025. Cisco cut code review times 50% with Codex. Codex app positions as "command center" for eng orgs.</td>
-          </tr>
-          <tr>
-            <td>Insurance</td>
-            <td>Claude for Healthcare covers payer workflows: prior auth, claims appeals, triage. Finance plugin handles actuarial and analytical workloads. HIPAA-ready. Long-context window ideal for policy document analysis.</td>
-            <td>State Farm is early Frontier adopter. Enterprise Compliance API supports insurance regulatory requirements. Custom GPTs for underwriting, claims processing. DLP integrations for sensitive data handling.</td>
-          </tr>
-          <tr>
-            <td>Education</td>
-            <td>Claude.ai widely used in higher ed. No dedicated education tier. Strong writing and analysis capabilities. Projects feature good for course-based work.</td>
-            <td><strong>ChatGPT Edu</strong> — dedicated education tier with admin controls, campus-wide deployment, custom GPTs for courses. Prism for scientific research. Larger existing user base among students (800M+ weekly users).</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     SECTION 5: PRICING COMPARISON
-     ============================================================ -->
-<section id="pricing" style="background: var(--bg-secondary); padding: 80px 0;">
-  <div class="container">
-    <span class="section-label fade-in">05 — Pricing</span>
-    <h2 class="section-title fade-in">Subscription Plans</h2>
-    <p class="section-subtitle fade-in">Consumer and business pricing tiers side by side.</p>
-
-    <div class="pricing-grid fade-in">
-      <!-- ANTHROPIC PRICING -->
-      <div class="pricing-col" style="border-color: rgba(212,132,90,0.2);">
-        <div class="pricing-col-header">
-          <h3 style="color: var(--accent-a);">Anthropic (Claude)</h3>
-          <p>Enterprise-first. ~80% revenue from business.</p>
-        </div>
-        <!-- Add/edit tiers here -->
-        <div class="pricing-tier">
-          <div>
-            <div class="pricing-tier-name">Free</div>
-            <div class="pricing-tier-note">Limited messages, Sonnet model</div>
-          </div>
-          <div class="pricing-tier-price">$0</div>
-        </div>
-        <div class="pricing-tier">
-          <div>
-            <div class="pricing-tier-name">Pro</div>
-            <div class="pricing-tier-note">All models, web search, Projects, more usage</div>
-          </div>
-          <div class="pricing-tier-price">$20/mo</div>
-        </div>
-        <div class="pricing-tier">
-          <div>
-            <div class="pricing-tier-name">Max</div>
-            <div class="pricing-tier-note">Cowork, Chrome agent, highest limits, Opus priority</div>
-          </div>
-          <div class="pricing-tier-price">$100–200/mo</div>
-        </div>
-        <div class="pricing-tier">
-          <div>
-            <div class="pricing-tier-name">Team</div>
-            <div class="pricing-tier-note">Shared projects, admin controls</div>
-          </div>
-          <div class="pricing-tier-price">$30/user/mo<br><span style="font-size:11px;color:var(--slate-400)">$25 annual</span></div>
-        </div>
-        <div class="pricing-tier">
-          <div>
-            <div class="pricing-tier-name">Enterprise</div>
-            <div class="pricing-tier-note">SSO, SCIM, audit logs, expanded context, dedicated support</div>
-          </div>
-          <div class="pricing-tier-price">Custom</div>
-        </div>
+    <!-- Model Lineup -->
+    <div class="fade-in" style="margin-top: 32px;">
+      <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px;">
+        <span style="background: var(--accent-a); color: #fff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.06em;">Models</span>
+        <h3 style="font-family: var(--font-display); font-size: 18px; color: var(--text-primary); margin: 0;">Current Model Lineup</h3>
       </div>
 
-      <!-- OPENAI PRICING -->
-      <div class="pricing-col" style="border-color: rgba(90,170,138,0.2);">
-        <div class="pricing-col-header">
-          <h3 style="color: var(--accent-b);">OpenAI (ChatGPT)</h3>
-          <p>Consumer-first. 800M+ weekly users.</p>
-        </div>
-        <div class="pricing-tier">
-          <div>
-            <div class="pricing-tier-name">Free</div>
-            <div class="pricing-tier-note">GPT-5.2 Instant, ~10 msgs/5hr, ad-supported</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+        <!-- Anthropic Column -->
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+          <div style="font-size: 13px; font-weight: 700; color: var(--accent-a); margin-bottom: 12px;">Anthropic (Claude)</div>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="padding-left: 10px; border-left: 2px solid var(--accent-a);">
+              <div style="font-size: 12px; font-weight: 700; color: var(--text-primary);">Opus 4.6 <span style="font-weight: 400; color: var(--text-muted);">— Feb 2026</span></div>
+              <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Most intelligent model. 1M context (beta). #1 on finance agent benchmark. Agent teams, PowerPoint creation, deep research.</div>
+            </div>
+            <div style="padding-left: 10px; border-left: 2px solid var(--accent-a);">
+              <div style="font-size: 12px; font-weight: 700; color: var(--text-primary);">Sonnet 4.5 <span style="font-weight: 400; color: var(--text-muted);">— Sep 2025</span></div>
+              <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Best coding model. 77.2% SWE-bench. Powers Claude Code and Agentforce. Best speed/intelligence balance.</div>
+            </div>
+            <div style="padding-left: 10px; border-left: 2px solid var(--accent-a);">
+              <div style="font-size: 12px; font-weight: 700; color: var(--text-primary);">Haiku 4.5 <span style="font-weight: 400; color: var(--text-muted);">— Oct 2025</span></div>
+              <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Fastest, cheapest. Matches Sonnet 4 performance. Ideal for high-volume API, real-time agents, cost-sensitive deployments.</div>
+            </div>
           </div>
-          <div class="pricing-tier-price">$0</div>
         </div>
-        <div class="pricing-tier">
-          <div>
-            <div class="pricing-tier-name">Plus</div>
-            <div class="pricing-tier-note">GPT-5.2 Thinking, 5x limits, DALL-E, voice</div>
+
+        <!-- OpenAI Column -->
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+          <div style="font-size: 13px; font-weight: 700; color: var(--text-secondary); margin-bottom: 12px;">OpenAI (GPT)</div>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="padding-left: 10px; border-left: 2px solid var(--border-light);">
+              <div style="font-size: 12px; font-weight: 700; color: var(--text-primary);">GPT-5.2 Thinking <span style="font-weight: 400; color: var(--text-muted);">— Jan 2026</span></div>
+              <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Flagship reasoning model. Expert-level on GDPval knowledge work. Now default for Enterprise. GPT-4o retired Feb 2026.</div>
+            </div>
+            <div style="padding-left: 10px; border-left: 2px solid var(--border-light);">
+              <div style="font-size: 12px; font-weight: 700; color: var(--text-primary);">GPT-5.3-Codex <span style="font-weight: 400; color: var(--text-muted);">— Feb 2026</span></div>
+              <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Most capable coding model. Combined Codex + GPT-5 stacks. Codex-Spark variant on Cerebras for real-time coding (1000+ tok/s).</div>
+            </div>
+            <div style="padding-left: 10px; border-left: 2px solid var(--border-light);">
+              <div style="font-size: 12px; font-weight: 700; color: var(--text-primary);">GPT-5 Instant <span style="font-weight: 400; color: var(--text-muted);">— Aug 2025</span></div>
+              <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Fast responses for simple queries. Auto-router decides when to escalate to Thinking. Free tier default.</div>
+            </div>
           </div>
-          <div class="pricing-tier-price">$20/mo</div>
-        </div>
-        <div class="pricing-tier">
-          <div>
-            <div class="pricing-tier-name">Pro</div>
-            <div class="pricing-tier-note">Unlimited GPT-5.2 Pro, Sora 2 Pro, max compute</div>
-          </div>
-          <div class="pricing-tier-price">$200/mo</div>
-        </div>
-        <div class="pricing-tier">
-          <div>
-            <div class="pricing-tier-name">Team</div>
-            <div class="pricing-tier-note">Unlimited GPT-5.2, admin controls, shared workspace</div>
-          </div>
-          <div class="pricing-tier-price">$25–30/user/mo</div>
-        </div>
-        <div class="pricing-tier">
-          <div>
-            <div class="pricing-tier-name">Enterprise</div>
-            <div class="pricing-tier-note">Unlimited msgs, RBAC, SOC 2, SSO, custom data retention, API credits</div>
-          </div>
-          <div class="pricing-tier-price">Custom</div>
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ============================================================
-     SECTION 5: RECENT DEVELOPMENTS (Timeline)
-     To add a new entry: copy a .tl-entry block and change the
-     date, who-tag, title, and body text.
-     ============================================================ -->
-<section id="developments" style="background: var(--bg-secondary); padding: 80px 0;">
-  <div class="container">
-    <span class="section-label fade-in">06 — Updates</span>
-    <h2 class="section-title fade-in">Recent Developments</h2>
-    <p class="section-subtitle fade-in">Key announcements and releases. Newest first.</p>
-
-    <div class="timeline">
-
-      <!-- === COPY FROM HERE TO ADD A NEW ENTRY === -->
-      <div class="tl-entry">
-        <div class="tl-date">Feb 13, 2026</div>
-        <span class="tl-who who-openai">OpenAI</span>
-        <div class="tl-title">Retiring GPT-4o and legacy models from ChatGPT</div>
-        <div class="tl-body">GPT-4o, GPT-4.1, GPT-4.1 mini, o4-mini, and GPT-5 (Instant and Thinking) officially retired from ChatGPT today.</div>
-      </div>
-      <!-- === END ENTRY === -->
-
-      <div class="tl-entry">
-        <div class="tl-date">Feb 12, 2026</div>
-        <span class="tl-who who-openai">OpenAI</span>
-        <div class="tl-title">GPT-5.3-Codex-Spark released</div>
-        <div class="tl-body">New lightweight Codex model for faster agentic coding. Complements the full GPT-5.3-Codex.</div>
+    <!-- Products Comparison -->
+    <div class="fade-in" style="margin-top: 40px;">
+      <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px;">
+        <span style="background: var(--accent-a); color: #fff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.06em;">Products</span>
+        <h3 style="font-family: var(--font-display); font-size: 18px; color: var(--text-primary); margin: 0;">Enterprise Product Landscape</h3>
       </div>
 
-      <div class="tl-entry">
-        <div class="tl-date">Feb 11, 2026</div>
-        <span class="tl-who who-anthropic">Anthropic</span>
-        <div class="tl-title">Claude Cowork launches on Windows</div>
-        <div class="tl-body">Full feature parity with macOS: file access, multi-step tasks, plugins, MCP connectors. Brings Cowork to ~70% of desktop market.</div>
-      </div>
-
-      <div class="tl-entry">
-        <div class="tl-date">Feb 10, 2026</div>
-        <span class="tl-who who-openai">OpenAI</span>
-        <div class="tl-title">Deep Research upgraded with MCP + site targeting</div>
-        <div class="tl-body">Can now focus research on specific websites and connected apps. Redesigned sidebar and fullscreen report view.</div>
-      </div>
-
-      <div class="tl-entry">
-        <div class="tl-date">Feb 9, 2026</div>
-        <span class="tl-who who-openai">OpenAI</span>
-        <div class="tl-title">Testing ads in ChatGPT</div>
-        <div class="tl-body">US ad test begins for Free and Go users. Paid plans stay ad-free. Ads labeled, with privacy controls.</div>
-      </div>
-
-      <div class="tl-entry">
-        <div class="tl-date">Feb 5, 2026</div>
-        <span class="tl-who who-both">Both</span>
-        <div class="tl-title">Anthropic: Opus 4.6 &nbsp;|&nbsp; OpenAI: Frontier platform</div>
-        <div class="tl-body">Anthropic launches Claude Opus 4.6 with agent teams, PowerPoint, 1M context. OpenAI launches Frontier, an enterprise platform for building and managing AI agents.</div>
-      </div>
-
-      <div class="tl-entry">
-        <div class="tl-date">Jan 27, 2026</div>
-        <span class="tl-who who-openai">OpenAI</span>
-        <div class="tl-title">Prism launched for scientists</div>
-        <div class="tl-body">Free AI workspace embedding GPT-5.2 into scientific paper-writing with LaTeX integration and literature review.</div>
-      </div>
-
-      <div class="tl-entry">
-        <div class="tl-date">Jan 12, 2026</div>
-        <span class="tl-who who-anthropic">Anthropic</span>
-        <div class="tl-title">Claude Cowork launched (macOS)</div>
-        <div class="tl-body">Desktop agent for non-developers. Local file access, plugins, parallel task execution. Built in ~1.5 weeks using Claude Code. Triggered $285B SaaS stock selloff.</div>
-      </div>
-
-      <div class="tl-entry">
-        <div class="tl-date">Dec 11, 2025</div>
-        <span class="tl-who who-openai">OpenAI</span>
-        <div class="tl-title">GPT-5.2 released</div>
-        <div class="tl-body">Next-gen model with Instant/Thinking/Pro routing. Improved professional knowledge work, spreadsheet creation, and long-context retrieval.</div>
-      </div>
-
-      <div class="tl-entry">
-        <div class="tl-date">Nov 24, 2025</div>
-        <span class="tl-who who-anthropic">Anthropic</span>
-        <div class="tl-title">Claude Opus 4.5 released</div>
-        <div class="tl-body">State-of-the-art for coding and enterprise tasks. Pricing at $5/$25 per M tokens. Infinite Chats feature eliminates context window errors.</div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     SECTION 6: KEY DIFFERENTIATORS
-     ============================================================ -->
-<section id="differentiators" style="background: var(--bg-secondary); padding: 80px 0;">
-  <div class="container">
-    <span class="section-label fade-in">07 — Competitive Edge</span>
-    <h2 class="section-title fade-in">Key Differentiators</h2>
-    <p class="section-subtitle fade-in">Where each company has a clear advantage.</p>
-
-    <div class="cards-grid fade-in">
-      <!-- ANTHROPIC ADVANTAGES -->
-      <div class="diff-card">
-        <span class="diff-card-badge badge-anthropic">Anthropic Advantage</span>
-        <h3>Multi-Cloud Distribution</h3>
-        <p>Available on AWS Bedrock, GCP Vertex AI, and Azure Foundry. OpenAI is Azure-only for managed services.</p>
-        <ul>
-          <li>Customers avoid cloud vendor lock-in</li>
-          <li>Deploy where data already lives</li>
-          <li>Critical for regulated multi-cloud enterprises</li>
-        </ul>
-      </div>
-
-      <div class="diff-card">
-        <span class="diff-card-badge badge-anthropic">Anthropic Advantage</span>
-        <h3>Coding Agent Dominance</h3>
-        <p>Claude Code holds 42% coding agent market share vs. OpenAI's 21%. Used internally by Microsoft and Google.</p>
-        <ul>
-          <li>$2.5B+ ARR from Claude Code alone</li>
-          <li>Local-first with full environment access</li>
-          <li>Subagents + Agent Teams for parallel work</li>
-        </ul>
-      </div>
-
-      <div class="diff-card">
-        <span class="diff-card-badge badge-anthropic">Anthropic Advantage</span>
-        <h3>Desktop Agent (Cowork)</h3>
-        <p>Local file access, parallel sub-agents, plugin ecosystem for sales/finance/legal/marketing. "Vibe working" era.</p>
-        <ul>
-          <li>Works directly on your files — not just cloud</li>
-          <li>Open plugin architecture via MCP</li>
-          <li>Triggered $285B SaaS stock repricing</li>
-        </ul>
-      </div>
-
-      <div class="diff-card">
-        <span class="diff-card-badge badge-anthropic">Anthropic Advantage</span>
-        <h3>Context Window &amp; Computer Use</h3>
-        <p>1M token context (Opus 4.6) vs. 256K. Industry-leading computer use powering Chrome, Excel, and Cowork agents.</p>
-        <ul>
-          <li>4x larger context than GPT-5.2</li>
-          <li>Computer use launched Oct 2024, well ahead</li>
-          <li>No ads — committed ad-free experience</li>
-        </ul>
-      </div>
-
-      <!-- OPENAI ADVANTAGES -->
-      <div class="diff-card">
-        <span class="diff-card-badge badge-openai">OpenAI Advantage</span>
-        <h3>Multimodal Breadth</h3>
-        <p>Image generation (DALL-E / GPT Image 1.5), video (Sora 2 Pro), advanced voice, and realtime audio API.</p>
-        <ul>
-          <li>Full creative suite in one platform</li>
-          <li>No Anthropic equivalent for image/video/voice</li>
-          <li>Sora 2 Pro for enterprise video workflows</li>
-        </ul>
-      </div>
-
-      <div class="diff-card">
-        <span class="diff-card-badge badge-openai">OpenAI Advantage</span>
-        <h3>Consumer Scale &amp; Brand</h3>
-        <p>800M+ weekly users. Dominant consumer AI brand with GPT Store ecosystem and app integrations.</p>
-        <ul>
-          <li>42x more users than Claude (~19M MAU)</li>
-          <li>GPT Store + Custom GPTs ecosystem</li>
-          <li>App integrations: Canva, Figma, Spotify, etc.</li>
-        </ul>
-      </div>
-
-      <div class="diff-card">
-        <span class="diff-card-badge badge-openai">OpenAI Advantage</span>
-        <h3>Enterprise Agent Platform (Frontier)</h3>
-        <p>Purpose-built platform for deploying, managing, and governing AI agents at enterprise scale. Works with any agent.</p>
-        <ul>
-          <li>Agent identity, permissions, onboarding</li>
-          <li>Open platform — manage non-OpenAI agents too</li>
-          <li>Forward Deployed Engineers for enterprise</li>
-        </ul>
-      </div>
-
-      <div class="diff-card">
-        <span class="diff-card-badge badge-openai">OpenAI Advantage</span>
-        <h3>Open-Weight Models &amp; Microsoft</h3>
-        <p>gpt-oss (Apache 2.0) for self-hosting. Deep Microsoft partnership with 27% stake and Azure distribution.</p>
-        <ul>
-          <li>Only major lab offering open-weight frontier models</li>
-          <li>Microsoft ecosystem integration</li>
-          <li>ServiceNow, Snowflake enterprise partnerships</li>
-        </ul>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 10px; padding: 16px;">
+          <div style="font-size: 10px; font-weight: 600; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.04em;">For Developers</div>
+          <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin: 6px 0 4px;">Claude Code vs. Codex</div>
+          <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Claude Code: terminal-native, 30+ hr sessions, plan mode. Used by Microsoft, Google engineers. Codex: IDE-integrated, Spark for real-time, stronger Windows support.</div>
+        </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 10px; padding: 16px;">
+          <div style="font-size: 10px; font-weight: 600; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.04em;">For Knowledge Workers</div>
+          <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin: 6px 0 4px;">Cowork vs. ChatGPT Enterprise</div>
+          <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Cowork: local VM, file access, MCP integrations. Excel, PowerPoint, Chrome add-ins. ChatGPT: Canvas for docs, GPT Builder, broader consumer reach, testing ads.</div>
+        </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 10px; padding: 16px;">
+          <div style="font-size: 10px; font-weight: 600; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.04em;">For the Platform</div>
+          <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin: 6px 0 4px;">API & Multi-Cloud</div>
+          <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Claude: available on AWS Bedrock, GCP Vertex, Azure. Constitutional AI, data residency controls. OpenAI: Azure-exclusive cloud, Responses API, structured outputs GA.</div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ============================================================
-     SECTION 7: QUICK-REFERENCE FEATURE CHECKLIST
-     ============================================================ -->
-<section id="checklist" style="background: var(--bg-secondary); padding: 80px 0;">
-  <div class="container">
-    <span class="section-label fade-in">08 — Quick Reference</span>
-    <h2 class="section-title fade-in">Feature Checklist</h2>
-    <p class="section-subtitle fade-in">At-a-glance capability comparison for fast lookups.</p>
+    <!-- Key Differentiators -->
+    <div class="fade-in" style="margin-top: 40px;">
+      <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px;">
+        <span style="background: var(--accent-b); color: #fff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.06em;">Why Claude</span>
+        <h3 style="font-family: var(--font-display); font-size: 18px; color: var(--text-primary); margin: 0;">Anthropic's Competitive Edge</h3>
+      </div>
 
-    <div class="comp-table-wrap fade-in">
-      <table class="checklist-table">
-        <thead>
-          <tr>
-            <th>Feature</th>
-            <th style="color: var(--accent-a);">Anthropic</th>
-            <th style="color: var(--accent-b);">OpenAI</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Image Generation</td><td class="has-icon"><span class="icon-no">✗</span></td><td class="has-icon"><span class="icon-yes">✓</span></td></tr>
-          <tr><td>Video Generation</td><td class="has-icon"><span class="icon-no">✗</span></td><td class="has-icon"><span class="icon-yes">✓</span></td></tr>
-          <tr><td>Voice / Audio</td><td class="has-icon"><span class="icon-partial">~</span></td><td class="has-icon"><span class="icon-yes">✓</span></td></tr>
-          <tr><td>Web Search</td><td class="has-icon"><span class="icon-yes">✓</span></td><td class="has-icon"><span class="icon-yes">✓</span></td></tr>
-          <tr><td>Deep Research</td><td class="has-icon"><span class="icon-yes">✓</span></td><td class="has-icon"><span class="icon-yes">✓</span></td></tr>
-          <tr><td>Computer Use</td><td class="has-icon"><span class="icon-yes">✓</span> leader</td><td class="has-icon"><span class="icon-partial">~</span> preview</td></tr>
-          <tr><td>Desktop Agent</td><td class="has-icon"><span class="icon-yes">✓</span> leader</td><td class="has-icon"><span class="icon-yes">✓</span></td></tr>
-          <tr><td>Browser Agent</td><td class="has-icon"><span class="icon-yes">✓</span></td><td class="has-icon"><span class="icon-yes">✓</span></td></tr>
-          <tr><td>Coding Agent</td><td class="has-icon"><span class="icon-yes">✓</span> 42%</td><td class="has-icon"><span class="icon-yes">✓</span> 21%</td></tr>
-          <tr><td>Excel Integration</td><td class="has-icon"><span class="icon-yes">✓</span> beta</td><td class="has-icon"><span class="icon-no">✗</span></td></tr>
-          <tr><td>PowerPoint</td><td class="has-icon"><span class="icon-yes">✓</span></td><td class="has-icon"><span class="icon-no">✗</span> (Canva app)</td></tr>
-          <tr><td>Multi-Cloud (AWS/GCP/Azure)</td><td class="has-icon"><span class="icon-yes">✓</span></td><td class="has-icon"><span class="icon-no">✗</span> Azure only</td></tr>
-          <tr><td>Open-Weight Models</td><td class="has-icon"><span class="icon-no">✗</span></td><td class="has-icon"><span class="icon-yes">✓</span></td></tr>
-          <tr><td>Ad-Free</td><td class="has-icon"><span class="icon-yes">✓</span> committed</td><td class="has-icon"><span class="icon-no">✗</span> testing ads</td></tr>
-          <tr><td>Enterprise Agent Platform</td><td class="has-icon"><span class="icon-no">✗</span></td><td class="has-icon"><span class="icon-yes">✓</span> Frontier</td></tr>
-          <tr><td>Scientific Workspace</td><td class="has-icon"><span class="icon-no">✗</span></td><td class="has-icon"><span class="icon-yes">✓</span> Prism</td></tr>
-          <tr><td>Context Window (max)</td><td><span class="cell-highlight">1M tokens</span></td><td>256K tokens</td></tr>
-          <tr><td>Healthcare Product</td><td class="has-icon"><span class="icon-yes">✓</span></td><td class="has-icon"><span class="icon-yes">✓</span></td></tr>
-        </tbody>
-      </table>
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;">
+        <div style="background: #f5f3ed; border-radius: 10px; padding: 16px; text-align: center;">
+          <div style="font-size: 22px; margin-bottom: 6px;">&#x1F6E1;</div>
+          <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">Constitutional AI</div>
+          <div style="font-size: 11px; color: var(--text-muted); line-height: 1.4;">Built-in safety alignment. Explainable decisions. Regulatory-ready for finance, healthcare, government.</div>
+        </div>
+        <div style="background: #f5f3ed; border-radius: 10px; padding: 16px; text-align: center;">
+          <div style="font-size: 22px; margin-bottom: 6px;">&#x2601;</div>
+          <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">Multi-Cloud</div>
+          <div style="font-size: 11px; color: var(--text-muted); line-height: 1.4;">AWS, GCP, Azure. No vendor lock-in. Data residency controls. OpenAI is Azure-only for cloud.</div>
+        </div>
+        <div style="background: #f5f3ed; border-radius: 10px; padding: 16px; text-align: center;">
+          <div style="font-size: 22px; margin-bottom: 6px;">&#x1F4BB;</div>
+          <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">Enterprise DNA</div>
+          <div style="font-size: 11px; color: var(--text-muted); line-height: 1.4;">80% of revenue from enterprise. Salesforce, AWS, Notion, Zoom integrations. No ads — ever.</div>
+        </div>
+        <div style="background: #f5f3ed; border-radius: 10px; padding: 16px; text-align: center;">
+          <div style="font-size: 22px; margin-bottom: 6px;">&#x1F9E0;</div>
+          <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">Context & Reasoning</div>
+          <div style="font-size: 11px; color: var(--text-muted); line-height: 1.4;">1M token context. Infinite chats. #1 finance agent benchmark. Agent Skills for specialized workflows.</div>
+        </div>
+      </div>
     </div>
+
+    <!-- Recent Timeline -->
+    <div class="fade-in" style="margin-top: 40px;">
+      <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px;">
+        <span style="background: var(--accent-a); color: #fff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.06em;">Timeline</span>
+        <h3 style="font-family: var(--font-display); font-size: 18px; color: var(--text-primary); margin: 0;">Key Developments</h3>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px;">
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-top: 3px solid var(--accent-a); border-radius: 0 0 10px 10px; padding: 12px; text-align: center;">
+          <div style="font-size: 10px; font-weight: 700; color: var(--accent-a);">SEP 2025</div>
+          <div style="font-size: 11px; font-weight: 600; color: var(--text-primary); margin-top: 4px;">Sonnet 4.5</div>
+          <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">77.2% SWE-bench. Best coding model.</div>
+        </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-top: 3px solid var(--accent-a); border-radius: 0 0 10px 10px; padding: 12px; text-align: center;">
+          <div style="font-size: 10px; font-weight: 700; color: var(--accent-a);">NOV 2025</div>
+          <div style="font-size: 11px; font-weight: 600; color: var(--text-primary); margin-top: 4px;">Opus 4.5</div>
+          <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">Coding + spreadsheets. $5/$25 per M tokens.</div>
+        </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-top: 3px solid #888; border-radius: 0 0 10px 10px; padding: 12px; text-align: center;">
+          <div style="font-size: 10px; font-weight: 700; color: #888;">JAN 2026</div>
+          <div style="font-size: 11px; font-weight: 600; color: var(--text-primary); margin-top: 4px;">GPT-5.2</div>
+          <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">OpenAI flagship. Expert-level knowledge work.</div>
+        </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-top: 3px solid var(--accent-a); border-radius: 0 0 10px 10px; padding: 12px; text-align: center;">
+          <div style="font-size: 10px; font-weight: 700; color: var(--accent-a);">JAN 2026</div>
+          <div style="font-size: 11px; font-weight: 600; color: var(--text-primary); margin-top: 4px;">Cowork Launch</div>
+          <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">Desktop preview. Local VM. File access + MCP.</div>
+        </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-top: 3px solid var(--accent-a); border-radius: 0 0 10px 10px; padding: 12px; text-align: center;">
+          <div style="font-size: 10px; font-weight: 700; color: var(--accent-a);">FEB 2026</div>
+          <div style="font-size: 11px; font-weight: 600; color: var(--text-primary); margin-top: 4px;">Opus 4.6</div>
+          <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">#1 finance benchmark. Agent teams. PPT creation.</div>
+        </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-top: 3px solid #888; border-radius: 0 0 10px 10px; padding: 12px; text-align: center;">
+          <div style="font-size: 10px; font-weight: 700; color: #888;">FEB 2026</div>
+          <div style="font-size: 11px; font-weight: 600; color: var(--text-primary); margin-top: 4px;">GPT-5.3 Codex</div>
+          <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">OpenAI agentic coding. Cerebras partnership.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pricing Quick Comparison -->
+    <div class="fade-in" style="margin-top: 40px;">
+      <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px;">
+        <span style="background: var(--accent-a); color: #fff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.06em;">Pricing</span>
+        <h3 style="font-family: var(--font-display); font-size: 18px; color: var(--text-primary); margin: 0;">API Pricing Snapshot</h3>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;">
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 10px; padding: 16px;">
+          <div style="font-size: 12px; font-weight: 700; color: var(--accent-a); margin-bottom: 10px;">Claude API (per M tokens)</div>
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <div style="display: flex; justify-content: space-between; font-size: 11px;"><span style="color: var(--text-primary); font-weight: 600;">Opus 4.6</span><span style="color: var(--text-muted);">$5 in / $25 out</span></div>
+            <div style="display: flex; justify-content: space-between; font-size: 11px;"><span style="color: var(--text-primary); font-weight: 600;">Sonnet 4.5</span><span style="color: var(--text-muted);">$3 in / $15 out</span></div>
+            <div style="display: flex; justify-content: space-between; font-size: 11px;"><span style="color: var(--text-primary); font-weight: 600;">Haiku 4.5</span><span style="color: var(--text-muted);">$0.80 in / $4 out</span></div>
+          </div>
+        </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 10px; padding: 16px;">
+          <div style="font-size: 12px; font-weight: 700; color: var(--text-secondary); margin-bottom: 10px;">OpenAI API (per M tokens)</div>
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <div style="display: flex; justify-content: space-between; font-size: 11px;"><span style="color: var(--text-primary); font-weight: 600;">GPT-5.2</span><span style="color: var(--text-muted);">$1.75 in / $14 out</span></div>
+            <div style="display: flex; justify-content: space-between; font-size: 11px;"><span style="color: var(--text-primary); font-weight: 600;">GPT-5.2 Pro</span><span style="color: var(--text-muted);">$15 in / $60 out</span></div>
+            <div style="display: flex; justify-content: space-between; font-size: 11px;"><span style="color: var(--text-primary); font-weight: 600;">GPT-5 Instant</span><span style="color: var(--text-muted);">$1.25 in / $5 out</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
-
-
 <!-- ============================================================
      FOOTER
      ============================================================ -->
 <footer class="site-footer">
   <div class="container">
     <!-- === EDIT YOUR NAME AND DATE HERE === -->
-    <p>Last updated: <strong>February 13, 2026</strong> · Prepared by <strong>Ryan</strong></p>
+    <p>Last updated: <strong>February 15, 2026</strong> · Prepared by <strong>Ryan</strong></p>
     <p style="margin-top:6px;">Sources: Anthropic blog, OpenAI announcements, Wikipedia, CNBC, VentureBeat, TechCrunch, Axios</p>
   </div>
 </footer>
