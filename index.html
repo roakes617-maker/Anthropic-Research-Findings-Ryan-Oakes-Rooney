@@ -798,58 +798,81 @@ section:last-of-type { border-bottom: none; }
         <span style="font-size: 12px; color: var(--text-tertiary);">— 8 Gartner reports · Full product portfolio mapped</span>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;">
-        <div class="wa-vert-card" style="display: flex; flex-direction: column;">
-          <div class="wa-vert-num">01</div>
-          <div class="wa-vert-name">Services</div>
-          <div style="display: flex; flex-direction: column; gap: 4px; margin-bottom: 4px; min-height: 52px;"><span class="wa-pill wa-pill-metric" style="display: inline-block; width: fit-content;">$2.38T spend by 2029</span><span class="wa-pill wa-pill-metric" style="display: inline-block; width: fit-content;">$257B+ Big 4 + MBB revenue</span></div>
-          <div style="margin: 14px 0 10px; padding-left: 12px; border-left: 2px solid var(--accent-a); min-height: 85px;">
-            <div style="font-size: 12px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Why it fits</div>
-            <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Output value tied to knowledge worker expertise and speed. Quality + speed = margins.</div>
+      <!-- Vertical cards: stacked row layout -->
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+
+        <!-- Card 1: Services -->
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 14px; padding: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+          <div style="display: flex; align-items: baseline; gap: 14px; margin-bottom: 16px; flex-wrap: wrap;">
+            <span style="font-family: var(--font-display); font-size: 36px; font-weight: 700; color: rgba(217,119,87,0.15); line-height: 1;">01</span>
+            <span style="font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--text-primary);">Services</span>
+            <span class="wa-pill wa-pill-metric">$2.38T spend by 2029</span>
+            <span class="wa-pill wa-pill-metric">$257B+ Big 4 + MBB revenue</span>
           </div>
-          <div style="margin-bottom: 14px; padding-left: 12px; border-left: 2px solid var(--accent-b); min-height: 125px;">
-            <div style="font-size: 12px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">How Claude drives value</div>
-            <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Cowork → deliverable quality. Excel → financial modeling. PPT → client decks. API → RFP agents & automation.</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 18px;">
+            <div style="padding-left: 12px; border-left: 2px solid var(--accent-a);">
+              <div style="font-size: 12px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Why it fits</div>
+              <div style="font-size: 12px; color: var(--text-muted); line-height: 1.6;">Output value tied to knowledge worker expertise and speed. Quality + speed = margins.</div>
+            </div>
+            <div style="padding-left: 12px; border-left: 2px solid var(--accent-b);">
+              <div style="font-size: 12px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">How Claude drives value</div>
+              <div style="font-size: 12px; color: var(--text-muted); line-height: 1.6;">Cowork → deliverable quality. Excel → financial modeling. PPT → client decks. API → RFP agents & automation.</div>
+            </div>
           </div>
-          <div class="wa-roles" style="margin-top: auto;">
-            <div class="wa-roles-label">Target Personas</div>
+          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <span style="font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;">Personas</span>
             <span class="wa-pill wa-pill-role">Managing Director</span><span class="wa-pill wa-pill-role">Partner</span><span class="wa-pill wa-pill-role">Engagement Manager</span><span class="wa-pill wa-pill-role">Senior Consultant</span><span class="wa-pill wa-pill-role">Analyst</span><span class="wa-pill wa-pill-role">Tax Advisor</span><span class="wa-pill wa-pill-role">Auditor</span><span class="wa-pill wa-pill-role">Deal Professional</span>
           </div>
         </div>
-        <div class="wa-vert-card" style="display: flex; flex-direction: column;">
-          <div class="wa-vert-num">02</div>
-          <div class="wa-vert-name">Technology</div>
-          <div style="display: flex; flex-direction: column; gap: 4px; margin-bottom: 4px; min-height: 52px;"><span class="wa-pill wa-pill-metric" style="display: inline-block; width: fit-content;">$1.3T CMS spend by 2029</span><span class="wa-pill wa-pill-metric" style="display: inline-block; width: fit-content;">66% IT Services &amp; Software (2026)</span></div>
-          <div style="margin: 14px 0 10px; padding-left: 12px; border-left: 2px solid var(--accent-a); min-height: 85px;">
-            <div style="font-size: 12px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Why it fits</div>
-            <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">AI race forcing reinvention as AI-first. Cowork + Claude Code create dual disruption. Anthropic partnership becomes existential.</div>
+
+        <!-- Card 2: Technology -->
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 14px; padding: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+          <div style="display: flex; align-items: baseline; gap: 14px; margin-bottom: 16px; flex-wrap: wrap;">
+            <span style="font-family: var(--font-display); font-size: 36px; font-weight: 700; color: rgba(217,119,87,0.15); line-height: 1;">02</span>
+            <span style="font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--text-primary);">Technology</span>
+            <span class="wa-pill wa-pill-metric">$1.3T CMS spend by 2029</span>
+            <span class="wa-pill wa-pill-metric">66% IT Services &amp; Software (2026)</span>
           </div>
-          <div style="margin-bottom: 14px; padding-left: 12px; border-left: 2px solid var(--accent-b); min-height: 125px;">
-            <div style="font-size: 12px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">How Claude drives value</div>
-            <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">API → reasoning inside customer products (e.g. Agentforce on Bedrock). Claude Code → engineering. Cowork → knowledge workers. Multi-cloud available.</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 18px;">
+            <div style="padding-left: 12px; border-left: 2px solid var(--accent-a);">
+              <div style="font-size: 12px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Why it fits</div>
+              <div style="font-size: 12px; color: var(--text-muted); line-height: 1.6;">AI race forcing reinvention as AI-first. Cowork + Claude Code create dual disruption. Anthropic partnership becomes existential.</div>
+            </div>
+            <div style="padding-left: 12px; border-left: 2px solid var(--accent-b);">
+              <div style="font-size: 12px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">How Claude drives value</div>
+              <div style="font-size: 12px; color: var(--text-muted); line-height: 1.6;">API → reasoning inside customer products (e.g. Agentforce on Bedrock). Claude Code → engineering. Cowork → knowledge workers. Multi-cloud available.</div>
+            </div>
           </div>
-          <div class="wa-roles" style="margin-top: auto;">
-            <div class="wa-roles-label">Target Personas</div>
+          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <span style="font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;">Personas</span>
             <span class="wa-pill wa-pill-role">CTO / CIO</span><span class="wa-pill wa-pill-role">VP Engineering</span><span class="wa-pill wa-pill-role">Staff Engineer</span><span class="wa-pill wa-pill-role">Product Manager</span><span class="wa-pill wa-pill-role">Solutions Engineer</span><span class="wa-pill wa-pill-role">DevOps Lead</span><span class="wa-pill wa-pill-role">Platform Architect</span>
           </div>
         </div>
-        <div class="wa-vert-card" style="display: flex; flex-direction: column;">
-          <div class="wa-vert-num">03</div>
-          <div class="wa-vert-name">Banking & Investing</div>
-          <div style="display: flex; flex-direction: column; gap: 4px; margin-bottom: 4px; min-height: 52px;"><span class="wa-pill wa-pill-metric" style="display: inline-block; width: fit-content;">$1.1T IT spend by 2029</span><span class="wa-pill wa-pill-metric" style="display: inline-block; width: fit-content;">#1 CIO spend priority</span></div>
-          <div style="margin: 14px 0 10px; padding-left: 12px; border-left: 2px solid var(--accent-a); min-height: 85px;">
-            <div style="font-size: 12px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Why it fits</div>
-            <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Explainability and trust are regulatory requirements. Constitutional AI addresses top GenAI concerns.</div>
+
+        <!-- Card 3: Banking & Investing -->
+        <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 14px; padding: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+          <div style="display: flex; align-items: baseline; gap: 14px; margin-bottom: 16px; flex-wrap: wrap;">
+            <span style="font-family: var(--font-display); font-size: 36px; font-weight: 700; color: rgba(217,119,87,0.15); line-height: 1;">03</span>
+            <span style="font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--text-primary);">Banking &amp; Investing</span>
+            <span class="wa-pill wa-pill-metric">$1.1T IT spend by 2029</span>
+            <span class="wa-pill wa-pill-metric">#1 CIO spend priority</span>
           </div>
-          <div style="margin-bottom: 14px; padding-left: 12px; border-left: 2px solid var(--accent-b); min-height: 125px;">
-            <div style="font-size: 12px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">How Claude drives value</div>
-            <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Opus 4.6 → finance benchmarks. Cowork → advisors & compliance. Excel → valuations & stress testing. Claude Code → legacy modernization.</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 18px;">
+            <div style="padding-left: 12px; border-left: 2px solid var(--accent-a);">
+              <div style="font-size: 12px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Why it fits</div>
+              <div style="font-size: 12px; color: var(--text-muted); line-height: 1.6;">Explainability and trust are regulatory requirements. Constitutional AI addresses top GenAI concerns.</div>
+            </div>
+            <div style="padding-left: 12px; border-left: 2px solid var(--accent-b);">
+              <div style="font-size: 12px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">How Claude drives value</div>
+              <div style="font-size: 12px; color: var(--text-muted); line-height: 1.6;">Opus 4.6 → finance benchmarks. Cowork → advisors & compliance. Excel → valuations & stress testing. Claude Code → legacy modernization.</div>
+            </div>
           </div>
-          <div class="wa-roles" style="margin-top: auto;">
-            <div class="wa-roles-label">Target Personas</div>
+          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <span style="font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;">Personas</span>
             <span class="wa-pill wa-pill-role">Investment Banker</span><span class="wa-pill wa-pill-role">Portfolio Manager</span><span class="wa-pill wa-pill-role">Wealth Advisor</span><span class="wa-pill wa-pill-role">Risk Analyst</span><span class="wa-pill wa-pill-role">Compliance Officer</span><span class="wa-pill wa-pill-role">Quant Researcher</span><span class="wa-pill wa-pill-role">Actuarial Analyst</span>
           </div>
         </div>
+
       </div>
     </div>
 
