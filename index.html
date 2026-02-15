@@ -151,6 +151,26 @@ section:last-of-type { border-bottom: none; }
 .hero-meta { display: flex; gap: 24px; flex-wrap: wrap; }
 .meta-chip { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.05em; padding: 6px 14px; border-radius: 100px; background: var(--bg-secondary); border: 1px solid var(--border-light); color: var(--text-tertiary); }
 
+/* NAV PILLS */
+.nav-pill {
+  color: rgba(255,255,255,0.7);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 14px;
+  cursor: pointer;
+  border-radius: 100px;
+  text-decoration: none;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: all 0.2s;
+  display: inline-block;
+}
+.nav-pill:hover {
+  background: rgba(217,119,87,0.15);
+  color: #d97757;
+  border-color: rgba(217,119,87,0.3);
+}
+
 /* TABLES */
 .comp-table-wrap { overflow-x: auto; margin: 0 -32px; padding: 0 32px; }
 .comp-table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 14px; min-width: 700px; background: var(--bg-card); border-radius: 12px; overflow: hidden; border: 1px solid var(--border-light); box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
@@ -440,7 +460,7 @@ section:last-of-type { border-bottom: none; }
      ============================================================ -->
 <section class="hero" id="hero">
   <div class="container hero-content" style="position: relative;">
-    <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+    <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 0;">
       <img src="1605072840689.jpeg" alt="Ryan Oakes-Rooney" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(217,119,87,0.4); flex-shrink: 0;">
       <div style="text-align: left; flex: 1;">
         <div style="font-family: var(--font-display); font-size: 34px; color: #ffffff; font-weight: 700; line-height: 1.1;">Ryan Oakes-Rooney</div>
@@ -450,15 +470,15 @@ section:last-of-type { border-bottom: none; }
         <svg width="20" height="14" viewBox="0 0 20 14" fill="none"><line x1="0" y1="1" x2="20" y2="1" stroke="rgba(217,119,87,0.9)" stroke-width="2"/><line x1="0" y1="7" x2="20" y2="7" stroke="rgba(217,119,87,0.9)" stroke-width="2"/><line x1="0" y1="13" x2="20" y2="13" stroke="rgba(217,119,87,0.9)" stroke-width="2"/></svg>
       </button>
     </div>
-    <!-- Nav dropdown (all screen sizes) -->
-    <div id="nav-dropdown" style="display: none; flex-direction: column; gap: 2px; background: rgba(0,0,0,0.3); border-radius: 10px; padding: 8px; margin-top: 4px;">
-      <a onclick="document.getElementById('resume').scrollIntoView({behavior:'smooth'}); document.getElementById('nav-dropdown').classList.remove('open'); document.getElementById('nav-menu-btn').classList.remove('active')" style="color: var(--accent-a); font-size: 13px; font-weight: 600; padding: 10px 12px; cursor: pointer; border-radius: 6px; text-decoration: none;">Resume</a>
-      <a onclick="document.getElementById('writing').scrollIntoView({behavior:'smooth'}); document.getElementById('nav-dropdown').classList.remove('open'); document.getElementById('nav-menu-btn').classList.remove('active')" style="color: var(--accent-a); font-size: 13px; font-weight: 600; padding: 10px 12px; cursor: pointer; border-radius: 6px; text-decoration: none;">Writing Assignment</a>
-      <a onclick="document.getElementById('deal-story').scrollIntoView({behavior:'smooth'}); document.getElementById('nav-dropdown').classList.remove('open'); document.getElementById('nav-menu-btn').classList.remove('active')" style="color: var(--accent-a); font-size: 13px; font-weight: 600; padding: 10px 12px; cursor: pointer; border-radius: 6px; text-decoration: none;">Deal Win Story</a>
-      <a onclick="document.getElementById('cross-functional').scrollIntoView({behavior:'smooth'}); document.getElementById('nav-dropdown').classList.remove('open'); document.getElementById('nav-menu-btn').classList.remove('active')" style="color: var(--accent-a); font-size: 13px; font-weight: 600; padding: 10px 12px; cursor: pointer; border-radius: 6px; text-decoration: none;">Cross-Functional</a>
-      <a onclick="document.getElementById('leadership').scrollIntoView({behavior:'smooth'}); document.getElementById('nav-dropdown').classList.remove('open'); document.getElementById('nav-menu-btn').classList.remove('active')" style="color: var(--accent-a); font-size: 13px; font-weight: 600; padding: 10px 12px; cursor: pointer; border-radius: 6px; text-decoration: none;">Leadership Chat</a>
-      <a onclick="document.getElementById('culture').scrollIntoView({behavior:'smooth'}); document.getElementById('nav-dropdown').classList.remove('open'); document.getElementById('nav-menu-btn').classList.remove('active')" style="color: var(--accent-a); font-size: 13px; font-weight: 600; padding: 10px 12px; cursor: pointer; border-radius: 6px; text-decoration: none;">Culture</a>
-      <a onclick="document.getElementById('models').scrollIntoView({behavior:'smooth'}); document.getElementById('nav-dropdown').classList.remove('open'); document.getElementById('nav-menu-btn').classList.remove('active')" style="color: var(--accent-a); font-size: 13px; font-weight: 600; padding: 10px 12px; cursor: pointer; border-radius: 6px; text-decoration: none;">Model Research</a>
+    <!-- Pill-style horizontal nav dropdown -->
+    <div id="nav-dropdown" style="display: none; flex-direction: row; flex-wrap: wrap; gap: 6px; margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.08);">
+      <a class="nav-pill" onclick="document.getElementById('resume').scrollIntoView({behavior:'smooth'}); document.getElementById('nav-dropdown').classList.remove('open')">Resume</a>
+      <a class="nav-pill" onclick="document.getElementById('writing').scrollIntoView({behavior:'smooth'}); document.getElementById('nav-dropdown').classList.remove('open')">Take Home Review</a>
+      <a class="nav-pill" onclick="document.getElementById('deal-story').scrollIntoView({behavior:'smooth'}); document.getElementById('nav-dropdown').classList.remove('open')">Deal Win Review</a>
+      <a class="nav-pill" onclick="document.getElementById('cross-functional').scrollIntoView({behavior:'smooth'}); document.getElementById('nav-dropdown').classList.remove('open')">Cross-Functional Partnership Interview</a>
+      <a class="nav-pill" onclick="document.getElementById('leadership').scrollIntoView({behavior:'smooth'}); document.getElementById('nav-dropdown').classList.remove('open')">Leadership Chat</a>
+      <a class="nav-pill" onclick="document.getElementById('culture').scrollIntoView({behavior:'smooth'}); document.getElementById('nav-dropdown').classList.remove('open')">Non-technical Culture Interview</a>
+      <a class="nav-pill" onclick="document.getElementById('models').scrollIntoView({behavior:'smooth'}); document.getElementById('nav-dropdown').classList.remove('open')">Appendix: Model Research</a>
     </div>
   </div>
 </section>
