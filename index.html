@@ -281,6 +281,11 @@ section:last-of-type { border-bottom: none; }
     font-size: 11px !important;
   }
   
+  /* Pill + title rows: ensure wrapping on mobile */
+  div[style*="align-items: center"][style*="gap: 8px"] {
+    flex-wrap: wrap !important;
+  }
+  
   /* Resume: style table rows as proper cards */
   .comp-table tbody tr {
     background: var(--bg-card);
@@ -728,7 +733,7 @@ section:last-of-type { border-bottom: none; }
 
       <!-- Data Foundation Moat -->
       <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 22px; margin-bottom: 22px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
-        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 14px;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 14px; flex-wrap: wrap;">
           <span style="background: rgba(120,140,93,0.15); color: var(--accent-b); font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.08em;">Strategic Context</span>
           <span style="font-size: 14px; font-weight: 600; color: var(--text-primary);">The Data Foundation Moat</span>
         </div>
@@ -754,7 +759,7 @@ section:last-of-type { border-bottom: none; }
         <p style="font-size: 12px; color: var(--text-tertiary); line-height: 1.5; margin-top: 12px; margin-bottom: 0;">This data foundation is Salesforce&rsquo;s moat against hyperscalers and point solutions. Customers who invest here are locked into the Salesforce ecosystem &mdash; and every agent grounded on this stack needs a reasoning engine to power it.</p>
       </div><!-- Superagent Architecture Visual -->
       <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 14px; padding: 28px; margin-bottom: 22px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
-        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 20px;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 20px; flex-wrap: wrap;">
           <span style="background: rgba(212,132,90,0.25); color: var(--accent-a); font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.08em;">&#x1F525; Critical</span>
           <span style="font-size: 14px; font-weight: 600; color: var(--text-primary);">Lock default model status in term sheet</span>
         </div>
@@ -894,92 +899,65 @@ section:last-of-type { border-bottom: none; }
     <h2 class="section-title fade-in">Ryan Oakes-Rooney</h2>
     <p class="section-subtitle fade-in">Strategic Enterprise Sales Executive · AI & SaaS · Salesforce</p>
 
-    <div class="comp-table-wrap fade-in">
-      <table class="comp-table">
-        <thead>
-          <tr>
-            <th style="width:30%">Section</th>
-            <th>Details</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Performance Highlights</td>
-            <td>
-              160% attainment annual quota (FY26) · 250% attainment multiyear quota (FY26) · 9 promotions in under 9 years · Exceeded quota or KSO every year · Board of Talent selection for AI GTM strategy · Trained dozens of Strategic Account Directors
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <!-- Performance Highlights -->
+    <div class="fade-in" style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin-bottom: 20px;">
+      <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-a); margin-bottom: 10px;">Performance Highlights</div>
+      <div style="font-size: 14px; color: var(--text-secondary); line-height: 1.7;">
+        160% attainment annual quota (FY26) · 250% attainment multiyear quota (FY26) · 9 promotions in under 9 years · Exceeded quota or KSO every year · Board of Talent selection for AI GTM strategy · Trained dozens of Strategic Account Directors
+      </div>
     </div>
 
-    <div class="comp-table-wrap fade-in" style="margin-top: 32px;">
-      <table class="comp-table">
-        <thead>
-          <tr>
-            <th style="width:30%">Role</th>
-            <th>Details</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Agentforce Strategic Enterprise AE, Technology</strong><br><span style="color: var(--text-tertiary); font-weight: 400;">Salesforce · Feb 2025 – Present</span></td>
-            <td>
-              Dedicated sales specialist for Salesforce's agentic AI platform, <strong>Agentforce</strong>, brand new business unit. Cover <strong>30+ strategic enterprise technology customers</strong> including Dell, PayPal, Uber, Cisco, Nvidia, McAfee, and Electronic Arts. Achieved <strong>160% annual quota attainment</strong> and <strong>250% multiyear quota attainment</strong>. Report through Connor Marsden; directly support Alexa Vignone's Strategic Technology organization under EVP Lenore Lang.
-            </td>
-          </tr>
-          <tr>
-            <td><strong>Strategic Enterprise Account Director, Pinnacle Accounts</strong><br><span style="color: var(--text-tertiary); font-weight: 400;">Salesforce · Jun 2023 – Feb 2025</span></td>
-            <td>
-              Account Director for <strong>Cisco</strong>, Salesforce's <strong>2nd largest customer</strong>. Part of Pinnacle Accounts (Cisco, Dell, Google, Amazon). Managed complex enterprise agreement and M&A-triggered contract negotiations.
-            </td>
-          </tr>
-          <tr>
-            <td><strong>Enterprise Account Director, Technology</strong><br><span style="color: var(--text-tertiary); font-weight: 400;">Salesforce · May 2020 – Jun 2023</span></td>
-            <td>
-              Covered <strong>Flextronics</strong> (3 years) and <strong>Genesys</strong> (1.5 years) under Technology business led by Lenore Lang, EVP. Inherited Flextronics after $1M CRM attrition; rebuilt trust and <strong>successfully earned back as a CRM customer</strong> 2.5 years later.
-            </td>
-          </tr>
-          <tr>
-            <td><strong>Enterprise Corporate Sales, Technology</strong><br><span style="color: var(--text-tertiary); font-weight: 400;">Salesforce · May 2018 – May 2020</span></td>
-            <td>2 years in enterprise corporate sales within the Technology vertical.</td>
-          </tr>
-          <tr>
-            <td><strong>Enterprise Business Development Representative</strong><br><span style="color: var(--text-tertiary); font-weight: 400;">Salesforce · Jul 2017 – May 2018</span></td>
-            <td>10 months as an Enterprise BDR, starting role at Salesforce.</td>
-          </tr>
-        </tbody>
-      </table>
+    <!-- Career Progression -->
+    <div class="fade-in" style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 20px;">
+
+      <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+        <div style="font-size: 15px; font-weight: 700; color: var(--text-primary);">Agentforce Strategic Enterprise AE, Technology</div>
+        <div style="font-size: 12px; color: var(--text-tertiary); margin-bottom: 10px;">Salesforce · Feb 2025 – Present</div>
+        <div style="font-size: 13px; color: var(--text-secondary); line-height: 1.65;">
+          Dedicated sales specialist for Salesforce's agentic AI platform, <strong>Agentforce</strong>, brand new business unit. Cover <strong>30+ strategic enterprise technology customers</strong> including Dell, PayPal, Uber, Cisco, Nvidia, McAfee, and Electronic Arts. Achieved <strong>160% annual quota attainment</strong> and <strong>250% multiyear quota attainment</strong>. Report through Connor Marsden; directly support Alexa Vignone's Strategic Technology organization under EVP Lenore Lang.
+        </div>
+      </div>
+
+      <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+        <div style="font-size: 15px; font-weight: 700; color: var(--text-primary);">Strategic Enterprise Account Director, Pinnacle Accounts</div>
+        <div style="font-size: 12px; color: var(--text-tertiary); margin-bottom: 10px;">Salesforce · Jun 2023 – Feb 2025</div>
+        <div style="font-size: 13px; color: var(--text-secondary); line-height: 1.65;">
+          Account Director for <strong>Cisco</strong>, Salesforce's <strong>2nd largest customer</strong>. Part of Pinnacle Accounts (Cisco, Dell, Google, Amazon). Managed complex enterprise agreement and M&A-triggered contract negotiations.
+        </div>
+      </div>
+
+      <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+        <div style="font-size: 15px; font-weight: 700; color: var(--text-primary);">Enterprise Account Director, Technology</div>
+        <div style="font-size: 12px; color: var(--text-tertiary); margin-bottom: 10px;">Salesforce · May 2020 – Jun 2023</div>
+        <div style="font-size: 13px; color: var(--text-secondary); line-height: 1.65;">
+          Covered <strong>Flextronics</strong> (3 years) and <strong>Genesys</strong> (1.5 years) under Technology business led by Lenore Lang, EVP. Inherited Flextronics after $1M CRM attrition; rebuilt trust and <strong>successfully earned back as a CRM customer</strong> 2.5 years later.
+        </div>
+      </div>
+
+      <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+        <div style="font-size: 15px; font-weight: 700; color: var(--text-primary);">Enterprise Corporate Sales, Technology</div>
+        <div style="font-size: 12px; color: var(--text-tertiary); margin-bottom: 10px;">Salesforce · May 2018 – May 2020</div>
+        <div style="font-size: 13px; color: var(--text-secondary); line-height: 1.65;">2 years in enterprise corporate sales within the Technology vertical.</div>
+      </div>
+
+      <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+        <div style="font-size: 15px; font-weight: 700; color: var(--text-primary);">Enterprise Business Development Representative</div>
+        <div style="font-size: 12px; color: var(--text-tertiary); margin-bottom: 10px;">Salesforce · Jul 2017 – May 2018</div>
+        <div style="font-size: 13px; color: var(--text-secondary); line-height: 1.65;">10 months as an Enterprise BDR, starting role at Salesforce.</div>
+      </div>
+
     </div>
 
-    <div class="comp-table-wrap fade-in" style="margin-top: 32px;">
-      <table class="comp-table" style="min-width: 0;">
-        <thead>
-          <tr>
-            <th>Core Competencies</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="word-wrap: break-word; white-space: normal;">Strategic Account Planning · AI Go-to-Market Strategy · Executive Engagement · Complex Negotiations · Deep Portfolio Expertise · Team Selling & Mentorship</td>
-          </tr>
-        </tbody>
-      </table>
+    <!-- Core Competencies -->
+    <div class="fade-in" style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin-bottom: 20px;">
+      <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-a); margin-bottom: 10px;">Core Competencies</div>
+      <div style="font-size: 13px; color: var(--text-secondary); line-height: 1.7;">Strategic Account Planning · AI Go-to-Market Strategy · Executive Engagement · Complex Negotiations · Deep Portfolio Expertise · Team Selling & Mentorship</div>
     </div>
 
-    <div class="comp-table-wrap fade-in" style="margin-top: 32px;">
-      <table class="comp-table" style="min-width: 0;">
-        <thead>
-          <tr>
-            <th>Primary Reference</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="word-wrap: break-word; white-space: normal;"><strong>Johnathan Jager-Hyman (JJH)</strong> — Previous: SVP of Agentforce at Salesforce. Incoming: Leading Industry team for Healthcare and Financial Services at Anthropic (starting week of February 23, 2026). Phone: (516) 586-0754</td>
-          </tr>
-        </tbody>
-      </table>
+    <!-- Primary Reference -->
+    <div class="fade-in" style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin-bottom: 20px;">
+      <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-a); margin-bottom: 10px;">Primary Reference</div>
+      <div style="font-size: 13px; color: var(--text-secondary); line-height: 1.7;"><strong>Johnathan Jager-Hyman (JJH)</strong> — Previous: SVP of Agentforce at Salesforce. Incoming: Leading Industry team for Healthcare and Financial Services at Anthropic (starting week of February 23, 2026). Phone: (516) 586-0754</div>
     </div>
 
     <div class="fade-in" style="margin-top: 32px;">
