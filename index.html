@@ -258,10 +258,7 @@ section:last-of-type { border-bottom: none; }
     display: flex !important;
   }
   
-  /* Hide dropdown menus entirely on mobile */
-  .hero-dd-menu {
-    display: none !important;
-  }
+  /* Hide dropdown menus on mobile */
   
   /* Section titles smaller on mobile */
   .section-title {
@@ -370,14 +367,6 @@ section:last-of-type { border-bottom: none; }
 .fade-in.visible { opacity: 1; transform: translateY(0); }
 </style>
 
-<style>
-/* HERO DROPDOWN MENUS */
-.hero-dd-menu { display: none; position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%) translateY(4px); background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 8px; min-width: 220px; z-index: 9999; box-shadow: 0 12px 40px rgba(0,0,0,0.08); opacity: 0; transition: opacity 0.2s ease, transform 0.2s ease; }
-.hero-dd-menu.open { display: block !important; opacity: 1; transform: translateX(-50%) translateY(0); }
-.hero-dd > span { transition: color 0.2s ease, background 0.2s ease; border-radius: 8px; padding: 6px 14px !important; }
-.hero-dd > span:hover { color: var(--text-primary) !important; background: var(--bg-secondary); }
-.hero-dd-menu span { display: block !important; font-size: 13px !important; color: var(--text-tertiary) !important; padding: 9px 14px !important; cursor: pointer !important; border-radius: 8px !important; transition: all 0.15s ease !important; font-weight: 400 !important; letter-spacing: 0.01em !important; }
-.hero-dd-menu span:hover { color: var(--text-primary) !important; background: rgba(217,119,87,0.06) !important; }
 </style>
 </head>
 <body>
@@ -404,68 +393,15 @@ section:last-of-type { border-bottom: none; }
         <svg width="20" height="14" viewBox="0 0 20 14" fill="none"><line x1="0" y1="1" x2="20" y2="1" stroke="rgba(217,119,87,0.9)" stroke-width="2"/><line x1="0" y1="7" x2="20" y2="7" stroke="rgba(217,119,87,0.9)" stroke-width="2"/><line x1="0" y1="13" x2="20" y2="13" stroke="rgba(217,119,87,0.9)" stroke-width="2"/></svg>
       </button>
     </div>
-    <!-- Desktop nav (horizontal with dropdowns) -->
+    <!-- Desktop nav (simple links) -->
     <div id="desktop-nav" style="display: flex; gap: 24px; text-align: left;">
-      <div class="hero-dd" style="position: relative;">
-        <span style="font-size: 12px; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; cursor: pointer; padding: 4px 0; display: inline-block;">1. Writing Assignment &#9662;</span>
-        <div class="hero-dd-menu">
-          <span style="display: block; font-size: 11px; color: var(--text-tertiary); padding: 4px 0; cursor: pointer;" onclick="document.getElementById('writing').scrollIntoView({behavior:'smooth'})" onmouseover="this.style.color='#1a1614'" onmouseout="this.style.color=''">Vertical Analysis</span>
-          <span style="display: block; font-size: 11px; color: var(--text-tertiary); padding: 4px 0; cursor: pointer;" onclick="document.getElementById('writing').scrollIntoView({behavior:'smooth'})" onmouseover="this.style.color='#1a1614'" onmouseout="this.style.color=''">Sales Process</span>
-          <span style="display: block; font-size: 11px; color: var(--text-tertiary); padding: 4px 0; cursor: pointer;" onclick="document.getElementById('writing').scrollIntoView({behavior:'smooth'})" onmouseover="this.style.color='#1a1614'" onmouseout="this.style.color=''">Salesforce Account Plan</span>
-        </div>
-      </div>
-      <div class="hero-dd" style="position: relative;">
-        <span style="font-size: 12px; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; cursor: pointer; padding: 4px 0; display: inline-block;">2. Resume &#9662;</span>
-        <div class="hero-dd-menu">
-          <span style="display: block; font-size: 11px; color: var(--text-tertiary); padding: 4px 0; cursor: pointer;" onclick="document.getElementById('resume').scrollIntoView({behavior:'smooth'})" onmouseover="this.style.color='#1a1614'" onmouseout="this.style.color=''">Performance Highlights</span>
-          <span style="display: block; font-size: 11px; color: var(--text-tertiary); padding: 4px 0; cursor: pointer;" onclick="document.getElementById('resume').scrollIntoView({behavior:'smooth'})" onmouseover="this.style.color='#1a1614'" onmouseout="this.style.color=''">Career Progression</span>
-          <span style="display: block; font-size: 11px; color: var(--text-tertiary); padding: 4px 0; cursor: pointer;" onclick="document.getElementById('resume').scrollIntoView({behavior:'smooth'})" onmouseover="this.style.color='#1a1614'" onmouseout="this.style.color=''">Core Competencies</span>
-        </div>
-      </div>
-      <div class="hero-dd" style="position: relative;">
-        <span style="font-size: 12px; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; cursor: pointer; padding: 4px 0; display: inline-block;">3. Deal Win Story &#9662;</span>
-        <div class="hero-dd-menu">
-          <span style="display: block; font-size: 11px; color: var(--text-tertiary); padding: 4px 0; cursor: pointer;" onclick="document.getElementById('deal-story').scrollIntoView({behavior:'smooth'})" onmouseover="this.style.color='#1a1614'" onmouseout="this.style.color=''">Overview &amp; Goals</span>
-          <span style="display: block; font-size: 11px; color: var(--text-tertiary); padding: 4px 0; cursor: pointer;" onclick="document.getElementById('deal-story').scrollIntoView({behavior:'smooth'})" onmouseover="this.style.color='#1a1614'" onmouseout="this.style.color=''">The Full Journey</span>
-        </div>
-      </div>
-      <div class="hero-dd" style="position: relative;">
-        <span style="font-size: 12px; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; cursor: pointer; padding: 4px 0; display: inline-block;">4. Cross-Functional &#9662;</span>
-        <div class="hero-dd-menu">
-          <span style="display: block; font-size: 11px; color: var(--text-tertiary); padding: 4px 0; cursor: pointer;" onclick="document.getElementById('cross-functional').scrollIntoView({behavior:'smooth'})" onmouseover="this.style.color='#1a1614'" onmouseout="this.style.color=''">Philosophy</span>
-          <span style="display: block; font-size: 11px; color: var(--text-tertiary); padding: 4px 0; cursor: pointer;" onclick="document.getElementById('cross-functional').scrollIntoView({behavior:'smooth'})" onmouseover="this.style.color='#1a1614'" onmouseout="this.style.color=''">Product Limitations</span>
-          <span style="display: block; font-size: 11px; color: var(--text-tertiary); padding: 4px 0; cursor: pointer;" onclick="document.getElementById('cross-functional').scrollIntoView({behavior:'smooth'})" onmouseover="this.style.color='#1a1614'" onmouseout="this.style.color=''">Competing Priorities</span>
-        </div>
-      </div>
-      <div class="hero-dd" style="position: relative;">
-        <span style="font-size: 12px; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; cursor: pointer; padding: 4px 0; display: inline-block;">5. Leadership Chat &#9662;</span>
-        <div class="hero-dd-menu">
-          <span style="display: block; font-size: 11px; color: var(--text-tertiary); padding: 4px 0; cursor: pointer;" onclick="document.getElementById('leadership').scrollIntoView({behavior:'smooth'})" onmouseover="this.style.color='#1a1614'" onmouseout="this.style.color=''">Strategic Approach</span>
-          <span style="display: block; font-size: 11px; color: var(--text-tertiary); padding: 4px 0; cursor: pointer;" onclick="document.getElementById('leadership').scrollIntoView({behavior:'smooth'})" onmouseover="this.style.color='#1a1614'" onmouseout="this.style.color=''">Navigating Ambiguity</span>
-          <span style="display: block; font-size: 11px; color: var(--text-tertiary); padding: 4px 0; cursor: pointer;" onclick="document.getElementById('leadership').scrollIntoView({behavior:'smooth'})" onmouseover="this.style.color='#1a1614'" onmouseout="this.style.color=''">How I've Evolved</span>
-        </div>
-      </div>
-      <div class="hero-dd" style="position: relative;">
-        <span style="font-size: 12px; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; cursor: pointer; padding: 4px 0; display: inline-block;">6. Culture &#9662;</span>
-        <div class="hero-dd-menu">
-          <span style="display: block; font-size: 11px; color: var(--text-tertiary); padding: 4px 0; cursor: pointer;" onclick="document.getElementById('culture').scrollIntoView({behavior:'smooth'})" onmouseover="this.style.color='#1a1614'" onmouseout="this.style.color=''">Why Anthropic</span>
-          <span style="display: block; font-size: 11px; color: var(--text-tertiary); padding: 4px 0; cursor: pointer;" onclick="document.getElementById('culture').scrollIntoView({behavior:'smooth'})" onmouseover="this.style.color='#1a1614'" onmouseout="this.style.color=''">Values & Motivations</span>
-          <span style="display: block; font-size: 11px; color: var(--text-tertiary); padding: 4px 0; cursor: pointer;" onclick="document.getElementById('culture').scrollIntoView({behavior:'smooth'})" onmouseover="this.style.color='#1a1614'" onmouseout="this.style.color=''">AI's Impact</span>
-        </div>
-      </div>
-      <div class="hero-dd" style="position: relative;">
-        <span style="font-size: 12px; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; cursor: pointer; padding: 4px 0; display: inline-block;">7. Model Research &#9662;</span>
-        <div class="hero-dd-menu">
-          <span style="display: block; font-size: 11px; color: var(--text-tertiary); padding: 4px 0; cursor: pointer;" onclick="document.getElementById('models').scrollIntoView({behavior:'smooth'})" onmouseover="this.style.color='#1a1614'" onmouseout="this.style.color=''">Models by Use Case</span>
-          <span style="display: block; font-size: 11px; color: var(--text-tertiary); padding: 4px 0; cursor: pointer;" onclick="document.getElementById('coding').scrollIntoView({behavior:'smooth'})" onmouseover="this.style.color='#1a1614'" onmouseout="this.style.color=''">Claude Code vs Codex</span>
-          <span style="display: block; font-size: 11px; color: var(--text-tertiary); padding: 4px 0; cursor: pointer;" onclick="document.getElementById('knowledge-workers').scrollIntoView({behavior:'smooth'})" onmouseover="this.style.color='#1a1614'" onmouseout="this.style.color=''">Knowledge Workers</span>
-          <span style="display: block; font-size: 11px; color: var(--text-tertiary); padding: 4px 0; cursor: pointer;" onclick="document.getElementById('industries').scrollIntoView({behavior:'smooth'})" onmouseover="this.style.color='#1a1614'" onmouseout="this.style.color=''">Industry Verticals</span>
-          <span style="display: block; font-size: 11px; color: var(--text-tertiary); padding: 4px 0; cursor: pointer;" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})" onmouseover="this.style.color='#1a1614'" onmouseout="this.style.color=''">Pricing</span>
-          <span style="display: block; font-size: 11px; color: var(--text-tertiary); padding: 4px 0; cursor: pointer;" onclick="document.getElementById('developments').scrollIntoView({behavior:'smooth'})" onmouseover="this.style.color='#1a1614'" onmouseout="this.style.color=''">Recent Updates</span>
-          <span style="display: block; font-size: 11px; color: var(--text-tertiary); padding: 4px 0; cursor: pointer;" onclick="document.getElementById('differentiators').scrollIntoView({behavior:'smooth'})" onmouseover="this.style.color='#1a1614'" onmouseout="this.style.color=''">Competitive Edge</span>
-          <span style="display: block; font-size: 11px; color: var(--text-tertiary); padding: 4px 0; cursor: pointer;" onclick="document.getElementById('checklist').scrollIntoView({behavior:'smooth'})" onmouseover="this.style.color='#1a1614'" onmouseout="this.style.color=''">Quick Reference</span>
-        </div>
-      </div>
+      <span onclick="document.getElementById('writing').scrollIntoView({behavior:'smooth'})" style="font-size: 12px; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; cursor: pointer; padding: 4px 0; display: inline-block; transition: color 0.15s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color=''">1. Writing Assignment</span>
+      <span onclick="document.getElementById('resume').scrollIntoView({behavior:'smooth'})" style="font-size: 12px; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; cursor: pointer; padding: 4px 0; display: inline-block; transition: color 0.15s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color=''">2. Resume</span>
+      <span onclick="document.getElementById('deal-story').scrollIntoView({behavior:'smooth'})" style="font-size: 12px; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; cursor: pointer; padding: 4px 0; display: inline-block; transition: color 0.15s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color=''">3. Deal Win Story</span>
+      <span onclick="document.getElementById('cross-functional').scrollIntoView({behavior:'smooth'})" style="font-size: 12px; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; cursor: pointer; padding: 4px 0; display: inline-block; transition: color 0.15s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color=''">4. Cross-Functional</span>
+      <span onclick="document.getElementById('leadership').scrollIntoView({behavior:'smooth'})" style="font-size: 12px; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; cursor: pointer; padding: 4px 0; display: inline-block; transition: color 0.15s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color=''">5. Leadership Chat</span>
+      <span onclick="document.getElementById('culture').scrollIntoView({behavior:'smooth'})" style="font-size: 12px; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; cursor: pointer; padding: 4px 0; display: inline-block; transition: color 0.15s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color=''">6. Culture</span>
+      <span onclick="document.getElementById('models').scrollIntoView({behavior:'smooth'})" style="font-size: 12px; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; cursor: pointer; padding: 4px 0; display: inline-block; transition: color 0.15s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color=''">7. Model Research</span>
     </div>
     <!-- Mobile nav dropdown -->
     <div id="mobile-nav" style="display: none; flex-direction: column; gap: 2px; background: rgba(0,0,0,0.3); border-radius: 10px; padding: 8px; margin-top: -8px;">
@@ -2847,36 +2783,5 @@ section:last-of-type { border-bottom: none; }
 </script>
 
 
-<script>
-document.querySelectorAll('.hero-dd > span').forEach(function(trigger) {
-  trigger.addEventListener('click', function(e) {
-    e.stopPropagation();
-    var menu = this.nextElementSibling;
-    var wasOpen = menu.classList.contains('open');
-    // Close all menus first
-    document.querySelectorAll('.hero-dd-menu').forEach(function(m) { m.classList.remove('open'); m.style.display = ''; });
-    if (!wasOpen) {
-      menu.style.display = 'block';
-      // Trigger reflow for animation
-      menu.offsetHeight;
-      menu.classList.add('open');
-    }
-  });
-});
-// Close dropdowns when clicking elsewhere
-document.addEventListener('click', function() {
-  document.querySelectorAll('.hero-dd-menu').forEach(function(m) { m.classList.remove('open'); setTimeout(function(){ if(!m.classList.contains('open')) m.style.display = ''; }, 200); });
-});
-// Prevent menu clicks from closing the menu immediately
-document.querySelectorAll('.hero-dd-menu').forEach(function(menu) {
-  menu.addEventListener('click', function(e) { e.stopPropagation(); });
-});
-// Close menu after clicking a subsection link
-document.querySelectorAll('.hero-dd-menu span').forEach(function(link) {
-  link.addEventListener('click', function() {
-    document.querySelectorAll('.hero-dd-menu').forEach(function(m) { m.classList.remove('open'); setTimeout(function(){ if(!m.classList.contains('open')) m.style.display = ''; }, 200); });
-  });
-});
-</script>
 </body>
 </html>
