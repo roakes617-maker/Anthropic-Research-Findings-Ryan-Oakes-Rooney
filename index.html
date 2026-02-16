@@ -793,6 +793,10 @@ section:last-of-type { border-bottom: none; }
     <span class="section-label">Writing Assignment</span>
     <h2 class="section-title">Anthropic Writing Assignment Summary</h2>
     <p class="section-subtitle">Three-part strategic analysis.</p>
+    <div style="background: rgba(217,119,87,0.06); border: 1px solid rgba(217,119,87,0.15); border-radius: 10px; padding: 14px 18px; margin-bottom: 36px; max-width: 800px;">
+      <div style="font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-a); margin-bottom: 6px;">What Anthropic is evaluating · 30 min</div>
+      <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;">Thought process behind strategic decisions in territory planning + vertical selection · Methodology for pipeline building · Approach to resource allocation · How I'd collaborate across teams to execute</div>
+    </div>
 
     <div id="wa-verticals"></div>
     <!-- ——— PART 1: VERTICAL ANALYSIS ——— -->
@@ -917,6 +921,47 @@ section:last-of-type { border-bottom: none; }
         </div>
       </div>
 
+      <!-- Territory Planning & Pipeline Process -->
+      <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 14px; padding: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin-bottom: 24px;">
+        <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-a); margin-bottom: 16px;">How I Build Pipeline — Account Research → Plan → Execute</div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 16px;">
+          <div style="background: #fdf5f0; border: 1px solid rgba(217,119,87,0.2); border-radius: 10px; padding: 16px;">
+            <div style="font-size: 11px; font-weight: 700; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px;">1 — Account Research</div>
+            <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.6;">
+              <strong>External:</strong> Claude Cowork + sales plugins · 10-K · GTM · revenue by product line · org structure · AI partnerships · product fit mapping<br>
+              <strong>Internal:</strong> CRM history · past opps · contracts · consumption data · Slack · debrief former AE/SE
+            </div>
+          </div>
+          <div style="background: #f0f3eb; border: 1px solid rgba(120,140,93,0.2); border-radius: 10px; padding: 16px;">
+            <div style="font-size: 11px; font-weight: 700; color: var(--accent-b); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px;">2 — Account Plan</div>
+            <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.6;">
+              Relationship map in Sales Nav · investor deck slides in customer branding · stakeholder sentiment · why deals stalled · competitors in play<br>
+              <strong>Team session:</strong> greenfield vs. existing? · best use cases by team · sub-vertical references · are we a customer of this customer?
+            </div>
+          </div>
+          <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 10px; padding: 16px;">
+            <div style="font-size: 11px; font-weight: 700; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px;">3 — Drive Pipeline</div>
+            <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.6;">
+              90% of meetings come from me · direct outreach + warm intros · top-down, bottom-up, horizontal · deliver value early — don't just pitch<br>
+              <strong>Ecosystem:</strong> monthly strategy with AWS/Google/MSFT reps · SI partners · marketplace co-sell
+            </div>
+          </div>
+          <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 10px; padding: 16px;">
+            <div style="font-size: 11px; font-weight: 700; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px;">4 — Mobilize Resources & Close</div>
+            <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.6;">
+              <strong>Execs:</strong> map to decision makers · briefing docs with sell-to + buy-from · deploy with purpose<br>
+              <strong>Experts:</strong> right speaker per agenda item · PMs for roadmap · engineers for architecture<br>
+              <strong>Post-sale:</strong> adoption + change mgmt · QBRs · expand to new teams + use cases
+            </div>
+          </div>
+        </div>
+
+        <div style="padding: 10px 14px; background: rgba(217,119,87,0.06); border-radius: 8px; border-left: 3px solid var(--accent-a);">
+          <div style="font-size: 11px; color: var(--text-secondary);">No one buys millions of dollars of technology after one meeting — this is about building relationships grounded in trust and mutual success</div>
+        </div>
+      </div>
+
       <!-- Applied: Flex Story -->
       <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 14px; padding: 32px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
         <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-a); margin-bottom: 6px;">Applied Example</div>
@@ -998,7 +1043,7 @@ section:last-of-type { border-bottom: none; }
         </div>
       </div>
 
-      <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px;">Global CRM leader going all-in on agentic AI · Agentforce hit $540M ARR · Dual superagent strategy: <strong>Slackbot</strong> (employee-facing) + <strong>Agentforce</strong> (customer-facing) · Stock pressure from AI disruption → window to accelerate Anthropic partnership</p>
+      <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px;">Global CRM leader · Agentforce hit $540M ARR · Dual superagent strategy: <strong>Slackbot</strong> (employee) + <strong>Agentforce</strong> (customer) · Stock pressure from AI disruption → window for Anthropic</p>
 
       <!-- Data Foundation Moat -->
       <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 22px; margin-bottom: 22px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
@@ -1006,7 +1051,7 @@ section:last-of-type { border-bottom: none; }
           <span style="background: rgba(120,140,93,0.15); color: var(--accent-b); font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.08em;">Strategic Context</span>
           <span style="font-size: 14px; font-weight: 600; color: var(--text-primary);">The Data Foundation Moat</span>
         </div>
-        <p style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 14px;">Benioff&rsquo;s thesis: <em>trusted enterprise data makes AI work.</em> Without grounding → agents lack context. Connected to Salesforce&rsquo;s 230PB of customer data → accuracy and relevance increase dramatically. Four pillars:</p>
+        <p style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 14px;">Benioff&rsquo;s thesis: <em>trusted enterprise data makes AI work.</em> Without grounding → agents lack context. Connected to 230PB of customer data. Four pillars:</p>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
           <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px;">
             <div style="font-size: 12px; font-weight: 600; color: var(--accent-b); margin-bottom: 3px;">Informatica</div>
@@ -1153,6 +1198,10 @@ section:last-of-type { border-bottom: none; }
     <span class="section-label">Enterprise Deal Win Review</span>
     <h2 class="section-title">Winning Back Flex: $1.5M Against Microsoft</h2>
     <p class="section-subtitle">A 2.5-year journey from inheriting a broken account to closing a Fortune 500 manufacturer — rebuilding trust, outmaneuvering the incumbent, and achieving every goal I set on day one.</p>
+    <div style="background: rgba(217,119,87,0.06); border: 1px solid rgba(217,119,87,0.15); border-radius: 10px; padding: 14px 18px; margin-bottom: 36px; max-width: 800px;">
+      <div style="font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-a); margin-bottom: 6px;">What Anthropic is evaluating · 45 min</div>
+      <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;"><strong>Deal Win Review:</strong> Approach to strategic deals from sourcing to close · Stakeholder management · Value selling · Building + maintaining momentum · Navigating challenges through the cycle<br><strong>Selling Anthropic:</strong> How I'd sell Anthropic into this same account · Which AI use cases are most relevant to their business + strategic priorities</div>
+    </div>
 
     <!-- ==================== OPENING: Stats + Goals ==================== -->
 
@@ -1179,7 +1228,7 @@ section:last-of-type { border-bottom: none; }
     <!-- Three Goals -->
     <div  style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 28px 32px; margin-bottom: 56px;">
       <h3 style="font-family: var(--font-display); font-size: 20px; color: var(--text-primary); margin-bottom: 16px;">Three Goals I Set on Day One</h3>
-      <p style="font-size: 13px; color: var(--text-tertiary); margin-bottom: 16px;"><strong>April 2020:</strong> Inherited account at rock bottom. Previous team destroyed CIO trust with an "Illuminate" engagement — pitched as a diagnostic to fix issues, but actually used to push an expansion sale. I set three goals:</p>
+      <p style="font-size: 13px; color: var(--text-tertiary); margin-bottom: 16px;"><strong>April 2020:</strong> Inherited account at rock bottom · Previous team destroyed CIO trust with an "Illuminate" engagement — pitched as a diagnostic, actually used to push an expansion sale</p>
       <div style="display: flex; flex-direction: column; gap: 12px;">
         <div style="display: flex; align-items: center; gap: 12px;"><span style="color: var(--accent-b); font-size: 18px;">✓</span><span style="font-size: 14px; color: var(--text-secondary);"><strong>Win Flex back as a CRM customer</strong> — replace SugarCRM with Salesforce Manufacturing Cloud</span></div>
         <div style="display: flex; align-items: center; gap: 12px;"><span style="color: var(--accent-b); font-size: 18px;">✓</span><span style="font-size: 14px; color: var(--text-secondary);"><strong>Get them on stage at Dreamforce</strong> — the ultimate proof of a healthy partnership</span></div>
@@ -1358,7 +1407,7 @@ section:last-of-type { border-bottom: none; }
       <div class="tl-entry">
         <div class="tl-date">Early POV — Product Lifecycle Architecture</div>
         <div class="tl-title" style="font-size: 18px;">The First Vision I Developed</div>
-        <div class="tl-body" style="margin-bottom: 14px;">Mapped Flex's product lifecycle — Innovate → Design → Build → Deliver → Manage — to Salesforce apps + partner solutions. Connected priorities (ABM, common systems, PLM, growing services, digitizing sites) to platform architecture.</div>
+        <div class="tl-body" style="margin-bottom: 14px;">Mapped Flex product lifecycle (Innovate → Design → Build → Deliver → Manage) to Salesforce apps + partners · Connected CEO priorities to platform architecture</div>
         <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 10px; overflow: hidden;">
           <img src="https://roakes617-maker.github.io/Anthropic-Research-Findings-Ryan-Oakes-Rooney/Vision%20%231.png" alt="Flex Customer Product Lifecycle Vision" style="width: 100%; display: block;" />
         </div>
@@ -1368,7 +1417,7 @@ section:last-of-type { border-bottom: none; }
       <div class="tl-entry">
         <div class="tl-date">Evolved POV — OneFlex Connected Vision</div>
         <div class="tl-title" style="font-size: 18px;">Refining the Story as I Learned More</div>
-        <div class="tl-body" style="margin-bottom: 14px;">Evolved into customer-centric system of engagement: Connected experiences → intelligent enterprise → speed and agility. Each stage mapped to platform capabilities.</div>
+        <div class="tl-body" style="margin-bottom: 14px;">Evolved into customer-centric system of engagement: Connected experiences → intelligent enterprise → speed &amp; agility</div>
         <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 10px; overflow: hidden;">
           <img src="https://roakes617-maker.github.io/Anthropic-Research-Findings-Ryan-Oakes-Rooney/Vision%20%232.png" alt="OneFlex Connected Vision" style="width: 100%; display: block;" />
         </div>
@@ -1422,7 +1471,7 @@ section:last-of-type { border-bottom: none; }
       <div class="tl-entry">
         <div class="tl-date">The Team I Assembled</div>
         <div class="tl-title" style="font-size: 18px;">Resources Mobilized Across Salesforce</div>
-        <div class="tl-body" style="margin-bottom: 16px;">Winning a deal of this complexity required orchestrating resources across the entire organization.</div>
+        <div class="tl-body" style="margin-bottom: 16px;">Orchestrating 15+ resources across the organization:</div>
 
         <!-- Chain of Command -->
         <div style="margin-bottom: 16px;">
@@ -1535,7 +1584,7 @@ section:last-of-type { border-bottom: none; }
       <div class="tl-entry">
         <div class="tl-date">The Final POV — Strategic Partnership</div>
         <div class="tl-title" style="font-size: 18px;">The Slide That Won the Deal</div>
-        <div class="tl-body" style="margin-bottom: 14px;">Flex's initiatives (Seller Empowerment, Forecast Accuracy, Expanded Relationships, Platform for Innovation) → mapped directly to Salesforce capabilities (360° view, intelligent forecasting, in-app guidance, trusted OneFlex platform)</div>
+        <div class="tl-body" style="margin-bottom: 14px;">Flex initiatives → Salesforce capabilities: Seller Empowerment → 360° view · Forecast Accuracy → intelligent forecasting · Expanded Relationships → in-app guidance · Platform for Innovation → OneFlex</div>
         <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 10px; overflow: hidden;">
           <img src="https://roakes617-maker.github.io/Anthropic-Research-Findings-Ryan-Oakes-Rooney/Vision%20%233.png" alt="OneFlex + Salesforce Strategic Partnership" style="width: 100%; display: block;" />
         </div>
@@ -1546,7 +1595,7 @@ section:last-of-type { border-bottom: none; }
       <div class="tl-entry">
         <div class="tl-date">Making It About Success, Not a Sale</div>
         <div class="tl-title" style="font-size: 18px;">Why Just Swapping Technology Would Fail</div>
-        <div class="tl-body" style="margin-bottom: 14px;"><strong>Key framing:</strong> Transformation, not technology swap. "New technology + old ways of working = expensive old ways of working." Set the tone → people and process, not just platform.</div>
+        <div class="tl-body" style="margin-bottom: 14px;"><strong>Key framing:</strong> "New technology + old ways of working = expensive old ways of working" · People + process, not just platform</div>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
           <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 10px; overflow: hidden;">
             <img src="https://roakes617-maker.github.io/Anthropic-Research-Findings-Ryan-Oakes-Rooney/Change%201.png" alt="Digital transformation is about people" style="width: 100%; display: block;" />
@@ -1561,7 +1610,7 @@ section:last-of-type { border-bottom: none; }
       <div class="tl-entry">
         <div class="tl-date">SIC Presentation Video</div>
         <div class="tl-title" style="font-size: 18px;">The Custom Vision Video We Presented</div>
-        <div class="tl-body" style="margin-bottom: 14px;">Custom vision video showcasing Salesforce transformation of Flex's sales operations — presented to entire leadership team at the Innovation Center session.</div>
+        <div class="tl-body" style="margin-bottom: 14px;">Custom vision video: Salesforce transformation of Flex sales operations → presented to full leadership at Innovation Center</div>
         <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; overflow: hidden;">
           <div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 8px; overflow: hidden;">
             <iframe src="https://salesforce.vidyard.com/watch/NPYuDu7uaqKhWSeQdiSV1F?" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
@@ -1590,7 +1639,13 @@ section:last-of-type { border-bottom: none; }
     <!-- Key Takeaway -->
     <div  style="background: var(--bg-card); border: 1px solid var(--border-light); border-left: 3px solid var(--accent-a); border-radius: 0 12px 12px 0; padding: 24px 28px; margin-top: 40px;">
       <div style="font-size: 11px; font-weight: 600; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px;">What This Deal Demonstrates</div>
-      <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin: 0;">Patience over pressure · Deep industry research over generic pitches · Building champions over going around blockers · Mobilizing the full org when the moment is right · Earning trust quarter after quarter, long before there's a deal to close</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+        <span style="font-size: 13px; color: var(--text-secondary); padding: 6px 14px; background: #f5f3ed; border-radius: 8px;">Patience over pressure</span>
+        <span style="font-size: 13px; color: var(--text-secondary); padding: 6px 14px; background: #f5f3ed; border-radius: 8px;">Deep industry research over generic pitches</span>
+        <span style="font-size: 13px; color: var(--text-secondary); padding: 6px 14px; background: #f5f3ed; border-radius: 8px;">Building champions over going around blockers</span>
+        <span style="font-size: 13px; color: var(--text-secondary); padding: 6px 14px; background: #f5f3ed; border-radius: 8px;">Mobilizing the full org when the moment is right</span>
+        <span style="font-size: 13px; color: var(--text-secondary); padding: 6px 14px; background: #f5f3ed; border-radius: 8px;">Earning trust long before there's a deal to close</span>
+      </div>
     </div>
 
     <!-- ==================== SELLING ANTHROPIC TO FLEX ==================== -->
@@ -1599,12 +1654,12 @@ section:last-of-type { border-bottom: none; }
         <span style="background: var(--accent-a); color: #ffffff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.06em;">Next Chapter</span>
         <h3 style="font-family: var(--font-display); font-size: 24px; color: var(--text-primary); margin: 0;">How I'd Sell Anthropic to Flex</h3>
       </div>
-      <p style="font-size: 14px; color: var(--text-tertiary); max-width: 720px; margin-bottom: 32px; line-height: 1.6;">I already have the relationships, the trust, and deep understanding of Flex's operations. Same approach — now with Anthropic's portfolio.</p>
+      <p style="font-size: 14px; color: var(--text-tertiary); max-width: 720px; margin-bottom: 32px; line-height: 1.6;">Relationships + trust + deep ops knowledge already in place. Same approach — Anthropic's portfolio.</p>
 
       <!-- Updated Org Chart -->
       <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 14px; padding: 32px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin-bottom: 24px;">
         <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-a); margin-bottom: 6px;">Current Flex Leadership</div>
-        <p style="font-size: 13px; color: var(--text-tertiary); margin-bottom: 20px; line-height: 1.6;"><strong>Org has shifted since my deal.</strong> Gus Shahin left Flex → now at NetApp. John Wrenn serving as interim CIO. IT now reports through Rodrigo DallOglio, President of Operational Excellence and Transformation.</p>
+        <p style="font-size: 13px; color: var(--text-tertiary); margin-bottom: 20px; line-height: 1.6;"><strong>Org has shifted since my deal:</strong> Gus Shahin left → now at NetApp · John Wrenn serving as interim CIO · IT now reports through Rodrigo DallOglio (President, Operational Excellence & Transformation)</p>
 
         <!-- CEO -->
         <div style="margin-bottom: 8px;">
@@ -1695,15 +1750,15 @@ section:last-of-type { border-bottom: none; }
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px;">
           <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 10px; padding: 18px;">
             <div style="font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">&#x1F91D; Leverage Existing Trust</div>
-            <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">John Wrenn (interim CIO) → worked closely with me → presented at Dreamforce together → reach out directly, share Anthropic, ask where AI fits his roadmap</div>
+            <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">John Wrenn (interim CIO) → presented at Dreamforce together → reach out directly · ask where AI fits his roadmap</div>
           </div>
           <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 10px; padding: 18px;">
             <div style="font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">&#x1F50D; Build a New POV Before the First Meeting</div>
-            <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">Earnings calls · 10-K filings · Revathi's priorities · AI adoption in manufacturing → walk in with a thesis, not a pitch deck</div>
+            <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">Earnings calls · 10-K · Revathi.s priorities · AI in manufacturing → walk in with a thesis, not a pitch deck</div>
           </div>
           <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 10px; padding: 18px;">
             <div style="font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">&#x1F465; Map Anthropic Execs to Flex Leadership</div>
-            <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">CEO-to-CEO · CTO-to-CIO → get in front of Wrenn and DallOglio early → listen, not sell → AI safety briefings resonate with IT org burned by vendors</div>
+            <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">CEO-to-CEO · CTO-to-CIO → get in front of Wrenn + DallOglio early → listen, not sell → safety briefings resonate with IT org burned by vendors</div>
           </div>
           <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 10px; padding: 18px;">
             <div style="font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">&#x1F3AF; Align to Their Priorities, Not Ours</div>
@@ -1777,12 +1832,21 @@ section:last-of-type { border-bottom: none; }
 
       <!-- Why Anthropic Wins at Flex -->
       <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-left: 3px solid var(--accent-b); border-radius: 0 12px 12px 0; padding: 24px 28px;">
-        <div style="font-size: 11px; font-weight: 600; color: var(--accent-b); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px;">Why Anthropic Wins Here</div>
-        <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin: 0;">
-        <strong>The trust is already earned.</strong> Flex chose Salesforce because I showed up differently — patient, prepared, genuinely invested.<br><br>
-        <strong>Product maps perfectly:</strong> Cowork → 160K employees · Claude Code → engineering modernization · API → supply chain intelligence · Claude as reasoning engine behind their Salesforce platform<br><br>
-        <strong>Not a cold outreach</strong> — the next chapter of a partnership I've built for five years.
-      </p>
+        <div style="font-size: 11px; font-weight: 600; color: var(--accent-b); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px;">Why Anthropic Wins Here</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;">
+          <div style="background: #f0f3eb; border-radius: 8px; padding: 12px;">
+            <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">Trust is earned</div>
+            <div style="font-size: 11px; color: var(--text-muted);">Flex chose Salesforce because I showed up differently — patient, prepared, genuinely invested</div>
+          </div>
+          <div style="background: #f0f3eb; border-radius: 8px; padding: 12px;">
+            <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">Product maps perfectly</div>
+            <div style="font-size: 11px; color: var(--text-muted);">Cowork → 160K employees · Claude Code → engineering · API → supply chain · Claude as reasoning engine behind Salesforce</div>
+          </div>
+          <div style="background: #f0f3eb; border-radius: 8px; padding: 12px;">
+            <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">Not a cold outreach</div>
+            <div style="font-size: 11px; color: var(--text-muted);">The next chapter of a partnership I've built for five years</div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -1798,10 +1862,14 @@ section:last-of-type { border-bottom: none; }
     <span class="section-label">Cross-Functional Partnership Interview</span>
     <h2 class="section-title">How I Drive Deals Through Internal Collaboration</h2>
     <p class="section-subtitle">The AE is the connective tissue. I stay in every room, ground every resource in context, and build internal relationships before I need them.</p>
+    <div style="background: rgba(217,119,87,0.06); border: 1px solid rgba(217,119,87,0.15); border-radius: 10px; padding: 14px 18px; margin-bottom: 36px; max-width: 800px;">
+      <div style="font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-a); margin-bottom: 6px;">What Anthropic is evaluating · 25 min</div>
+      <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;">Working with product, technical, and partnership teams · Gathering + leveraging customer feedback · Managing product limitations · Balancing competing priorities · Translating complex technical concepts · Driving stakeholder alignment · Navigating difficult situations requiring careful stakeholder management</div>
+    </div>
 
     <!-- Philosophy — one-liner -->
     <div  style="background: var(--bg-card); border: 1px solid var(--border-light); border-left: 3px solid var(--accent-a); border-radius: 0 12px 12px 0; padding: 16px 22px; margin-bottom: 32px;">
-      <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.5; margin: 0;"><strong>I believe the AE is the connective tissue of every deal.</strong> Stay in every room · make sure every partner understands not just <em>what</em> we're presenting but <em>why</em> it matters · build relationships continuously so when a deal requires mobilization, the trust is already there.</p>
+      <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.5; margin: 0;"><strong>The AE is the connective tissue.</strong> Stay in every room · every partner knows the <em>why</em>, not just the <em>what</em> · build relationships before you need them</p>
     </div>
 
     <!-- 4 Cross-Functional Areas — icon cards -->
@@ -1810,114 +1878,91 @@ section:last-of-type { border-bottom: none; }
       <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); display: flex; flex-direction: column;">
         <div style="font-size: 28px; margin-bottom: 10px;">&#x1F4E6;</div>
         <div style="font-size: 10px; font-weight: 600; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px;">Product</div>
-        <div style="font-size: 14px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;">Customer Feedback → Roadmap</div>
-        <div style="font-size: 12px; color: var(--text-tertiary); line-height: 1.5; flex: 1;">Walked product teams through Flex's actual workflows when they raised Excel/Outlook gaps · Fed real requirements into Manufacturing Cloud roadmap</div>
-        <div style="margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--border-light); font-size: 11px; color: var(--accent-a); font-weight: 600;">At Anthropic → Connect use cases to product with business context</div>
+        <div style="font-size: 14px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;">Translate Customer Reality → Product Teams</div>
+        <div style="font-size: 12px; color: var(--text-tertiary); line-height: 1.5; flex: 1;">Walk product through actual workflow + business context, not just feature requests · Feed real requirements into roadmap · Spot architecture gaps before customer hits them</div>
       </div>
 
       <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); display: flex; flex-direction: column;">
         <div style="font-size: 28px; margin-bottom: 10px;">&#x1F6E0;&#xFE0F;</div>
         <div style="font-size: 10px; font-weight: 600; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px;">Technical Teams</div>
-        <div style="font-size: 14px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;">Every Demo Grounded in Context</div>
-        <div style="font-size: 12px; color: var(--text-tertiary); line-height: 1.5; flex: 1;">Sat with SEs through every demo build, slide, and video script · Grounded each vignette in Flex's operations · "Never had an AE stay that involved"</div>
-        <div style="margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--border-light); font-size: 11px; color: var(--accent-a); font-weight: 600;">At Anthropic → Technical teams build solutions that solve real problems</div>
+        <div style="font-size: 14px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;">Stay in Every Room, Ground Every Demo</div>
+        <div style="font-size: 12px; color: var(--text-tertiary); line-height: 1.5; flex: 1;">Sit with SEs through every build — slides, demos, scripts · Every vignette maps to customer's actual operations · Pull in PMs when technical design needs validation</div>
       </div>
 
       <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); display: flex; flex-direction: column;">
         <div style="font-size: 28px; margin-bottom: 10px;">&#x1F465;</div>
         <div style="font-size: 10px; font-weight: 600; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px;">Executive Alignment</div>
-        <div style="font-size: 14px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;">5 Levels of Leadership Orchestrated</div>
-        <div style="font-size: 12px; color: var(--text-tertiary); line-height: 1.5; flex: 1;">Each exec deployed with purpose · Rich DeGraff → manufacturing credibility · Justice Reid → neutralize Microsoft bias · Not showing up — moving a specific needle</div>
-        <div style="margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--border-light); font-size: 11px; color: var(--accent-a); font-weight: 600;">At Anthropic → Earn executive relationships before you need them</div>
+        <div style="font-size: 14px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;">Deploy Execs with Purpose, Not Just Presence</div>
+        <div style="font-size: 12px; color: var(--text-tertiary); line-height: 1.5; flex: 1;">Map our execs to theirs · every outreach has a goal + briefing doc · build relationships before the deal needs them · use engagement to remove blockers</div>
       </div>
 
       <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); display: flex; flex-direction: column;">
         <div style="font-size: 28px; margin-bottom: 10px;">&#x1F91D;</div>
         <div style="font-size: 10px; font-weight: 600; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px;">Partners & Post-Sale</div>
-        <div style="font-size: 14px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;">Sell the Outcome, Not the Platform</div>
-        <div style="font-size: 12px; color: var(--text-tertiary); line-height: 1.5; flex: 1;">Coordinated KPMG + Salesforce Pro Services → 9-month SugarCRM migration · Built implementation relationship during the sale, not after</div>
-        <div style="margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--border-light); font-size: 11px; color: var(--accent-a); font-weight: 600;">At Anthropic → Partner with customer success from day one</div>
+        <div style="font-size: 14px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;">Build the Implementation Relationship During the Sale</div>
+        <div style="font-size: 12px; color: var(--text-tertiary); line-height: 1.5; flex: 1;">Coordinate SI partners + PS from day one · navigate partner dynamics when customer pushes back · plan adoption + change mgmt before signature</div>
       </div>
 
     </div>
 
-    <!-- ISV Partners — compact row -->
-    <div  style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+    <!-- Cross-Functional in Active Deals — Flex, Uber & EA -->
+    <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
       <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
-        <span style="font-size: 20px;">&#x1F9E9;</span>
-        <div style="font-size: 14px; font-weight: 700; color: var(--text-primary);">ISV & AppExchange Partners I Orchestrated</div>
+        <span style="font-size: 20px;">🔥</span>
+        <div style="font-size: 14px; font-weight: 700; color: var(--text-primary);">Cross-Functional Orchestration — Applied Across Deals</div>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
-        <div style="background: #f5f3ed; border-radius: 10px; padding: 14px; text-align: center;">
-          <div style="font-size: 14px; font-weight: 700; color: var(--text-primary);">Conga</div>
-          <div style="font-size: 11px; color: var(--accent-a); margin: 2px 0;">Contract Management</div>
-          <div style="font-size: 11px; color: var(--text-muted);">Already at Flex → built into platform POV</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px;">
+
+        <div style="background: #f5f3ed; border-radius: 10px; padding: 16px;">
+          <div style="font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 2px;">Flex — $1.5M Won</div>
+          <div style="font-size: 10px; color: var(--text-muted); margin-bottom: 8px;">2.5-year cycle · 15+ internal resources mobilized</div>
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <div style="font-size: 11px; color: var(--text-secondary); display: flex; gap: 6px;"><span style="color: var(--accent-a); font-weight: 700; flex-shrink: 0;">Product →</span> Walked product through actual Flex workflows when they raised Excel/Outlook gaps · fed real requirements into Mfg Cloud roadmap</div>
+            <div style="font-size: 11px; color: var(--text-secondary); display: flex; gap: 6px;"><span style="color: var(--accent-a); font-weight: 700; flex-shrink: 0;">Technical →</span> Sat with SEs through every demo build, slide, video script · grounded every vignette in Flex's operations</div>
+            <div style="font-size: 11px; color: var(--text-secondary); display: flex; gap: 6px;"><span style="color: var(--accent-a); font-weight: 700; flex-shrink: 0;">Exec →</span> 5 levels of leadership deployed with purpose · Rich DeGraff for mfg credibility · Justice Reid to neutralize MSFT bias</div>
+            <div style="font-size: 11px; color: var(--text-secondary); display: flex; gap: 6px;"><span style="color: var(--accent-a); font-weight: 700; flex-shrink: 0;">Partners →</span> Coordinated KPMG + PS for SugarCRM migration · Propel PLM + ComplianceQuest as platform differentiators MSFT couldn't match</div>
+          </div>
         </div>
-        <div style="background: #f5f3ed; border-radius: 10px; padding: 14px; text-align: center;">
-          <div style="font-size: 14px; font-weight: 700; color: var(--text-primary);">Propel PLM</div>
-          <div style="font-size: 11px; color: var(--accent-a); margin: 2px 0;">Product Lifecycle</div>
-          <div style="font-size: 11px; color: var(--text-muted);">Key differentiator no competitor could match</div>
+
+        <div style="background: #f5f3ed; border-radius: 10px; padding: 16px;">
+          <div style="font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 2px;">Uber — Live Deal</div>
+          <div style="font-size: 10px; color: var(--text-muted); margin-bottom: 8px;">Multi-million dollar opp · actively building</div>
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <div style="font-size: 11px; color: var(--text-secondary); display: flex; gap: 6px;"><span style="color: var(--accent-a); font-weight: 700; flex-shrink: 0;">Product →</span> Spotted architecture gaps IT missed · pulled in PMs + specialists who confirmed design wouldn't work</div>
+            <div style="font-size: 11px; color: var(--text-secondary); display: flex; gap: 6px;"><span style="color: var(--accent-a); font-weight: 700; flex-shrink: 0;">Technical →</span> Onboarded Accenture · multiple discovery calls/day · mapped full UX · built phased delivery plan with Ops team</div>
+            <div style="font-size: 11px; color: var(--text-secondary); display: flex; gap: 6px;"><span style="color: var(--accent-a); font-weight: 700; flex-shrink: 0;">Exec →</span> Business pressing for speed · maintained confidence by identifying problems before they hit them</div>
+            <div style="font-size: 11px; color: var(--text-secondary); display: flex; gap: 6px;"><span style="color: var(--accent-a); font-weight: 700; flex-shrink: 0;">SE team →</span> Tight exec demo deadline · SEs used Claude Code to build custom LWCs for the AI use case — hit deadline, deepened the relationship</div>
+          </div>
         </div>
-        <div style="background: #f5f3ed; border-radius: 10px; padding: 14px; text-align: center;">
-          <div style="font-size: 14px; font-weight: 700; color: var(--text-primary);">ComplianceQuest</div>
-          <div style="font-size: 11px; color: var(--accent-a); margin: 2px 0;">Quality Management</div>
-          <div style="font-size: 11px; color: var(--text-muted);">Partnered with CEO → $3M deal, every employee</div>
+
+        <div style="background: #f5f3ed; border-radius: 10px; padding: 16px;">
+          <div style="font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 2px;">EA — Live Deal</div>
+          <div style="font-size: 10px; color: var(--text-muted); margin-bottom: 8px;">$900K renewal closed · implementation in flight</div>
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <div style="font-size: 11px; color: var(--text-secondary); display: flex; gap: 6px;"><span style="color: var(--accent-a); font-weight: 700; flex-shrink: 0;">Partner →</span> Gave POC funding to NeuraFlash · EA rejected them · demanding our PS team · navigating partner politics while keeping deal moving</div>
+            <div style="font-size: 11px; color: var(--text-secondary); display: flex; gap: 6px;"><span style="color: var(--accent-a); font-weight: 700; flex-shrink: 0;">Product →</span> Service Assistant on wrong object · won't use our vector DB · architected Contentful → S3 → Data Cloud workaround · got PM to confirm OpenSearch API by Winter '26</div>
+            <div style="font-size: 11px; color: var(--text-secondary); display: flex; gap: 6px;"><span style="color: var(--accent-a); font-weight: 700; flex-shrink: 0;">Customer →</span> Translating Aura framework constraints back to product so they understand what's blocking value</div>
+            <div style="font-size: 11px; color: var(--text-secondary); display: flex; gap: 6px;"><span style="color: var(--accent-a); font-weight: 700; flex-shrink: 0;">Strategic →</span> Real opp is gamer-facing agent · Williams-Sonoma reference call · courtesy Data Cloud credits to protect the bigger play</div>
+          </div>
         </div>
+
       </div>
     </div>
 
-    <!-- Beating Microsoft — numbered steps -->
-    <div  style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
-      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
-        <span style="font-size: 20px;">&#x2694;&#xFE0F;</span>
-        <div style="font-size: 14px; font-weight: 700; color: var(--text-primary);">How I Beat Microsoft's Strongest Arguments</div>
-      </div>
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
-        <div style="background: #f5f3ed; border-radius: 10px; padding: 14px; text-align: center;">
-          <div style="font-family: var(--font-display); font-size: 24px; color: rgba(217,119,87,0.2); line-height: 1;">01</div>
-          <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin: 4px 0;">Challenge the premise</div>
-          <div style="font-size: 11px; color: var(--text-muted);">Is Excel integration a real daily need?</div>
-        </div>
-        <div style="background: #f5f3ed; border-radius: 10px; padding: 14px; text-align: center;">
-          <div style="font-family: var(--font-display); font-size: 24px; color: rgba(217,119,87,0.2); line-height: 1;">02</div>
-          <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin: 4px 0;">Prove parity live</div>
-          <div style="font-size: 11px; color: var(--text-muted);">Built integrations into demo, not slides</div>
-        </div>
-        <div style="background: #f5f3ed; border-radius: 10px; padding: 14px; text-align: center;">
-          <div style="font-family: var(--font-display); font-size: 24px; color: rgba(217,119,87,0.2); line-height: 1;">03</div>
-          <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin: 4px 0;">Expand the frame</div>
-          <div style="font-size: 11px; color: var(--text-muted);">Full product 360 — MSFT can't compete</div>
-        </div>
-        <div style="background: #f5f3ed; border-radius: 10px; padding: 14px; text-align: center;">
-          <div style="font-family: var(--font-display); font-size: 24px; color: rgba(217,119,87,0.2); line-height: 1;">04</div>
-          <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin: 4px 0;">Leverage ecosystem</div>
-          <div style="font-size: 11px; color: var(--text-muted);">Partners + references = full platform story</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Competing Priorities — compact -->
+    <!-- Balancing Competing Priorities -->
     <div  style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
       <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
         <span style="font-size: 20px;">&#x2696;&#xFE0F;</span>
-        <div style="font-size: 14px; font-weight: 700; color: var(--text-primary);">Balancing Competing Internal Priorities</div>
-        <span style="font-size: 12px; color: var(--text-muted); margin-left: auto;">Tableau & MuleSoft AEs had their own quotas and CTO relationships</span>
+        <div style="font-size: 14px; font-weight: 700; color: var(--text-primary);">How I Balance Competing Priorities</div>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
-        <div style="background: #f5f3ed; border-radius: 10px; padding: 14px; text-align: center;">
-          <div style="font-size: 22px; margin-bottom: 6px;">&#x1F4DA;</div>
-          <div style="font-size: 12px; font-weight: 700; color: var(--text-primary);">Earned trust through knowledge</div>
-          <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Knew the org chart and politics better than anyone</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+        <div style="background: #f5f3ed; border-radius: 10px; padding: 14px;">
+          <div style="font-size: 11px; font-weight: 700; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px;">Internal</div>
+          <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.6;">Specialists have their own quotas — earn their investment by sharing context + relationships · Product roadmap doesn't always match my deal — build the case with real customer data, architect workarounds for near-term · Unify the story so customer sees one partner, not five reps</div>
         </div>
-        <div style="background: #f5f3ed; border-radius: 10px; padding: 14px; text-align: center;">
-          <div style="font-size: 22px; margin-bottom: 6px;">&#x1F511;</div>
-          <div style="font-size: 12px; font-weight: 700; color: var(--text-primary);">Offered the CIO relationship</div>
-          <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Helped their deals → they wanted to partner with me</div>
-        </div>
-        <div style="background: #f5f3ed; border-radius: 10px; padding: 14px; text-align: center;">
-          <div style="font-size: 22px; margin-bottom: 6px;">&#x1F3AF;</div>
-          <div style="font-size: 12px; font-weight: 700; color: var(--text-primary);">Unified the story</div>
-          <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Customer saw one partner, not five competing reps</div>
+        <div style="background: #f5f3ed; border-radius: 10px; padding: 14px;">
+          <div style="font-size: 11px; font-weight: 700; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px;">Customer-Side</div>
+          <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.6;"><strong>Uber:</strong> business wants speed, IT wants architecture right — aligned on phased approach · <strong>EA:</strong> wants Phase 1 before external agent — pulling them along anyway via reference calls · <strong>Flex:</strong> CIO, CSO, and business users each wanted different things — spoke each language with one story</div>
         </div>
       </div>
     </div>
@@ -1946,6 +1991,10 @@ section:last-of-type { border-bottom: none; }
     <span class="section-label">Leadership Chat</span>
     <h2 class="section-title">Strategic Thinking, Adaptability & How I've Evolved</h2>
     <p class="section-subtitle">Navigating ambiguity, translating complexity, and continuously learning from what works.</p>
+    <div style="background: rgba(217,119,87,0.06); border: 1px solid rgba(217,119,87,0.15); border-radius: 10px; padding: 14px 18px; margin-bottom: 36px; max-width: 800px;">
+      <div style="font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-a); margin-bottom: 6px;">What Anthropic is evaluating · 25 min</div>
+      <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;">Strategic approach to enterprise sales cycles · Navigating through ambiguity · Handling technically complex conversations · Strategic thinking + adaptability · Technical translation skills · Proven frameworks for sales success · How I've evolved as a seller based on experience + feedback</div>
+    </div>
 
     <!-- Strategic Approach — timeline + QWPR framework side by side -->
     <div  style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 28px;">
@@ -2014,27 +2063,32 @@ section:last-of-type { border-bottom: none; }
       </div>
     </div>
 
-    <!-- Navigating Ambiguity — side-by-side scenario cards -->
+    <!-- Navigating Ambiguity — compact 3-card layout -->
     <div  style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 22px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin-bottom: 28px;">
       <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
         <span style="font-size: 22px;">&#x1F32B;&#xFE0F;</span>
         <div style="font-size: 14px; font-weight: 700; color: var(--text-primary);">Navigating Ambiguity</div>
       </div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
-        <div style="background: #f5f3ed; border-radius: 10px; padding: 16px;">
-          <div style="font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;">The Cameron Carr Problem</div>
-          <div style="display: flex; flex-direction: column; gap: 6px;">
-            <div style="font-size: 11px; color: var(--text-secondary); display: flex; gap: 6px;"><span style="color: var(--accent-a); font-weight: 700; flex-shrink: 0;">Situation →</span> New CSO, 12 years at Microsoft, biased toward Dynamics</div>
-            <div style="font-size: 11px; color: var(--text-secondary); display: flex; gap: 6px;"><span style="color: var(--accent-a); font-weight: 700; flex-shrink: 0;">Action →</span> Mapped his org, found mutual connection (Justice Reid), built champion inside his team</div>
-            <div style="font-size: 11px; color: var(--text-secondary); display: flex; gap: 6px;"><span style="color: var(--accent-a); font-weight: 700; flex-shrink: 0;">Result →</span> Brian Gontarski became my champion from Cameron's own team</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px;">
+        <div style="background: #f5f3ed; border-radius: 10px; padding: 14px;">
+          <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">Flex — $1.5M Won</div>
+          <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.6;">
+            <strong style="color: var(--accent-a);">Microsoft threat:</strong> New CSO, 12 yrs at MSFT · mapped his org · built champion on his own team · turned blocker into support<br>
+            <strong style="color: var(--accent-a);">COVID:</strong> Inherited at rock bottom · no in-person access · QBRs with real value · earned trust remotely before the SIC
           </div>
         </div>
-        <div style="background: #f5f3ed; border-radius: 10px; padding: 16px;">
-          <div style="font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;">Selling During COVID</div>
-          <div style="display: flex; flex-direction: column; gap: 6px;">
-            <div style="font-size: 11px; color: var(--text-secondary); display: flex; gap: 6px;"><span style="color: var(--accent-a); font-weight: 700; flex-shrink: 0;">Situation →</span> Inherited Flex April 2020. No site visits, no dinners.</div>
-            <div style="font-size: 11px; color: var(--text-secondary); display: flex; gap: 6px;"><span style="color: var(--accent-a); font-weight: 700; flex-shrink: 0;">Action →</span> QBRs delivering real value — industry research, competitive insights, strategic recs</div>
-            <div style="font-size: 11px; color: var(--text-secondary); display: flex; gap: 6px;"><span style="color: var(--accent-a); font-weight: 700; flex-shrink: 0;">Result →</span> Earned in-person access by fall 2020. Trust was deep before the SIC</div>
+        <div style="background: #f5f3ed; border-radius: 10px; padding: 14px;">
+          <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">Uber — Live Deal</div>
+          <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.6;">
+            <strong style="color: var(--accent-a);">Time pressure:</strong> Multi-million dollar opp · spotted architecture gaps IT missed · aligned on phased approach — ship Phase 1 now, pivot to Phase 2<br>
+            <strong style="color: var(--accent-a);">Product in flux:</strong> GA vs. roadmap shifting in real time · two pricing models in play (consumption vs. per-user) · selling through the ambiguity
+          </div>
+        </div>
+        <div style="background: #f5f3ed; border-radius: 10px; padding: 14px;">
+          <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">EA — Live Deal</div>
+          <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.6;">
+            <strong style="color: var(--accent-a);">Tech + partner:</strong> $900K renewal · custom Aura framework blocking standard tools · rejected our #1 SI · architected Dynamic Plans pilot on conversation object<br>
+            <strong style="color: var(--accent-a);">Bigger play:</strong> Contentful → S3 → Data Cloud workaround · PM confirmed OpenSearch API by Winter '26 · courtesy credits to protect gamer-facing agent opportunity
           </div>
         </div>
       </div>
@@ -2071,40 +2125,46 @@ section:last-of-type { border-bottom: none; }
       </div>
     </div>
 
-    <!-- How I've Evolved — before/after arrows -->
+    <!-- How I've Evolved — compact row -->
     <div  style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 22px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin-bottom: 28px;">
-      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
+      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
         <span style="font-size: 22px;">&#x1F4C8;</span>
         <div style="font-size: 14px; font-weight: 700; color: var(--text-primary);">How I've Evolved as a Seller</div>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
-        <div style="background: #f5f3ed; border-radius: 10px; padding: 14px; text-align: center;">
-          <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 2px;">From</div>
-          <div style="font-size: 12px; font-weight: 600; color: var(--text-tertiary); text-decoration: line-through;">Short-term wins</div>
-          <div style="font-size: 16px; color: var(--accent-a); margin: 4px 0;">↓</div>
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 12px;">
+        <div style="background: #f5f3ed; border-radius: 10px; padding: 12px; text-align: center;">
+          <div style="font-size: 12px; color: var(--text-muted); text-decoration: line-through;">Short-term wins</div>
+          <div style="font-size: 14px; color: var(--accent-a);">↓</div>
           <div style="font-size: 12px; font-weight: 700; color: var(--text-primary);">Long-term bets</div>
-          <div style="font-size: 10px; color: var(--text-muted); margin-top: 4px;">Zero pipeline for 2 years → $1.5M deal + Dreamforce stage</div>
         </div>
-        <div style="background: #f5f3ed; border-radius: 10px; padding: 14px; text-align: center;">
-          <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 2px;">From</div>
-          <div style="font-size: 12px; font-weight: 600; color: var(--text-tertiary); text-decoration: line-through;">Pitching</div>
-          <div style="font-size: 16px; color: var(--accent-a); margin: 4px 0;">↓</div>
+        <div style="background: #f5f3ed; border-radius: 10px; padding: 12px; text-align: center;">
+          <div style="font-size: 12px; color: var(--text-muted); text-decoration: line-through;">Pitching</div>
+          <div style="font-size: 14px; color: var(--accent-a);">↓</div>
           <div style="font-size: 12px; font-weight: 700; color: var(--text-primary);">Listening</div>
-          <div style="font-size: 10px; color: var(--text-muted); margin-top: 4px;">Lead with curiosity. The solution presents itself.</div>
         </div>
-        <div style="background: #f5f3ed; border-radius: 10px; padding: 14px; text-align: center;">
-          <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 2px;">From</div>
-          <div style="font-size: 12px; font-weight: 600; color: var(--text-tertiary); text-decoration: line-through;">Solo contributor</div>
-          <div style="font-size: 16px; color: var(--accent-a); margin: 4px 0;">↓</div>
+        <div style="background: #f5f3ed; border-radius: 10px; padding: 12px; text-align: center;">
+          <div style="font-size: 12px; color: var(--text-muted); text-decoration: line-through;">Solo contributor</div>
+          <div style="font-size: 14px; color: var(--accent-a);">↓</div>
           <div style="font-size: 12px; font-weight: 700; color: var(--text-primary);">Orchestrator</div>
-          <div style="font-size: 10px; color: var(--text-muted); margin-top: 4px;">Making everyone around me more effective</div>
         </div>
-        <div style="background: #f5f3ed; border-radius: 10px; padding: 14px; text-align: center;">
-          <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 2px;">From</div>
-          <div style="font-size: 12px; font-weight: 600; color: var(--text-tertiary); text-decoration: line-through;">Closing deals</div>
-          <div style="font-size: 16px; color: var(--accent-a); margin: 4px 0;">↓</div>
+        <div style="background: #f5f3ed; border-radius: 10px; padding: 12px; text-align: center;">
+          <div style="font-size: 12px; color: var(--text-muted); text-decoration: line-through;">Closing deals</div>
+          <div style="font-size: 14px; color: var(--accent-a);">↓</div>
           <div style="font-size: 12px; font-weight: 700; color: var(--text-primary);">Building partnerships</div>
-          <div style="font-size: 10px; color: var(--text-muted); margin-top: 4px;">ComplianceQuest + Dreamforce happened post-close</div>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+        <div style="padding: 8px 12px; background: rgba(217,119,87,0.06); border-radius: 8px; font-size: 11px; color: var(--text-secondary); line-height: 1.5;">
+          <strong style="color: var(--accent-a);">Customer first →</strong> Focus on their success, the deals come — don't force what isn't ready
+        </div>
+        <div style="padding: 8px 12px; background: rgba(217,119,87,0.06); border-radius: 8px; font-size: 11px; color: var(--text-secondary); line-height: 1.5;">
+          <strong style="color: var(--accent-a);">Understand, then solve →</strong> Stopped pitching · started connecting solutions to actual problems
+        </div>
+        <div style="padding: 8px 12px; background: rgba(217,119,87,0.06); border-radius: 8px; font-size: 11px; color: var(--text-secondary); line-height: 1.5;">
+          <strong style="color: var(--accent-a);">Bring others in →</strong> Resources with different expertise give clients value I can't deliver alone
+        </div>
+        <div style="padding: 8px 12px; background: rgba(217,119,87,0.06); border-radius: 8px; font-size: 11px; color: var(--text-secondary); line-height: 1.5;">
+          <strong style="color: var(--accent-a);">Think bigger →</strong> Flex wasn't about closing a sale — it was the first step toward a future state vision
         </div>
       </div>
     </div>
@@ -2126,6 +2186,10 @@ section:last-of-type { border-bottom: none; }
     <span class="section-label">Culture Interview</span>
     <h2 class="section-title">Values, Motivations & What I'd Bring to Anthropic</h2>
     <p class="section-subtitle">Authentic perspectives, not rehearsed talking points.</p>
+    <div style="background: rgba(217,119,87,0.06); border: 1px solid rgba(217,119,87,0.15); border-radius: 10px; padding: 14px 18px; margin-bottom: 36px; max-width: 800px;">
+      <div style="font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-a); margin-bottom: 6px;">What Anthropic is evaluating · 40 min · Universal interview for all candidates</div>
+      <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;">Values, motivations, and reasoning as they relate to work · How I'd contribute to organizational culture · Think out loud, share authentic perspective · No buzzwords or pre-rehearsed answers — engage with the actual question</div>
+    </div>
 
     <!-- Why Anthropic — compact with reading list -->
     <div  style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 28px;">
@@ -2135,15 +2199,15 @@ section:last-of-type { border-bottom: none; }
         <div style="display: flex; flex-direction: column; gap: 8px;">
           <div style="display: flex; gap: 10px; align-items: flex-start;">
             <span style="font-size: 18px; flex-shrink: 0;">&#x1F3AF;</span>
-            <div><span style="font-size: 13px; font-weight: 600; color: var(--text-primary);">Purpose over comfort.</span> <span style="font-size: 12px; color: var(--text-tertiary);">I could stay at Salesforce forever. But when I look back, I want to know I had impact.</span></div>
+            <div><span style="font-size: 13px; font-weight: 600; color: var(--text-primary);">Purpose over comfort.</span> <span style="font-size: 12px; color: var(--text-tertiary);">Could stay at Salesforce forever · Want to look back and know I had impact</span></div>
           </div>
           <div style="display: flex; gap: 10px; align-items: flex-start;">
             <span style="font-size: 18px; flex-shrink: 0;">&#x26A0;&#xFE0F;</span>
-            <div><span style="font-size: 13px; font-weight: 600; color: var(--text-primary);">The risk is real.</span> <span style="font-size: 12px; color: var(--text-tertiary);">After listening to Dario, I want to work where AI safety isn't marketing — it's the mission.</span></div>
+            <div><span style="font-size: 13px; font-weight: 600; color: var(--text-primary);">The risk is real.</span> <span style="font-size: 12px; color: var(--text-tertiary);">Listened to Dario · Want to work where AI safety isn't marketing — it's the mission</span></div>
           </div>
           <div style="display: flex; gap: 10px; align-items: flex-start;">
             <span style="font-size: 18px; flex-shrink: 0;">&#x1F91D;</span>
-            <div><span style="font-size: 13px; font-weight: 600; color: var(--text-primary);">Culture determines employer.</span> <span style="font-size: 12px; color: var(--text-tertiary);">I believe in the technology and the people behind it. That shows up in every customer meeting.</span></div>
+            <div><span style="font-size: 13px; font-weight: 600; color: var(--text-primary);">Culture determines employer.</span> <span style="font-size: 12px; color: var(--text-tertiary);">Believe in the technology and the people behind it · That shows up in every customer meeting</span></div>
           </div>
           <div style="display: flex; gap: 10px; align-items: flex-start;">
             <span style="font-size: 18px; flex-shrink: 0;">&#x1F4AA;</span>
@@ -2174,28 +2238,28 @@ section:last-of-type { border-bottom: none; }
       </div>
     </div>
 
-    <!-- Who I Am — one-liner -->
+    <!-- Who I Am — culture contribution -->
     <div  style="background: var(--bg-card); border: 1px solid var(--border-light); border-left: 3px solid var(--accent-a); border-radius: 0 12px 12px 0; padding: 16px 22px; margin-bottom: 28px;">
-      <div style="font-size: 10px; font-weight: 600; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px;">Who I Am</div>
-      <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.5; margin: 0;"><strong>I love to help people.</strong> Train new hires · present at onboarding · mentor peers · Nominated for Board of Talent for expertise and perspective, not just willingness</p>
+      <div style="font-size: 10px; font-weight: 600; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px;">How I Show Up on a Team</div>
+      <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.5; margin: 0;"><strong>I make the people around me better.</strong> Train new hires · present at onboarding · mentor peers · Nominated for Board of Talent for expertise and perspective. I raise the floor, not just my own ceiling.</p>
     </div>
 
-    <!-- My Values — icon cards -->
+    <!-- My Values — grounded in work decisions -->
     <div  style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 28px;">
-      <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); text-align: center;">
+      <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
         <div style="font-size: 32px; margin-bottom: 8px;">&#x1F4AC;</div>
         <div style="font-size: 14px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">Honesty Over Convenience</div>
-        <div style="font-size: 12px; color: var(--text-tertiary); line-height: 1.5;">Rather lose a deal telling the truth than win one by overpromising · Short-term gain, long-term loss — don't sell that way</div>
+        <div style="font-size: 12px; color: var(--text-tertiary); line-height: 1.5;">Uber: told the customer their architecture wouldn't work — before they found out themselves · EA: told them we couldn't do what they needed today, had to architect a workaround requiring more work from both sides · Trust is built when telling the truth costs you something</div>
       </div>
-      <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); text-align: center;">
+      <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
         <div style="font-size: 32px; margin-bottom: 8px;">&#x1F50D;</div>
         <div style="font-size: 14px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">Genuine Curiosity</div>
-        <div style="font-size: 12px; color: var(--text-tertiary); line-height: 1.5;">Read the 10-K · study the org chart · research the industry · Built this entire site by going deep on Anthropic's models and positioning</div>
+        <div style="font-size: 12px; color: var(--text-tertiary); line-height: 1.5;">Read the 10-K · study the org chart · learn the industry · Built this site by going deep on Anthropic's models, safety research, and positioning — can't sell something I haven't tried to understand</div>
       </div>
-      <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); text-align: center;">
+      <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
         <div style="font-size: 32px; margin-bottom: 8px;">&#x1F3C6;</div>
         <div style="font-size: 14px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">Ownership Without Ego</div>
-        <div style="font-size: 12px; color: var(--text-tertiary); line-height: 1.5;">Full accountability for my accounts · Best outcomes come from making others successful · Goal = customer winning</div>
+        <div style="font-size: 12px; color: var(--text-tertiary); line-height: 1.5;">Inherited Flex at rock bottom — someone else's mess · Didn't blame the previous team, just went to work · Best outcomes come from making everyone around you more effective, not taking credit</div>
       </div>
     </div>
 
@@ -2213,7 +2277,7 @@ section:last-of-type { border-bottom: none; }
           <span style="font-size: 22px;">&#x1F914;</span>
           <span style="font-size: 13px; font-weight: 700; color: var(--accent-a);">What Gives Me Pause</span>
         </div>
-        <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;">At Flex, previous team sold tech without solving the actual problem → destroyed the relationship for years · If a seller oversells AI → workforce loses trust entirely · That's why I want to do this at Anthropic</div>
+        <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;">AI has to drive value for the people using it day to day — not just the enterprise buying it · The context these systems learn about employees shouldn't be used against them when it's convenient · Safety isn't just a model problem — it's a trust problem between companies and their people</div>
       </div>
     </div>
 
@@ -2244,7 +2308,7 @@ section:last-of-type { border-bottom: none; }
     <!-- Bottom Line -->
     <div  style="background: var(--bg-card); border: 1px solid var(--border-light); border-left: 3px solid var(--accent-a); border-radius: 0 12px 12px 0; padding: 16px 22px;">
       <div style="font-size: 10px; font-weight: 600; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px;">The Bottom Line</div>
-      <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.5; margin: 0;">Anthropic's values — honesty, rigor, responsibility for impact — aren't aspirational to me. They're how I've operated my entire career. Chose Salesforce because they invested in customer success → choosing Anthropic for the same reason.</p>
+      <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.5; margin: 0;">Anthropic's values — honesty, rigor, responsibility for impact — aren't aspirational to me · They're how I've operated my entire career · Chose Salesforce for customer success → choosing Anthropic for the same reason</p>
     </div>
 
   </div>
