@@ -807,6 +807,22 @@ section:last-of-type { border-bottom: none; }
         <span style="font-size: 12px; color: var(--text-tertiary);">— 8 Gartner reports · Full product portfolio mapped</span>
       </div>
 
+      <!-- Selection framework -->
+      <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-left: 3px solid var(--accent-a); border-radius: 0 10px 10px 0; padding: 16px 20px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+        <div style="font-size: 10px; font-weight: 600; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px;">How I Selected These 3 Verticals</div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+          <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.5; padding: 8px 12px; background: #f5f3ed; border-radius: 8px;">
+            <strong style="color: var(--text-primary);">Total IT spend</strong> — sized each vertical by addressable market and projected growth through 2029
+          </div>
+          <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.5; padding: 8px 12px; background: #f5f3ed; border-radius: 8px;">
+            <strong style="color: var(--text-primary);">Enterprise licenses</strong> — software engineers (Claude Code) and knowledge workers (Cowork, Excel, PowerPoint, Claude) → need verticals with both
+          </div>
+          <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.5; padding: 8px 12px; background: #f5f3ed; border-radius: 8px;">
+            <strong style="color: var(--text-primary);">API consumption</strong> — Claude embedded in the products and services these companies bring to market + the enterprise tech stack they use to operate the business → high-volume token usage at scale
+          </div>
+        </div>
+      </div>
+
       <!-- Vertical cards: stacked row layout -->
       <div style="display: flex; flex-direction: column; gap: 16px;">
 
@@ -816,7 +832,8 @@ section:last-of-type { border-bottom: none; }
             <span style="font-family: var(--font-display); font-size: 36px; font-weight: 700; color: rgba(217,119,87,0.15); line-height: 1;">01</span>
             <span style="font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--text-primary);">Services</span>
             <span class="wa-pill wa-pill-metric">$2.38T spend by 2029</span>
-            <span class="wa-pill wa-pill-metric">$257B+ Big 4 + MBB revenue</span>
+            <span class="wa-pill wa-pill-metric">$257B+ revenue · Deloitte · PwC · EY · KPMG · McKinsey · BCG · Bain</span>
+            <span class="wa-pill wa-pill-metric">1.6M+ Big 4 &amp; MBB knowledge workers</span>
           </div>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 18px;">
             <div style="padding-left: 12px; border-left: 2px solid var(--accent-a);">
@@ -829,8 +846,10 @@ section:last-of-type { border-bottom: none; }
             </div>
           </div>
           <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
-            <span style="font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;">Personas</span>
-            <span class="wa-pill wa-pill-role">Managing Director</span><span class="wa-pill wa-pill-role">Partner</span><span class="wa-pill wa-pill-role">Engagement Manager</span><span class="wa-pill wa-pill-role">Senior Consultant</span><span class="wa-pill wa-pill-role">Analyst</span><span class="wa-pill wa-pill-role">Tax Advisor</span><span class="wa-pill wa-pill-role">Auditor</span><span class="wa-pill wa-pill-role">Deal Professional</span>
+            <span style="font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;">Persona → Use Case → Product</span>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px;">
+            <span class="wa-pill wa-pill-role">Consultant → market research &amp; competitive analysis → Cowork</span><span class="wa-pill wa-pill-role">Partner → client strategy decks → PPT</span><span class="wa-pill wa-pill-role">Analyst → financial modeling &amp; benchmarking → Excel</span><span class="wa-pill wa-pill-role">Deal Professional → RFP drafting → Cowork</span><span class="wa-pill wa-pill-role">Auditor → audit documentation &amp; SOX testing → Cowork + Excel</span><span class="wa-pill wa-pill-role">Financial Advisor → due diligence synthesis &amp; deal memos → Cowork</span><span class="wa-pill wa-pill-role">Tax Advisor → tax research &amp; compliance memos → Cowork</span><span class="wa-pill wa-pill-role">Senior Leader → contract review &amp; redlining → Cowork</span><span class="wa-pill wa-pill-metric">Firm → AI-powered client deliverables &amp; custom research agents → API</span>
           </div>
         </div>
 
@@ -853,8 +872,10 @@ section:last-of-type { border-bottom: none; }
             </div>
           </div>
           <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
-            <span style="font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;">Personas</span>
-            <span class="wa-pill wa-pill-role">CTO / CIO</span><span class="wa-pill wa-pill-role">VP Engineering</span><span class="wa-pill wa-pill-role">Staff Engineer</span><span class="wa-pill wa-pill-role">Product Manager</span><span class="wa-pill wa-pill-role">Solutions Engineer</span><span class="wa-pill wa-pill-role">DevOps Lead</span><span class="wa-pill wa-pill-role">Platform Architect</span>
+            <span style="font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;">Persona → Use Case → Product</span>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px;">
+            <span class="wa-pill wa-pill-role">Engineer → code development &amp; review → Claude Code</span><span class="wa-pill wa-pill-role">Engineer → test generation &amp; QA → Claude Code</span><span class="wa-pill wa-pill-role">DevOps → code migration &amp; modernization → Claude Code</span><span class="wa-pill wa-pill-role">PM → PRDs &amp; product specs → Cowork</span><span class="wa-pill wa-pill-role">SE → technical proposals &amp; demo prep → Claude Code</span><span class="wa-pill wa-pill-role">Data/Analytics → dashboard &amp; reporting automation → Excel</span><span class="wa-pill wa-pill-role">CS/Account Mgr → QBR decks &amp; renewal proposals → PPT + Cowork</span><span class="wa-pill wa-pill-metric">Platform Architect → API as reasoning layer in customer products</span>
           </div>
         </div>
 
@@ -869,16 +890,18 @@ section:last-of-type { border-bottom: none; }
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 18px;">
             <div style="padding-left: 12px; border-left: 2px solid var(--accent-a);">
               <div style="font-size: 12px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Why it fits</div>
-              <div style="font-size: 12px; color: var(--text-muted); line-height: 1.6;">Explainability and trust are regulatory requirements. Constitutional AI addresses top GenAI concerns.</div>
+              <div style="font-size: 12px; color: var(--text-muted); line-height: 1.6;">Regulators require explainability and auditability before AI touches financial workflows · Banks won't deploy models they can't trust — Anthropic doesn't train on customer data, offers data residency controls, and runs natively on AWS Bedrock where most banks already operate · When a CIO justifies their AI vendor to the board: "the company whose entire mission is building safe, reliable AI" is easy to defend · #1 CIO spend priority = AI, but only if it meets compliance bar</div>
             </div>
             <div style="padding-left: 12px; border-left: 2px solid var(--accent-b);">
               <div style="font-size: 12px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">How Claude drives value</div>
-              <div style="font-size: 12px; color: var(--text-muted); line-height: 1.6;">Opus 4.6 → finance benchmarks. Cowork → advisors & compliance. Excel → valuations & stress testing. Claude Code → legacy modernization.</div>
+              <div style="font-size: 12px; color: var(--text-muted); line-height: 1.6;">Opus 4.6 → #1 on financial services benchmarks (60.7% vs. GPT-5.2 at 56.6%, Gemini 3 Pro at 44.1%) — tests ability to do quantitative analysis, read financial data, and reason through multi-step business problems · Also #1 on τ²-bench (91.9% retail, 99.3% telecom) — tests whether AI can act as a reliable agent: follow complex policies, use tools correctly across multi-turn conversations without errors — exactly what regulated industries need · Cowork → advisors draft memos & compliance docs · Excel → financial modeling & stress testing · Claude Code → modernize legacy banking systems</div>
             </div>
           </div>
           <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
-            <span style="font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;">Personas</span>
-            <span class="wa-pill wa-pill-role">Investment Banker</span><span class="wa-pill wa-pill-role">Portfolio Manager</span><span class="wa-pill wa-pill-role">Wealth Advisor</span><span class="wa-pill wa-pill-role">Risk Analyst</span><span class="wa-pill wa-pill-role">Compliance Officer</span><span class="wa-pill wa-pill-role">Quant Researcher</span><span class="wa-pill wa-pill-role">Actuarial Analyst</span>
+            <span style="font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;">Persona → Use Case → Product</span>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px;">
+            <span class="wa-pill wa-pill-role">Investment Banker → pitch books &amp; deal materials → PPT</span><span class="wa-pill wa-pill-role">Portfolio Manager → investment research &amp; earnings analysis → Cowork</span><span class="wa-pill wa-pill-role">Risk Analyst → financial modeling &amp; valuation → Excel</span><span class="wa-pill wa-pill-role">Credit Analyst → underwriting memos → Cowork</span><span class="wa-pill wa-pill-role">Risk Analyst → regulatory stress testing → Excel</span><span class="wa-pill wa-pill-role">Compliance Officer → regulatory monitoring → Cowork</span><span class="wa-pill wa-pill-role">Wealth Advisor → client prep &amp; financial planning → Cowork + Excel</span><span class="wa-pill wa-pill-role">Fintech Engineer → fraud detection &amp; risk models → Claude Code</span><span class="wa-pill wa-pill-metric">Fintech Engineer → payment APIs &amp; platform development → Claude Code</span>
           </div>
         </div>
 
@@ -890,11 +913,58 @@ section:last-of-type { border-bottom: none; }
     <div  style="margin-top: 56px;">
       <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 20px;">
         <span style="background: var(--accent-a); color: #ffffff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.06em;">Part 2</span>
-        <h3 style="font-family: var(--font-display); font-size: 20px; color: var(--text-primary); margin: 0;">What Makes Ryan's Sales Approach Different</h3>
+        <h3 style="font-family: var(--font-display); font-size: 20px; color: var(--text-primary); margin: 0;">Sales Process — Territory Planning, Pipeline Building &amp; Cross-Functional Execution</h3>
+      </div>
+
+      <!-- Territory Planning & Pipeline Process -->
+      <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 14px; padding: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin-bottom: 24px;">
+        <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-a); margin-bottom: 16px;">How I Build Pipeline — Account Research → Plan → Execute</div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 16px;">
+          <div style="background: #fdf5f0; border: 1px solid rgba(217,119,87,0.2); border-radius: 10px; padding: 16px;">
+            <div style="font-size: 11px; font-weight: 700; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px;">1 — Account Research</div>
+            <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.6;">
+              <strong>External:</strong> Claude Cowork + sales plugins · 10-K · GTM · revenue by product line · org structure · AI partnerships · product fit mapping · earnings deck + investor relations · YouTube &amp; website for messaging<br>
+              <strong>Internal:</strong> CRM history · past opps · contracts · consumption data · Slack · debrief former AE/SE<br>
+              <strong>Goal:</strong> deeply understand the business, imagine myself working there — this pays dividends later · map Anthropic products to specific teams, use cases and challenges
+            </div>
+          </div>
+          <div style="background: #f0f3eb; border: 1px solid rgba(120,140,93,0.2); border-radius: 10px; padding: 16px;">
+            <div style="font-size: 11px; font-weight: 700; color: var(--accent-b); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px;">2 — Account Plan</div>
+            <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.6;">
+              <strong>Build the plan:</strong> create account plan skill in Cowork using research output · relationship map in Sales Nav (20 contacts per map, one per team) · pull investor deck slides into plan in customer branding · practice presenting to spot gaps<br>
+              <strong>Internal debrief:</strong> meet with former AE/SE and team · validate stakeholder map · understand customer sentiment · why deals stalled · competitors in play · headwinds · key projects · immediate next steps<br>
+              <strong>Team planning session:</strong> greenfield vs. existing? · which products map to which teams? · best use cases by team · sub-vertical references · are we a customer of this customer? · who are the key decision makers? · who from Anthropic do we deploy?
+            </div>
+          </div>
+          <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 10px; padding: 16px;">
+            <div style="font-size: 11px; font-weight: 700; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px;">3 — Drive Pipeline</div>
+            <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.6;">
+              <strong>Outreach:</strong> 90% of meetings come from me · direct outreach + warm intros · top-down, bottom-up, horizontal · deliver value early — don't just pitch<br>
+              <strong>Ecosystem:</strong> monthly strategy with AWS/Google/MSFT reps · SI partners · marketplace co-sell · leverage cloud credits for expansion<br>
+              <strong>Marketing:</strong> webinars · conferences · executive dinners · sporting events · thought leadership content to develop new relationships
+            </div>
+          </div>
+          <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 10px; padding: 16px;">
+            <div style="font-size: 11px; font-weight: 700; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px;">4 — Mobilize Resources & Close</div>
+            <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.6;">
+              <strong>Execs:</strong> map to decision makers · briefing docs with sell-to + buy-from · deploy with purpose · exec dinners, roundtables, Davos, F1, Masters<br>
+              <strong>Exec engagement process:</strong> align with sales leadership → draft request to exec/chief of staff → 15-30 min briefing → send outreach → follow up with EA<br>
+              <strong>Experts:</strong> right speaker per agenda item · PMs for roadmap · engineers for architecture · Boris Cherny for dev productivity, Paul Smith for GTM strategy<br>
+              <strong>Close:</strong> mutually generated business value case · sizing users + consumption · legal/infosec approvals · references · procurement negotiation<br>
+              <strong>Post-sale:</strong> adoption + change mgmt · QBRs · expand to new teams + use cases · weekly stakeholder meetings · proactive product announcements
+            </div>
+          </div>
+        </div>
+
+        <div style="padding: 10px 14px; background: rgba(217,119,87,0.06); border-radius: 8px; border-left: 3px solid var(--accent-a);">
+          <div style="font-size: 11px; color: var(--text-secondary);">No one buys millions of dollars of technology after one meeting — this is about building relationships grounded in trust and mutual success</div>
+        </div>
       </div>
 
       <!-- Compact principle cards - single row -->
-      <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-bottom: 40px;">
+      <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-a); margin-bottom: 12px;">What Makes My Sales Approach Different</div>
+      <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-bottom: 24px;">
         <div class="wa-sp-card" style="text-align: center; padding: 18px 14px;">
           <div class="wa-sp-icon" style="margin-bottom: 8px;">&#x1F527;</div>
           <div class="wa-sp-title" style="font-size: 12px;">Practitioner, Not Just Seller</div>
@@ -918,47 +988,6 @@ section:last-of-type { border-bottom: none; }
         <div class="wa-sp-card" style="text-align: center; padding: 18px 14px;">
           <div class="wa-sp-icon" style="margin-bottom: 8px;">&#x1F91D;</div>
           <div class="wa-sp-title" style="font-size: 12px;">Trust-Based, Long-Game</div>
-        </div>
-      </div>
-
-      <!-- Territory Planning & Pipeline Process -->
-      <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 14px; padding: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin-bottom: 24px;">
-        <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-a); margin-bottom: 16px;">How I Build Pipeline — Account Research → Plan → Execute</div>
-
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 16px;">
-          <div style="background: #fdf5f0; border: 1px solid rgba(217,119,87,0.2); border-radius: 10px; padding: 16px;">
-            <div style="font-size: 11px; font-weight: 700; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px;">1 — Account Research</div>
-            <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.6;">
-              <strong>External:</strong> Claude Cowork + sales plugins · 10-K · GTM · revenue by product line · org structure · AI partnerships · product fit mapping<br>
-              <strong>Internal:</strong> CRM history · past opps · contracts · consumption data · Slack · debrief former AE/SE
-            </div>
-          </div>
-          <div style="background: #f0f3eb; border: 1px solid rgba(120,140,93,0.2); border-radius: 10px; padding: 16px;">
-            <div style="font-size: 11px; font-weight: 700; color: var(--accent-b); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px;">2 — Account Plan</div>
-            <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.6;">
-              Relationship map in Sales Nav · investor deck slides in customer branding · stakeholder sentiment · why deals stalled · competitors in play<br>
-              <strong>Team session:</strong> greenfield vs. existing? · best use cases by team · sub-vertical references · are we a customer of this customer?
-            </div>
-          </div>
-          <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 10px; padding: 16px;">
-            <div style="font-size: 11px; font-weight: 700; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px;">3 — Drive Pipeline</div>
-            <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.6;">
-              90% of meetings come from me · direct outreach + warm intros · top-down, bottom-up, horizontal · deliver value early — don't just pitch<br>
-              <strong>Ecosystem:</strong> monthly strategy with AWS/Google/MSFT reps · SI partners · marketplace co-sell
-            </div>
-          </div>
-          <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 10px; padding: 16px;">
-            <div style="font-size: 11px; font-weight: 700; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px;">4 — Mobilize Resources & Close</div>
-            <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.6;">
-              <strong>Execs:</strong> map to decision makers · briefing docs with sell-to + buy-from · deploy with purpose<br>
-              <strong>Experts:</strong> right speaker per agenda item · PMs for roadmap · engineers for architecture<br>
-              <strong>Post-sale:</strong> adoption + change mgmt · QBRs · expand to new teams + use cases
-            </div>
-          </div>
-        </div>
-
-        <div style="padding: 10px 14px; background: rgba(217,119,87,0.06); border-radius: 8px; border-left: 3px solid var(--accent-a);">
-          <div style="font-size: 11px; color: var(--text-secondary);">No one buys millions of dollars of technology after one meeting — this is about building relationships grounded in trust and mutual success</div>
         </div>
       </div>
 
