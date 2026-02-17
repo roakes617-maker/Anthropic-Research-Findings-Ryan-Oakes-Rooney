@@ -252,6 +252,10 @@ section:last-of-type { border-bottom: none; }
   #why-built div[style*="grid-template-columns: repeat(3"] {
     grid-template-columns: 1fr !important;
   }
+
+  /* Org chart: hide desktop, show mobile */
+  #org-chart-desktop { display: none !important; }
+  #org-chart-mobile { display: block !important; }
   
   /* Mobile header fixes */
   .hero .container.hero-content {
@@ -728,8 +732,8 @@ section:last-of-type { border-bottom: none; }
         <div style="font-size: 13px; color: var(--text-secondary); line-height: 1.7;"><strong>Johnathan Jager-Hyman (JJH)</strong> — Previous: SVP of Agentforce at Salesforce. Incoming: Leading Industry team for Healthcare and Financial Services at Anthropic (starting week of February 23, 2026). Phone: (516) 586-0754</div>
       </div>
 
-      <!-- Salesforce Org Chart -->
-      <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 28px 28px 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin-top: 20px;">
+      <!-- Salesforce Org Chart — Desktop -->
+      <div id="org-chart-desktop" style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 28px 28px 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin-top: 20px;">
         <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-a); margin-bottom: 24px;">Salesforce Agentforce Leadership Chain</div>
 
         <!-- Miguel Milano -->
@@ -860,6 +864,97 @@ section:last-of-type { border-bottom: none; }
           </div>
         </div>
 
+      </div>
+
+      <!-- Salesforce Org Chart — Mobile -->
+      <div id="org-chart-mobile" style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin-top: 20px; display: none;">
+        <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-a); margin-bottom: 16px;">Leadership Chain</div>
+
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <!-- My direct chain — highlighted path -->
+          <div style="font-size: 10px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px;">My Chain of Command</div>
+
+          <div style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 8px;">
+            <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); flex: 1;">Miguel Milano</div>
+            <div style="font-size: 10px; color: var(--text-muted); white-space: nowrap;">President &amp; CRO</div>
+          </div>
+
+          <div style="padding-left: 12px; border-left: 2px solid #c8c2b8;">
+            <div style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 8px; margin-bottom: 6px;">
+              <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); flex: 1;">Connor Marsden</div>
+              <div style="font-size: 10px; color: var(--text-muted); white-space: nowrap;">President, NA Industries</div>
+            </div>
+
+            <div style="padding-left: 12px; border-left: 2px solid #c8c2b8;">
+              <div style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 8px; margin-bottom: 6px;">
+                <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); flex: 1;">Kaylin Voss</div>
+                <div style="font-size: 10px; color: var(--text-muted); white-space: nowrap;">EVP, Agentforce</div>
+              </div>
+
+              <div style="padding-left: 12px; border-left: 2px solid var(--accent-b);">
+                <div style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(120,140,93,0.06); border: 2px solid var(--accent-b); border-radius: 8px; margin-bottom: 6px;">
+                  <div style="flex: 1;"><div style="font-size: 12px; font-weight: 700; color: #4a6741;">Johnathan Jager-Hyman</div><div style="font-size: 9px; color: #4a6741; font-weight: 600;">→ Now at Anthropic</div></div>
+                  <div style="font-size: 10px; color: var(--text-muted); white-space: nowrap;">Fmr SVP, Agentforce</div>
+                </div>
+
+                <div style="padding-left: 12px; border-left: 2px solid var(--accent-b);">
+                  <div style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(120,140,93,0.06); border: 2px solid var(--accent-b); border-radius: 8px; margin-bottom: 6px;">
+                    <div style="flex: 1;"><div style="font-size: 12px; font-weight: 700; color: #4a6741;">Katie (Cooper) McNamara</div><div style="font-size: 9px; color: #4a6741; font-weight: 600;">→ Now at Anthropic</div></div>
+                    <div style="font-size: 10px; color: var(--text-muted); white-space: nowrap;">Fmr AVP, Agentforce</div>
+                  </div>
+
+                  <div style="padding-left: 12px; border-left: 2px solid #c8c2b8;">
+                    <div style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 8px; margin-bottom: 6px;">
+                      <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); flex: 1;">Drew Blumenthal</div>
+                      <div style="font-size: 10px; color: var(--text-muted); white-space: nowrap;">RVP, Agentforce</div>
+                    </div>
+
+                    <div style="padding-left: 12px; border-left: 2px solid var(--accent-a);">
+                      <div style="display: flex; align-items: center; gap: 8px; padding: 10px 12px; background: rgba(217,119,87,0.06); border: 2px solid var(--accent-a); border-radius: 8px;">
+                        <div style="font-size: 13px; font-weight: 700; color: var(--accent-a); flex: 1;">Ryan Oakes-Rooney</div>
+                        <div style="font-size: 10px; color: var(--text-muted); white-space: nowrap;">Strategic Enterprise AE</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Other branches -->
+          <div style="margin-top: 12px; font-size: 10px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px;">Other Branches</div>
+
+          <div style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 8px;">
+            <div style="flex: 1;"><span style="font-size: 12px; font-weight: 700; color: var(--accent-a);">Lenore Lang</span><span style="font-size: 10px; color: var(--text-muted);"> · EVP, Sales</span></div>
+            <div style="font-size: 10px; color: var(--text-muted);">↑ Alexa Vignone</div>
+          </div>
+
+          <div style="padding-left: 12px; border-left: 2px solid #c8c2b8;">
+            <div style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 8px; margin-bottom: 6px;">
+              <div style="flex: 1;"><span style="font-size: 12px; font-weight: 700; color: var(--text-primary);">Matt DeTroia</span><span style="font-size: 10px; color: var(--text-muted);"> · SVP, Sales</span></div>
+            </div>
+            <div style="padding-left: 12px; display: flex; gap: 6px;">
+              <div style="flex: 1; padding: 6px 10px; background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 8px; text-align: center;">
+                <div style="font-size: 11px; font-weight: 700; color: var(--text-primary);">Tim Nicholas</div>
+                <div style="font-size: 9px; color: var(--text-muted);">AVP, Sales</div>
+              </div>
+              <div style="flex: 1; padding: 6px 10px; background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 8px; text-align: center;">
+                <div style="font-size: 11px; font-weight: 700; color: var(--text-primary);">Nicholas Seaver</div>
+                <div style="font-size: 9px; color: var(--text-muted);">AVP, Sales</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 6px; display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 8px;">
+            <div style="flex: 1;"><span style="font-size: 12px; font-weight: 700; color: var(--text-primary);">Brian Landsman</span><span style="font-size: 10px; color: var(--text-muted);"> · CEO, AppExchange</span></div>
+            <div style="font-size: 10px; color: var(--text-muted);">↑ Jim Steele</div>
+          </div>
+          <div style="padding-left: 12px; border-left: 2px solid #c8c2b8;">
+            <div style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 8px;">
+              <div style="flex: 1;"><span style="font-size: 12px; font-weight: 700; color: var(--text-primary);">Nick Johnston</span><span style="font-size: 10px; color: var(--text-muted);"> · SVP, Strategy</span></div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Deal Track Record -->
