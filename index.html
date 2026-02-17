@@ -256,6 +256,9 @@ section:last-of-type { border-bottom: none; }
   /* Org chart: hide desktop, show mobile */
   #org-chart-desktop { display: none !important; }
   #org-chart-mobile { display: block !important; }
+
+  /* Resume card: stack bullets vertically on mobile */
+  #why-built .resume-bullets { flex-direction: column !important; gap: 3px !important; }
   
   /* Mobile header fixes */
   .hero .container.hero-content {
@@ -515,7 +518,7 @@ section:last-of-type { border-bottom: none; }
         <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px;">
           <span style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-a); font-weight: 600;">Resume</span>
         </div>
-        <div style="font-size: 12px; color: var(--text-muted); line-height: 1.55; display: flex; gap: 24px; flex-wrap: wrap;">
+        <div class="resume-bullets" style="font-size: 12px; color: var(--text-muted); line-height: 1.55; display: flex; gap: 24px; flex-wrap: wrap;">
           <div style="display: flex; align-items: baseline; gap: 6px;"><span style="color: rgba(184,90,58,0.35); font-size: 8px; flex-shrink: 0;">●</span> Performance Highlights</div>
           <div style="display: flex; align-items: baseline; gap: 6px;"><span style="color: rgba(184,90,58,0.35); font-size: 8px; flex-shrink: 0;">●</span> Career Progression</div>
           <div style="display: flex; align-items: baseline; gap: 6px;"><span style="color: rgba(184,90,58,0.35); font-size: 8px; flex-shrink: 0;">●</span> Strategic Accounts &amp; Deal Track Record</div>
