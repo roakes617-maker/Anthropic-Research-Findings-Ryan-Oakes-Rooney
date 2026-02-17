@@ -483,6 +483,7 @@ section:last-of-type { border-bottom: none; }
     <!-- Pill-style horizontal nav dropdown -->
     <div id="nav-dropdown" style="display: none; flex-direction: row; flex-wrap: wrap; gap: 6px; margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.08);">
       <a class="nav-pill" onclick="document.getElementById('resume').scrollIntoView({behavior:'smooth'}); document.getElementById('nav-dropdown').classList.remove('open')">Resume</a>
+      <a class="nav-pill" onclick="document.getElementById('cowork-feedback').scrollIntoView({behavior:'smooth'}); document.getElementById('nav-dropdown').classList.remove('open')">Cowork Feedback</a>
       <a class="nav-pill" onclick="document.getElementById('writing').scrollIntoView({behavior:'smooth'}); document.getElementById('nav-dropdown').classList.remove('open')">Take Home Review</a>
       <a class="nav-pill" onclick="document.getElementById('deal-story').scrollIntoView({behavior:'smooth'}); document.getElementById('nav-dropdown').classList.remove('open')">Deal Win Review</a>
       <a class="nav-pill" onclick="document.getElementById('cross-functional').scrollIntoView({behavior:'smooth'}); document.getElementById('nav-dropdown').classList.remove('open')">Cross-Functional Partnership Interview</a>
@@ -512,6 +513,18 @@ section:last-of-type { border-bottom: none; }
           <div style="display: flex; align-items: baseline; gap: 6px; margin-bottom: 3px;"><span style="color: rgba(184,90,58,0.35); font-size: 8px; flex-shrink: 0;">●</span> Career Progression</div>
           <div style="display: flex; align-items: baseline; gap: 6px; margin-bottom: 3px;"><span style="color: rgba(184,90,58,0.35); font-size: 8px; flex-shrink: 0;">●</span> Strategic Accounts &amp; Deal Track Record</div>
           <div style="display: flex; align-items: baseline; gap: 6px;"><span style="color: rgba(184,90,58,0.35); font-size: 8px; flex-shrink: 0;">●</span> Primary Reference</div>
+        </div>
+      </div>
+
+      <!-- Cowork Feedback -->
+      <div onclick="document.getElementById('cowork-feedback').scrollIntoView({behavior:'smooth'})" style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 22px 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); cursor: pointer; transition: all 0.2s ease; display: flex; flex-direction: column;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.08)';this.style.borderColor='rgba(184,90,58,0.25)';this.style.transform='translateY(-1px)'" onmouseout="this.style.boxShadow='0 2px 8px rgba(0,0,0,0.04)';this.style.borderColor='var(--border-light)';this.style.transform='none'">
+        <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px;">
+          <span style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-a); font-weight: 600;">Cowork Feedback</span>
+        </div>
+        <div style="font-size: 12px; color: var(--text-muted); line-height: 1.55; flex: 1;">
+          <div style="display: flex; align-items: baseline; gap: 6px; margin-bottom: 3px;"><span style="color: rgba(184,90,58,0.35); font-size: 8px; flex-shrink: 0;">●</span> Enterprise Deployment Strategy</div>
+          <div style="display: flex; align-items: baseline; gap: 6px; margin-bottom: 3px;"><span style="color: rgba(184,90,58,0.35); font-size: 8px; flex-shrink: 0;">●</span> Agentforce Parallel · Slackbot Competition</div>
+          <div style="display: flex; align-items: baseline; gap: 6px;"><span style="color: rgba(184,90,58,0.35); font-size: 8px; flex-shrink: 0;">●</span> Ambient Agents · Always-On Opportunity</div>
         </div>
       </div>
 
@@ -859,6 +872,133 @@ section:last-of-type { border-bottom: none; }
      SECTION 1: MODEL COMPARISON TABLE
      ============================================================ -->
 
+
+<!-- ============================================================
+     COWORK FEEDBACK
+     ============================================================ -->
+<section id="cowork-feedback" style="background: var(--bg-secondary); padding: 80px 0;">
+  <div class="container">
+    <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 8px;">
+      <span style="background: var(--accent-a); color: #fff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.06em;">Perspective</span>
+      <h2 style="font-family: var(--font-display); font-size: 28px; color: var(--text-primary); font-weight: 700; line-height: 1.2; margin: 0;">Cowork Feedback</h2>
+    </div>
+    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 28px;">Enterprise perspective after hands-on testing — requested by Lauren ahead of our next discussion.</p>
+
+    <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-left: 3px solid var(--accent-a); border-radius: 0 12px 12px 0; padding: 14px 22px; margin-bottom: 20px;">
+      <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.5; margin: 0;"><strong>Core thesis:</strong> The technology is ready. The barrier to transformative success is enterprise planning, design, standardization, and change management.</p>
+    </div>
+
+    <!-- The Risk -->
+    <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 14px; padding: 24px 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin-bottom: 16px;">
+      <div style="font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px;">⚠️ &nbsp;Enterprise Deployment Strategy</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+        <div style="background: rgba(234,56,76,0.04); border: 1px solid rgba(234,56,76,0.15); border-radius: 10px; padding: 14px;">
+          <div style="font-size: 10px; font-weight: 700; color: var(--red-soft); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px;">Without Intent</div>
+          <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.7;">
+            <span style="color: var(--red-soft); margin-right: 4px;">✗</span> Majority of users treat it as a conversational agent<br>
+            <span style="color: var(--red-soft); margin-right: 4px;">✗</span> Low adoption of plugins, skills, and commands<br>
+            <span style="color: var(--red-soft); margin-right: 4px;">✗</span> Minimal workflow change<br>
+            <span style="color: var(--red-soft); margin-right: 4px;">✗</span> The ROI story dies
+          </div>
+        </div>
+        <div style="background: rgba(120,140,93,0.06); border: 1px solid rgba(120,140,93,0.2); border-radius: 10px; padding: 14px;">
+          <div style="font-size: 10px; font-weight: 700; color: var(--accent-b); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px;">With Intent</div>
+          <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.7;">
+            <span style="color: var(--accent-b); margin-right: 4px;">✓</span> Design plugins, skills, tools around <strong>jobs-to-be-done</strong><br>
+            <span style="color: var(--accent-b); margin-right: 4px;">✓</span> Prioritize: highest impact / lowest complexity<br>
+            <span style="color: var(--accent-b); margin-right: 4px;">✓</span> Pair deployment with training &amp; change management<br>
+            <span style="color: var(--accent-b); margin-right: 4px;">✓</span> Dramatically larger ROI — chatbot → workforce multiplier
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Agentforce Parallel -->
+    <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 14px; padding: 24px 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin-bottom: 16px;">
+      <div style="font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px;">🔍 &nbsp;Why This Makes Sense to Me — The Agentforce Parallel</div>
+      <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin: 0 0 12px 0;">Different vocabulary, same mental model:</p>
+      <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px; align-items: center; margin-bottom: 16px;">
+        <div style="background: #fdf5f0; border: 1px solid rgba(217,119,87,0.2); border-radius: 10px; padding: 14px;">
+          <div style="font-size: 10px; font-weight: 700; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px;">Cowork</div>
+          <div style="font-size: 12px; color: var(--text-primary); font-weight: 600; line-height: 2;">Plugins<br>Skills<br>Connectors</div>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; color: var(--text-muted); font-size: 14px; line-height: 2;">⟷<br>⟷<br>⟷</div>
+        <div style="background: #f0f3eb; border: 1px solid rgba(120,140,93,0.2); border-radius: 10px; padding: 14px;">
+          <div style="font-size: 10px; font-weight: 700; color: var(--accent-b); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px;">Agentforce</div>
+          <div style="font-size: 12px; color: var(--text-primary); font-weight: 600; line-height: 2;">Topics<br>Actions<br>Tools</div>
+        </div>
+      </div>
+
+      <!-- Where Agentforce Falls Short -->
+      <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px; margin-bottom: 10px;">
+        <div style="font-size: 11px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">Where Agentforce Falls Short</div>
+        <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.7;">
+          <span style="color: var(--red-soft); margin-right: 4px;">✗</span> Completely operationally built &amp; managed — no end-user customization<br>
+          <span style="color: var(--red-soft); margin-right: 4px;">✗</span> Users can't create their own skills, commands, or tools<br>
+          <span style="color: var(--red-soft); margin-right: 4px;">✗</span> No web search from day one — missed the #1 adopted AI feature
+        </div>
+      </div>
+
+      <!-- Slackbot -->
+      <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 8px; padding: 12px 14px;">
+        <div style="font-size: 11px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">But Salesforce Sees This — Enter Slackbot</div>
+        <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.7;">
+          <span style="margin-right: 4px;">→</span> Salesforce leaning hard into Slackbot to address these gaps<br>
+          <span style="margin-right: 4px;">→</span> Not grounded in web, but rich enterprise context — channels, conversations, shared knowledge<br>
+          <span style="margin-right: 4px;">→</span> Returns contextual, web-like responses users find valuable<br>
+          <span style="margin-right: 4px;">→</span> Slack team now building "skills" — mimicking Cowork's design pattern<br>
+          <span style="margin-right: 4px;">→</span> <strong>I see Slackbot as a more direct competitor to Cowork than anything else</strong>
+        </div>
+        <div style="background: rgba(217,119,87,0.06); border-radius: 6px; padding: 8px 10px; margin-top: 8px; font-size: 11px; color: var(--text-secondary); line-height: 1.5;">
+          <strong style="color: var(--accent-a);">The differentiator:</strong> Slackbot wins on convenience (users already live in Slack). Cowork wins on enterprise architecture (if IT/Ops deploys with jobs-to-be-done design + change management).
+        </div>
+      </div>
+    </div>
+
+    <!-- Where Cowork Takes Off -->
+    <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 14px; padding: 24px 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin-bottom: 16px;">
+      <div style="font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px;">🚀 &nbsp;Where Cowork Takes Off — Ambient, Always-On Agents</div>
+      <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin: 0 0 12px 0;">Cowork takes off when it isn't reliant on being user-initiated.</p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;">
+        <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 10px; padding: 14px;">
+          <div style="font-size: 11px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">Why OpenClaw Went Viral</div>
+          <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.7;">
+            <span style="margin-right: 4px;">→</span> Ambient, always-on architecture<br>
+            <span style="margin-right: 4px;">→</span> Works <em>on your behalf</em>, not just by your side<br>
+            <span style="margin-right: 4px;">→</span> Early adopters want agents that don't wait to be asked
+          </div>
+        </div>
+        <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 10px; padding: 14px;">
+          <div style="font-size: 11px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">The Security Reality</div>
+          <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.7;">
+            <span style="margin-right: 4px;">→</span> OpenClaw (now OpenAI) — massive security concerns<br>
+            <span style="margin-right: 4px;">→</span> Enterprises actively banning this tool<br>
+            <span style="margin-right: 4px;">→</span> But the signal is clear: market wants always-on agents
+          </div>
+        </div>
+      </div>
+
+      <!-- Regrello -->
+      <div style="background: rgba(217,119,87,0.06); border: 1px solid rgba(217,119,87,0.2); border-radius: 10px; padding: 14px;">
+        <div style="font-size: 11px; font-weight: 700; color: var(--accent-a); margin-bottom: 6px;">🔥 &nbsp;Best Example: Regrello on Agentforce</div>
+        <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.7;">
+          <span style="margin-right: 4px;">→</span> Triggered when email arrives (e.g. change order from customer to Flex)<br>
+          <span style="margin-right: 4px;">→</span> Agent kicks off series of workflows to complete the entire job<br>
+          <span style="margin-right: 4px;">→</span> Loops in human at review/approve steps<br>
+          <span style="margin-right: 4px;">→</span> Created in minutes — feels fully agentic<br>
+          <span style="margin-right: 4px;">→</span> <strong>A pattern Cowork could adopt — ambient, trigger-based agents with safety-first design</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Line -->
+    <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-left: 3px solid var(--accent-a); border-radius: 0 12px 12px 0; padding: 14px 22px;">
+      <div style="font-size: 10px; font-weight: 600; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px;">The Opportunity</div>
+      <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin: 0;">Architecture is right. Product is strong. The gap is between "deploy" and "transform" — that's a change management problem, not a technology problem. Enterprises that treat Cowork as a platform to design around (not just a tool to turn on) will see 10x the results. That's exactly the conversation I'd be having with every customer.</p>
+    </div>
+
+  </div>
+</section>
 
 <!-- ============================================================
      SECTION 9: WRITING ASSIGNMENT
@@ -2678,13 +2818,11 @@ section:last-of-type { border-bottom: none; }
 
   </div>
 </section>
-<!-- ============================================================
-     FOOTER
      ============================================================ -->
 <footer class="site-footer">
   <div class="container">
     <!-- === EDIT YOUR NAME AND DATE HERE === -->
-    <p>Last updated: <strong>February 15, 2026</strong> · Prepared by <strong>Ryan</strong></p>
+    <p>Last updated: <strong>February 17, 2026</strong> · Prepared by <strong>Ryan</strong></p>
     <p style="margin-top:6px;">Sources: Anthropic blog, OpenAI announcements, Wikipedia, CNBC, VentureBeat, TechCrunch, Axios</p>
   </div>
 </footer>
