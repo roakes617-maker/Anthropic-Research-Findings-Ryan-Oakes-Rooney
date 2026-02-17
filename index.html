@@ -1153,7 +1153,7 @@ section:last-of-type { border-bottom: none; }
         <div style="background: rgba(120,140,93,0.06); border: 1px solid rgba(120,140,93,0.2); border-radius: 10px; padding: 14px;">
           <div style="font-size: 10px; font-weight: 700; color: var(--accent-b); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px;">With Intent</div>
           <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.7;">
-            <span style="color: var(--accent-b); margin-right: 4px;">✓</span> Design plugins, skills, tools around <strong>jobs-to-be-done</strong><br>
+            <span style="color: var(--accent-b); margin-right: 4px;">✓</span> Design plugins, skills, tools around <strong>jobs-to-be-done</strong> (outcomes, not features)<br>
             <span style="color: var(--accent-b); margin-right: 4px;">✓</span> Prioritize: highest impact / lowest complexity<br>
             <span style="color: var(--accent-b); margin-right: 4px;">✓</span> Pair deployment with training &amp; change management<br>
             <span style="color: var(--accent-b); margin-right: 4px;">✓</span> Dramatically larger ROI — chatbot → workforce multiplier
@@ -1287,8 +1287,19 @@ section:last-of-type { border-bottom: none; }
     </div>
 
     <!-- Assignment structure intro -->
-    <div style="font-size: 13px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 28px; max-width: 800px;">
-      I broke the assignment into three parts: <strong style="color: var(--text-primary);">Part 1</strong> is a vertical analysis — I researched Anthropic's products, broader market dynamics, and combined 8 Gartner reports to identify the three verticals best suited for Anthropic's portfolio. <strong style="color: var(--text-primary);">Part 2</strong> details my sales process — how I'd conduct account research, build the account plan, and the resources I'd leverage to drive pipeline. <strong style="color: var(--text-primary);">Part 3</strong> is the applied account plan for Salesforce, including financials, executive mapping, competitive landscape, and expansion opportunities.
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 28px;">
+      <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-top: 3px solid var(--accent-a); border-radius: 0 0 10px 10px; padding: 16px 18px;">
+        <div style="font-size: 12px; font-weight: 700; color: var(--accent-a); margin-bottom: 6px;">Part 1 — Vertical Analysis</div>
+        <div style="font-size: 12px; color: var(--text-muted); line-height: 1.55;">Researched Anthropic's products, broader market dynamics, and combined 8 Gartner reports to identify the three verticals best suited for the portfolio.</div>
+      </div>
+      <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-top: 3px solid var(--accent-a); border-radius: 0 0 10px 10px; padding: 16px 18px;">
+        <div style="font-size: 12px; font-weight: 700; color: var(--accent-a); margin-bottom: 6px;">Part 2 — Sales Process</div>
+        <div style="font-size: 12px; color: var(--text-muted); line-height: 1.55;">How I'd conduct account research, build the account plan, and the resources I'd leverage to drive pipeline.</div>
+      </div>
+      <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-top: 3px solid var(--accent-a); border-radius: 0 0 10px 10px; padding: 16px 18px;">
+        <div style="font-size: 12px; font-weight: 700; color: var(--accent-a); margin-bottom: 6px;">Part 3 — Salesforce Account Plan</div>
+        <div style="font-size: 12px; color: var(--text-muted); line-height: 1.55;">Applied account plan including financials, executive mapping, competitive landscape, and expansion opportunities.</div>
+      </div>
     </div>
 
     <div id="wa-verticals"></div>
