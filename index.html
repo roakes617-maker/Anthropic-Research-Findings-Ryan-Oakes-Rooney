@@ -510,15 +510,15 @@ section:last-of-type { border-bottom: none; }
 
     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
 
-      <!-- Resume -->
-      <div onclick="document.getElementById('resume').scrollIntoView({behavior:'smooth'})" style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 22px 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); cursor: pointer; transition: all 0.2s ease; display: flex; flex-direction: column;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.08)';this.style.borderColor='rgba(184,90,58,0.25)';this.style.transform='translateY(-1px)'" onmouseout="this.style.boxShadow='0 2px 8px rgba(0,0,0,0.04)';this.style.borderColor='var(--border-light)';this.style.transform='none'">
+      <!-- Resume — full width -->
+      <div onclick="document.getElementById('resume').scrollIntoView({behavior:'smooth'})" style="grid-column: 1 / -1; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 22px 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); cursor: pointer; transition: all 0.2s ease; display: flex; flex-direction: column;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.08)';this.style.borderColor='rgba(184,90,58,0.25)';this.style.transform='translateY(-1px)'" onmouseout="this.style.boxShadow='0 2px 8px rgba(0,0,0,0.04)';this.style.borderColor='var(--border-light)';this.style.transform='none'">
         <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px;">
           <span style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-a); font-weight: 600;">Resume</span>
         </div>
-        <div style="font-size: 12px; color: var(--text-muted); line-height: 1.55; flex: 1;">
-          <div style="display: flex; align-items: baseline; gap: 6px; margin-bottom: 3px;"><span style="color: rgba(184,90,58,0.35); font-size: 8px; flex-shrink: 0;">●</span> Performance Highlights</div>
-          <div style="display: flex; align-items: baseline; gap: 6px; margin-bottom: 3px;"><span style="color: rgba(184,90,58,0.35); font-size: 8px; flex-shrink: 0;">●</span> Career Progression</div>
-          <div style="display: flex; align-items: baseline; gap: 6px; margin-bottom: 3px;"><span style="color: rgba(184,90,58,0.35); font-size: 8px; flex-shrink: 0;">●</span> Strategic Accounts &amp; Deal Track Record</div>
+        <div style="font-size: 12px; color: var(--text-muted); line-height: 1.55; display: flex; gap: 24px; flex-wrap: wrap;">
+          <div style="display: flex; align-items: baseline; gap: 6px;"><span style="color: rgba(184,90,58,0.35); font-size: 8px; flex-shrink: 0;">●</span> Performance Highlights</div>
+          <div style="display: flex; align-items: baseline; gap: 6px;"><span style="color: rgba(184,90,58,0.35); font-size: 8px; flex-shrink: 0;">●</span> Career Progression</div>
+          <div style="display: flex; align-items: baseline; gap: 6px;"><span style="color: rgba(184,90,58,0.35); font-size: 8px; flex-shrink: 0;">●</span> Strategic Accounts &amp; Deal Track Record</div>
           <div style="display: flex; align-items: baseline; gap: 6px;"><span style="color: rgba(184,90,58,0.35); font-size: 8px; flex-shrink: 0;">●</span> Primary Reference</div>
         </div>
       </div>
