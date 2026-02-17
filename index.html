@@ -798,6 +798,11 @@ section:last-of-type { border-bottom: none; }
       <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;">Thought process behind strategic decisions in territory planning + vertical selection · Methodology for pipeline building · Approach to resource allocation · How I'd collaborate across teams to execute</div>
     </div>
 
+    <!-- Assignment structure intro -->
+    <div style="font-size: 13px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 28px; max-width: 800px;">
+      I broke the assignment into three parts: <strong style="color: var(--text-primary);">Part 1</strong> is a vertical analysis — I researched Anthropic's products, broader market dynamics, and combined 8 Gartner reports to identify the three verticals best suited for Anthropic's portfolio. <strong style="color: var(--text-primary);">Part 2</strong> details my sales process — how I'd conduct account research, build the account plan, and the resources I'd leverage to drive pipeline. <strong style="color: var(--text-primary);">Part 3</strong> is the applied account plan for Salesforce, including financials, executive mapping, competitive landscape, and expansion opportunities.
+    </div>
+
     <div id="wa-verticals"></div>
     <!-- ——— PART 1: VERTICAL ANALYSIS ——— -->
     <div  style="margin-top: 40px;">
@@ -2347,6 +2352,57 @@ section:last-of-type { border-bottom: none; }
     <span class="section-label">Model Research</span>
     <h2 class="section-title">Anthropic vs. OpenAI — Current Landscape</h2>
     <p class="section-subtitle">Independent research across models, products, and enterprise positioning. Updated February 2026.</p>
+
+    <!-- Cowork/Code vs OpenClaw -->
+    <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 14px; padding: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin-bottom: 32px;">
+      <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-a); margin-bottom: 14px;">Claude Cowork &amp; Code vs. OpenClaw — Fundamental Differences</div>
+      <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px;">OpenClaw (formerly Clawdbot/Moltbot) went viral in Jan 2026 as an open-source personal agent framework. Creator Peter Steinberger joined OpenAI on Feb 15. All three tools emerged from the same model breakthrough — frontier models capable of autonomous action — but they're built for fundamentally different audiences with opposite design philosophies. Cowork and Code are enterprise-grade products with managed security, predictable pricing, and vendor support. OpenClaw is an open-source framework that maximizes power and flexibility at the cost of enterprise readiness.</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 14px;">
+        <div style="background: #fdf5f0; border: 1px solid rgba(217,119,87,0.2); border-radius: 10px; padding: 16px;">
+          <div style="font-size: 11px; font-weight: 700; color: var(--accent-a); margin-bottom: 6px;">Claude Cowork</div>
+          <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.6;">
+            <strong>For:</strong> knowledge workers (non-technical)<br>
+            <strong>How:</strong> desktop app · sandboxed to user-granted folders · 11 open-source plugins across sales, marketing, legal, finance, support, PM · skills &amp; connectors for standardized workflows<br>
+            <strong>Architecture:</strong> Apple Virtualization Framework sandbox · destructive actions require confirmation · no persistent daemon · tasks are discrete, auditable, reset between sessions<br>
+            <strong>Enterprise edge:</strong> managed by Anthropic · flat $100-200/mo subscription · no data leaves trust boundary · enterprise sales + AWS/GCP partnerships · security teams approve it<br>
+            <strong>Market impact:</strong> built by Claude Code in ~1.5 weeks · S&amp;P Software &amp; Services Index down 20% YTD — market pricing in enterprise disruption from a vendor with real GTM, not just a viral repo
+          </div>
+        </div>
+        <div style="background: #f0f3eb; border: 1px solid rgba(120,140,93,0.2); border-radius: 10px; padding: 16px;">
+          <div style="font-size: 11px; font-weight: 700; color: var(--accent-b); margin-bottom: 6px;">Claude Code</div>
+          <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.6;">
+            <strong>For:</strong> developers &amp; engineers<br>
+            <strong>How:</strong> terminal-based · reads codebase, writes code, runs tests, manages git · VS Code, JetBrains, Xcode integration<br>
+            <strong>Architecture:</strong> session-based · scoped to codebase · no persistent system access · operates through existing dev toolchain<br>
+            <strong>Enterprise edge:</strong> 4% of all public GitHub commits and growing (projected 20%+ by EOY) · est. $1-2B annualized revenue faster than ChatGPT · 77.2% SWE-bench<br>
+            <strong>Real example:</strong> my SEs used Claude Code to build custom Salesforce LWCs for an Uber demo under a tight deadline — hit the deadline, deepened the exec relationship
+          </div>
+        </div>
+        <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 10px; padding: 16px;">
+          <div style="font-size: 11px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">OpenClaw (now OpenAI)</div>
+          <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.6;">
+            <strong>For:</strong> power users, hobbyists, prosumers<br>
+            <strong>How:</strong> open-source · self-hosted · runs 24/7 as persistent daemon via messaging apps (WhatsApp, Slack, iMessage) · full system access · 180K+ GitHub stars<br>
+            <strong>Architecture:</strong> heartbeat architecture (proactively wakes, reviews context, takes action) · CLI-first, rejects MCP in favor of --help discovery · model-agnostic (works with DeepSeek, Claude, GPT)<br>
+            <strong>Enterprise risk:</strong> 17-20% malicious skills on ClawHub · Bitdefender recommends not running on company devices · no vendor support · unpredictable API costs ($300-750/mo) · Korean tech firms banning it<br>
+            <strong>Bottom line:</strong> viral consumer adoption (Baidu integrating it) but enterprise security teams are actively blocking it — Steinberger joining OpenAI signals pivot from open-source to OpenAI's Frontier platform
+          </div>
+        </div>
+        <div style="background: #f5f0f5; border: 1px solid rgba(130,100,140,0.2); border-radius: 10px; padding: 16px;">
+          <div style="font-size: 11px; font-weight: 700; color: #6b5b7b; margin-bottom: 6px;">OpenAI Codex</div>
+          <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.6;">
+            <strong>For:</strong> developers &amp; engineers<br>
+            <strong>How:</strong> macOS desktop app (Feb 2026) + CLI + IDE extension · cloud sandboxed · multi-agent parallel workflows · GPT-5.3-Codex model<br>
+            <strong>Architecture:</strong> cloud-based execution (tasks run in OpenAI sandbox, not locally) · Git worktree isolation · async delegation model — more like assigning tasks to a colleague than pair programming<br>
+            <strong>vs. Claude Code:</strong> Codex runs in OpenAI's cloud → code leaves your environment · Claude Code runs locally in your terminal → code stays on your machine · Codex optimized for async delegation, Claude Code for real-time pairing<br>
+            <strong>Key difference:</strong> OpenAI acquired OpenClaw creator to "drive the next generation of personal agents" + launched Frontier platform for enterprise agent management — consolidating consumer + enterprise agent strategy under one roof
+          </div>
+        </div>
+      </div>
+      <div style="padding: 10px 14px; background: rgba(217,119,87,0.06); border-radius: 8px; border-left: 3px solid var(--accent-a); margin-top: 14px;">
+        <div style="font-size: 11px; color: var(--text-secondary);"><strong>Sales angle:</strong> Four tools, two philosophies. Anthropic's Cowork + Code are enterprise-grade: sandboxed, locally executed, vendor-supported, predictable pricing. OpenClaw maximizes power but fails enterprise security review. Codex runs in OpenAI's cloud — your code leaves your environment. When a CIO asks "why not Codex?" → your code stays local with Claude Code. "Why not OpenClaw?" → security, support, and predictable cost.</div>
+      </div>
+    </div>
 
     <!-- Model Lineup -->
     <div  style="margin-top: 32px;">
