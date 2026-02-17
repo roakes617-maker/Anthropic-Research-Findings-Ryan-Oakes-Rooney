@@ -245,6 +245,11 @@ section:last-of-type { border-bottom: none; }
   .pricing-grid { grid-template-columns: 1fr; }
   .cards-grid { grid-template-columns: 1fr; }
   
+  /* Why I Built This cards mobile */
+  #why-built div[style*="grid-template-columns: repeat(3"] {
+    grid-template-columns: 1fr !important;
+  }
+  
   /* Mobile header fixes */
   .hero .container.hero-content {
     padding: 0 16px;
@@ -487,6 +492,100 @@ section:last-of-type { border-bottom: none; }
     </div>
   </div>
 </section>
+<!-- ============================================================
+     WHY I BUILT THIS — Interview panel navigation cards
+     ============================================================ -->
+<section id="why-built" style="background: var(--bg-secondary); padding: 60px 0 48px;">
+  <div class="container">
+    <h2 style="font-family: var(--font-display); font-size: 28px; color: var(--text-primary); font-weight: 700; line-height: 1.2; margin-bottom: 12px;">Why I Built This</h2>
+    <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.65; max-width: 750px; margin-bottom: 32px;">I built this site to give each interviewer a single reference point for the topics we'll cover together. Everything is organized by interview panel so you can quickly navigate to the section relevant to our conversation.</p>
+
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+
+      <!-- Resume -->
+      <div onclick="document.getElementById('resume').scrollIntoView({behavior:'smooth'})" style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 22px 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); cursor: pointer; transition: all 0.2s ease; display: flex; flex-direction: column;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.08)';this.style.borderColor='rgba(184,90,58,0.25)';this.style.transform='translateY(-1px)'" onmouseout="this.style.boxShadow='0 2px 8px rgba(0,0,0,0.04)';this.style.borderColor='var(--border-light)';this.style.transform='none'">
+        <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px;">
+          <span style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-a); font-weight: 600;">Resume</span>
+        </div>
+        <div style="font-size: 12px; color: var(--text-muted); line-height: 1.55; flex: 1;">
+          <div style="display: flex; align-items: baseline; gap: 6px; margin-bottom: 3px;"><span style="color: rgba(184,90,58,0.35); font-size: 8px; flex-shrink: 0;">●</span> Performance Highlights</div>
+          <div style="display: flex; align-items: baseline; gap: 6px; margin-bottom: 3px;"><span style="color: rgba(184,90,58,0.35); font-size: 8px; flex-shrink: 0;">●</span> Career Progression</div>
+          <div style="display: flex; align-items: baseline; gap: 6px; margin-bottom: 3px;"><span style="color: rgba(184,90,58,0.35); font-size: 8px; flex-shrink: 0;">●</span> Strategic Accounts &amp; Deal Track Record</div>
+          <div style="display: flex; align-items: baseline; gap: 6px;"><span style="color: rgba(184,90,58,0.35); font-size: 8px; flex-shrink: 0;">●</span> Primary Reference</div>
+        </div>
+      </div>
+
+      <!-- Take Home Review -->
+      <div onclick="document.getElementById('writing').scrollIntoView({behavior:'smooth'})" style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 22px 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); cursor: pointer; transition: all 0.2s ease; display: flex; flex-direction: column;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.08)';this.style.borderColor='rgba(184,90,58,0.25)';this.style.transform='translateY(-1px)'" onmouseout="this.style.boxShadow='0 2px 8px rgba(0,0,0,0.04)';this.style.borderColor='var(--border-light)';this.style.transform='none'">
+        <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px;">
+          <span style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-a); font-weight: 600;">Take Home Review</span>
+          <span style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; color: var(--text-muted);">· 30 min</span>
+        </div>
+        <div style="font-size: 12px; color: var(--text-muted); line-height: 1.55; flex: 1;">
+          <div style="display: flex; align-items: baseline; gap: 6px; margin-bottom: 3px;"><span style="color: rgba(184,90,58,0.35); font-size: 8px; flex-shrink: 0;">●</span> Part 1: Vertical Analysis</div>
+          <div style="display: flex; align-items: baseline; gap: 6px; margin-bottom: 3px;"><span style="color: rgba(184,90,58,0.35); font-size: 8px; flex-shrink: 0;">●</span> Part 2: Territory Planning, Pipeline Building &amp; Cross-Functional Execution</div>
+          <div style="display: flex; align-items: baseline; gap: 6px;"><span style="color: rgba(184,90,58,0.35); font-size: 8px; flex-shrink: 0;">●</span> Part 3: Salesforce Account Plan</div>
+        </div>
+      </div>
+
+      <!-- Deal Win Review -->
+      <div onclick="document.getElementById('deal-story').scrollIntoView({behavior:'smooth'})" style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 22px 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); cursor: pointer; transition: all 0.2s ease; display: flex; flex-direction: column;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.08)';this.style.borderColor='rgba(184,90,58,0.25)';this.style.transform='translateY(-1px)'" onmouseout="this.style.boxShadow='0 2px 8px rgba(0,0,0,0.04)';this.style.borderColor='var(--border-light)';this.style.transform='none'">
+        <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px;">
+          <span style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-a); font-weight: 600;">Deal Win Review</span>
+          <span style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; color: var(--text-muted);">· 45 min</span>
+        </div>
+        <div style="font-size: 12px; color: var(--text-muted); line-height: 1.55; flex: 1;">
+          <div style="display: flex; align-items: baseline; gap: 6px; margin-bottom: 3px;"><span style="color: rgba(184,90,58,0.35); font-size: 8px; flex-shrink: 0;">●</span> Three Goals I Set on Day One</div>
+          <div style="display: flex; align-items: baseline; gap: 6px; margin-bottom: 3px;"><span style="color: rgba(184,90,58,0.35); font-size: 8px; flex-shrink: 0;">●</span> Stakeholder Map &amp; Trust Recovery</div>
+          <div style="display: flex; align-items: baseline; gap: 6px; margin-bottom: 3px;"><span style="color: rgba(184,90,58,0.35); font-size: 8px; flex-shrink: 0;">●</span> QBR Framework · POV Development · Innovation Center</div>
+          <div style="display: flex; align-items: baseline; gap: 6px;"><span style="color: rgba(184,90,58,0.35); font-size: 8px; flex-shrink: 0;">●</span> Selling Anthropic Into Flex</div>
+        </div>
+      </div>
+
+      <!-- Cross-Functional -->
+      <div onclick="document.getElementById('cross-functional').scrollIntoView({behavior:'smooth'})" style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 22px 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); cursor: pointer; transition: all 0.2s ease; display: flex; flex-direction: column;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.08)';this.style.borderColor='rgba(184,90,58,0.25)';this.style.transform='translateY(-1px)'" onmouseout="this.style.boxShadow='0 2px 8px rgba(0,0,0,0.04)';this.style.borderColor='var(--border-light)';this.style.transform='none'">
+        <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px;">
+          <span style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-a); font-weight: 600;">Cross-Functional</span>
+          <span style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; color: var(--text-muted);">· 25 min</span>
+        </div>
+        <div style="font-size: 12px; color: var(--text-muted); line-height: 1.55; flex: 1;">
+          <div style="display: flex; align-items: baseline; gap: 6px; margin-bottom: 3px;"><span style="color: rgba(184,90,58,0.35); font-size: 8px; flex-shrink: 0;">●</span> Product · Technical Teams · Executive Alignment · Partners &amp; Post-Sale</div>
+          <div style="display: flex; align-items: baseline; gap: 6px;"><span style="color: rgba(184,90,58,0.35); font-size: 8px; flex-shrink: 0;">●</span> Cross-Functional Orchestration Applied Across Deals</div>
+        </div>
+      </div>
+
+      <!-- Leadership Chat -->
+      <div onclick="document.getElementById('leadership').scrollIntoView({behavior:'smooth'})" style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 22px 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); cursor: pointer; transition: all 0.2s ease; display: flex; flex-direction: column;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.08)';this.style.borderColor='rgba(184,90,58,0.25)';this.style.transform='translateY(-1px)'" onmouseout="this.style.boxShadow='0 2px 8px rgba(0,0,0,0.04)';this.style.borderColor='var(--border-light)';this.style.transform='none'">
+        <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px;">
+          <span style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-a); font-weight: 600;">Leadership Chat</span>
+          <span style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; color: var(--text-muted);">· 25 min</span>
+        </div>
+        <div style="font-size: 12px; color: var(--text-muted); line-height: 1.55; flex: 1;">
+          <div style="display: flex; align-items: baseline; gap: 6px; margin-bottom: 3px;"><span style="color: rgba(184,90,58,0.35); font-size: 8px; flex-shrink: 0;">●</span> Building Strategic Partnerships</div>
+          <div style="display: flex; align-items: baseline; gap: 6px; margin-bottom: 3px;"><span style="color: rgba(184,90,58,0.35); font-size: 8px; flex-shrink: 0;">●</span> Every Quarter Has a Mission (QWPR)</div>
+          <div style="display: flex; align-items: baseline; gap: 6px; margin-bottom: 3px;"><span style="color: rgba(184,90,58,0.35); font-size: 8px; flex-shrink: 0;">●</span> Navigating Ambiguity · Technical Translation</div>
+          <div style="display: flex; align-items: baseline; gap: 6px;"><span style="color: rgba(184,90,58,0.35); font-size: 8px; flex-shrink: 0;">●</span> How I've Evolved as a Seller</div>
+        </div>
+      </div>
+
+      <!-- Culture Interview -->
+      <div onclick="document.getElementById('culture').scrollIntoView({behavior:'smooth'})" style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 22px 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); cursor: pointer; transition: all 0.2s ease; display: flex; flex-direction: column;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.08)';this.style.borderColor='rgba(184,90,58,0.25)';this.style.transform='translateY(-1px)'" onmouseout="this.style.boxShadow='0 2px 8px rgba(0,0,0,0.04)';this.style.borderColor='var(--border-light)';this.style.transform='none'">
+        <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px;">
+          <span style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-a); font-weight: 600;">Culture Interview</span>
+          <span style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; color: var(--text-muted);">· 40 min</span>
+        </div>
+        <div style="font-size: 12px; color: var(--text-muted); line-height: 1.55; flex: 1;">
+          <div style="display: flex; align-items: baseline; gap: 6px; margin-bottom: 3px;"><span style="color: rgba(184,90,58,0.35); font-size: 8px; flex-shrink: 0;">●</span> Why Anthropic · What I've Read</div>
+          <div style="display: flex; align-items: baseline; gap: 6px; margin-bottom: 3px;"><span style="color: rgba(184,90,58,0.35); font-size: 8px; flex-shrink: 0;">●</span> Honesty Over Convenience · Genuine Curiosity · Ownership Without Ego</div>
+          <div style="display: flex; align-items: baseline; gap: 6px; margin-bottom: 3px;"><span style="color: rgba(184,90,58,0.35); font-size: 8px; flex-shrink: 0;">●</span> How I Show Up on a Team</div>
+          <div style="display: flex; align-items: baseline; gap: 6px;"><span style="color: rgba(184,90,58,0.35); font-size: 8px; flex-shrink: 0;">●</span> What I'd Bring Beyond Quota</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ============================================================
      SECTION 10: RESUME
      ============================================================ -->
