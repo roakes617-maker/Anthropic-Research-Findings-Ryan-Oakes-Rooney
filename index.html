@@ -3242,7 +3242,52 @@ section:last-of-type { border-bottom: none; }
     font-size: 12px; color: var(--text-secondary); line-height: 1.65; margin: 0;
   }
 
-  /* Why high revenue */
+  /* Use-case blocks — combined revenue driver + product */
+  .fsv2-uc-stack {
+    display: flex; flex-direction: column; gap: 10px;
+    margin-top: 8px;
+  }
+  .fsv2-uc-block {
+    border-radius: 10px; padding: 14px 16px;
+    border: 1px solid transparent;
+  }
+  .fsv2-uc-block.api { background: rgba(217,119,87,0.04); border-color: rgba(217,119,87,0.12); }
+  .fsv2-uc-block.code { background: rgba(100,100,180,0.04); border-color: rgba(100,100,180,0.12); }
+  .fsv2-uc-block.claude { background: rgba(180,130,60,0.04); border-color: rgba(180,130,60,0.12); }
+  .fsv2-uc-block.cowork { background: rgba(120,140,93,0.04); border-color: rgba(120,140,93,0.12); }
+  .fsv2-uc-block.excel { background: rgba(55,130,175,0.04); border-color: rgba(55,130,175,0.12); }
+  .fsv2-uc-block.pptx { background: rgba(200,80,50,0.04); border-color: rgba(200,80,50,0.12); }
+
+  .fsv2-uc-top {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 6px; flex-wrap: wrap;
+  }
+  .fsv2-uc-product {
+    font-size: 11px; font-weight: 700;
+    padding: 2px 9px; border-radius: 6px;
+    white-space: nowrap;
+  }
+  .fsv2-uc-product.api { background: rgba(217,119,87,0.12); color: var(--accent-a); }
+  .fsv2-uc-product.code { background: rgba(100,100,180,0.12); color: #5a5aa0; }
+  .fsv2-uc-product.claude { background: rgba(180,130,60,0.12); color: #9a7030; }
+  .fsv2-uc-product.cowork { background: rgba(120,140,93,0.12); color: var(--accent-b); }
+  .fsv2-uc-product.excel { background: rgba(55,130,175,0.12); color: #3782af; }
+  .fsv2-uc-product.pptx { background: rgba(200,80,50,0.12); color: #c85032; }
+
+  .fsv2-uc-driver {
+    font-size: 11px; font-weight: 700;
+    color: var(--text-primary);
+  }
+  .fsv2-uc-body {
+    font-size: 11px; color: var(--text-secondary); line-height: 1.55;
+  }
+  .fsv2-uc-body strong { color: var(--text-primary); }
+
+  .fsv2-uc-row-2col {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  }
+
+  /* Keep old revenue-why for potential reuse */
   .fsv2-revenue-why {
     background: rgba(217,119,87,0.04);
     border-left: 3px solid var(--accent-a);
@@ -3253,7 +3298,7 @@ section:last-of-type { border-bottom: none; }
   }
   .fsv2-revenue-why strong { color: var(--accent-a); }
 
-  /* Product grid v2 */
+  /* Product grid v2 — kept for fallback */
   .fsv2-prod-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -3418,6 +3463,7 @@ section:last-of-type { border-bottom: none; }
 
   @media (max-width: 768px) {
     .fsv2-prod-grid { grid-template-columns: 1fr 1fr; }
+    .fsv2-uc-row-2col { grid-template-columns: 1fr; }
     .fsv2-header { padding: 14px 16px; }
     .fsv2-inner { padding: 0 16px 16px; }
     .fsv2-plugin-row { flex-direction: column; gap: 2px; }
@@ -3455,38 +3501,52 @@ section:last-of-type { border-bottom: none; }
             <p>These are the banks regular people and businesses use every day — checking accounts, savings, mortgages, business loans, credit cards. Think Chase, Wells Fargo, Bank of America. They make money two ways: <strong>spread</strong> (they borrow money cheaply and lend it out at higher rates — the difference is their profit) and <strong>fees</strong> (transaction fees, overdraft fees, service charges). They're massive employers — JPMorgan alone has 310K+ people — and every single one of them is buried in compliance requirements because they're federally regulated.</p>
           </div>
 
-          <!-- Why High Revenue -->
-          <div class="fsv2-section-label orange">Why #1 Revenue Potential for Anthropic</div>
-          <div class="fsv2-revenue-why">
-            <strong>Biggest headcounts in finance</strong> = most seats to sell (JPM alone is 310K). Massive IT budgets because everything needs to be secure and compliant. Heavy API needs for fraud detection, compliance automation, and customer service — these banks process millions of transactions daily. Every product Anthropic sells has a buyer here: API for the engineering org, Claude Code for modernization, Cowork for the 200K+ knowledge workers, Excel for analysts, Claude.ai for everyone else.
-          </div>
-
-          <!-- Products -->
-          <div class="fsv2-section-label orange">Anthropic Products That Fit</div>
-          <div class="fsv2-prod-grid">
-            <div class="fsv2-prod api">
-              <div class="fsv2-prod-name api">API</div>
-              <div class="fsv2-prod-desc">Automate high-volume decisions — fraud scoring, compliance checks, customer service — by embedding Claude's reasoning directly into their platforms.</div>
+          <!-- Use Cases = Revenue Driver + Product -->
+          <div class="fsv2-section-label orange">Why This Drives Revenue — By Use Case</div>
+          <div class="fsv2-uc-stack">
+            <div class="fsv2-uc-block api">
+              <div class="fsv2-uc-top">
+                <span class="fsv2-uc-product api">API</span>
+                <span class="fsv2-uc-driver">Highest token volume in all of FS</span>
+              </div>
+              <div class="fsv2-uc-body">These banks process <strong>millions of transactions daily</strong> — fraud scoring, compliance checks, customer service. Every one of those decisions is an API call. JPM alone has 310K employees and the largest IT budget in finance. Commonwealth Bank already cut fraud 30% and scams 50% with Claude API.</div>
             </div>
-            <div class="fsv2-prod code">
-              <div class="fsv2-prod-name code">Claude Code</div>
-              <div class="fsv2-prod-desc">Modernize decades-old core banking systems and build new integrations faster. These banks run on legacy COBOL — Code is a lifeline.</div>
+            <div class="fsv2-uc-block code">
+              <div class="fsv2-uc-top">
+                <span class="fsv2-uc-product code">Claude Code</span>
+                <span class="fsv2-uc-driver">Legacy modernization = multi-year engagements</span>
+              </div>
+              <div class="fsv2-uc-body">These banks run on <strong>decades-old COBOL mainframes</strong>. Modernizing core banking systems is a multi-year, multi-million dollar initiative — and Claude Code accelerates every sprint. Citi is already using it to power their AI Developer Platform.</div>
             </div>
-            <div class="fsv2-prod claude">
-              <div class="fsv2-prod-name claude">Claude.ai</div>
-              <div class="fsv2-prod-desc">Bankers research policies, look up regulations, get answers to ad-hoc questions without waiting on other teams. The daily productivity tool.</div>
+            <div class="fsv2-uc-block cowork">
+              <div class="fsv2-uc-top">
+                <span class="fsv2-uc-product cowork">Cowork</span>
+                <span class="fsv2-uc-driver">200K+ knowledge workers per bank = massive seat count</span>
+              </div>
+              <div class="fsv2-uc-body">Loan officers, compliance teams, and operations staff spend their days drafting memos, reports, and audit documentation. <strong>Every bank has 50K-300K employees</strong> who could use Cowork — the biggest seat opportunity in all of financial services.</div>
             </div>
-            <div class="fsv2-prod cowork">
-              <div class="fsv2-prod-name cowork">Cowork</div>
-              <div class="fsv2-prod-desc">Loan officers and compliance teams draft memos, reports, and audit docs faster with structured document workflows. Huge seat count opportunity.</div>
+            <div class="fsv2-uc-block claude">
+              <div class="fsv2-uc-top">
+                <span class="fsv2-uc-product claude">Claude.ai</span>
+                <span class="fsv2-uc-driver">Daily productivity tool — lands across every department</span>
+              </div>
+              <div class="fsv2-uc-body">Bankers research policies, look up regulations, and get answers to ad-hoc questions without waiting on other teams. Lands everywhere and <strong>expands into Cowork and API</strong> once teams see value.</div>
             </div>
-            <div class="fsv2-prod excel">
-              <div class="fsv2-prod-name excel">Excel</div>
-              <div class="fsv2-prod-desc">Build financial models, analyze portfolios, generate performance reports — AI inside the spreadsheets they already live in.</div>
-            </div>
-            <div class="fsv2-prod pptx">
-              <div class="fsv2-prod-name pptx">PowerPoint</div>
-              <div class="fsv2-prod-desc">Turn analysis into client proposals and leadership decks — the last mile from data to deliverable.</div>
+            <div class="fsv2-uc-row-2col">
+              <div class="fsv2-uc-block excel">
+                <div class="fsv2-uc-top">
+                  <span class="fsv2-uc-product excel">Excel</span>
+                  <span class="fsv2-uc-driver">Analysts live here</span>
+                </div>
+                <div class="fsv2-uc-body">Financial models, portfolio analysis, performance reports — AI inside the spreadsheets they already use every day.</div>
+              </div>
+              <div class="fsv2-uc-block pptx">
+                <div class="fsv2-uc-top">
+                  <span class="fsv2-uc-product pptx">PowerPoint</span>
+                  <span class="fsv2-uc-driver">Last mile to deliverable</span>
+                </div>
+                <div class="fsv2-uc-body">Turn analysis into client proposals and leadership decks — the final step from data to presentation.</div>
+              </div>
             </div>
           </div>
 
@@ -3568,36 +3628,51 @@ section:last-of-type { border-bottom: none; }
             <p>Insurance companies protect people and businesses against risk — car accidents, house fires, lawsuits, health emergencies. You pay them a <strong>premium</strong> every month. If something bad happens, they pay your claim. They make money on the <strong>difference between premiums collected and claims paid out</strong>, plus they invest all that premium money while they hold it. The work is incredibly document-heavy — every policy, every claim, every regulatory filing is a paper trail. And every decision (approve this claim? deny it? how much is fair?) has real consequences for people's lives, which is why JP talks about Allianz claims processing as the example of where AI stakes are highest.</p>
           </div>
 
-          <div class="fsv2-section-label orange">Why #2 Revenue Potential for Anthropic</div>
-          <div class="fsv2-revenue-why">
-            <strong>Huge workforces</strong> (UnitedHealth = 400K+, Allianz = 160K) with millions of claims processed annually. Every decision is document-heavy and compliance-governed, which is exactly what Cowork + API were built for. The combination of massive seat counts for knowledge worker tools plus heavy API token consumption for claims automation makes this a dual revenue stream. HUB International's deployment to 20K+ employees shows the expansion pattern.
-          </div>
-
-          <div class="fsv2-section-label orange">Anthropic Products That Fit</div>
-          <div class="fsv2-prod-grid">
-            <div class="fsv2-prod api">
-              <div class="fsv2-prod-name api">API</div>
-              <div class="fsv2-prod-desc">Automate claims intake, risk scoring, and customer self-service with AI reasoning that follows compliance rules. High-volume token consumption.</div>
+          <div class="fsv2-section-label orange">Why This Drives Revenue — By Use Case</div>
+          <div class="fsv2-uc-stack">
+            <div class="fsv2-uc-block api">
+              <div class="fsv2-uc-top">
+                <span class="fsv2-uc-product api">API</span>
+                <span class="fsv2-uc-driver">Millions of claims = millions of API calls</span>
+              </div>
+              <div class="fsv2-uc-body">Claims intake, risk scoring, underwriting automation — every decision is an API call that follows compliance rules. AIG processes <strong>500K+ E&amp;S submissions</strong> through Claude, targeting $4B+ in new premiums by 2030. JP calls Allianz claims processing the example of why AI stakes are highest in regulated industries.</div>
             </div>
-            <div class="fsv2-prod code">
-              <div class="fsv2-prod-name code">Claude Code</div>
-              <div class="fsv2-prod-desc">Modernize legacy policy admin systems — these run on mainframes from the 80s. Build new digital platforms faster.</div>
+            <div class="fsv2-uc-block cowork">
+              <div class="fsv2-uc-top">
+                <span class="fsv2-uc-product cowork">Cowork</span>
+                <span class="fsv2-uc-driver">Every claim = paperwork → massive seat opportunity</span>
+              </div>
+              <div class="fsv2-uc-body">Claims adjusters, compliance teams, and underwriters draft reports, regulatory filings, and documentation all day. <strong>Huge workforces</strong> (Allianz 160K, UnitedHealth 400K+) with every decision being document-heavy and compliance-governed. HUB deployed to all 20K+ employees.</div>
             </div>
-            <div class="fsv2-prod claude">
-              <div class="fsv2-prod-name claude">Claude.ai</div>
-              <div class="fsv2-prod-desc">Agents, brokers, and underwriters compare policies, interpret coverage, and research regulatory changes on demand.</div>
+            <div class="fsv2-uc-block code">
+              <div class="fsv2-uc-top">
+                <span class="fsv2-uc-product code">Claude Code</span>
+                <span class="fsv2-uc-driver">Legacy mainframes from the 80s need modernizing</span>
+              </div>
+              <div class="fsv2-uc-body">Policy admin systems run on ancient infrastructure. Allianz is already using Claude Code across their developer org to modernize and build new digital platforms.</div>
             </div>
-            <div class="fsv2-prod cowork">
-              <div class="fsv2-prod-name cowork">Cowork</div>
-              <div class="fsv2-prod-desc">Claims adjusters and compliance teams draft reports, regulatory filings, and documentation faster. Every claim = paperwork.</div>
+            <div class="fsv2-uc-block claude">
+              <div class="fsv2-uc-top">
+                <span class="fsv2-uc-product claude">Claude.ai</span>
+                <span class="fsv2-uc-driver">Agents, brokers, underwriters — daily research tool</span>
+              </div>
+              <div class="fsv2-uc-body">Compare policies, interpret coverage, research regulatory changes on demand. Lands across the org and <strong>expands into Cowork + API</strong>.</div>
             </div>
-            <div class="fsv2-prod excel">
-              <div class="fsv2-prod-name excel">Excel</div>
-              <div class="fsv2-prod-desc">Actuaries build pricing models, run loss analysis, and track portfolio performance. Insurance is a math business.</div>
-            </div>
-            <div class="fsv2-prod pptx">
-              <div class="fsv2-prod-name pptx">PowerPoint</div>
-              <div class="fsv2-prod-desc">Turn analysis into renewal presentations, board reports, and trend summaries for leadership.</div>
+            <div class="fsv2-uc-row-2col">
+              <div class="fsv2-uc-block excel">
+                <div class="fsv2-uc-top">
+                  <span class="fsv2-uc-product excel">Excel</span>
+                  <span class="fsv2-uc-driver">Insurance is a math business</span>
+                </div>
+                <div class="fsv2-uc-body">Actuaries build pricing models, run loss analysis, track portfolio performance. AI inside their spreadsheets.</div>
+              </div>
+              <div class="fsv2-uc-block pptx">
+                <div class="fsv2-uc-top">
+                  <span class="fsv2-uc-product pptx">PowerPoint</span>
+                  <span class="fsv2-uc-driver">Board &amp; renewal decks</span>
+                </div>
+                <div class="fsv2-uc-body">Turn analysis into renewal presentations, board reports, and trend summaries for leadership.</div>
+              </div>
             </div>
           </div>
 
@@ -3665,36 +3740,51 @@ section:last-of-type { border-bottom: none; }
             <p>These companies manage other people's money. <strong>Wealth management</strong> = financial advisors who help individuals and families invest, plan for retirement, manage taxes. Think Edward Jones or Schwab — your advisor who calls you about your 401K. <strong>Asset management</strong> = firms that invest huge pools of money on behalf of institutions (pension funds, universities, sovereign wealth funds). Think BlackRock, Vanguard, Bridgewater. They make money on <strong>management fees</strong> — usually a percentage of the total money they manage (AUM = assets under management) — plus <strong>performance fees</strong> if they beat their benchmarks. Tens of thousands of advisors all need the same workflows: meeting prep, client reports, rebalancing recommendations.</p>
           </div>
 
-          <div class="fsv2-section-label orange">Why #3 Revenue Potential for Anthropic</div>
-          <div class="fsv2-revenue-why">
-            <strong>Tens of thousands of advisors per firm</strong> all doing the same workflows (client prep, portfolio reports, rebalancing). Cowork + the Wealth Management plugin turns every advisor into someone with a full support team. LPL Financial already deploying to 30K+ advisors. The repeatable nature of advisor workflows = massive template/plugin adoption. JJH (your reference, now at Anthropic) co-presented with Northwestern Mutual on this exact use case.
-          </div>
-
-          <div class="fsv2-section-label orange">Anthropic Products That Fit</div>
-          <div class="fsv2-prod-grid">
-            <div class="fsv2-prod api">
-              <div class="fsv2-prod-name api">API</div>
-              <div class="fsv2-prod-desc">Automate research and deliver personalized portfolio reporting to thousands of clients without manual work.</div>
+          <div class="fsv2-section-label orange">Why This Drives Revenue — By Use Case</div>
+          <div class="fsv2-uc-stack">
+            <div class="fsv2-uc-block cowork">
+              <div class="fsv2-uc-top">
+                <span class="fsv2-uc-product cowork">Cowork</span>
+                <span class="fsv2-uc-driver">Tens of thousands of advisors per firm doing the same workflows</span>
+              </div>
+              <div class="fsv2-uc-body">Every advisor needs client meeting prep, portfolio reports, financial plans, and rebalancing recommendations. <strong>LPL already deployed to 30K+ advisors.</strong> The Wealth Management plugin turns every advisor into someone with a full support team. JJH (your reference, now at Anthropic) co-presented with Northwestern Mutual on this exact use case.</div>
             </div>
-            <div class="fsv2-prod code">
-              <div class="fsv2-prod-name code">Claude Code</div>
-              <div class="fsv2-prod-desc">Build portfolio tools, rebalancing engines, and modern client portals with AI-assisted development.</div>
+            <div class="fsv2-uc-block api">
+              <div class="fsv2-uc-top">
+                <span class="fsv2-uc-product api">API</span>
+                <span class="fsv2-uc-driver">Automated research + reporting at institutional scale</span>
+              </div>
+              <div class="fsv2-uc-body">NBIM (Norway's $1.7T sovereign wealth fund) uses Claude to screen 9K companies for ESG violations and analyze earnings calls. <strong>Bridgewater</strong> built an Investment Analyst Assistant for code gen, data viz, and hypothesis stress-testing. These are high-token, high-value API contracts.</div>
             </div>
-            <div class="fsv2-prod claude">
-              <div class="fsv2-prod-name claude">Claude.ai</div>
-              <div class="fsv2-prod-desc">Advisors instantly research markets, prep for client questions, brainstorm investment ideas on demand.</div>
+            <div class="fsv2-uc-block code">
+              <div class="fsv2-uc-top">
+                <span class="fsv2-uc-product code">Claude Code</span>
+                <span class="fsv2-uc-driver">Portfolio tools + client portals</span>
+              </div>
+              <div class="fsv2-uc-body">Build portfolio tools, rebalancing engines, and modern client portals with AI-assisted development. Engineering teams at these firms are building the next generation of wealth platforms.</div>
             </div>
-            <div class="fsv2-prod cowork">
-              <div class="fsv2-prod-name cowork">Cowork</div>
-              <div class="fsv2-prod-desc">Prep client meetings, build financial plans, draft investor letters — every advisor operates like they have a full team.</div>
+            <div class="fsv2-uc-block claude">
+              <div class="fsv2-uc-top">
+                <span class="fsv2-uc-product claude">Claude.ai</span>
+                <span class="fsv2-uc-driver">Instant market research for every advisor</span>
+              </div>
+              <div class="fsv2-uc-body">Advisors instantly research markets, prep for client questions, brainstorm investment ideas on demand. <strong>Lands everywhere, expands into Cowork.</strong></div>
             </div>
-            <div class="fsv2-prod excel">
-              <div class="fsv2-prod-name excel">Excel</div>
-              <div class="fsv2-prod-desc">Portfolio analytics, performance attribution, and financial planning models with AI inside their spreadsheets.</div>
-            </div>
-            <div class="fsv2-prod pptx">
-              <div class="fsv2-prod-name pptx">PowerPoint</div>
-              <div class="fsv2-prod-desc">Turn portfolio data into polished client review decks and quarterly fund reports for every meeting.</div>
+            <div class="fsv2-uc-row-2col">
+              <div class="fsv2-uc-block excel">
+                <div class="fsv2-uc-top">
+                  <span class="fsv2-uc-product excel">Excel</span>
+                  <span class="fsv2-uc-driver">Portfolio analytics</span>
+                </div>
+                <div class="fsv2-uc-body">Performance attribution, financial planning models, portfolio analytics — AI inside the spreadsheets analysts live in.</div>
+              </div>
+              <div class="fsv2-uc-block pptx">
+                <div class="fsv2-uc-top">
+                  <span class="fsv2-uc-product pptx">PowerPoint</span>
+                  <span class="fsv2-uc-driver">Client review decks</span>
+                </div>
+                <div class="fsv2-uc-body">Turn portfolio data into polished client review decks and quarterly fund reports for every meeting.</div>
+              </div>
             </div>
           </div>
 
@@ -3785,36 +3875,51 @@ section:last-of-type { border-bottom: none; }
             <p>Investment banks help companies do big financial transactions — <strong>raise capital</strong> (sell stock or bonds to investors so a company can get cash to grow), <strong>buy and sell businesses</strong> (M&amp;A — mergers and acquisitions), and <strong>trade securities</strong> (stocks, bonds, derivatives) on behalf of institutional clients. They make money on <strong>advisory fees</strong> (you pay Goldman to advise your $5B acquisition), <strong>underwriting commissions</strong> (they take a cut when they help you sell stock), and <strong>trading revenue</strong>. The work is brutally document-intensive — every deal requires pitch books, financial models, memos, regulatory filings. Junior bankers famously work 80-100 hour weeks just producing these documents. This is why Anthropic built the most Cowork plugins here.</p>
           </div>
 
-          <div class="fsv2-section-label orange">Why Anthropic Built The Most Plugins Here</div>
-          <div class="fsv2-revenue-why">
-            <strong>Most document-intensive work in all of finance</strong> — every deal = pitch books, CIMs, models, memos. Junior bankers spend 80% of their time producing documents that Cowork can now automate. High willingness to pay per seat because banks already spend $150K-$200K per junior analyst. Goldman embedded Anthropic engineers for 6 months — the deepest integration partnership in FS. Anthropic built IB, Equity Research, and Private Equity templates specifically for this sub-industry.
-          </div>
-
-          <div class="fsv2-section-label orange">Anthropic Products That Fit</div>
-          <div class="fsv2-prod-grid">
-            <div class="fsv2-prod api">
-              <div class="fsv2-prod-name api">API</div>
-              <div class="fsv2-prod-desc">Process filings, screen deals, extract financial data at scale — automating work analysts do manually today.</div>
+          <div class="fsv2-section-label orange">Why This Drives Revenue — By Use Case</div>
+          <div class="fsv2-uc-stack">
+            <div class="fsv2-uc-block cowork">
+              <div class="fsv2-uc-top">
+                <span class="fsv2-uc-product cowork">Cowork</span>
+                <span class="fsv2-uc-driver">Most document-intensive work in all of finance</span>
+              </div>
+              <div class="fsv2-uc-body">Every deal = pitch books, CIMs, memos, models. Junior bankers spend <strong>80% of their time producing documents</strong> that Cowork can now automate. Banks pay $150K-$200K per junior analyst — high willingness to pay per seat. Anthropic built IB, Equity Research, and PE templates specifically for this sub-industry.</div>
             </div>
-            <div class="fsv2-prod code">
-              <div class="fsv2-prod-name code">Claude Code</div>
-              <div class="fsv2-prod-desc">Build trading systems, analytics platforms, and quantitative models faster with AI-assisted development.</div>
+            <div class="fsv2-uc-block api">
+              <div class="fsv2-uc-top">
+                <span class="fsv2-uc-product api">API</span>
+                <span class="fsv2-uc-driver">Deal processing, KYC/AML, and accounting at scale</span>
+              </div>
+              <div class="fsv2-uc-body">Process filings, screen deals, extract financial data at scale. <strong>Goldman embedded Anthropic engineers for 6 months</strong> — the deepest integration in FS. API powers trade/transaction accounting and KYC/AML onboarding.</div>
             </div>
-            <div class="fsv2-prod claude">
-              <div class="fsv2-prod-name claude">Claude.ai</div>
-              <div class="fsv2-prod-desc">Senior bankers get instant research, precedent lookups, and market interpretation without waiting on analysts.</div>
+            <div class="fsv2-uc-block code">
+              <div class="fsv2-uc-top">
+                <span class="fsv2-uc-product code">Claude Code</span>
+                <span class="fsv2-uc-driver">Trading systems + quantitative platforms</span>
+              </div>
+              <div class="fsv2-uc-body">Build trading systems, analytics platforms, and quantitative models faster. NYSE uses Claude Code for engineering modernization — Jira → committed code.</div>
             </div>
-            <div class="fsv2-prod cowork">
-              <div class="fsv2-prod-name cowork">Cowork</div>
-              <div class="fsv2-prod-desc">Draft pitch books, memos, CIMs, and deal materials — the document-heavy deliverables that consume junior banker time.</div>
+            <div class="fsv2-uc-block claude">
+              <div class="fsv2-uc-top">
+                <span class="fsv2-uc-product claude">Claude.ai</span>
+                <span class="fsv2-uc-driver">Senior bankers skip the analyst queue</span>
+              </div>
+              <div class="fsv2-uc-body">Instant research, precedent lookups, and market interpretation without waiting on the analyst team. <strong>Lands with senior people, expands down.</strong></div>
             </div>
-            <div class="fsv2-prod excel">
-              <div class="fsv2-prod-name excel">Excel</div>
-              <div class="fsv2-prod-desc">Build valuation models, run scenario analysis, and create financial projections. Excel is the IB analyst's primary tool.</div>
-            </div>
-            <div class="fsv2-prod pptx">
-              <div class="fsv2-prod-name pptx">PowerPoint</div>
-              <div class="fsv2-prod-desc">Turn models into client-ready presentations — pitch books and board materials in minutes instead of hours.</div>
+            <div class="fsv2-uc-row-2col">
+              <div class="fsv2-uc-block excel">
+                <div class="fsv2-uc-top">
+                  <span class="fsv2-uc-product excel">Excel</span>
+                  <span class="fsv2-uc-driver">The IB analyst's primary tool</span>
+                </div>
+                <div class="fsv2-uc-body">Valuation models, scenario analysis, financial projections. Excel is where the actual work gets done.</div>
+              </div>
+              <div class="fsv2-uc-block pptx">
+                <div class="fsv2-uc-top">
+                  <span class="fsv2-uc-product pptx">PowerPoint</span>
+                  <span class="fsv2-uc-driver">Pitch books in minutes</span>
+                </div>
+                <div class="fsv2-uc-body">Turn models into client-ready presentations — pitch books and board materials in minutes instead of hours.</div>
+              </div>
             </div>
           </div>
 
@@ -3911,36 +4016,51 @@ section:last-of-type { border-bottom: none; }
             <p>Fintechs are the companies reimagining how money moves — <strong>digital payments</strong> (Stripe, Square, PayPal), <strong>online lending</strong> (Klarna's buy-now-pay-later), <strong>embedded finance</strong> (banking features built into non-bank apps), and <strong>crypto</strong> (Coinbase). They make money on <strong>transaction fees</strong> (every time you tap your card, someone takes a cut — usually 2-3%), <strong>interchange</strong> (fees merchants pay to accept cards), and <strong>subscriptions</strong> (SaaS pricing for their platforms). They're engineering-first companies — smaller headcounts but massive API consumers because everything is automated and real-time.</p>
           </div>
 
-          <div class="fsv2-section-label orange">Why #5 But Still Important</div>
-          <div class="fsv2-revenue-why">
-            <strong>Engineering-first = massive API token consumption</strong> for fraud detection, credit scoring, and platform features in real-time. Smaller orgs by headcount but heavy Claude Code + API usage. Block (Square) engineers save 8-10+ hours/week with Claude. These companies move fast and adopt AI aggressively — they're often the first to try new products and build reference cases for larger banks.
-          </div>
-
-          <div class="fsv2-section-label orange">Anthropic Products That Fit</div>
-          <div class="fsv2-prod-grid">
-            <div class="fsv2-prod api">
-              <div class="fsv2-prod-name api">API</div>
-              <div class="fsv2-prod-desc">Embed AI reasoning into platforms for real-time fraud scoring, credit decisions, and risk assessment. Highest token consumption per seat.</div>
+          <div class="fsv2-section-label orange">Why This Drives Revenue — By Use Case</div>
+          <div class="fsv2-uc-stack">
+            <div class="fsv2-uc-block api">
+              <div class="fsv2-uc-top">
+                <span class="fsv2-uc-product api">API</span>
+                <span class="fsv2-uc-driver">Engineering-first = massive token consumption</span>
+              </div>
+              <div class="fsv2-uc-body">Real-time fraud scoring, credit decisions, risk assessment — everything automated, everything an API call. Smaller headcounts but <strong>highest token consumption per seat</strong> in FS. Block's Claude-powered SQL agent is used by 75% of their engineers.</div>
             </div>
-            <div class="fsv2-prod code">
-              <div class="fsv2-prod-name code">Claude Code</div>
-              <div class="fsv2-prod-desc">Fintechs ship fast — Claude Code accelerates every sprint across the codebase. Block engineers save 8-10+ hrs/week.</div>
+            <div class="fsv2-uc-block code">
+              <div class="fsv2-uc-top">
+                <span class="fsv2-uc-product code">Claude Code</span>
+                <span class="fsv2-uc-driver">Fintechs ship fast — Code accelerates every sprint</span>
+              </div>
+              <div class="fsv2-uc-body"><strong>Block engineers save 8-10+ hours/week.</strong> Intuit uses Claude Code across their engineering org. These companies move fast and adopt AI aggressively — often first to try new products and build reference cases for larger banks.</div>
             </div>
-            <div class="fsv2-prod claude">
-              <div class="fsv2-prod-name claude">Claude.ai</div>
-              <div class="fsv2-prod-desc">Founders and product teams get competitive intel, regulatory research, and strategy brainstorming on demand.</div>
+            <div class="fsv2-uc-block cowork">
+              <div class="fsv2-uc-top">
+                <span class="fsv2-uc-product cowork">Cowork</span>
+                <span class="fsv2-uc-driver">Operational backbone for scaling</span>
+              </div>
+              <div class="fsv2-uc-body">Product specs, competitive analysis, compliance docs — Intuit already uses Cowork alongside API for custom agents across TurboTax, QuickBooks, and Credit Karma.</div>
             </div>
-            <div class="fsv2-prod cowork">
-              <div class="fsv2-prod-name cowork">Cowork</div>
-              <div class="fsv2-prod-desc">Write product specs, competitive analysis, and compliance docs — the operational backbone for scaling fast.</div>
+            <div class="fsv2-uc-block claude">
+              <div class="fsv2-uc-top">
+                <span class="fsv2-uc-product claude">Claude.ai</span>
+                <span class="fsv2-uc-driver">Founders + product teams on demand</span>
+              </div>
+              <div class="fsv2-uc-body">Competitive intel, regulatory research, strategy brainstorming. Lands everywhere in fast-moving orgs.</div>
             </div>
-            <div class="fsv2-prod excel">
-              <div class="fsv2-prod-name excel">Excel</div>
-              <div class="fsv2-prod-desc">Analyze transaction data, model unit economics, and forecast revenue with AI inside their spreadsheets.</div>
-            </div>
-            <div class="fsv2-prod pptx">
-              <div class="fsv2-prod-name pptx">PowerPoint</div>
-              <div class="fsv2-prod-desc">Build board decks, fundraising presentations, and partner proposals for investors and stakeholders.</div>
+            <div class="fsv2-uc-row-2col">
+              <div class="fsv2-uc-block excel">
+                <div class="fsv2-uc-top">
+                  <span class="fsv2-uc-product excel">Excel</span>
+                  <span class="fsv2-uc-driver">Unit economics</span>
+                </div>
+                <div class="fsv2-uc-body">Analyze transaction data, model unit economics, forecast revenue with AI in spreadsheets.</div>
+              </div>
+              <div class="fsv2-uc-block pptx">
+                <div class="fsv2-uc-top">
+                  <span class="fsv2-uc-product pptx">PowerPoint</span>
+                  <span class="fsv2-uc-driver">Board &amp; investor decks</span>
+                </div>
+                <div class="fsv2-uc-body">Board decks, fundraising presentations, partner proposals for investors and stakeholders.</div>
+              </div>
             </div>
           </div>
 
