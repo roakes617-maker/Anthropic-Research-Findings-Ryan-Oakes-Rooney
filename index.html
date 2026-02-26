@@ -3551,6 +3551,20 @@ section:last-of-type { border-bottom: none; }
       </div>
     </div>
 
+    <!-- COLLAPSIBLE WHAT I BRING -->
+    <div class="fade-in" id="what-i-bring-toggle" onclick="document.getElementById('what-i-bring-content').classList.toggle('wib-open'); this.classList.toggle('wib-active')" style="background: #fff; border: 1px solid var(--border-light); border-radius: 14px; padding: 20px 24px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+      <div>
+        <div style="font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">What I Bring to This Role</div>
+        <div style="font-size: 11px; color: var(--text-muted);">Key metrics · My approach · Why Anthropic — click to expand</div>
+      </div>
+      <div id="what-i-bring-arrow" style="font-size: 24px; color: var(--accent-a); font-weight: 300; transition: transform 0.3s;">＋</div>
+    </div>
+    <div id="what-i-bring-content" style="display: none;">
+    <style>
+      #what-i-bring-content.wib-open { display: block !important; }
+      #what-i-bring-toggle.wib-active #what-i-bring-arrow { transform: rotate(45deg); }
+    </style>
+
     <h2 class="fade-in" style="font-family: var(--font-display); font-size: 26px; color: var(--text-primary); font-weight: 700; line-height: 1.2; margin-bottom: 24px;">What I Bring to This Role</h2>
 
     <!-- Metrics row -->
@@ -3623,11 +3637,21 @@ section:last-of-type { border-bottom: none; }
     <!-- ═══════════════════════════════════════════════════════════
          JP'S VIEWPOINTS — WOVEN ACROSS ALL SUB-INDUSTRIES
          ═══════════════════════════════════════════════════════════ -->
-    <div class="fade-in fsv2-jp">
-      <div class="fsv2-jp-header">
-        JP's Strategic Framework for Selling FS
-        <span class="fsv2-jp-tag">From LinkedIn &amp; Public Talks</span>
+    <!-- COLLAPSIBLE JP FRAMEWORK -->
+    <div class="fade-in" id="jp-toggle" onclick="document.getElementById('jp-content').classList.toggle('jp-open'); this.classList.toggle('jp-active')" style="background: #fff; border: 1px solid var(--border-light); border-radius: 14px; padding: 20px 24px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+      <div>
+        <div style="font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">JP's Strategic Framework for Selling FS</div>
+        <div style="font-size: 11px; color: var(--text-muted);">Platform Not Product · AI Augments Don't Replace · Regulated Industries Prove AI — click to expand</div>
       </div>
+      <div id="jp-arrow" style="font-size: 24px; color: var(--accent-a); font-weight: 300; transition: transform 0.3s;">＋</div>
+    </div>
+    <div id="jp-content" style="display: none;">
+    <style>
+      #jp-content.jp-open { display: block !important; }
+      #jp-toggle.jp-active #jp-arrow { transform: rotate(45deg); }
+    </style>
+
+    <div class="fsv2-jp">
       <div class="fsv2-jp-points">
 
         <div class="fsv2-jp-point">
@@ -3673,6 +3697,25 @@ section:last-of-type { border-bottom: none; }
 
       </div>
     </div>
+    </div><!-- end jp-content -->
+
+
+    </div><!-- end what-i-bring-content -->
+
+
+    <!-- COLLAPSIBLE SUB-INDUSTRY DEEP DIVE -->
+    <div class="fade-in" id="sub-industry-toggle" onclick="document.getElementById('sub-industry-content').classList.toggle('sub-open'); this.classList.toggle('sub-active')" style="background: #fff; border: 1px solid var(--border-light); border-radius: 14px; padding: 20px 24px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+      <div>
+        <div style="font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">Sub-Industry Deep Dive — 5 Sectors</div>
+        <div style="font-size: 11px; color: var(--text-muted);">Banking · Insurance · Wealth & Asset Mgmt · Investment Banking · Fintech & Payments — click to expand</div>
+      </div>
+      <div id="sub-industry-arrow" style="font-size: 24px; color: var(--accent-a); font-weight: 300; transition: transform 0.3s;">＋</div>
+    </div>
+    <div id="sub-industry-content" style="display: none;">
+    <style>
+      #sub-industry-content.sub-open { display: block !important; }
+      #sub-industry-toggle.sub-active #sub-industry-arrow { transform: rotate(45deg); }
+    </style>
 
 
     <!-- ═══════════════════════════════════════════════════════════
@@ -4343,14 +4386,23 @@ section:last-of-type { border-bottom: none; }
         </div>
       </div>
     </div>
+    </div><!-- end sub-industry-content -->
 
 
-    <!-- ═══════════════════════════════════════════════════════════
-         MY QUESTIONS FOR THE INTERVIEW
-         ═══════════════════════════════════════════════════════════ -->
-    <div class="fade-in" style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 14px; padding: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin-top: 16px;">
-      <div style="font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">My Questions for the Team</div>
-      <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 20px;">Questions that show I've done the work and understand the business — not softballs.</div>
+    <!-- COLLAPSIBLE QUESTIONS -->
+    <div class="fade-in" id="questions-toggle" onclick="document.getElementById('questions-content').classList.toggle('q-open'); this.classList.toggle('q-active')" style="background: #fff; border: 1px solid var(--border-light); border-radius: 14px; padding: 20px 24px; margin-top: 16px; margin-bottom: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.04); cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+      <div>
+        <div style="font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">My Questions for the Team</div>
+        <div style="font-size: 11px; color: var(--text-muted);">4 questions that show I've done the work and understand the business — click to expand</div>
+      </div>
+      <div id="questions-arrow" style="font-size: 24px; color: var(--accent-a); font-weight: 300; transition: transform 0.3s;">＋</div>
+    </div>
+    <div id="questions-content" style="display: none;">
+    <style>
+      #questions-content.q-open { display: block !important; }
+      #questions-toggle.q-active #questions-arrow { transform: rotate(45deg); }
+    </style>
+    <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-top: none; border-radius: 0 0 14px 14px; padding: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
 
       <div style="display: flex; flex-direction: column; gap: 16px;">
 
@@ -4412,6 +4464,7 @@ section:last-of-type { border-bottom: none; }
 
       </div>
     </div>
+    </div><!-- end questions-content -->
 
     <!-- ===== WHY ANTHROPIC WINS (updated) ===== -->
     <div class="fade-in" style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 14px; padding: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin-top: 16px;">
