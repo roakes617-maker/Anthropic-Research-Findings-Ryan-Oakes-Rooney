@@ -3128,657 +3128,909 @@ section:last-of-type { border-bottom: none; }
   </div>
 </section>
 
+
 <!-- ============================================================
-     FINANCIAL SERVICES — Left-to-Right Hierarchical Tree
+     FINANCIAL SERVICES — Redesigned Sub-Industry Deep Dive
      ============================================================ -->
 <style>
-  /* FS Tree — Left to Right layout */
-  .fs-row {
-    display: flex;
-    align-items: stretch;
-    gap: 0;
-    margin-bottom: 20px;
-  }
-  .fs-root-col {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-  }
-  .fs-root-node {
-    background: var(--accent-a);
-    color: #fff;
-    font-family: var(--font-display);
-    font-size: 17px;
-    font-weight: 700;
-    padding: 18px 24px;
-    border-radius: 12px;
-    text-align: center;
-    white-space: nowrap;
-  }
-  .fs-h-connector {
-    width: 24px;
-    display: flex;
-    align-items: center;
-    position: relative;
-    flex-shrink: 0;
-  }
-  .fs-h-connector::after {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 2px;
-    background: var(--border-medium);
-  }
-  .fs-subind-col {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    flex: 1;
-  }
-  .fs-subind-row {
-    border: 1px solid var(--border-light);
-    border-radius: 12px;
+  /* FS v2 — Clean scannable cards */
+  .fsv2-card {
     background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 14px;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    margin-bottom: 16px;
     transition: border-color 0.2s;
   }
-  .fs-subind-row:hover { border-color: rgba(217,119,87,0.3); }
-  .fs-subind-header {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 16px 20px;
-    cursor: pointer;
-    user-select: none;
+  .fsv2-card:hover { border-color: rgba(217,119,87,0.25); }
+
+  .fsv2-header {
+    display: flex; align-items: center; gap: 16px;
+    padding: 20px 24px;
+    cursor: pointer; user-select: none;
   }
-  .fs-subind-header:hover { background: rgba(217,119,87,0.02); }
-  .fs-subind-icon {
-    width: 36px; height: 36px;
-    border-radius: 8px;
+  .fsv2-header:hover { background: rgba(217,119,87,0.015); }
+
+  .fsv2-rank {
+    width: 40px; height: 40px;
+    border-radius: 10px;
     background: var(--accent-a);
     color: #fff;
     display: flex; align-items: center; justify-content: center;
-    font-size: 16px; font-weight: 700; flex-shrink: 0;
+    font-size: 18px; font-weight: 700; flex-shrink: 0;
     font-family: var(--font-display);
   }
-  .fs-subind-info { flex: 1; min-width: 0; }
-  .fs-subind-name {
+  .fsv2-rank.green { background: var(--accent-b); }
+  .fsv2-rank.blue { background: #3782af; }
+
+  .fsv2-title-area { flex: 1; min-width: 0; }
+  .fsv2-title {
     font-family: var(--font-display);
-    font-size: 16px; font-weight: 700;
-    color: var(--text-primary); margin-bottom: 3px;
+    font-size: 18px; font-weight: 700;
+    color: var(--text-primary); margin-bottom: 2px;
+    display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
   }
-  .fs-subind-cos { font-size: 11px; color: var(--text-muted); line-height: 1.4; }
-  .fs-toggle-icon {
-    width: 28px; height: 28px;
+  .fsv2-badge {
+    font-size: 9px; font-weight: 600;
+    padding: 2px 9px; border-radius: 10px;
+    text-transform: uppercase; letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+  .fsv2-badge.revenue { background: rgba(217,119,87,0.12); color: var(--accent-a); }
+  .fsv2-badge.plugins { background: rgba(120,140,93,0.12); color: var(--accent-b); }
+  .fsv2-badge.api { background: rgba(55,130,175,0.12); color: #3782af; }
+
+  .fsv2-companies {
+    font-size: 11px; color: var(--text-muted); line-height: 1.5; margin-top: 4px;
+  }
+  .fsv2-companies strong { color: var(--accent-a); }
+
+  .fsv2-toggle {
+    width: 30px; height: 30px;
     border-radius: 50%;
     border: 1px solid var(--border-light);
     display: flex; align-items: center; justify-content: center;
-    font-size: 18px; color: var(--text-muted);
+    font-size: 20px; color: var(--text-muted);
     transition: all 0.2s; flex-shrink: 0; background: transparent;
   }
-  .fs-subind-row.open .fs-toggle-icon {
+  .fsv2-card.open .fsv2-toggle {
     background: rgba(217,119,87,0.08);
     border-color: var(--accent-a);
     color: var(--accent-a);
     transform: rotate(45deg);
   }
-  .fs-detail {
+
+  .fsv2-body {
     max-height: 0; overflow: hidden;
     transition: max-height 0.5s ease;
   }
-  .fs-subind-row.open .fs-detail { max-height: 5000px; }
-  .fs-detail-inner {
-    padding: 0 20px 20px;
+  .fsv2-card.open .fsv2-body { max-height: 8000px; }
+
+  .fsv2-inner {
+    padding: 0 24px 24px;
     border-top: 1px solid var(--border-light);
   }
 
-  /* Product cards */
-  .fs-prod-grid {
+  /* Section labels inside card */
+  .fsv2-section-label {
+    font-family: var(--font-mono);
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 14px 0 8px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .fsv2-section-label::after {
+    content: '';
+    flex: 1; height: 1px;
+    background: var(--border-light);
+  }
+  .fsv2-section-label.orange { color: var(--accent-a); }
+  .fsv2-section-label.green { color: var(--accent-b); }
+  .fsv2-section-label.blue { color: #3782af; }
+  .fsv2-section-label.gold { color: #9a7030; }
+
+  /* Plain english explainer */
+  .fsv2-explainer {
+    background: #fdf8f4;
+    border: 1px solid rgba(217,119,87,0.12);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-top: 4px;
+  }
+  .fsv2-explainer p {
+    font-size: 12px; color: var(--text-secondary); line-height: 1.65; margin: 0;
+  }
+
+  /* Why high revenue */
+  .fsv2-revenue-why {
+    background: rgba(217,119,87,0.04);
+    border-left: 3px solid var(--accent-a);
+    padding: 10px 14px;
+    margin-top: 8px;
+    border-radius: 0 8px 8px 0;
+    font-size: 11px; color: var(--text-secondary); line-height: 1.55;
+  }
+  .fsv2-revenue-why strong { color: var(--accent-a); }
+
+  /* Product grid v2 */
+  .fsv2-prod-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin-top: 16px;
+    gap: 10px;
+    margin-top: 8px;
   }
-  .fs-prod-card {
-    border-radius: 10px; padding: 14px;
+  .fsv2-prod {
+    border-radius: 8px; padding: 12px;
     border: 1px solid transparent;
   }
-  .fs-prod-card.api { background: rgba(217,119,87,0.06); border-color: rgba(217,119,87,0.15); }
-  .fs-prod-card.code { background: rgba(100,100,180,0.06); border-color: rgba(100,100,180,0.15); }
-  .fs-prod-card.cowork { background: rgba(120,140,93,0.06); border-color: rgba(120,140,93,0.15); }
-  .fs-prod-card.excel { background: rgba(55,130,175,0.06); border-color: rgba(55,130,175,0.15); }
-  .fs-prod-card.claude { background: rgba(180,130,60,0.06); border-color: rgba(180,130,60,0.15); }
-  .fs-prod-card.pptx { background: rgba(200,80,50,0.06); border-color: rgba(200,80,50,0.15); }
+  .fsv2-prod.api { background: rgba(217,119,87,0.05); border-color: rgba(217,119,87,0.12); }
+  .fsv2-prod.code { background: rgba(100,100,180,0.05); border-color: rgba(100,100,180,0.12); }
+  .fsv2-prod.claude { background: rgba(180,130,60,0.05); border-color: rgba(180,130,60,0.12); }
+  .fsv2-prod.cowork { background: rgba(120,140,93,0.05); border-color: rgba(120,140,93,0.12); }
+  .fsv2-prod.excel { background: rgba(55,130,175,0.05); border-color: rgba(55,130,175,0.12); }
+  .fsv2-prod.pptx { background: rgba(200,80,50,0.05); border-color: rgba(200,80,50,0.12); }
 
-  .fs-prod-label {
-    font-size: 12px; font-weight: 700;
-    margin-bottom: 10px; padding-bottom: 6px;
-    border-bottom: 1px solid rgba(0,0,0,0.06);
-  }
-  .fs-prod-label.api { color: var(--accent-a); }
-  .fs-prod-label.code { color: #5a5aa0; }
-  .fs-prod-label.cowork { color: var(--accent-b); }
-  .fs-prod-label.excel { color: #3782af; }
-  .fs-prod-label.claude { color: #9a7030; }
-  .fs-prod-label.pptx { color: #c85032; }
-
-  .fs-uc {
-    font-size: 11px; color: var(--text-secondary); line-height: 1.45;
-    padding: 0;
-  }
-  .fs-uc:last-child { margin-bottom: 0; }
-
-  /* Plugin/skill tags */
-  .fs-plugin-tag {
-    display: inline-block;
-    font-size: 9px; font-weight: 600;
-    padding: 2px 7px; border-radius: 10px;
-    margin: 2px 2px 0 0;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-  .fs-plugin-tag.plugin { background: rgba(120,140,93,0.12); color: var(--accent-b); }
-  .fs-plugin-tag.connector { background: rgba(55,130,175,0.1); color: #3782af; }
-  .fs-plugin-tag.skill { background: rgba(180,130,60,0.1); color: #9a7030; }
-
-  /* Cowork section inside detail */
-  .fs-cowork-section {
-    margin-top: 16px;
-    background: rgba(120,140,93,0.04);
-    border: 1px solid rgba(120,140,93,0.15);
-    border-radius: 10px;
-    padding: 16px;
-  }
-  .fs-cowork-section-title {
+  .fsv2-prod-name {
     font-size: 11px; font-weight: 700;
+    margin-bottom: 6px; padding-bottom: 4px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+  .fsv2-prod-name.api { color: var(--accent-a); }
+  .fsv2-prod-name.code { color: #5a5aa0; }
+  .fsv2-prod-name.claude { color: #9a7030; }
+  .fsv2-prod-name.cowork { color: var(--accent-b); }
+  .fsv2-prod-name.excel { color: #3782af; }
+  .fsv2-prod-name.pptx { color: #c85032; }
+
+  .fsv2-prod-desc {
+    font-size: 10.5px; color: var(--text-secondary); line-height: 1.45;
+  }
+
+  /* Plugins/connectors section */
+  .fsv2-plugins {
+    background: rgba(120,140,93,0.04);
+    border: 1px solid rgba(120,140,93,0.12);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-top: 8px;
+  }
+  .fsv2-plugins-title {
+    font-size: 10px; font-weight: 700;
     color: var(--accent-b);
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
-  .fs-plugin-row {
+  .fsv2-plugin-row {
     display: flex; gap: 10px; align-items: flex-start;
-    padding: 8px 0;
-    border-bottom: 1px solid rgba(120,140,93,0.1);
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(120,140,93,0.08);
+    font-size: 11px;
   }
-  .fs-plugin-row:last-child { border-bottom: none; }
-  .fs-plugin-name {
-    font-size: 11px; font-weight: 700; color: var(--text-primary);
-    min-width: 140px; flex-shrink: 0;
+  .fsv2-plugin-row:last-child { border-bottom: none; }
+  .fsv2-plugin-tag {
+    display: inline-block;
+    font-size: 8px; font-weight: 700;
+    padding: 2px 6px; border-radius: 8px;
+    text-transform: uppercase; letter-spacing: 0.04em;
+    white-space: nowrap;
   }
-  .fs-plugin-desc {
-    font-size: 11px; color: var(--text-muted); line-height: 1.5;
+  .fsv2-plugin-tag.template { background: rgba(120,140,93,0.12); color: var(--accent-b); }
+  .fsv2-plugin-tag.connector { background: rgba(55,130,175,0.1); color: #3782af; }
+  .fsv2-plugin-label {
+    font-weight: 700; color: var(--text-primary);
+    min-width: 120px; flex-shrink: 0;
   }
-  .fs-skill-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 2px 16px;
-    margin-top: 6px; font-size: 10px; line-height: 1.5;
+  .fsv2-plugin-detail {
+    color: var(--text-muted); line-height: 1.5;
   }
-  .fs-skill-grid div { color: var(--text-secondary); }
-  .fs-skill-grid strong { color: var(--accent-b); }
+  .fsv2-skill-list {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2px 14px;
+    margin-top: 4px; font-size: 10px; line-height: 1.5;
+  }
+  .fsv2-skill-list strong { color: var(--accent-b); }
+
+  /* Customer stories */
+  .fsv2-stories {
+    margin-top: 8px;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .fsv2-story {
+    background: #fdf8f4;
+    border: 1px solid rgba(217,119,87,0.1);
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+  .fsv2-story-header {
+    display: flex; align-items: center; gap: 8px; margin-bottom: 6px;
+  }
+  .fsv2-story-co {
+    font-size: 12px; font-weight: 700; color: var(--text-primary);
+  }
+  .fsv2-story-product {
+    font-size: 9px; font-weight: 600; padding: 2px 7px;
+    border-radius: 8px; white-space: nowrap;
+  }
+  .fsv2-story-product.api { background: rgba(217,119,87,0.1); color: var(--accent-a); }
+  .fsv2-story-product.code { background: rgba(100,100,180,0.1); color: #5a5aa0; }
+  .fsv2-story-product.enterprise { background: rgba(180,130,60,0.1); color: #9a7030; }
+  .fsv2-story-product.cowork { background: rgba(120,140,93,0.1); color: var(--accent-b); }
+  .fsv2-story-product.connector { background: rgba(55,130,175,0.1); color: #3782af; }
+  .fsv2-story-product.multi { background: rgba(217,119,87,0.08); color: var(--accent-a); }
+  .fsv2-story-body {
+    font-size: 11px; color: var(--text-secondary); line-height: 1.55;
+  }
+  .fsv2-story-metric {
+    display: inline-block;
+    font-size: 10px; font-weight: 700;
+    color: var(--accent-a);
+    background: rgba(217,119,87,0.06);
+    padding: 1px 6px; border-radius: 6px;
+    margin-top: 4px;
+  }
+
+  /* JP Viewpoints callout */
+  .fsv2-jp {
+    background: linear-gradient(135deg, #f5f3ed 0%, #fdf8f4 100%);
+    border: 1px solid rgba(217,119,87,0.15);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-top: 24px;
+  }
+  .fsv2-jp-header {
+    font-family: var(--font-display);
+    font-size: 14px; font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .fsv2-jp-tag {
+    font-size: 8px; font-weight: 700;
+    background: rgba(217,119,87,0.12); color: var(--accent-a);
+    padding: 2px 8px; border-radius: 8px;
+    text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  .fsv2-jp-points {
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .fsv2-jp-point {
+    display: flex; gap: 12px; align-items: flex-start;
+  }
+  .fsv2-jp-icon {
+    width: 24px; height: 24px;
+    border-radius: 6px;
+    background: var(--accent-a);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700; flex-shrink: 0;
+    font-family: var(--font-mono);
+  }
+  .fsv2-jp-text {
+    font-size: 12px; line-height: 1.6;
+  }
+  .fsv2-jp-text strong { color: var(--text-primary); }
+  .fsv2-jp-text span.muted { color: var(--text-muted); }
+  .fsv2-jp-myangle {
+    font-size: 11px; color: var(--accent-b); font-weight: 600;
+    margin-top: 3px; display: block;
+  }
 
   @media (max-width: 768px) {
-    .fs-root-col, .fs-h-connector { display: none; }
-    .fs-prod-grid { grid-template-columns: 1fr 1fr; }
-    .fs-subind-header { padding: 14px 16px; }
-    .fs-detail-inner { padding: 0 16px 16px; }
-    .fs-plugin-row { flex-direction: column; gap: 2px; }
-    .fs-plugin-name { min-width: auto; }
+    .fsv2-prod-grid { grid-template-columns: 1fr 1fr; }
+    .fsv2-header { padding: 14px 16px; }
+    .fsv2-inner { padding: 0 16px 16px; }
+    .fsv2-plugin-row { flex-direction: column; gap: 2px; }
+    .fsv2-plugin-label { min-width: auto; }
+    .fsv2-skill-list { grid-template-columns: 1fr; }
   }
   @media (max-width: 480px) {
-    .fs-prod-grid { grid-template-columns: 1fr; }
+    .fsv2-prod-grid { grid-template-columns: 1fr; }
   }
 </style>
 
 <section id="fs-deep-dive" style="background: var(--bg-secondary); padding: 60px 0;">
   <div class="container">
-    <h2 class="fade-in" style="font-family: var(--font-display); font-size: 28px; color: var(--text-primary); font-weight: 700; line-height: 1.2; margin-bottom: 30px;">Financial Services — Use Case Deep Dive</h2>
+    <h2 class="fade-in" style="font-family: var(--font-display); font-size: 28px; color: var(--text-primary); font-weight: 700; line-height: 1.2; margin-bottom: 6px;">Financial Services — Sub-Industry Deep Dive</h2>
+    <p class="fade-in" style="font-size: 13px; color: var(--text-muted); margin-bottom: 28px; max-width: 700px;">Each sub-industry broken down: what they do, how they make money, which Anthropic products fit, the new Cowork plugins, and real customer stories. Built for quick scanning before interviews.</p>
 
-    <div class="fade-in fs-row">
-      <div class="fs-root-col">
-        <div>
-          <div class="fs-root-node">Financial<br>Services</div>
-          <div style="font-size: 10px; color: var(--text-muted); text-align: center; margin-top: 8px; max-width: 140px;">$1.1T IT spend by 2029<br>#1 CIO priority<br>Compliance required</div>
+    <!-- ═══════════════════════════════════════════════════════════
+         1. RETAIL & COMMERCIAL BANKING
+         ═══════════════════════════════════════════════════════════ -->
+    <div class="fade-in fsv2-card" onclick="this.classList.toggle('open')">
+      <div class="fsv2-header">
+        <div class="fsv2-rank">1</div>
+        <div class="fsv2-title-area">
+          <div class="fsv2-title">Retail &amp; Commercial Banking <span class="fsv2-badge revenue">#1 Revenue Potential</span></div>
+          <div class="fsv2-companies">JPMorgan Chase (310K) · <strong>Citigroup ✦</strong> (240K) · Wells Fargo (227K) · HSBC (220K) · Bank of America (213K) · TD Bank (95K) · <strong>RBC ✦</strong> (92K) · U.S. Bancorp (72K) · Capital One (57K) · PNC (54K) · <strong>Commonwealth Bank ✦</strong> (53K) · Truist (50K)</div>
+        </div>
+        <div class="fsv2-toggle">＋</div>
+      </div>
+      <div class="fsv2-body">
+        <div class="fsv2-inner">
+
+          <!-- What They Do -->
+          <div class="fsv2-section-label orange">What This Sub-Industry Does</div>
+          <div class="fsv2-explainer">
+            <p>These are the banks regular people and businesses use every day — checking accounts, savings, mortgages, business loans, credit cards. Think Chase, Wells Fargo, Bank of America. They make money two ways: <strong>spread</strong> (they borrow money cheaply and lend it out at higher rates — the difference is their profit) and <strong>fees</strong> (transaction fees, overdraft fees, service charges). They're massive employers — JPMorgan alone has 310K+ people — and every single one of them is buried in compliance requirements because they're federally regulated.</p>
+          </div>
+
+          <!-- Why High Revenue -->
+          <div class="fsv2-section-label orange">Why #1 Revenue Potential for Anthropic</div>
+          <div class="fsv2-revenue-why">
+            <strong>Biggest headcounts in finance</strong> = most seats to sell (JPM alone is 310K). Massive IT budgets because everything needs to be secure and compliant. Heavy API needs for fraud detection, compliance automation, and customer service — these banks process millions of transactions daily. Every product Anthropic sells has a buyer here: API for the engineering org, Claude Code for modernization, Cowork for the 200K+ knowledge workers, Excel for analysts, Claude.ai for everyone else.
+          </div>
+
+          <!-- Products -->
+          <div class="fsv2-section-label orange">Anthropic Products That Fit</div>
+          <div class="fsv2-prod-grid">
+            <div class="fsv2-prod api">
+              <div class="fsv2-prod-name api">API</div>
+              <div class="fsv2-prod-desc">Automate high-volume decisions — fraud scoring, compliance checks, customer service — by embedding Claude's reasoning directly into their platforms.</div>
+            </div>
+            <div class="fsv2-prod code">
+              <div class="fsv2-prod-name code">Claude Code</div>
+              <div class="fsv2-prod-desc">Modernize decades-old core banking systems and build new integrations faster. These banks run on legacy COBOL — Code is a lifeline.</div>
+            </div>
+            <div class="fsv2-prod claude">
+              <div class="fsv2-prod-name claude">Claude.ai</div>
+              <div class="fsv2-prod-desc">Bankers research policies, look up regulations, get answers to ad-hoc questions without waiting on other teams. The daily productivity tool.</div>
+            </div>
+            <div class="fsv2-prod cowork">
+              <div class="fsv2-prod-name cowork">Cowork</div>
+              <div class="fsv2-prod-desc">Loan officers and compliance teams draft memos, reports, and audit docs faster with structured document workflows. Huge seat count opportunity.</div>
+            </div>
+            <div class="fsv2-prod excel">
+              <div class="fsv2-prod-name excel">Excel</div>
+              <div class="fsv2-prod-desc">Build financial models, analyze portfolios, generate performance reports — AI inside the spreadsheets they already live in.</div>
+            </div>
+            <div class="fsv2-prod pptx">
+              <div class="fsv2-prod-name pptx">PowerPoint</div>
+              <div class="fsv2-prod-desc">Turn analysis into client proposals and leadership decks — the last mile from data to deliverable.</div>
+            </div>
+          </div>
+
+          <!-- Plugins & Connectors -->
+          <div class="fsv2-section-label green">Cowork Plugins &amp; Connectors (Feb 24, 2026)</div>
+          <div class="fsv2-plugins">
+            <div class="fsv2-plugin-row">
+              <div class="fsv2-plugin-label"><span class="fsv2-plugin-tag template">Template</span> Financial Analysis</div>
+              <div class="fsv2-plugin-detail">Core plugin (install first) — shared modeling tools + all 11 data connectors.
+                <div class="fsv2-skill-list">
+                  <div><strong>Comps analysis</strong> — benchmark vs. similar companies</div>
+                  <div><strong>DCF model</strong> — value a company by future cash flows</div>
+                  <div><strong>3-statements</strong> — linked income/balance/cash flow</div>
+                  <div><strong>LBO model</strong> — leveraged buyout returns analysis</div>
+                  <div><strong>Competitive analysis</strong> — market &amp; competitor research</div>
+                  <div><strong>Check-model</strong> — validate financial model accuracy</div>
+                  <div><strong>Check-deck</strong> — QC presentations to firm standards</div>
+                  <div><strong>PPT template creator</strong> — reusable slide templates</div>
+                  <div><strong>Skill creator</strong> — build custom skills for your firm</div>
+                </div>
+                <div style="margin-top: 6px; font-size: 10px; color: var(--text-muted);"><strong>11 MCP connectors:</strong> FactSet · S&amp;P Global · LSEG · Moody's · Morningstar · Daloopa · PitchBook · Chronograph · Aiera · MT Newswires · Egnyte</div>
+              </div>
+            </div>
+            <div class="fsv2-plugin-row">
+              <div class="fsv2-plugin-label"><span class="fsv2-plugin-tag connector">Connector</span> FactSet</div>
+              <div class="fsv2-plugin-detail">Financial data platform banks use for stock prices, company financials, and economic data. Pulls data directly into Cowork.</div>
+            </div>
+            <div class="fsv2-plugin-row">
+              <div class="fsv2-plugin-label"><span class="fsv2-plugin-tag connector">Connector</span> S&amp;P Global · LSEG</div>
+              <div class="fsv2-plugin-detail">S&amp;P = credit ratings &amp; research. LSEG = London Stock Exchange market data. Both co-developed partner plugins with Anthropic.<br>
+                <strong style="color: #3782af;">S&amp;P skills:</strong> earnings-preview-beta · funding-digest · tear-sheet<br>
+                <strong style="color: #3782af;">LSEG skills:</strong> fixed income pricing · yield curves · FX carry trades · options valuation · macro dashboards
+              </div>
+            </div>
+          </div>
+
+          <!-- Customer Stories -->
+          <div class="fsv2-section-label gold">Customer Stories</div>
+          <div class="fsv2-stories">
+            <div class="fsv2-story">
+              <div class="fsv2-story-header">
+                <div class="fsv2-story-co">Citigroup</div>
+                <span class="fsv2-story-product code">Claude Code</span>
+              </div>
+              <div class="fsv2-story-body">Using Claude Code to power their AI Developer Platform for agentic coding across their engineering organization.</div>
+            </div>
+            <div class="fsv2-story">
+              <div class="fsv2-story-header">
+                <div class="fsv2-story-co">Commonwealth Bank of Australia</div>
+                <span class="fsv2-story-product api">API</span>
+              </div>
+              <div class="fsv2-story-body">Fraud prevention and customer service agents powered by Claude API.</div>
+              <div><span class="fsv2-story-metric">50% scam reduction</span> <span class="fsv2-story-metric">30% fraud reduction</span> <span class="fsv2-story-metric">40% call center reduction</span></div>
+            </div>
+          </div>
+
         </div>
       </div>
-      <div class="fs-h-connector"></div>
-      <div class="fs-subind-col">
+    </div>
 
-        <!-- ═══════════ 1. RETAIL & COMMERCIAL BANKING ═══════════ -->
-        <div class="fs-subind-row" onclick="this.classList.toggle('open')">
-          <div class="fs-subind-header">
-            <div class="fs-subind-icon">1</div>
-            <div class="fs-subind-info">
-              <div class="fs-subind-name">Retail &amp; Commercial Banking <span style="font-size: 9px; background: rgba(217,119,87,0.15); color: var(--accent-a); padding: 2px 8px; border-radius: 10px; font-weight: 600; margin-left: 6px; vertical-align: middle;">#1 REVENUE POTENTIAL</span></div>
-              <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.4; margin-bottom: 2px;">Help consumers & businesses with accounts, loans, and payments. Revenue: interest rate spread + transaction fees.</div>
-              <div style="font-size: 10px; color: var(--accent-a); font-weight: 600; line-height: 1.4; margin-bottom: 4px;">💰 Largest headcounts in finance (JPM = 300K+), massive IT budgets, heavy compliance/API needs → biggest total contract values</div>
-              <div class="fs-subind-cos">JPMorgan Chase (310K) · <strong style="color: var(--accent-a);">Citigroup ✦</strong> (240K) · Wells Fargo (227K) · HSBC (220K) · Bank of America (213K) · TD Bank (95K) · <strong style="color: var(--accent-a);">RBC ✦</strong> (92K) · U.S. Bancorp (72K) · Capital One (57K) · PNC (54K) · <strong style="color: var(--accent-a);">Commonwealth Bank ✦</strong> (53K) · Truist (50K)</div>
-            </div>
-            <div class="fs-toggle-icon">＋</div>
+    <!-- ═══════════════════════════════════════════════════════════
+         2. INSURANCE
+         ═══════════════════════════════════════════════════════════ -->
+    <div class="fade-in fsv2-card" onclick="this.classList.toggle('open')">
+      <div class="fsv2-header">
+        <div class="fsv2-rank">2</div>
+        <div class="fsv2-title-area">
+          <div class="fsv2-title">Insurance <span class="fsv2-badge revenue">#2 Revenue Potential</span></div>
+          <div class="fsv2-companies"><strong>Allianz ✦</strong> (160K) · AXA (93K) · Zurich (60K) · State Farm (57K) · Progressive (60K) · Allstate (54K) · Liberty Mutual (45K) · MetLife (43K) · Prudential (40K) · Manulife (38K) · Munich Re (40K) · Travelers (34K) · Hartford (19K) · Chubb (34K) · <strong>AIG ✦</strong> (26K) · <strong>HUB International ✦</strong> (20K)</div>
+        </div>
+        <div class="fsv2-toggle">＋</div>
+      </div>
+      <div class="fsv2-body">
+        <div class="fsv2-inner">
+
+          <div class="fsv2-section-label orange">What This Sub-Industry Does</div>
+          <div class="fsv2-explainer">
+            
+            <p>Insurance companies protect people and businesses against risk — car accidents, house fires, lawsuits, health emergencies. You pay them a <strong>premium</strong> every month. If something bad happens, they pay your claim. They make money on the <strong>difference between premiums collected and claims paid out</strong>, plus they invest all that premium money while they hold it. The work is incredibly document-heavy — every policy, every claim, every regulatory filing is a paper trail. And every decision (approve this claim? deny it? how much is fair?) has real consequences for people's lives, which is why JP talks about Allianz claims processing as the example of where AI stakes are highest.</p>
           </div>
-          <div class="fs-detail">
-            <div class="fs-detail-inner">
-              <div style="font-size: 10px; color: var(--text-muted); margin-bottom: 10px; padding: 6px 8px; background: rgba(217,119,87,0.04); border-radius: 6px; line-height: 1.5;">
-                <span style="font-size: 9px; font-weight: 700; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em;">✦ How They Use Claude</span><br>
-                <strong style="color: var(--text-secondary);">Citi</strong> — <strong>Claude Code</strong> → AI-powered Developer Platform &amp; agentic coding<br>
-                <strong style="color: var(--text-secondary);">Commonwealth Bank</strong> — <strong>API</strong> → fraud prevention &amp; customer service agents (50% scam reduction, 30% fraud reduction, 40% call center reduction)
+
+          <div class="fsv2-section-label orange">Why #2 Revenue Potential for Anthropic</div>
+          <div class="fsv2-revenue-why">
+            <strong>Huge workforces</strong> (UnitedHealth = 400K+, Allianz = 160K) with millions of claims processed annually. Every decision is document-heavy and compliance-governed, which is exactly what Cowork + API were built for. The combination of massive seat counts for knowledge worker tools plus heavy API token consumption for claims automation makes this a dual revenue stream. HUB International's deployment to 20K+ employees shows the expansion pattern.
+          </div>
+
+          <div class="fsv2-section-label orange">Anthropic Products That Fit</div>
+          <div class="fsv2-prod-grid">
+            <div class="fsv2-prod api">
+              <div class="fsv2-prod-name api">API</div>
+              <div class="fsv2-prod-desc">Automate claims intake, risk scoring, and customer self-service with AI reasoning that follows compliance rules. High-volume token consumption.</div>
+            </div>
+            <div class="fsv2-prod code">
+              <div class="fsv2-prod-name code">Claude Code</div>
+              <div class="fsv2-prod-desc">Modernize legacy policy admin systems — these run on mainframes from the 80s. Build new digital platforms faster.</div>
+            </div>
+            <div class="fsv2-prod claude">
+              <div class="fsv2-prod-name claude">Claude.ai</div>
+              <div class="fsv2-prod-desc">Agents, brokers, and underwriters compare policies, interpret coverage, and research regulatory changes on demand.</div>
+            </div>
+            <div class="fsv2-prod cowork">
+              <div class="fsv2-prod-name cowork">Cowork</div>
+              <div class="fsv2-prod-desc">Claims adjusters and compliance teams draft reports, regulatory filings, and documentation faster. Every claim = paperwork.</div>
+            </div>
+            <div class="fsv2-prod excel">
+              <div class="fsv2-prod-name excel">Excel</div>
+              <div class="fsv2-prod-desc">Actuaries build pricing models, run loss analysis, and track portfolio performance. Insurance is a math business.</div>
+            </div>
+            <div class="fsv2-prod pptx">
+              <div class="fsv2-prod-name pptx">PowerPoint</div>
+              <div class="fsv2-prod-desc">Turn analysis into renewal presentations, board reports, and trend summaries for leadership.</div>
+            </div>
+          </div>
+
+          <div class="fsv2-section-label green">Cowork Plugins &amp; Connectors (Feb 24, 2026)</div>
+          <div class="fsv2-plugins">
+            <div class="fsv2-plugin-row">
+              <div class="fsv2-plugin-label"><span class="fsv2-plugin-tag template">Template</span> Financial Analysis</div>
+              <div class="fsv2-plugin-detail">Core plugin — shared modeling tools + all 11 data connectors. Comps, DCF, 3-statements, LBO, competitive analysis, check-model, check-deck, PPT template creator.</div>
+            </div>
+            <div class="fsv2-plugin-row">
+              <div class="fsv2-plugin-label"><span class="fsv2-plugin-tag connector">Connector</span> S&amp;P Global</div>
+              <div class="fsv2-plugin-detail">Credit ratings, risk assessments, and market intelligence. Insurers rely on this for pricing decisions and portfolio management.</div>
+            </div>
+          </div>
+
+          <div class="fsv2-section-label gold">Customer Stories</div>
+          <div class="fsv2-stories">
+            <div class="fsv2-story">
+              <div class="fsv2-story-header">
+                <div class="fsv2-story-co">AIG</div>
+                <span class="fsv2-story-product api">API</span>
               </div>
-              <div class="fs-prod-grid">
-                <div class="fs-prod-card api">
-                  <div class="fs-prod-label api">API</div>
-                  <div class="fs-uc">Helps these banks automate high-volume decisions like fraud scoring and compliance checks by embedding AI reasoning directly into their platforms.</div>
-                </div>
-                <div class="fs-prod-card code">
-                  <div class="fs-prod-label code">Claude Code</div>
-                  <div class="fs-uc">Helps these banks modernize decades-old systems and build new integrations faster with AI-assisted development.</div>
-                </div>
-                <div class="fs-prod-card claude">
-                  <div class="fs-prod-label claude">Claude.ai</div>
-                  <div class="fs-uc">Helps bankers quickly research policies, look up regulations, and get answers to ad-hoc questions without waiting on other teams.</div>
-                </div>
-                <div class="fs-prod-card cowork">
-                  <div class="fs-prod-label cowork">Cowork</div>
-                  <div class="fs-uc">Helps loan officers and compliance teams draft memos, reports, and audit documentation faster with structured document workflows.</div>
-                </div>
-                <div class="fs-prod-card excel">
-                  <div class="fs-prod-label excel">Excel</div>
-                  <div class="fs-uc">Helps these banks build financial models, analyze portfolios, and generate performance reports with AI inside their existing spreadsheets.</div>
-                </div>
-                <div class="fs-prod-card pptx">
-                  <div class="fs-prod-label pptx">PowerPoint</div>
-                  <div class="fs-uc">Helps bankers turn their analysis into client proposals and leadership decks — the last mile from data to deliverable.</div>
-                </div>
+              <div class="fsv2-story-body">Underwriting automation agent — Claude reviews excess &amp; surplus insurance submissions that are too complex for standard carriers.</div>
+              <div><span class="fsv2-story-metric">5x faster review</span> <span class="fsv2-story-metric">75% → 90%+ accuracy</span> <span class="fsv2-story-metric">500K+ submissions</span> <span class="fsv2-story-metric">$4B+ new premiums by 2030</span></div>
+            </div>
+            <div class="fsv2-story">
+              <div class="fsv2-story-header">
+                <div class="fsv2-story-co">Allianz</div>
+                <span class="fsv2-story-product multi">Claude Code + API</span>
               </div>
-              <!-- Cowork Plugins & Skills -->
-              <div class="fs-cowork-section">
-                <div class="fs-cowork-section-title">New Cowork Templates &amp; Connectors (Announced Feb 24, 2026)</div>
-                <div class="fs-plugin-row">
-                  <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Template</span> Financial Analysis</div>
-                  <div class="fs-plugin-desc">Core plugin (install first) — shared modeling tools + all 11 data connectors.
-                    <div class="fs-skill-grid">
-                      <div><strong>Comps analysis</strong> — benchmark vs. similar companies</div>
-                      <div><strong>DCF model</strong> — value a company by future cash flows</div>
-                      <div><strong>3-statements</strong> — linked income/balance/cash flow</div>
-                      <div><strong>LBO model</strong> — leveraged buyout returns analysis</div>
-                      <div><strong>Competitive analysis</strong> — market &amp; competitor research</div>
-                      <div><strong>Check-model</strong> — validate financial model accuracy</div>
-                      <div><strong>Check-deck</strong> — QC presentations to firm standards</div>
-                      <div><strong>PPT template creator</strong> — reusable slide templates</div>
-                      <div><strong>Skill creator</strong> — build custom skills for your firm</div>
-                    </div>
-                    <div style="margin-top: 6px; font-size: 10px; color: var(--text-muted);"><strong>11 MCP connectors:</strong> FactSet · S&amp;P Global · LSEG · Moody's · Morningstar · Daloopa · PitchBook · Chronograph · Aiera · MT Newswires · Egnyte</div>
-                  </div>
-                </div>
-                <div class="fs-plugin-row">
-                  <div class="fs-plugin-name"><span class="fs-plugin-tag connector">Connector</span> FactSet</div>
-                  <div class="fs-plugin-desc">FactSet is a financial data platform that banks use for stock prices, company financials, and economic data. This connector pulls that data directly into Cowork so bankers don't have to switch tools.</div>
-                </div>
-                <div class="fs-plugin-row">
-                  <div class="fs-plugin-name"><span class="fs-plugin-tag connector">Connector</span> S&amp;P Global · LSEG</div>
-                  <div class="fs-plugin-desc">S&amp;P Global provides credit ratings and research; LSEG (London Stock Exchange Group) provides market data and analytics. Both co-developed partner plugins with Anthropic.<br>
-                    <strong style="color: #3782af;">S&amp;P Global skills:</strong> earnings-preview-beta · funding-digest · tear-sheet<br>
-                    <strong style="color: #3782af;">LSEG skills:</strong> fixed income pricing · yield curves · FX carry trades · options valuation · macro dashboards (8 commands)</div>
+              <div class="fsv2-story-body">Developer org uses Claude Code. API powers claims processing agents for motor &amp; health insurance. Built AI audit logging so regulators can trace every decision. <em>This is JP's go-to example of why regulated AI has to be done right — "you get it wrong, it can really impact someone's life."</em></div>
+            </div>
+            <div class="fsv2-story">
+              <div class="fsv2-story-header">
+                <div class="fsv2-story-co">HUB International</div>
+                <span class="fsv2-story-product multi">Enterprise + Code + API</span>
+              </div>
+              <div class="fsv2-story-body">Full platform deployment across all 20K+ employees — Claude Enterprise for daily work, Claude Code for engineering, API for custom integrations.</div>
+              <div><span class="fsv2-story-metric">85% productivity gain</span> <span class="fsv2-story-metric">2.5 hrs saved/employee/week</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         3. WEALTH & ASSET MANAGEMENT
+         ═══════════════════════════════════════════════════════════ -->
+    <div class="fade-in fsv2-card" onclick="this.classList.toggle('open')">
+      <div class="fsv2-header">
+        <div class="fsv2-rank">3</div>
+        <div class="fsv2-title-area">
+          <div class="fsv2-title">Wealth &amp; Asset Management <span class="fsv2-badge revenue">#3 Revenue Potential</span></div>
+          <div class="fsv2-companies">Fidelity (74K) · Edward Jones (50K) · BNY Mellon (50K) · State Street (46K) · Schwab (36K) · BlackRock (20K) · Vanguard (20K) · <strong>RBC Wealth ✦</strong> (16K) · Raymond James (16K) · Ameriprise (14K) · Franklin Templeton (10K) · Northwestern Mutual (8K) · <strong>LPL Financial ✦</strong> (7K) · <strong>Bridgewater ✦</strong> (1.5K) · <strong>NBIM ✦</strong> (700)</div>
+        </div>
+        <div class="fsv2-toggle">＋</div>
+      </div>
+      <div class="fsv2-body">
+        <div class="fsv2-inner">
+
+          <div class="fsv2-section-label orange">What This Sub-Industry Does</div>
+          <div class="fsv2-explainer">
+            
+            <p>These companies manage other people's money. <strong>Wealth management</strong> = financial advisors who help individuals and families invest, plan for retirement, manage taxes. Think Edward Jones or Schwab — your advisor who calls you about your 401K. <strong>Asset management</strong> = firms that invest huge pools of money on behalf of institutions (pension funds, universities, sovereign wealth funds). Think BlackRock, Vanguard, Bridgewater. They make money on <strong>management fees</strong> — usually a percentage of the total money they manage (AUM = assets under management) — plus <strong>performance fees</strong> if they beat their benchmarks. Tens of thousands of advisors all need the same workflows: meeting prep, client reports, rebalancing recommendations.</p>
+          </div>
+
+          <div class="fsv2-section-label orange">Why #3 Revenue Potential for Anthropic</div>
+          <div class="fsv2-revenue-why">
+            <strong>Tens of thousands of advisors per firm</strong> all doing the same workflows (client prep, portfolio reports, rebalancing). Cowork + the Wealth Management plugin turns every advisor into someone with a full support team. LPL Financial already deploying to 30K+ advisors. The repeatable nature of advisor workflows = massive template/plugin adoption. JJH (your reference, now at Anthropic) co-presented with Northwestern Mutual on this exact use case.
+          </div>
+
+          <div class="fsv2-section-label orange">Anthropic Products That Fit</div>
+          <div class="fsv2-prod-grid">
+            <div class="fsv2-prod api">
+              <div class="fsv2-prod-name api">API</div>
+              <div class="fsv2-prod-desc">Automate research and deliver personalized portfolio reporting to thousands of clients without manual work.</div>
+            </div>
+            <div class="fsv2-prod code">
+              <div class="fsv2-prod-name code">Claude Code</div>
+              <div class="fsv2-prod-desc">Build portfolio tools, rebalancing engines, and modern client portals with AI-assisted development.</div>
+            </div>
+            <div class="fsv2-prod claude">
+              <div class="fsv2-prod-name claude">Claude.ai</div>
+              <div class="fsv2-prod-desc">Advisors instantly research markets, prep for client questions, brainstorm investment ideas on demand.</div>
+            </div>
+            <div class="fsv2-prod cowork">
+              <div class="fsv2-prod-name cowork">Cowork</div>
+              <div class="fsv2-prod-desc">Prep client meetings, build financial plans, draft investor letters — every advisor operates like they have a full team.</div>
+            </div>
+            <div class="fsv2-prod excel">
+              <div class="fsv2-prod-name excel">Excel</div>
+              <div class="fsv2-prod-desc">Portfolio analytics, performance attribution, and financial planning models with AI inside their spreadsheets.</div>
+            </div>
+            <div class="fsv2-prod pptx">
+              <div class="fsv2-prod-name pptx">PowerPoint</div>
+              <div class="fsv2-prod-desc">Turn portfolio data into polished client review decks and quarterly fund reports for every meeting.</div>
+            </div>
+          </div>
+
+          <div class="fsv2-section-label green">Cowork Plugins &amp; Connectors (Feb 24, 2026)</div>
+          <div class="fsv2-plugins">
+            <div class="fsv2-plugin-row">
+              <div class="fsv2-plugin-label"><span class="fsv2-plugin-tag template">Template</span> Wealth Mgmt</div>
+              <div class="fsv2-plugin-detail">Add-on for wealth advisors (requires Financial Analysis core).
+                <div class="fsv2-skill-list">
+                  <div><strong>Client review</strong> — pull portfolio data &amp; talking points before meetings</div>
+                  <div><strong>Client report</strong> — generate personalized performance reports</div>
+                  <div><strong>Financial plan</strong> — retirement projections &amp; savings models</div>
+                  <div><strong>Investment proposal</strong> — asset allocation recs customized to client</div>
+                  <div><strong>Portfolio rebalance</strong> — identify drift &amp; recommend trades</div>
+                  <div><strong>Tax-loss harvesting</strong> — find opportunities to offset gains</div>
                 </div>
               </div>
             </div>
+            <div class="fsv2-plugin-row">
+              <div class="fsv2-plugin-label"><span class="fsv2-plugin-tag template">Template</span> Equity Research</div>
+              <div class="fsv2-plugin-detail">Add-on for research teams. Earnings analysis, earnings preview, initiating coverage, model update, morning note, thesis tracker, catalyst calendar, sector overview, idea generation.</div>
+            </div>
+            <div class="fsv2-plugin-row">
+              <div class="fsv2-plugin-label"><span class="fsv2-plugin-tag connector">Connector</span> FactSet · S&amp;P · Morningstar</div>
+              <div class="fsv2-plugin-detail">Stock data, credit ratings, and fund ratings advisors use daily — brought directly into Cowork for client prep.</div>
+            </div>
+            <div class="fsv2-plugin-row">
+              <div class="fsv2-plugin-label"><span class="fsv2-plugin-tag connector">Connector</span> MSCI</div>
+              <div class="fsv2-plugin-detail">Leading provider of ESG scores and risk analytics. Institutional investors increasingly require ESG reporting — native to Cowork.</div>
+            </div>
+          </div>
+
+          <div class="fsv2-section-label gold">Customer Stories</div>
+          <div class="fsv2-stories">
+            <div class="fsv2-story">
+              <div class="fsv2-story-header">
+                <div class="fsv2-story-co">NBIM (Norway's Sovereign Wealth Fund)</div>
+                <span class="fsv2-story-product enterprise">Claude Enterprise</span>
+              </div>
+              <div class="fsv2-story-body">ESG screening agent scans 9K companies for forced labor, corruption, and fraud. Also used for earnings call analysis and Snowflake data queries.</div>
+              <div><span class="fsv2-story-metric">20% productivity gain = 213K hours</span> <span class="fsv2-story-metric">$100M+/yr trading cost savings</span></div>
+            </div>
+            <div class="fsv2-story">
+              <div class="fsv2-story-header">
+                <div class="fsv2-story-co">Bridgewater Associates</div>
+                <span class="fsv2-story-product api">API</span>
+              </div>
+              <div class="fsv2-story-body">Investment Analyst Assistant — Python code generation, data visualization, hypothesis stress-testing for the world's largest hedge fund.</div>
+            </div>
+            <div class="fsv2-story">
+              <div class="fsv2-story-header">
+                <div class="fsv2-story-co">LPL Financial</div>
+                <span class="fsv2-story-product cowork">Cowork</span>
+              </div>
+              <div class="fsv2-story-body">Wealth management plugins deployed to 30K+ independent financial advisors — client prep, research rollups, compliance-controlled tools.</div>
+            </div>
+            <div class="fsv2-story">
+              <div class="fsv2-story-header">
+                <div class="fsv2-story-co">RBC Capital Markets</div>
+                <span class="fsv2-story-product api">API (Bedrock) + Agentforce</span>
+              </div>
+              <div class="fsv2-story-body">Workflow digitization across their entire Capital Markets platform — built on the Salesforce + Anthropic partnership you helped build.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         4. INVESTMENT BANKING & CAPITAL MARKETS
+         ═══════════════════════════════════════════════════════════ -->
+    <div class="fade-in fsv2-card" onclick="this.classList.toggle('open')">
+      <div class="fsv2-header">
+        <div class="fsv2-rank green">4</div>
+        <div class="fsv2-title-area">
+          <div class="fsv2-title">Investment Banking &amp; Capital Markets <span class="fsv2-badge plugins">#4 — Most Plugins Built</span></div>
+          <div class="fsv2-companies">Deutsche Bank (85K) · Barclays (85K) · Morgan Stanley (80K) · UBS (74K) · <strong>Goldman Sachs ✦</strong> (46K) · Nomura (27K) · <strong>LSEG ✦</strong> (25K) · Macquarie (20K) · <strong>Moody's ✦</strong> (15K) · Jefferies (7K) · Houlihan Lokey (7K) · <strong>NYSE ✦</strong> (6K)</div>
+        </div>
+        <div class="fsv2-toggle">＋</div>
+      </div>
+      <div class="fsv2-body">
+        <div class="fsv2-inner">
+
+          <div class="fsv2-section-label orange">What This Sub-Industry Does</div>
+          <div class="fsv2-explainer">
+            
+            <p>Investment banks help companies do big financial transactions — <strong>raise capital</strong> (sell stock or bonds to investors so a company can get cash to grow), <strong>buy and sell businesses</strong> (M&amp;A — mergers and acquisitions), and <strong>trade securities</strong> (stocks, bonds, derivatives) on behalf of institutional clients. They make money on <strong>advisory fees</strong> (you pay Goldman to advise your $5B acquisition), <strong>underwriting commissions</strong> (they take a cut when they help you sell stock), and <strong>trading revenue</strong>. The work is brutally document-intensive — every deal requires pitch books, financial models, memos, regulatory filings. Junior bankers famously work 80-100 hour weeks just producing these documents. This is why Anthropic built the most Cowork plugins here.</p>
+          </div>
+
+          <div class="fsv2-section-label orange">Why Anthropic Built The Most Plugins Here</div>
+          <div class="fsv2-revenue-why">
+            <strong>Most document-intensive work in all of finance</strong> — every deal = pitch books, CIMs, models, memos. Junior bankers spend 80% of their time producing documents that Cowork can now automate. High willingness to pay per seat because banks already spend $150K-$200K per junior analyst. Goldman embedded Anthropic engineers for 6 months — the deepest integration partnership in FS. Anthropic built IB, Equity Research, and Private Equity templates specifically for this sub-industry.
+          </div>
+
+          <div class="fsv2-section-label orange">Anthropic Products That Fit</div>
+          <div class="fsv2-prod-grid">
+            <div class="fsv2-prod api">
+              <div class="fsv2-prod-name api">API</div>
+              <div class="fsv2-prod-desc">Process filings, screen deals, extract financial data at scale — automating work analysts do manually today.</div>
+            </div>
+            <div class="fsv2-prod code">
+              <div class="fsv2-prod-name code">Claude Code</div>
+              <div class="fsv2-prod-desc">Build trading systems, analytics platforms, and quantitative models faster with AI-assisted development.</div>
+            </div>
+            <div class="fsv2-prod claude">
+              <div class="fsv2-prod-name claude">Claude.ai</div>
+              <div class="fsv2-prod-desc">Senior bankers get instant research, precedent lookups, and market interpretation without waiting on analysts.</div>
+            </div>
+            <div class="fsv2-prod cowork">
+              <div class="fsv2-prod-name cowork">Cowork</div>
+              <div class="fsv2-prod-desc">Draft pitch books, memos, CIMs, and deal materials — the document-heavy deliverables that consume junior banker time.</div>
+            </div>
+            <div class="fsv2-prod excel">
+              <div class="fsv2-prod-name excel">Excel</div>
+              <div class="fsv2-prod-desc">Build valuation models, run scenario analysis, and create financial projections. Excel is the IB analyst's primary tool.</div>
+            </div>
+            <div class="fsv2-prod pptx">
+              <div class="fsv2-prod-name pptx">PowerPoint</div>
+              <div class="fsv2-prod-desc">Turn models into client-ready presentations — pitch books and board materials in minutes instead of hours.</div>
+            </div>
+          </div>
+
+          <div class="fsv2-section-label green">Cowork Plugins &amp; Connectors (Feb 24, 2026)</div>
+          <div class="fsv2-plugins">
+            <div class="fsv2-plugin-row">
+              <div class="fsv2-plugin-label"><span class="fsv2-plugin-tag template">Template</span> Investment Banking</div>
+              <div class="fsv2-plugin-detail">Add-on for IB (requires Financial Analysis core).
+                <div class="fsv2-skill-list">
+                  <div><strong>CIM builder</strong> — confidential information memorandums</div>
+                  <div><strong>Teaser</strong> — one-page marketing docs to pitch a company</div>
+                  <div><strong>Process letter</strong> — formal bid process documents</div>
+                  <div><strong>Buyer list</strong> — potential acquirers by industry/size/fit</div>
+                  <div><strong>Merger model</strong> — accretion/dilution when companies combine</div>
+                  <div><strong>Strip profile</strong> — side-by-side company comparison sheets</div>
+                  <div><strong>Pitch deck</strong> — build pitch books and presentations</div>
+                  <div><strong>Datapack builder</strong> — standardized data packages for deals</div>
+                  <div><strong>Deal tracker</strong> — monitor deals from engagement to close</div>
+                </div>
+              </div>
+            </div>
+            <div class="fsv2-plugin-row">
+              <div class="fsv2-plugin-label"><span class="fsv2-plugin-tag template">Template</span> Equity Research</div>
+              <div class="fsv2-plugin-detail">Earnings analysis, earnings preview, initiating coverage, model update, morning note, thesis tracker, catalyst calendar, sector overview, idea generation.</div>
+            </div>
+            <div class="fsv2-plugin-row">
+              <div class="fsv2-plugin-label"><span class="fsv2-plugin-tag template">Template</span> Private Equity</div>
+              <div class="fsv2-plugin-detail">Deal sourcing, due diligence, unit economics, IC memo, portfolio KPIs.</div>
+            </div>
+            <div class="fsv2-plugin-row">
+              <div class="fsv2-plugin-label"><span class="fsv2-plugin-tag connector">Connector</span> FactSet · S&amp;P · LSEG</div>
+              <div class="fsv2-plugin-detail">Full market data stack. S&amp;P skills: earnings-preview-beta, funding-digest, tear-sheet. LSEG skills: fixed income pricing, yield curves, FX carry trades, options valuation, macro dashboards.</div>
+            </div>
+            <div class="fsv2-plugin-row">
+              <div class="fsv2-plugin-label"><span class="fsv2-plugin-tag connector">Connector</span> MSCI</div>
+              <div class="fsv2-plugin-detail">ESG ratings and risk analytics for deal screening and investor presentations.</div>
+            </div>
+          </div>
+
+          <div class="fsv2-section-label gold">Customer Stories</div>
+          <div class="fsv2-stories">
+            <div class="fsv2-story">
+              <div class="fsv2-story-header">
+                <div class="fsv2-story-co">Goldman Sachs</div>
+                <span class="fsv2-story-product multi">API + Claude Code</span>
+              </div>
+              <div class="fsv2-story-body">API powers trade/transaction accounting agents + KYC/AML onboarding automation. Claude Code across their developer org. <strong>Anthropic embedded engineers at Goldman for 6 months</strong> — the deepest customer integration partnership in financial services.</div>
+            </div>
+            <div class="fsv2-story">
+              <div class="fsv2-story-header">
+                <div class="fsv2-story-co">NYSE (New York Stock Exchange)</div>
+                <span class="fsv2-story-product multi">Claude Code + API</span>
+              </div>
+              <div class="fsv2-story-body">Engineering modernization via Claude Code. API powers AI agents: Jira → committed code, proxy filing review, SEC audit analysis, news classification.</div>
+            </div>
+            <div class="fsv2-story">
+              <div class="fsv2-story-header">
+                <div class="fsv2-story-co">Moody's</div>
+                <span class="fsv2-story-product connector">MCP Connector</span>
+              </div>
+              <div class="fsv2-story-body">Co-developed MCP connector — ratings, research &amp; company data accessible directly inside Claude for all Anthropic customers.</div>
+            </div>
+            <div class="fsv2-story">
+              <div class="fsv2-story-header">
+                <div class="fsv2-story-co">LSEG (London Stock Exchange)</div>
+                <span class="fsv2-story-product connector">MCP Connector</span>
+              </div>
+              <div class="fsv2-story-body">Co-developed market data &amp; analytics connector — 8 commands for fixed income, yield curves, FX, options, and macro dashboards.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         5. FINTECH & PAYMENTS
+         ═══════════════════════════════════════════════════════════ -->
+    <div class="fade-in fsv2-card" onclick="this.classList.toggle('open')">
+      <div class="fsv2-header">
+        <div class="fsv2-rank blue">5</div>
+        <div class="fsv2-title-area">
+          <div class="fsv2-title">Fintech &amp; Payments <span class="fsv2-badge api">#5 — API Heavy</span></div>
+          <div class="fsv2-companies">FIS (50K) · Fiserv (40K) · Mastercard (33K) · <strong>Visa ✦</strong> (30K) · Global Payments (27K) · PayPal (25K) · <strong>Intuit ✦</strong> (18K) · <strong>Block (Square) ✦</strong> (13K) · Stripe (8K) · Jack Henry (7K) · <strong>Klarna ✦</strong> (4K) · <strong>Coinbase ✦</strong> (3.7K) · <strong>Brex ✦</strong> (1.2K)</div>
+        </div>
+        <div class="fsv2-toggle">＋</div>
+      </div>
+      <div class="fsv2-body">
+        <div class="fsv2-inner">
+
+          <div class="fsv2-section-label orange">What This Sub-Industry Does</div>
+          <div class="fsv2-explainer">
+            
+            <p>Fintechs are the companies reimagining how money moves — <strong>digital payments</strong> (Stripe, Square, PayPal), <strong>online lending</strong> (Klarna's buy-now-pay-later), <strong>embedded finance</strong> (banking features built into non-bank apps), and <strong>crypto</strong> (Coinbase). They make money on <strong>transaction fees</strong> (every time you tap your card, someone takes a cut — usually 2-3%), <strong>interchange</strong> (fees merchants pay to accept cards), and <strong>subscriptions</strong> (SaaS pricing for their platforms). They're engineering-first companies — smaller headcounts but massive API consumers because everything is automated and real-time.</p>
+          </div>
+
+          <div class="fsv2-section-label orange">Why #5 But Still Important</div>
+          <div class="fsv2-revenue-why">
+            <strong>Engineering-first = massive API token consumption</strong> for fraud detection, credit scoring, and platform features in real-time. Smaller orgs by headcount but heavy Claude Code + API usage. Block (Square) engineers save 8-10+ hours/week with Claude. These companies move fast and adopt AI aggressively — they're often the first to try new products and build reference cases for larger banks.
+          </div>
+
+          <div class="fsv2-section-label orange">Anthropic Products That Fit</div>
+          <div class="fsv2-prod-grid">
+            <div class="fsv2-prod api">
+              <div class="fsv2-prod-name api">API</div>
+              <div class="fsv2-prod-desc">Embed AI reasoning into platforms for real-time fraud scoring, credit decisions, and risk assessment. Highest token consumption per seat.</div>
+            </div>
+            <div class="fsv2-prod code">
+              <div class="fsv2-prod-name code">Claude Code</div>
+              <div class="fsv2-prod-desc">Fintechs ship fast — Claude Code accelerates every sprint across the codebase. Block engineers save 8-10+ hrs/week.</div>
+            </div>
+            <div class="fsv2-prod claude">
+              <div class="fsv2-prod-name claude">Claude.ai</div>
+              <div class="fsv2-prod-desc">Founders and product teams get competitive intel, regulatory research, and strategy brainstorming on demand.</div>
+            </div>
+            <div class="fsv2-prod cowork">
+              <div class="fsv2-prod-name cowork">Cowork</div>
+              <div class="fsv2-prod-desc">Write product specs, competitive analysis, and compliance docs — the operational backbone for scaling fast.</div>
+            </div>
+            <div class="fsv2-prod excel">
+              <div class="fsv2-prod-name excel">Excel</div>
+              <div class="fsv2-prod-desc">Analyze transaction data, model unit economics, and forecast revenue with AI inside their spreadsheets.</div>
+            </div>
+            <div class="fsv2-prod pptx">
+              <div class="fsv2-prod-name pptx">PowerPoint</div>
+              <div class="fsv2-prod-desc">Build board decks, fundraising presentations, and partner proposals for investors and stakeholders.</div>
+            </div>
+          </div>
+
+          <div class="fsv2-section-label green">Cowork Plugins &amp; Connectors (Feb 24, 2026)</div>
+          <div class="fsv2-plugins">
+            <div class="fsv2-plugin-row">
+              <div class="fsv2-plugin-label"><span class="fsv2-plugin-tag template">Template</span> Financial Analysis</div>
+              <div class="fsv2-plugin-detail">Core plugin — comps, DCF, 3-statements, LBO, competitive analysis, check-model, check-deck, PPT templates + 11 MCP connectors.</div>
+            </div>
+          </div>
+
+          <div class="fsv2-section-label gold">Customer Stories</div>
+          <div class="fsv2-stories">
+            <div class="fsv2-story">
+              <div class="fsv2-story-header">
+                <div class="fsv2-story-co">Block (Square)</div>
+                <span class="fsv2-story-product api">API</span>
+              </div>
+              <div class="fsv2-story-body">Claude-powered SQL agent for engineers — built into their internal developer tools.</div>
+              <div><span class="fsv2-story-metric">75% of engineers save 8-10+ hrs/week</span></div>
+            </div>
+            <div class="fsv2-story">
+              <div class="fsv2-story-header">
+                <div class="fsv2-story-co">Intuit</div>
+                <span class="fsv2-story-product multi">Cowork + API + Claude Code</span>
+              </div>
+              <div class="fsv2-story-body">Custom AI agents for TurboTax, QuickBooks, Credit Karma — full platform play. Claude Code across engineering org.</div>
+            </div>
+            <div class="fsv2-story">
+              <div class="fsv2-story-header">
+                <div class="fsv2-story-co">Brex</div>
+                <span class="fsv2-story-product api">API</span>
+              </div>
+              <div class="fsv2-story-body">Enterprise AI for corporate card &amp; expense management platform.</div>
+            </div>
+            <div class="fsv2-story">
+              <div class="fsv2-story-header">
+                <div class="fsv2-story-co">Coinbase</div>
+                <span class="fsv2-story-product api">API</span>
+              </div>
+              <div class="fsv2-story-body">Multi-cloud AI for customer segmentation &amp; crypto onboarding — using Claude across cloud providers.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         JP'S VIEWPOINTS — WOVEN ACROSS ALL SUB-INDUSTRIES
+         ═══════════════════════════════════════════════════════════ -->
+    <div class="fade-in fsv2-jp">
+      <div class="fsv2-jp-header">
+        JP's Strategic Framework for Selling FS
+        <span class="fsv2-jp-tag">From LinkedIn &amp; Public Talks</span>
+      </div>
+      <div class="fsv2-jp-points">
+
+        <div class="fsv2-jp-point">
+          <div class="fsv2-jp-icon">1</div>
+          <div class="fsv2-jp-text">
+            <strong>"Anthropic is a Platform, Not a Product"</strong><br>
+            <span class="muted">Customers bring the context, data, compliance, and access controls. They own what they build and deploy it where they want — Bedrock, Foundry, or Vertex. The customer decides. Anthropic's product roadmap comes directly from customer input, not off-the-shelf assumptions.</span>
+            <span class="fsv2-jp-myangle">→ My angle: I've lived this for 9 years at Salesforce and especially the last 12 months focused on Agentforce. Platform selling is about enabling the customer's vision, not pushing your product.</span>
           </div>
         </div>
 
-        <!-- ═══════════ 2. INSURANCE ═══════════ -->
-        <div class="fs-subind-row" onclick="this.classList.toggle('open')">
-          <div class="fs-subind-header">
-            <div class="fs-subind-icon">2</div>
-            <div class="fs-subind-info">
-              <div class="fs-subind-name">Insurance <span style="font-size: 9px; background: rgba(217,119,87,0.15); color: var(--accent-a); padding: 2px 8px; border-radius: 10px; font-weight: 600; margin-left: 6px; vertical-align: middle;">#2 REVENUE POTENTIAL</span></div>
-              <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.4; margin-bottom: 2px;">Protect people & businesses against risk — pricing policies, processing claims. Revenue: premiums collected minus claims paid + investment income.</div>
-              <div style="font-size: 10px; color: var(--accent-a); font-weight: 600; line-height: 1.4; margin-bottom: 4px;">💰 Huge workforces (UnitedHealth = 400K+), millions of claims, every decision is document-heavy and compliance-governed → Cowork + API</div>
-              <div class="fs-subind-cos"><strong style="color: var(--accent-a);">Allianz ✦</strong> (160K) · AXA (93K) · Zurich (60K) · State Farm (57K) · Progressive (60K) · Allstate (54K) · Liberty Mutual (45K) · MetLife (43K) · Prudential (40K) · Manulife (38K) · Munich Re (40K) · Travelers (34K) · Hartford (19K) · Chubb (34K) · <strong style="color: var(--accent-a);">AIG ✦</strong> (26K) · <strong style="color: var(--accent-a);">HUB International ✦</strong> (20K)</div>
-            </div>
-            <div class="fs-toggle-icon">＋</div>
-          </div>
-          <div class="fs-detail">
-            <div class="fs-detail-inner">
-              <div style="font-size: 10px; color: var(--text-muted); margin-bottom: 10px; padding: 6px 8px; background: rgba(217,119,87,0.04); border-radius: 6px; line-height: 1.5;">
-                <span style="font-size: 9px; font-weight: 700; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em;">✦ How They Use Claude</span><br>
-                <strong style="color: var(--text-secondary);">AIG</strong> — <strong>API</strong> → underwriting automation agent (5x faster review, 75→90%+ accuracy). 500K+ E&amp;S submissions → $4B+ new premiums by 2030<br>
-                <strong style="color: var(--text-secondary);">Allianz</strong> — <strong>Claude Code</strong> → developer org · <strong>API</strong> → claims processing agents (motor &amp; health) · AI audit logging for regulators<br>
-                <strong style="color: var(--text-secondary);">HUB International</strong> — <strong>Claude Enterprise + Claude Code + API</strong> → full platform deploy to 20K+ employees. 85% productivity gain, 2.5 hrs saved/employee/week
-              </div>
-              <div class="fs-prod-grid">
-                <div class="fs-prod-card api">
-                  <div class="fs-prod-label api">API</div>
-                  <div class="fs-uc">Helps these insurers automate claims intake, risk scoring, and customer self-service with AI reasoning that follows compliance rules.</div>
-                </div>
-                <div class="fs-prod-card code">
-                  <div class="fs-prod-label code">Claude Code</div>
-                  <div class="fs-uc">Helps their engineering teams modernize legacy policy systems and build new digital platforms with AI-assisted development.</div>
-                </div>
-                <div class="fs-prod-card claude">
-                  <div class="fs-prod-label claude">Claude.ai</div>
-                  <div class="fs-uc">Helps agents, brokers, and underwriters quickly compare policies, interpret coverage, and research regulatory changes on demand.</div>
-                </div>
-                <div class="fs-prod-card cowork">
-                  <div class="fs-prod-label cowork">Cowork</div>
-                  <div class="fs-uc">Helps claims adjusters and compliance teams draft reports, regulatory filings, and documentation faster with structured workflows.</div>
-                </div>
-                <div class="fs-prod-card excel">
-                  <div class="fs-prod-label excel">Excel</div>
-                  <div class="fs-uc">Helps actuaries and analysts build pricing models, run loss analysis, and track portfolio performance with AI in their spreadsheets.</div>
-                </div>
-                <div class="fs-prod-card pptx">
-                  <div class="fs-prod-label pptx">PowerPoint</div>
-                  <div class="fs-uc">Helps these companies turn their analysis into renewal presentations, board reports, and trend summaries for leadership.</div>
-                </div>
-              </div>
-              <div class="fs-cowork-section">
-                <div class="fs-cowork-section-title">New Cowork Templates &amp; Connectors (Announced Feb 24, 2026)</div>
-                <div class="fs-plugin-row">
-                  <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Template</span> Financial Analysis</div>
-                  <div class="fs-plugin-desc">Core plugin (install first) — shared modeling tools + all 11 data connectors.
-                    <div class="fs-skill-grid">
-                      <div><strong>Comps analysis</strong> — benchmark vs. peer insurers</div>
-                      <div><strong>DCF model</strong> — value a company by future cash flows</div>
-                      <div><strong>3-statements</strong> — linked income/balance/cash flow</div>
-                      <div><strong>LBO model</strong> — leveraged buyout returns analysis</div>
-                      <div><strong>Competitive analysis</strong> — market &amp; competitor research</div>
-                      <div><strong>Check-model</strong> — validate financial model accuracy</div>
-                      <div><strong>Check-deck</strong> — QC presentations to firm standards</div>
-                      <div><strong>PPT template creator</strong> — reusable slide templates</div>
-                    </div>
-                    <div style="margin-top: 6px; font-size: 10px; color: var(--text-muted);"><strong>11 MCP connectors:</strong> FactSet · S&amp;P Global · LSEG · Moody's · Morningstar · Daloopa · PitchBook · Chronograph · Aiera · MT Newswires · Egnyte</div>
-                  </div>
-                </div>
-                <div class="fs-plugin-row">
-                  <div class="fs-plugin-name"><span class="fs-plugin-tag connector">Connector</span> S&amp;P Global</div>
-                  <div class="fs-plugin-desc">S&amp;P Global provides credit ratings, risk assessments, and market intelligence. Insurers rely on this data for pricing decisions and portfolio management — this connector brings it into Cowork.</div>
-                </div>
-              </div>
-            </div>
+        <div class="fsv2-jp-point">
+          <div class="fsv2-jp-icon">2</div>
+          <div class="fsv2-jp-text">
+            <strong>"Regulated Industries is Where AI Proves Itself"</strong><br>
+            <span class="muted">Financial services is the hardest, highest-stakes test for AI — where impact is massive but trust comes first. Example: Allianz claims processing agents — you get it wrong, it can really impact someone's life. AI model reasoning transparency is critical. Claude's published Constitution = competitive advantage in regulated sales. When compliance or legal asks "how does your AI make decisions?" during evaluations, you can actually point to a transparent, detailed governance framework that no other model provider has published.</span>
+            <span class="fsv2-jp-myangle">→ My angle: This is exactly how I sold Manufacturing Cloud at Flex — trust first, product second. Regulated industries need a vendor they can defend to their board.</span>
           </div>
         </div>
 
-        <!-- ═══════════ 3. WEALTH & ASSET MANAGEMENT ═══════════ -->
-        <div class="fs-subind-row" onclick="this.classList.toggle('open')">
-          <div class="fs-subind-header">
-            <div class="fs-subind-icon">3</div>
-            <div class="fs-subind-info">
-              <div class="fs-subind-name">Wealth &amp; Asset Management <span style="font-size: 9px; background: rgba(217,119,87,0.15); color: var(--accent-a); padding: 2px 8px; border-radius: 10px; font-weight: 600; margin-left: 6px; vertical-align: middle;">#3 REVENUE POTENTIAL</span></div>
-              <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.4; margin-bottom: 2px;">Help people & institutions invest money — advisors to sovereign funds. Revenue: management fees (% of AUM) + performance fees.</div>
-              <div style="font-size: 10px; color: var(--accent-a); font-weight: 600; line-height: 1.4; margin-bottom: 4px;">💰 Tens of thousands of advisors all needing the same workflows (meeting prep, client reports, rebalancing) → Cowork + Wealth plugin. JJH co-presented with Northwestern Mutual</div>
-              <div class="fs-subind-cos">Fidelity (74K) · Edward Jones (50K) · BNY Mellon (50K) · State Street (46K) · Charles Schwab (36K) · BlackRock (20K) · Vanguard (20K) · <strong style="color: var(--accent-a);">RBC Wealth Management ✦</strong> (16K) · Raymond James (16K) · Ameriprise (14K) · Franklin Templeton (10K) · Northwestern Mutual (8K) · T. Rowe Price (8K) · <strong style="color: var(--accent-a);">LPL Financial ✦</strong> (7K) · <strong style="color: var(--accent-a);">Bridgewater ✦</strong> (1.5K) · <strong style="color: var(--accent-a);">NBIM ✦</strong> (700)</div>
-            </div>
-            <div class="fs-toggle-icon">＋</div>
-          </div>
-          <div class="fs-detail">
-            <div class="fs-detail-inner">
-              <div style="font-size: 10px; color: var(--text-muted); margin-bottom: 10px; padding: 6px 8px; background: rgba(217,119,87,0.04); border-radius: 6px; line-height: 1.5;">
-                <span style="font-size: 9px; font-weight: 700; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em;">✦ How They Use Claude</span><br>
-                <strong style="color: var(--text-secondary);">NBIM</strong> — <strong>Claude Enterprise</strong> → ESG screening agent (forced labor, corruption, fraud across 9K companies) · earnings call analysis · Snowflake data queries. 20% productivity = 213K hours. $100M+/yr trading cost savings<br>
-                <strong style="color: var(--text-secondary);">Bridgewater</strong> — <strong>API</strong> → Investment Analyst Assistant (Python code gen, data visualization, hypothesis stress-testing)<br>
-                <strong style="color: var(--text-secondary);">RBC Capital Markets</strong> — <strong>API (Bedrock) + Agentforce</strong> → workflow digitization across Capital Markets platform<br>
-                <strong style="color: var(--text-secondary);">LPL Financial</strong> — <strong>Cowork</strong> → wealth management plugins for 30K+ financial advisors (client prep, research rollups, compliance-controlled tools)
-              </div>
-              <div class="fs-prod-grid">
-                <div class="fs-prod-card api">
-                  <div class="fs-prod-label api">API</div>
-                  <div class="fs-uc">Helps these firms automate research and deliver personalized portfolio reporting to thousands of clients without manual work.</div>
-                </div>
-                <div class="fs-prod-card code">
-                  <div class="fs-prod-label code">Claude Code</div>
-                  <div class="fs-uc">Helps their engineering teams build portfolio tools, rebalancing engines, and modern client portals with AI-assisted development.</div>
-                </div>
-                <div class="fs-prod-card claude">
-                  <div class="fs-prod-label claude">Claude.ai</div>
-                  <div class="fs-uc">Helps advisors instantly research markets, prep for client questions, and brainstorm investment ideas on demand.</div>
-                </div>
-                <div class="fs-prod-card cowork">
-                  <div class="fs-prod-label cowork">Cowork</div>
-                  <div class="fs-uc">Helps advisors prep client meetings, build financial plans, and draft investor letters so every advisor operates like they have a full team.</div>
-                </div>
-                <div class="fs-prod-card excel">
-                  <div class="fs-prod-label excel">Excel</div>
-                  <div class="fs-uc">Helps analysts run portfolio analytics, performance attribution, and financial planning models with AI inside their spreadsheets.</div>
-                </div>
-                <div class="fs-prod-card pptx">
-                  <div class="fs-prod-label pptx">PowerPoint</div>
-                  <div class="fs-uc">Helps advisors turn portfolio data into polished client review decks and quarterly fund reports for every meeting.</div>
-                </div>
-              </div>
-              <div class="fs-cowork-section">
-                <div class="fs-cowork-section-title">New Cowork Templates &amp; Connectors (Announced Feb 24, 2026)</div>
-                <div class="fs-plugin-row">
-                  <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Template</span> Wealth Mgmt</div>
-                  <div class="fs-plugin-desc">Add-on for wealth advisors — requires Financial Analysis core plugin.
-                    <div style="margin-top: 8px; font-size: 10px; line-height: 1.7;">
-                      <strong style="color: var(--accent-b);">Client review</strong> — pull portfolio data, recent activity, and talking points before every client meeting<br>
-                      <strong style="color: var(--accent-b);">Client report</strong> — generate personalized performance reports for each client automatically<br>
-                      <strong style="color: var(--accent-b);">Financial plan</strong> — build retirement projections, savings plans, and goal-based financial models<br>
-                      <strong style="color: var(--accent-b);">Investment proposal</strong> — draft proposals with asset allocation recs customized to the client<br>
-                      <strong style="color: var(--accent-b);">Portfolio rebalance</strong> — identify drift from target allocation and recommend trades<br>
-                      <strong style="color: var(--accent-b);">Tax-loss harvesting</strong> — find opportunities to sell losing positions to offset gains and reduce tax
-                    </div>
-                  </div>
-                </div>
-                <div class="fs-plugin-row">
-                  <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Template</span> Equity Research</div>
-                  <div class="fs-plugin-desc">Add-on for research teams — requires Financial Analysis core plugin.
-                    <div style="margin-top: 8px; font-size: 10px; line-height: 1.7;">
-                      <strong style="color: var(--accent-b);">Earnings analysis</strong> — after a company reports, draft analysis of what happened and why it matters<br>
-                      <strong style="color: var(--accent-b);">Earnings preview</strong> — pre-earnings expectations and key metrics to watch<br>
-                      <strong style="color: var(--accent-b);">Initiating coverage</strong> — write the first deep-dive report when a firm starts covering a new stock<br>
-                      <strong style="color: var(--accent-b);">Model update</strong> — update and maintain financial models after new data<br>
-                      <strong style="color: var(--accent-b);">Morning note</strong> — daily market briefing for traders and portfolio managers<br>
-                      <strong style="color: var(--accent-b);">Thesis tracker</strong> — maintain the investment case for why a stock should go up or down<br>
-                      <strong style="color: var(--accent-b);">Catalyst calendar</strong> — track events (earnings, FDA approvals, regulation) that could move a stock<br>
-                      <strong style="color: var(--accent-b);">Sector overview</strong> — cross-company sector analysis and positioning<br>
-                      <strong style="color: var(--accent-b);">Idea generation</strong> — scan the market for new investment opportunities based on criteria
-                    </div>
-                  </div>
-                </div>
-                <div class="fs-plugin-row">
-                  <div class="fs-plugin-name"><span class="fs-plugin-tag connector">Connector</span> FactSet</div>
-                  <div class="fs-plugin-desc">FactSet is a financial data platform used by investment professionals for stock data, company financials, and portfolio analytics. This connector pulls that data into Cowork for client prep.</div>
-                </div>
-                <div class="fs-plugin-row">
-                  <div class="fs-plugin-name"><span class="fs-plugin-tag connector">Connector</span> S&amp;P Global · Morningstar</div>
-                  <div class="fs-plugin-desc">S&amp;P Global provides credit ratings and research; Morningstar provides fund ratings and investment analysis that advisors use daily. Anthropic co-developed these connectors to bring their data into Cowork.</div>
-                </div>
-                <div class="fs-plugin-row">
-                  <div class="fs-plugin-name"><span class="fs-plugin-tag connector">Connector</span> MSCI</div>
-                  <div class="fs-plugin-desc">MSCI is the leading provider of ESG (environmental, social, governance) scores and factor analytics. Institutional investors increasingly require ESG reporting — this connector makes it native to Cowork.</div>
-                </div>
-              </div>
-            </div>
+        <div class="fsv2-jp-point">
+          <div class="fsv2-jp-icon">3</div>
+          <div class="fsv2-jp-text">
+            <strong>"AI Augments, Doesn't Replace"</strong><br>
+            <span class="muted">AI handles the busy work — document processing, data analysis, repetitive compliance tasks — while freeing up people to spend more time with people. It enables them to be faster, smarter, and more focused on judgment calls, helping clients and the business. The goal is augmentation, not displacement.</span>
+            <span class="fsv2-jp-myangle">→ My angle: Every customer story above proves this — NBIM's 213K hours freed up, HUB's 2.5 hrs/employee/week, Block's 8-10 hrs/week saved. The pitch isn't "AI replaces your team." It's "AI gives your team superpowers."</span>
           </div>
         </div>
 
-        <!-- ═══════════ 4. INVESTMENT BANKING & CAPITAL MARKETS ═══════════ -->
-        <div class="fs-subind-row" onclick="this.classList.toggle('open')">
-          <div class="fs-subind-header">
-            <div class="fs-subind-icon">4</div>
-            <div class="fs-subind-info">
-              <div class="fs-subind-name">Investment Banking &amp; Capital Markets <span style="font-size: 9px; background: rgba(120,140,93,0.15); color: var(--accent-b); padding: 2px 8px; border-radius: 10px; font-weight: 600; margin-left: 6px; vertical-align: middle;">#4 — MOST PLUGINS BUILT</span></div>
-              <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.4; margin-bottom: 2px;">Help companies raise capital, buy/sell businesses, trade securities. Revenue: advisory fees + underwriting commissions + trading.</div>
-              <div style="font-size: 10px; color: var(--accent-a); font-weight: 600; line-height: 1.4; margin-bottom: 4px;">💰 Most document-intensive work in finance — every deal = pitch books, memos, models. Anthropic built the most plugins here. High willingness to pay per seat</div>
-              <div class="fs-subind-cos">Deutsche Bank (85K) · Barclays (85K) · Morgan Stanley (80K) · UBS (74K) · <strong style="color: var(--accent-a);">Goldman Sachs ✦</strong> (46K) · Nomura (27K) · <strong style="color: var(--accent-a);">LSEG ✦</strong> (25K) · Macquarie (20K) · <strong style="color: var(--accent-a);">Moody's ✦</strong> (15K) · Jefferies (7K) · Houlihan Lokey (7K) · <strong style="color: var(--accent-a);">NYSE ✦</strong> (6K)</div>
-            </div>
-            <div class="fs-toggle-icon">＋</div>
-          </div>
-          <div class="fs-detail">
-            <div class="fs-detail-inner">
-              <div style="font-size: 10px; color: var(--text-muted); margin-bottom: 10px; padding: 6px 8px; background: rgba(217,119,87,0.04); border-radius: 6px; line-height: 1.5;">
-                <span style="font-size: 9px; font-weight: 700; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em;">✦ How They Use Claude</span><br>
-                <strong style="color: var(--text-secondary);">Goldman Sachs</strong> — <strong>API</strong> → trade/transaction accounting agents + KYC/AML onboarding · <strong>Claude Code</strong> → developer org. Embedded Anthropic engineers for 6 months<br>
-                <strong style="color: var(--text-secondary);">NYSE</strong> — <strong>Claude Code</strong> → engineering modernization · <strong>API</strong> → AI agents (Jira → committed code), proxy filing review, SEC audit, news classification<br>
-                <strong style="color: var(--text-secondary);">Moody's</strong> — <strong>MCP Connector</strong> → ratings, research &amp; company data accessible directly inside Claude<br>
-                <strong style="color: var(--text-secondary);">LSEG</strong> — <strong>MCP Connector</strong> → market data &amp; analytics integration
-              </div>
-              <div class="fs-prod-grid">
-                <div class="fs-prod-card api">
-                  <div class="fs-prod-label api">API</div>
-                  <div class="fs-uc">Helps these firms process filings, screen deals, and extract financial data at scale — automating work analysts do manually today.</div>
-                </div>
-                <div class="fs-prod-card code">
-                  <div class="fs-prod-label code">Claude Code</div>
-                  <div class="fs-uc">Helps their engineering teams build trading systems, analytics platforms, and quantitative models faster with AI-assisted development.</div>
-                </div>
-                <div class="fs-prod-card claude">
-                  <div class="fs-prod-label claude">Claude.ai</div>
-                  <div class="fs-uc">Helps senior bankers get instant research, precedent lookups, and market interpretation without waiting on the analyst team.</div>
-                </div>
-                <div class="fs-prod-card cowork">
-                  <div class="fs-prod-label cowork">Cowork</div>
-                  <div class="fs-uc">Helps bankers draft pitch books, memos, and deal materials — the document-heavy deliverables that consume most of junior banker time.</div>
-                </div>
-                <div class="fs-prod-card excel">
-                  <div class="fs-prod-label excel">Excel</div>
-                  <div class="fs-uc">Helps analysts build valuation models, run scenario analysis, and create financial projections with AI inside their spreadsheets.</div>
-                </div>
-                <div class="fs-prod-card pptx">
-                  <div class="fs-prod-label pptx">PowerPoint</div>
-                  <div class="fs-uc">Helps these firms turn financial models into client-ready presentations — pitch books and board materials in minutes instead of hours.</div>
-                </div>
-              </div>
-              <div class="fs-cowork-section">
-                <div class="fs-cowork-section-title">New Cowork Templates &amp; Connectors (Announced Feb 24, 2026)</div>
-                <div class="fs-plugin-row">
-                  <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Template</span> Investment Banking</div>
-                  <div class="fs-plugin-desc">Add-on for IB — requires core Financial Analysis plugin.
-                    <div class="fs-skill-grid">
-                      <div><strong>CIM builder</strong> — confidential information memorandums</div>
-                      <div><strong>Teaser</strong> — one-page marketing docs to pitch a company</div>
-                      <div><strong>Process letter</strong> — formal bid process documents</div>
-                      <div><strong>Buyer list</strong> — potential acquirers by industry/size/fit</div>
-                      <div><strong>Merger model</strong> — accretion/dilution when companies combine</div>
-                      <div><strong>Strip profile</strong> — side-by-side company comparison sheets</div>
-                      <div><strong>Pitch deck</strong> — build pitch books and presentations</div>
-                      <div><strong>Datapack builder</strong> — standardized data packages for deals</div>
-                      <div><strong>Deal tracker</strong> — monitor deals from engagement to close</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="fs-plugin-row">
-                  <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Template</span> Equity Research</div>
-                  <div class="fs-plugin-desc">Add-on for sell-side and buy-side research teams.
-                    <div class="fs-skill-grid">
-                      <div><strong>Earnings analysis</strong> — post-earnings draft and key takeaways</div>
-                      <div><strong>Earnings preview</strong> — pre-earnings expectations to watch</div>
-                      <div><strong>Initiating coverage</strong> — first deep-dive on a new stock</div>
-                      <div><strong>Model update</strong> — maintain financial models after new data</div>
-                      <div><strong>Morning note</strong> — daily market briefing for traders/PMs</div>
-                      <div><strong>Thesis tracker</strong> — investment case tracking</div>
-                      <div><strong>Catalyst calendar</strong> — events that could move a stock</div>
-                      <div><strong>Sector overview</strong> — cross-company sector analysis</div>
-                      <div><strong>Idea generation</strong> — scan for new opportunities</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="fs-plugin-row">
-                  <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Template</span> Private Equity</div>
-                  <div class="fs-plugin-desc">Add-on for PE deal teams and portfolio operations.
-                    <div class="fs-skill-grid">
-                      <div><strong>Deal sourcing</strong> — source and screen deals against criteria</div>
-                      <div><strong>Due diligence</strong> — run DD checklists on targets</div>
-                      <div><strong>Unit economics</strong> — analyze returns and unit economics</div>
-                      <div><strong>IC memo</strong> — draft investment committee memos</div>
-                      <div><strong>Portfolio KPIs</strong> — monitor portfolio company metrics</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="fs-plugin-row">
-                  <div class="fs-plugin-name"><span class="fs-plugin-tag connector">Connector</span> FactSet</div>
-                  <div class="fs-plugin-desc">FactSet is the financial data terminal that bankers use daily for company financials, deal comps, and market multiples. This connector pulls that data directly into Cowork.</div>
-                </div>
-                <div class="fs-plugin-row">
-                  <div class="fs-plugin-name"><span class="fs-plugin-tag connector">Connector</span> S&amp;P Global · LSEG</div>
-                  <div class="fs-plugin-desc">S&amp;P Global provides credit ratings and research; LSEG (London Stock Exchange Group) provides market data and transaction records. Both co-developed partner plugins with Anthropic.<br>
-                    <strong style="color: #3782af;">S&amp;P Global skills:</strong> earnings-preview-beta · funding-digest · tear-sheet<br>
-                    <strong style="color: #3782af;">LSEG skills:</strong> fixed income pricing · yield curves · FX carry trades · options valuation · macro dashboards (8 commands)</div>
-                </div>
-                <div class="fs-plugin-row">
-                  <div class="fs-plugin-name"><span class="fs-plugin-tag connector">Connector</span> MSCI</div>
-                  <div class="fs-plugin-desc">MSCI is the leading provider of ESG (environmental, social, governance) ratings and risk analytics. This connector brings those scores into Cowork for deal screening and investor presentations.</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      </div>
+    </div>
 
-        <!-- ═══════════ 5. FINTECH & PAYMENTS ═══════════ -->
-        <div class="fs-subind-row" onclick="this.classList.toggle('open')">
-          <div class="fs-subind-header">
-            <div class="fs-subind-icon">5</div>
-            <div class="fs-subind-info">
-              <div class="fs-subind-name">Fintech &amp; Payments <span style="font-size: 9px; background: rgba(55,130,175,0.12); color: #3782af; padding: 2px 8px; border-radius: 10px; font-weight: 600; margin-left: 6px; vertical-align: middle;">#5 — API HEAVY</span></div>
-              <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.4; margin-bottom: 2px;">Reimagine how money moves — digital payments, online lending, embedded finance. Revenue: transaction fees + interchange + subscriptions.</div>
-              <div style="font-size: 10px; color: var(--accent-a); font-weight: 600; line-height: 1.4; margin-bottom: 4px;">💰 Engineering-first = massive API token consumption for fraud, credit scoring, platform features. Smaller orgs but heavy Claude Code + API</div>
-              <div class="fs-subind-cos">FIS (50K) · Fiserv (40K) · Mastercard (33K) · <strong style="color: var(--accent-a);">Visa ✦</strong> (30K) · Global Payments (27K) · PayPal (25K) · <strong style="color: var(--accent-a);">Intuit ✦</strong> (18K) · <strong style="color: var(--accent-a);">Block (Square) ✦</strong> (13K) · Stripe (8K) · Jack Henry (7K) · <strong style="color: var(--accent-a);">Klarna ✦</strong> (4K) · <strong style="color: var(--accent-a);">Coinbase ✦</strong> (3.7K) · <strong style="color: var(--accent-a);">Brex ✦</strong> (1.2K)</div>
-            </div>
-            <div class="fs-toggle-icon">＋</div>
-          </div>
-          <div class="fs-detail">
-            <div class="fs-detail-inner">
-              <div style="font-size: 10px; color: var(--text-muted); margin-bottom: 10px; padding: 6px 8px; background: rgba(217,119,87,0.04); border-radius: 6px; line-height: 1.5;">
-                <span style="font-size: 9px; font-weight: 700; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em;">✦ How They Use Claude</span><br>
-                <strong style="color: var(--text-secondary);">Block</strong> — <strong>API</strong> → Claude-powered SQL agent for engineers (75% save 8–10+ hrs/week)<br>
-                <strong style="color: var(--text-secondary);">Brex</strong> — <strong>API</strong> → enterprise AI for corporate card &amp; expense management<br>
-                <strong style="color: var(--text-secondary);">Coinbase</strong> — <strong>API</strong> → multi-cloud AI for customer segmentation &amp; crypto onboarding<br>
-                <strong style="color: var(--text-secondary);">Intuit</strong> — <strong>Cowork + API</strong> → custom AI agents for TurboTax, QuickBooks, Credit Karma · <strong>Claude Code</strong> → engineering org
-              </div>
-              <div class="fs-prod-grid">
-                <div class="fs-prod-card api">
-                  <div class="fs-prod-label api">API</div>
-                  <div class="fs-uc">Helps these companies embed AI reasoning directly into their platforms for real-time fraud scoring, credit decisions, and risk assessment.</div>
-                </div>
-                <div class="fs-prod-card code">
-                  <div class="fs-prod-label code">Claude Code</div>
-                  <div class="fs-uc">Helps their engineering teams ship faster — fintechs move quickly and Claude Code accelerates every sprint across the codebase.</div>
-                </div>
-                <div class="fs-prod-card claude">
-                  <div class="fs-prod-label claude">Claude.ai</div>
-                  <div class="fs-uc">Helps founders and product teams get competitive intel, regulatory research, and strategy brainstorming on demand.</div>
-                </div>
-                <div class="fs-prod-card cowork">
-                  <div class="fs-prod-label cowork">Cowork</div>
-                  <div class="fs-uc">Helps these teams write product specs, competitive analysis, and compliance docs — the operational backbone for scaling fast.</div>
-                </div>
-                <div class="fs-prod-card excel">
-                  <div class="fs-prod-label excel">Excel</div>
-                  <div class="fs-uc">Helps these companies analyze transaction data, model unit economics, and forecast revenue with AI in their spreadsheets.</div>
-                </div>
-                <div class="fs-prod-card pptx">
-                  <div class="fs-prod-label pptx">PowerPoint</div>
-                  <div class="fs-uc">Helps these companies build board decks, fundraising presentations, and partner proposals faster for investors and stakeholders.</div>
-                </div>
-              </div>
-              <div class="fs-cowork-section">
-                <div class="fs-cowork-section-title">New Cowork Templates &amp; Connectors (Announced Feb 24, 2026)</div>
-                <div class="fs-plugin-row">
-                  <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Template</span> Financial Analysis</div>
-                  <div class="fs-plugin-desc">The core plugin — provides shared modeling tools and all 11 MCP data connectors.
-                    <div style="margin-top: 8px; font-size: 10px; line-height: 1.7;">
-                      <strong style="color: var(--accent-b);">Comps analysis</strong> — benchmark a fintech's metrics against peers for growth, margins, valuation<br>
-                      <strong style="color: var(--accent-b);">DCF model</strong> — estimate company value based on projected future cash flows<br>
-                      <strong style="color: var(--accent-b);">3-statements</strong> — linked income statement, balance sheet, and cash flow<br>
-                      <strong style="color: var(--accent-b);">LBO model</strong> — leveraged buyout returns analysis<br>
-                      <strong style="color: var(--accent-b);">Competitive analysis</strong> — market &amp; competitor research and positioning<br>
-                      <strong style="color: var(--accent-b);">Check-model / Check-deck</strong> — validate models and QC presentations to firm standards<br>
-                      <strong style="color: var(--accent-b);">PPT template creator</strong> — create reusable slide templates
-                    </div>
-                    <div style="margin-top: 6px; font-size: 10px; color: var(--text-muted);"><strong>11 MCP connectors:</strong> FactSet · S&amp;P Global · LSEG · Moody's · Morningstar · Daloopa · PitchBook · Chronograph · Aiera · MT Newswires · Egnyte</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-      </div><!-- end fs-subind-col -->
-    </div><!-- end fs-row -->
-
-    <!-- ===== WHY ANTHROPIC WINS ===== -->
-    <div class="fade-in" style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 14px; padding: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin-top: 24px;">
+    <!-- ===== WHY ANTHROPIC WINS (updated) ===== -->
+    <div class="fade-in" style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 14px; padding: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin-top: 16px;">
       <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-a); margin-bottom: 12px;">Why Anthropic Wins in Financial Services</div>
       <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;">
         <div style="padding: 12px; background: #fdf5f0; border-radius: 8px; text-align: center;">
@@ -3806,7 +4058,7 @@ section:last-of-type { border-bottom: none; }
 <footer class="site-footer">
   <div class="container">
     <!-- === EDIT YOUR NAME AND DATE HERE === -->
-    <p>Last updated: <strong>February 17, 2026</strong> · Prepared by <strong>Ryan</strong></p>
+    <p>Last updated: <strong>February 26, 2026</strong> · Prepared by <strong>Ryan</strong></p>
     <p style="margin-top:6px;">Sources: Anthropic blog, OpenAI announcements, Wikipedia, CNBC, VentureBeat, TechCrunch, Axios</p>
   </div>
 </footer>
