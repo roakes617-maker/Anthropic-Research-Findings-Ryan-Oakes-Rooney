@@ -3274,10 +3274,8 @@ section:last-of-type { border-bottom: none; }
   .fs-prod-label.pptx { color: #c85032; }
 
   .fs-uc {
-    font-size: 11px; color: var(--text-secondary); line-height: 1.5;
-    padding: 8px 10px;
-    background: rgba(255,255,255,0.7);
-    border-radius: 6px; margin-bottom: 6px;
+    font-size: 11px; color: var(--text-secondary); line-height: 1.45;
+    padding: 0;
   }
   .fs-uc:last-child { margin-bottom: 0; }
 
@@ -3322,6 +3320,12 @@ section:last-of-type { border-bottom: none; }
   .fs-plugin-desc {
     font-size: 11px; color: var(--text-muted); line-height: 1.5;
   }
+  .fs-skill-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2px 16px;
+    margin-top: 6px; font-size: 10px; line-height: 1.5;
+  }
+  .fs-skill-grid div { color: var(--text-secondary); }
+  .fs-skill-grid strong { color: var(--accent-b); }
 
   @media (max-width: 768px) {
     .fs-root-col, .fs-h-connector { display: none; }
@@ -3355,8 +3359,9 @@ section:last-of-type { border-bottom: none; }
           <div class="fs-subind-header">
             <div class="fs-subind-icon">1</div>
             <div class="fs-subind-info">
-              <div class="fs-subind-name">Retail &amp; Commercial Banking</div>
-              <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.4; margin-bottom: 4px;">These companies help consumers and businesses open accounts, get loans, make payments, and manage their money. They make money on the spread between what they pay depositors and what they charge borrowers, plus fees on transactions and services.</div>
+              <div class="fs-subind-name">Retail &amp; Commercial Banking <span style="font-size: 9px; background: rgba(217,119,87,0.15); color: var(--accent-a); padding: 2px 8px; border-radius: 10px; font-weight: 600; margin-left: 6px; vertical-align: middle;">HIGHEST REVENUE POTENTIAL</span></div>
+              <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.4; margin-bottom: 4px;">These companies help consumers and businesses open accounts, get loans, make payments, and manage their money. They make money on the spread between what they pay depositors and what they charge borrowers, plus fees on transactions and services.
+                <div style="margin-top: 4px; font-size: 10px; color: var(--accent-a); font-weight: 600; line-height: 1.4;">💰 Why #1 for Anthropic: Largest headcounts in finance (JPM alone = 300K+), massive IT budgets, and every bank needs AI for compliance automation, fraud detection APIs, and modernizing legacy systems. Seat volume + API consumption = biggest total contract values.</div></div>
               <div class="fs-subind-cos">JPMorgan Chase · Bank of America · Wells Fargo · Citigroup · U.S. Bancorp · PNC · RBC</div>
             </div>
             <div class="fs-toggle-icon">＋</div>
@@ -3394,13 +3399,13 @@ section:last-of-type { border-bottom: none; }
                 <div class="fs-cowork-section-title">New Cowork Templates &amp; Connectors (Announced Feb 24, 2026)</div>
                 <div class="fs-plugin-row">
                   <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Template</span> Financial Analysis</div>
-                  <div class="fs-plugin-desc">The core plugin — install this first. Provides shared modeling tools and all 11 MCP data connectors.
-                    <div style="margin-top: 8px; font-size: 10px; line-height: 1.7;">
-                      <strong style="color: var(--accent-b);">Comp analysis</strong> — compare a company's financials against similar companies to see how it stacks up<br>
-                      <strong style="color: var(--accent-b);">DCF models</strong> — estimate what a company is worth based on its projected future cash flows<br>
-                      <strong style="color: var(--accent-b);">3-statement models</strong> — link a company's income statement, balance sheet, and cash flow into one connected model<br>
-                      <strong style="color: var(--accent-b);">Company profiles</strong> — generate one-page summaries of any company with key financials and metrics<br>
-                      <strong style="color: var(--accent-b);">PPT quality check</strong> — review and format presentations to match firm templates and standards
+                  <div class="fs-plugin-desc">Core plugin (install first) — shared modeling tools + all 11 data connectors.
+                    <div class="fs-skill-grid">
+                      <div><strong>Comp analysis</strong> — benchmark vs. similar companies</div>
+                      <div><strong>DCF models</strong> — value a company by future cash flows</div>
+                      <div><strong>3-statement models</strong> — linked income/balance/cash flow</div>
+                      <div><strong>Company profiles</strong> — one-page financial summaries</div>
+                      <div><strong>PPT QC</strong> — format decks to firm standards</div>
                     </div>
                   </div>
                 </div>
@@ -3422,7 +3427,7 @@ section:last-of-type { border-bottom: none; }
           <div class="fs-subind-header">
             <div class="fs-subind-icon">2</div>
             <div class="fs-subind-info">
-              <div class="fs-subind-name">Investment Banking &amp; Capital Markets</div>
+              <div class="fs-subind-name">Investment Banking &amp; Capital Markets <span style="font-size: 9px; background: rgba(120,140,93,0.15); color: var(--accent-b); padding: 2px 8px; border-radius: 10px; font-weight: 600; margin-left: 6px; vertical-align: middle;">HIGH — MOST PLUGINS</span></div>
               <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.4; margin-bottom: 4px;">These firms help companies raise capital, buy and sell businesses, and trade securities in public markets. They make money through advisory fees on deals, underwriting commissions, and trading revenue.</div>
               <div class="fs-subind-cos">Goldman Sachs · Morgan Stanley · Jefferies · Lazard · Evercore · NYSE</div>
             </div>
@@ -3460,13 +3465,13 @@ section:last-of-type { border-bottom: none; }
                 <div class="fs-cowork-section-title">New Cowork Templates &amp; Connectors (Announced Feb 24, 2026)</div>
                 <div class="fs-plugin-row">
                   <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Template</span> Investment Banking</div>
-                  <div class="fs-plugin-desc">Add-on for IB workflows — requires Financial Analysis core plugin.
-                    <div style="margin-top: 8px; font-size: 10px; line-height: 1.7;">
-                      <strong style="color: var(--accent-b);">CIMs &amp; teasers</strong> — draft the marketing documents used to pitch a company for sale to potential buyers<br>
-                      <strong style="color: var(--accent-b);">Buyer lists</strong> — build lists of potential acquirers or investors for a deal based on industry, size, and fit<br>
-                      <strong style="color: var(--accent-b);">Merger models</strong> — model what happens financially when two companies combine (accretion/dilution)<br>
-                      <strong style="color: var(--accent-b);">Strip profiles</strong> — create side-by-side comparison sheets of multiple companies for deal screening<br>
-                      <strong style="color: var(--accent-b);">Deal tracking</strong> — monitor live deals through milestones from engagement letter to close
+                  <div class="fs-plugin-desc">Add-on for IB — requires core Financial Analysis plugin.
+                    <div class="fs-skill-grid">
+                      <div><strong>CIMs &amp; teasers</strong> — marketing docs to pitch a company for sale</div>
+                      <div><strong>Buyer lists</strong> — potential acquirers by industry/size/fit</div>
+                      <div><strong>Merger models</strong> — what happens when two companies combine</div>
+                      <div><strong>Strip profiles</strong> — side-by-side company comparison sheets</div>
+                      <div><strong>Deal tracking</strong> — monitor deals from engagement to close</div>
                     </div>
                   </div>
                 </div>
@@ -3492,8 +3497,9 @@ section:last-of-type { border-bottom: none; }
           <div class="fs-subind-header">
             <div class="fs-subind-icon">3</div>
             <div class="fs-subind-info">
-              <div class="fs-subind-name">Insurance</div>
-              <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.4; margin-bottom: 4px;">These companies help people and businesses protect against risk — pricing policies, processing claims, and managing regulatory compliance. They make money by collecting premiums and investing that capital, profiting when claims paid out are less than premiums collected.</div>
+              <div class="fs-subind-name">Insurance <span style="font-size: 9px; background: rgba(217,119,87,0.15); color: var(--accent-a); padding: 2px 8px; border-radius: 10px; font-weight: 600; margin-left: 6px; vertical-align: middle;">VERY HIGH</span></div>
+              <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.4; margin-bottom: 4px;">These companies help people and businesses protect against risk — pricing policies, processing claims, and managing regulatory compliance. They make money by collecting premiums and investing that capital, profiting when claims paid out are less than premiums collected.
+                <div style="margin-top: 4px; font-size: 10px; color: var(--accent-a); font-weight: 600; line-height: 1.4;">💰 Why top 3 for Anthropic: Huge workforces processing millions of claims, every decision is document-heavy and compliance-governed — perfect for Cowork + API. UnitedHealth alone has 400K+ employees.</div></div>
               <div class="fs-subind-cos">UnitedHealth · Anthem · Aetna · MetLife · AIG · Allstate · Allianz</div>
             </div>
             <div class="fs-toggle-icon">＋</div>
@@ -3530,13 +3536,13 @@ section:last-of-type { border-bottom: none; }
                 <div class="fs-cowork-section-title">New Cowork Templates &amp; Connectors (Announced Feb 24, 2026)</div>
                 <div class="fs-plugin-row">
                   <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Template</span> Financial Analysis</div>
-                  <div class="fs-plugin-desc">The core plugin — provides shared modeling tools and all 11 MCP data connectors.
-                    <div style="margin-top: 8px; font-size: 10px; line-height: 1.7;">
-                      <strong style="color: var(--accent-b);">Comp analysis</strong> — compare an insurer's performance against peers on metrics like loss ratios and premiums<br>
-                      <strong style="color: var(--accent-b);">DCF models</strong> — estimate what a company is worth based on its projected future cash flows<br>
-                      <strong style="color: var(--accent-b);">3-statement models</strong> — link income statement, balance sheet, and cash flow into one connected model<br>
-                      <strong style="color: var(--accent-b);">Market research</strong> — pull competitive and market data to analyze industry trends and positioning<br>
-                      <strong style="color: var(--accent-b);">PPT quality check</strong> — review and format presentations to match firm templates and standards
+                  <div class="fs-plugin-desc">Core plugin (install first) — shared modeling tools + all 11 data connectors.
+                    <div class="fs-skill-grid">
+                      <div><strong>Comp analysis</strong> — benchmark vs. peer insurers</div>
+                      <div><strong>DCF models</strong> — value a company by future cash flows</div>
+                      <div><strong>3-statement models</strong> — linked income/balance/cash flow</div>
+                      <div><strong>Market research</strong> — competitive data and industry trends</div>
+                      <div><strong>PPT QC</strong> — format decks to firm standards</div>
                     </div>
                   </div>
                 </div>
@@ -3554,8 +3560,9 @@ section:last-of-type { border-bottom: none; }
           <div class="fs-subind-header">
             <div class="fs-subind-icon">4</div>
             <div class="fs-subind-info">
-              <div class="fs-subind-name">Wealth &amp; Asset Management</div>
-              <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.4; margin-bottom: 4px;">These firms help individuals and institutions invest their money — from financial advisors managing retirement accounts to sovereign funds managing trillions. They make money through management fees (a percentage of assets under management) and performance fees on investment returns.</div>
+              <div class="fs-subind-name">Wealth &amp; Asset Management <span style="font-size: 9px; background: rgba(120,140,93,0.15); color: var(--accent-b); padding: 2px 8px; border-radius: 10px; font-weight: 600; margin-left: 6px; vertical-align: middle;">HIGH — JJH FOCUS</span></div>
+              <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.4; margin-bottom: 4px;">These firms help individuals and institutions invest their money — from financial advisors managing retirement accounts to sovereign funds managing trillions. They make money through management fees (a percentage of assets under management) and performance fees on investment returns.
+                <div style="margin-top: 4px; font-size: 10px; color: var(--accent-a); font-weight: 600; line-height: 1.4;">💰 Why top 3 for Anthropic: Tens of thousands of advisors who each need meeting prep, client reports, and portfolio analysis — Cowork + Wealth Mgmt plugin is a perfect fit. JJH's co-presentation with Northwestern Mutual signals this is a priority vertical.</div></div>
               <div class="fs-subind-cos">BlackRock · Vanguard · Fidelity · Charles Schwab · RBC Wealth Management · Northwestern Mutual · NBIM · LPL Financial</div>
             </div>
             <div class="fs-toggle-icon">＋</div>
@@ -3637,9 +3644,9 @@ section:last-of-type { border-bottom: none; }
           <div class="fs-subind-header">
             <div class="fs-subind-icon">5</div>
             <div class="fs-subind-info">
-              <div class="fs-subind-name">Fintech &amp; Payments</div>
+              <div class="fs-subind-name">Fintech &amp; Payments <span style="font-size: 9px; background: rgba(55,130,175,0.12); color: #3782af; padding: 2px 8px; border-radius: 10px; font-weight: 600; margin-left: 6px; vertical-align: middle;">MEDIUM-HIGH — API HEAVY</span></div>
               <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.4; margin-bottom: 4px;">These companies use technology to reimagine how money moves — digital payments, online lending, and embedded financial services. They make money through transaction fees, interchange revenue, subscription pricing, and interest on loans.</div>
-              <div class="fs-subind-cos">PayPal · Stripe · Square · Plaid · Adyen · Marqeta · Klarna</div>
+              <div class="fs-subind-cos">PayPal · Stripe · Square · Plaid · Adyen · Marqeta · Klarna · Visa · Mastercard</div>
             </div>
             <div class="fs-toggle-icon">＋</div>
           </div>
@@ -3695,7 +3702,7 @@ section:last-of-type { border-bottom: none; }
           <div class="fs-subind-header">
             <div class="fs-subind-icon">6</div>
             <div class="fs-subind-info">
-              <div class="fs-subind-name">Private Equity &amp; Venture Capital</div>
+              <div class="fs-subind-name">Private Equity &amp; Venture Capital <span style="font-size: 9px; background: rgba(55,130,175,0.12); color: #3782af; padding: 2px 8px; border-radius: 10px; font-weight: 600; margin-left: 6px; vertical-align: middle;">MEDIUM — HIGH PER-SEAT</span></div>
               <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.4; margin-bottom: 4px;">These firms invest in and acquire companies — sourcing deals, running due diligence, and growing portfolio companies to generate returns for their investors. They make money through management fees (typically 2% of fund size) and carried interest (typically 20% of profits above a hurdle rate).</div>
               <div class="fs-subind-cos">Blackstone · KKR · Apollo · Carlyle · Thoma Bravo · a16z · Sequoia</div>
             </div>
