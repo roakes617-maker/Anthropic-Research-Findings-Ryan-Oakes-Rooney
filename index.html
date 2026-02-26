@@ -2908,57 +2908,47 @@ section:last-of-type { border-bottom: none; }
 <section id="models" style="background: var(--bg-secondary); padding: 80px 0;">
   <div class="container">
     <span class="section-label">Model Research</span>
-    <h2 class="section-title">Anthropic vs. OpenAI — Current Landscape</h2>
-    <p class="section-subtitle">Independent research across models, products, and enterprise positioning. Updated February 2026.</p>
+    <h2 class="section-title">Claude for Financial Services — Why Anthropic Wins</h2>
+    <p class="section-subtitle">How Claude's products map to financial services workflows vs. OpenAI. Updated February 26, 2026.</p>
 
-    <!-- Cowork/Code vs OpenClaw -->
+    <!-- FS Product Mapping -->
     <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 14px; padding: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin-bottom: 32px;">
-      <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-a); margin-bottom: 14px;">Claude Cowork &amp; Code vs. OpenClaw — Fundamental Differences</div>
-      <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px;">OpenClaw (formerly Clawdbot/Moltbot) went viral in Jan 2026 as an open-source personal agent framework. Creator Peter Steinberger joined OpenAI on Feb 15. All three tools emerged from the same model breakthrough — frontier models capable of autonomous action — but they're built for fundamentally different audiences with opposite design philosophies. Cowork and Code are enterprise-grade products with managed security, predictable pricing, and vendor support. OpenClaw is an open-source framework that maximizes power and flexibility at the cost of enterprise readiness.</div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 14px;">
+      <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-a); margin-bottom: 14px;">Anthropic's Product Stack for Financial Services</div>
+      <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px;">Every product in Anthropic's stack maps directly to a financial services workflow. The competitive advantage isn't just model quality — it's Constitutional AI (the only published governance framework for regulated industries), multi-cloud deployment (AWS Bedrock, GCP Vertex, Azure), data residency controls, and zero ads in enterprise. OpenAI is Azure-only cloud, testing ads on free tier, and lacks a published governance framework for compliance teams to review.</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px;">
         <div style="background: #fdf5f0; border: 1px solid rgba(217,119,87,0.2); border-radius: 10px; padding: 16px;">
-          <div style="font-size: 11px; font-weight: 700; color: var(--accent-a); margin-bottom: 6px;">Claude Cowork</div>
+          <div style="font-size: 11px; font-weight: 700; color: var(--accent-a); margin-bottom: 6px;">Claude Cowork + Plugins</div>
           <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.6;">
-            <strong>For:</strong> knowledge workers (non-technical)<br>
-            <strong>How:</strong> desktop app · sandboxed to user-granted folders · 11 open-source plugins across sales, marketing, legal, finance, support, PM · skills &amp; connectors for standardized workflows<br>
-            <strong>Architecture:</strong> Apple Virtualization Framework sandbox · destructive actions require confirmation · no persistent daemon · tasks are discrete, auditable, reset between sessions<br>
-            <strong>Enterprise edge:</strong> managed by Anthropic · flat $100-200/mo subscription · no data leaves trust boundary · enterprise sales + AWS/GCP partnerships · security teams approve it<br>
-            <strong>Market impact:</strong> built by Claude Code in ~1.5 weeks · S&amp;P Software &amp; Services Index down 20% YTD — market pricing in enterprise disruption from a vendor with real GTM, not just a viral repo
+            <strong>FS roles:</strong> wealth advisors, analysts, compliance officers, PMs, IB associates<br>
+            <strong>FS plugins (Feb 24):</strong> financial analysis, investment banking, equity research, private equity — plus FactSet &amp; MSCI MCP connectors for live market data<br>
+            <strong>Key workflows:</strong> client prep memos, earnings analysis, comp models in Excel, pitch decks in PPT, regulatory monitoring, ESG screening<br>
+            <strong>Enterprise controls:</strong> private plugin marketplace · admin-managed distribution · sandboxed VM · no data leaves trust boundary · $100-200/mo flat<br>
+            <strong>vs. ChatGPT:</strong> OpenAI's Prism is a research workspace, not an agent. No plugin ecosystem for finance. No Excel/PPT integration. Testing ads on free tier.
           </div>
         </div>
         <div style="background: #f0f3eb; border: 1px solid rgba(120,140,93,0.2); border-radius: 10px; padding: 16px;">
-          <div style="font-size: 11px; font-weight: 700; color: var(--accent-b); margin-bottom: 6px;">Claude Code</div>
+          <div style="font-size: 11px; font-weight: 700; color: var(--accent-b); margin-bottom: 6px;">Claude Code + Code Security</div>
           <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.6;">
-            <strong>For:</strong> developers &amp; engineers<br>
-            <strong>How:</strong> terminal-based · reads codebase, writes code, runs tests, manages git · VS Code, JetBrains, Xcode integration<br>
-            <strong>Architecture:</strong> session-based · scoped to codebase · no persistent system access · operates through existing dev toolchain<br>
-            <strong>Enterprise edge:</strong> 4% of all public GitHub commits and growing (projected 20%+ by EOY) · est. $1-2B annualized revenue faster than ChatGPT · 77.2% SWE-bench<br>
-            <strong>Real example:</strong> my SEs used Claude Code to build custom Salesforce LWCs for an Uber demo under a tight deadline — hit the deadline, deepened the exec relationship
+            <strong>FS roles:</strong> fintech engineers, quant developers, platform teams, DevSecOps<br>
+            <strong>Key workflows:</strong> legacy COBOL modernization (IBM stock dropped 13% on this), fraud detection models, payment API development, risk engine builds, regulatory reporting automation<br>
+            <strong>Code Security (Feb 20):</strong> scans codebases for vulnerabilities — found 500+ bugs undetected for decades in production. Critical for PCI-DSS, SOX compliance<br>
+            <strong>Enterprise edge:</strong> runs locally → code stays on your machine · 4% of GitHub commits · worktree isolation · 30+ hr sessions<br>
+            <strong>vs. Codex:</strong> OpenAI Codex runs in their cloud — your proprietary trading code leaves your environment. For a bank, that's a non-starter.
           </div>
         </div>
         <div style="background: #f5f3ed; border: 1px solid var(--border-light); border-radius: 10px; padding: 16px;">
-          <div style="font-size: 11px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">OpenClaw (now OpenAI)</div>
+          <div style="font-size: 11px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">API + MCP Connectors</div>
           <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.6;">
-            <strong>For:</strong> power users, hobbyists, prosumers<br>
-            <strong>How:</strong> open-source · self-hosted · runs 24/7 as persistent daemon via messaging apps (WhatsApp, Slack, iMessage) · full system access · 180K+ GitHub stars<br>
-            <strong>Architecture:</strong> heartbeat architecture (proactively wakes, reviews context, takes action) · CLI-first, rejects MCP in favor of --help discovery · model-agnostic (works with DeepSeek, Claude, GPT)<br>
-            <strong>Enterprise risk:</strong> 17-20% malicious skills on ClawHub · Bitdefender recommends not running on company devices · no vendor support · unpredictable API costs ($300-750/mo) · Korean tech firms banning it<br>
-            <strong>Bottom line:</strong> viral consumer adoption (Baidu integrating it) but enterprise security teams are actively blocking it — Steinberger joining OpenAI signals pivot from open-source to OpenAI's Frontier platform
-          </div>
-        </div>
-        <div style="background: #f5f0f5; border: 1px solid rgba(130,100,140,0.2); border-radius: 10px; padding: 16px;">
-          <div style="font-size: 11px; font-weight: 700; color: #6b5b7b; margin-bottom: 6px;">OpenAI Codex</div>
-          <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.6;">
-            <strong>For:</strong> developers &amp; engineers<br>
-            <strong>How:</strong> macOS desktop app (Feb 2026) + CLI + IDE extension · cloud sandboxed · multi-agent parallel workflows · GPT-5.3-Codex model<br>
-            <strong>Architecture:</strong> cloud-based execution (tasks run in OpenAI sandbox, not locally) · Git worktree isolation · async delegation model — more like assigning tasks to a colleague than pair programming<br>
-            <strong>vs. Claude Code:</strong> Codex runs in OpenAI's cloud → code leaves your environment · Claude Code runs locally in your terminal → code stays on your machine · Codex optimized for async delegation, Claude Code for real-time pairing<br>
-            <strong>Key difference:</strong> OpenAI acquired OpenClaw creator to "drive the next generation of personal agents" + launched Frontier platform for enterprise agent management — consolidating consumer + enterprise agent strategy under one roof
+            <strong>FS roles:</strong> platform teams building internal AI tools, data engineering, ops<br>
+            <strong>Key workflows:</strong> KYC/AML onboarding agents, underwriting automation, customer service bots, trade reconciliation, document extraction from SEC filings<br>
+            <strong>FS connectors:</strong> Moody's (ratings + research), LSEG (market data), FactSet, MSCI — live data inside Claude, no ETL required<br>
+            <strong>Multi-cloud:</strong> AWS Bedrock + GCP Vertex + Azure · data residency controls (1.1x for US-only inference) · Agent Skills API for specialized workflows<br>
+            <strong>vs. OpenAI:</strong> Azure-exclusive cloud lock-in. No published MCP connectors for financial data providers. No Constitutional AI governance framework.
           </div>
         </div>
       </div>
       <div style="padding: 10px 14px; background: rgba(217,119,87,0.06); border-radius: 8px; border-left: 3px solid var(--accent-a); margin-top: 14px;">
-        <div style="font-size: 11px; color: var(--text-secondary);"><strong>Sales angle:</strong> Four tools, two philosophies. Anthropic's Cowork + Code are enterprise-grade: sandboxed, locally executed, vendor-supported, predictable pricing. OpenClaw maximizes power but fails enterprise security review. Codex runs in OpenAI's cloud — your code leaves your environment. When a CIO asks "why not Codex?" → your code stays local with Claude Code. "Why not OpenClaw?" → security, support, and predictable cost.</div>
+        <div style="font-size: 11px; color: var(--text-secondary);"><strong>The CIO pitch:</strong> "Claude is the only model with a published Constitution — when your compliance team asks 'how does this AI make decisions?' you can point to a transparent governance framework. Your code stays local with Claude Code. Your data stays in your cloud with multi-cloud deployment. And Anthropic will never show ads to your employees. No other provider can say all four."</div>
       </div>
     </div>
 
@@ -2976,15 +2966,15 @@ section:last-of-type { border-bottom: none; }
           <div style="display: flex; flex-direction: column; gap: 10px;">
             <div style="padding-left: 10px; border-left: 2px solid var(--accent-a);">
               <div style="font-size: 12px; font-weight: 700; color: var(--text-primary);">Opus 4.6 <span style="font-weight: 400; color: var(--text-muted);">— Feb 2026</span></div>
-              <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Most intelligent model. 1M context (beta). #1 on finance agent benchmark. Agent teams, PowerPoint creation, deep research.</div>
+              <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Most intelligent model. #1 on finance agent benchmark (60.7% vs GPT-5.2 at 56.6%). 1M context = ingest entire 10-K filings. 128K output. METR 14hr task horizon. Agent teams for multi-step research.</div>
             </div>
             <div style="padding-left: 10px; border-left: 2px solid var(--accent-a);">
               <div style="font-size: 12px; font-weight: 700; color: var(--text-primary);">Sonnet 4.6 <span style="font-weight: 400; color: var(--text-muted);">— Feb 2026</span></div>
-              <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Opus-level performance at Sonnet pricing. 1M context (beta). 72.5% OSWorld. $3/$15 per M tokens. Default for Free &amp; Pro users.</div>
+              <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Opus-level at Sonnet pricing. 94% Pace Insurance Benchmark. 72.5% OSWorld (spreadsheet nav, web forms). $3/$15 per M tokens. Best cost/performance for high-volume FS API deployments.</div>
             </div>
             <div style="padding-left: 10px; border-left: 2px solid var(--accent-a);">
               <div style="font-size: 12px; font-weight: 700; color: var(--text-primary);">Haiku 4.5 <span style="font-weight: 400; color: var(--text-muted);">— Oct 2025</span></div>
-              <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Fastest, cheapest. Matches Sonnet 4 performance. Ideal for high-volume API, real-time agents, cost-sensitive deployments.</div>
+              <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Fastest, cheapest. $0.80/$4 per M tokens. Ideal for high-volume customer service agents, real-time fraud detection, transaction classification, chat support at scale.</div>
             </div>
           </div>
         </div>
@@ -2994,16 +2984,16 @@ section:last-of-type { border-bottom: none; }
           <div style="font-size: 13px; font-weight: 700; color: var(--text-secondary); margin-bottom: 12px;">OpenAI (GPT)</div>
           <div style="display: flex; flex-direction: column; gap: 10px;">
             <div style="padding-left: 10px; border-left: 2px solid var(--border-light);">
-              <div style="font-size: 12px; font-weight: 700; color: var(--text-primary);">GPT-5.2 Thinking <span style="font-weight: 400; color: var(--text-muted);">— Jan 2026</span></div>
-              <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Flagship reasoning model. Expert-level on GDPval knowledge work. Now default for Enterprise. GPT-4o retired Feb 2026.</div>
+              <div style="font-size: 12px; font-weight: 700; color: var(--text-primary);">GPT-5.2 Thinking <span style="font-weight: 400; color: var(--text-muted);">— Dec 2025</span></div>
+              <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Flagship reasoning model. Expert-level on GDPval knowledge work. 400K context. Now default for Enterprise. GPT-4o + GPT-5 retired Feb 2026.</div>
             </div>
             <div style="padding-left: 10px; border-left: 2px solid var(--border-light);">
-              <div style="font-size: 12px; font-weight: 700; color: var(--text-primary);">GPT-5.3-Codex <span style="font-weight: 400; color: var(--text-muted);">— Feb 2026</span></div>
-              <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Most capable coding model. Combined Codex + GPT-5 stacks. Codex-Spark variant on Cerebras for real-time coding (1000+ tok/s).</div>
+              <div style="font-size: 12px; font-weight: 700; color: var(--text-primary);">GPT-5.2-Codex <span style="font-weight: 400; color: var(--text-muted);">— Jan 2026</span></div>
+              <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Top agentic coding model. Context compaction for long sessions. SWE-Bench Pro SOTA. Cybersecurity capabilities. $1.75/$14 per M tokens.</div>
             </div>
             <div style="padding-left: 10px; border-left: 2px solid var(--border-light);">
-              <div style="font-size: 12px; font-weight: 700; color: var(--text-primary);">GPT-5 Instant <span style="font-weight: 400; color: var(--text-muted);">— Aug 2025</span></div>
-              <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Fast responses for simple queries. Auto-router decides when to escalate to Thinking. Free tier default.</div>
+              <div style="font-size: 12px; font-weight: 700; color: var(--text-primary);">GPT-5.2 Instant <span style="font-weight: 400; color: var(--text-muted);">— Feb 2026</span></div>
+              <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Fast responses for simple queries. Replaced GPT-5 Instant (retired). Free/Go tier default. Testing ads on free tier.</div>
             </div>
           </div>
         </div>
@@ -3014,24 +3004,24 @@ section:last-of-type { border-bottom: none; }
     <div  style="margin-top: 40px;">
       <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px;">
         <span style="background: var(--accent-a); color: #fff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.06em;">Products</span>
-        <h3 style="font-family: var(--font-display); font-size: 18px; color: var(--text-primary); margin: 0;">Enterprise Product Landscape</h3>
+        <h3 style="font-family: var(--font-display); font-size: 18px; color: var(--text-primary); margin: 0;">Financial Services Use Case Mapping</h3>
       </div>
 
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
         <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 10px; padding: 16px;">
-          <div style="font-size: 10px; font-weight: 600; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.04em;">For Developers</div>
-          <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin: 6px 0 4px;">Claude Code vs. Codex</div>
-          <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Claude Code: terminal-native, 30+ hr sessions, plan mode. Used by Microsoft, Google engineers. Codex: IDE-integrated, Spark for real-time, stronger Windows support.</div>
+          <div style="font-size: 10px; font-weight: 600; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.04em;">Front Office</div>
+          <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin: 6px 0 4px;">Cowork + Excel + PPT</div>
+          <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Wealth advisors: client prep &amp; financial plans. IB associates: pitch books &amp; comp analysis. Analysts: earnings models &amp; scenario testing. Compliance: regulatory monitoring &amp; audit prep.</div>
         </div>
         <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 10px; padding: 16px;">
-          <div style="font-size: 10px; font-weight: 600; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.04em;">For Knowledge Workers</div>
-          <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin: 6px 0 4px;">Cowork vs. ChatGPT Enterprise</div>
-          <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Cowork: local VM, file access, MCP integrations. Excel, PowerPoint, Chrome add-ins. ChatGPT: Canvas for docs, GPT Builder, broader consumer reach, testing ads.</div>
+          <div style="font-size: 10px; font-weight: 600; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.04em;">Platform & Engineering</div>
+          <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin: 6px 0 4px;">Claude Code + API</div>
+          <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">COBOL modernization (legacy banking). Fraud detection &amp; risk models. Payment APIs. Trading system builds. Code Security for PCI-DSS/SOX. KYC/AML automation agents.</div>
         </div>
         <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 10px; padding: 16px;">
-          <div style="font-size: 10px; font-weight: 600; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.04em;">For the Platform</div>
-          <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin: 6px 0 4px;">API & Multi-Cloud</div>
-          <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Claude: available on AWS Bedrock, GCP Vertex, Azure. Constitutional AI, data residency controls. OpenAI: Azure-exclusive cloud, Responses API, structured outputs GA.</div>
+          <div style="font-size: 10px; font-weight: 600; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.04em;">Data & Intelligence</div>
+          <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin: 6px 0 4px;">MCP Connectors + API</div>
+          <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">Moody's &amp; LSEG connectors = ratings, market data, analytics inside Claude. FactSet &amp; MSCI for live research. Snowflake partnership for enterprise data. ESG screening across 9K companies (NBIM).</div>
         </div>
       </div>
     </div>
@@ -3040,29 +3030,29 @@ section:last-of-type { border-bottom: none; }
     <div  style="margin-top: 40px;">
       <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px;">
         <span style="background: var(--accent-b); color: #fff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.06em;">Why Claude</span>
-        <h3 style="font-family: var(--font-display); font-size: 18px; color: var(--text-primary); margin: 0;">Anthropic's Competitive Edge</h3>
+        <h3 style="font-family: var(--font-display); font-size: 18px; color: var(--text-primary); margin: 0;">Why Financial Services CIOs Choose Anthropic</h3>
       </div>
 
       <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;">
         <div style="background: #f5f3ed; border-radius: 10px; padding: 16px; text-align: center;">
           <div style="font-size: 22px; margin-bottom: 6px;">&#x1F6E1;</div>
           <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">Constitutional AI</div>
-          <div style="font-size: 11px; color: var(--text-muted); line-height: 1.4;">Built-in safety alignment. Explainable decisions. Regulatory-ready for finance, healthcare, government.</div>
+          <div style="font-size: 11px; color: var(--text-muted); line-height: 1.4;">Only model with a published governance framework. When compliance asks "how does your AI decide?" — you hand them the Constitution. No competitor has this.</div>
         </div>
         <div style="background: #f5f3ed; border-radius: 10px; padding: 16px; text-align: center;">
           <div style="font-size: 22px; margin-bottom: 6px;">&#x2601;</div>
-          <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">Multi-Cloud</div>
-          <div style="font-size: 11px; color: var(--text-muted); line-height: 1.4;">AWS, GCP, Azure. No vendor lock-in. Data residency controls. OpenAI is Azure-only for cloud.</div>
+          <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">Multi-Cloud + Data Residency</div>
+          <div style="font-size: 11px; color: var(--text-muted); line-height: 1.4;">AWS Bedrock, GCP Vertex, Azure. US-only inference option (1.1x). No vendor lock-in. OpenAI is Azure-only — banks on AWS can't use it natively.</div>
         </div>
         <div style="background: #f5f3ed; border-radius: 10px; padding: 16px; text-align: center;">
-          <div style="font-size: 22px; margin-bottom: 6px;">&#x1F4BB;</div>
-          <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">Enterprise DNA</div>
-          <div style="font-size: 11px; color: var(--text-muted); line-height: 1.4;">80% of revenue from enterprise. Salesforce, AWS, Notion, Zoom integrations. No ads — ever.</div>
+          <div style="font-size: 22px; margin-bottom: 6px;">&#x1F4CA;</div>
+          <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">#1 Finance Benchmark</div>
+          <div style="font-size: 11px; color: var(--text-muted); line-height: 1.4;">Opus 4.6: 60.7% on finance agent benchmark vs GPT-5.2 (56.6%) &amp; Gemini 3 Pro (44.1%). 94% Pace Insurance. Built for quantitative analysis &amp; regulatory reasoning.</div>
         </div>
         <div style="background: #f5f3ed; border-radius: 10px; padding: 16px; text-align: center;">
-          <div style="font-size: 22px; margin-bottom: 6px;">&#x1F9E0;</div>
-          <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">Context & Reasoning</div>
-          <div style="font-size: 11px; color: var(--text-muted); line-height: 1.4;">1M token context. Infinite chats. #1 finance agent benchmark. Agent Skills for specialized workflows.</div>
+          <div style="font-size: 22px; margin-bottom: 6px;">&#x1F512;</div>
+          <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">Enterprise Trust</div>
+          <div style="font-size: 11px; color: var(--text-muted); line-height: 1.4;">80% revenue from enterprise. No ads — ever. Code stays local. Palantir partnership for classified missions. Goldman embedded Anthropic engineers for 6 months.</div>
         </div>
       </div>
     </div>
@@ -3071,7 +3061,7 @@ section:last-of-type { border-bottom: none; }
     <div  style="margin-top: 40px;">
       <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px;">
         <span style="background: var(--accent-a); color: #fff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.06em;">Timeline</span>
-        <h3 style="font-family: var(--font-display); font-size: 18px; color: var(--text-primary); margin: 0;">Key Developments</h3>
+        <h3 style="font-family: var(--font-display); font-size: 18px; color: var(--text-primary); margin: 0;">Key Developments (FS Impact)</h3>
       </div>
 
       <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px;">
@@ -3081,9 +3071,9 @@ section:last-of-type { border-bottom: none; }
           <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">Coding + spreadsheets. $5/$25 per M tokens.</div>
         </div>
         <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-top: 3px solid #888; border-radius: 0 0 10px 10px; padding: 12px; text-align: center;">
-          <div style="font-size: 10px; font-weight: 700; color: #5e5d59;">JAN 2026</div>
+          <div style="font-size: 10px; font-weight: 700; color: #5e5d59;">DEC 2025</div>
           <div style="font-size: 11px; font-weight: 600; color: var(--text-primary); margin-top: 4px;">GPT-5.2</div>
-          <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">OpenAI flagship. Expert-level knowledge work.</div>
+          <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">OpenAI flagship. $1.75/$14. 400K context.</div>
         </div>
         <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-top: 3px solid var(--accent-a); border-radius: 0 0 10px 10px; padding: 12px; text-align: center;">
           <div style="font-size: 10px; font-weight: 700; color: var(--accent-a);">JAN 2026</div>
@@ -3096,14 +3086,14 @@ section:last-of-type { border-bottom: none; }
           <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">#1 finance benchmark. Agent teams. PPT creation.</div>
         </div>
         <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-top: 3px solid #888; border-radius: 0 0 10px 10px; padding: 12px; text-align: center;">
-          <div style="font-size: 10px; font-weight: 700; color: #5e5d59;">FEB 2026</div>
-          <div style="font-size: 11px; font-weight: 600; color: var(--text-primary); margin-top: 4px;">GPT-5.3 Codex</div>
-          <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">OpenAI agentic coding. Cerebras partnership.</div>
+          <div style="font-size: 10px; font-weight: 700; color: #5e5d59;">JAN 2026</div>
+          <div style="font-size: 11px; font-weight: 600; color: var(--text-primary); margin-top: 4px;">GPT-5.2-Codex</div>
+          <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">OpenAI agentic coding. SWE-Bench Pro SOTA.</div>
         </div>
         <div style="background: var(--bg-card); border: 1px solid var(--border-light); border-top: 3px solid var(--accent-a); border-radius: 0 0 10px 10px; padding: 12px; text-align: center;">
           <div style="font-size: 10px; font-weight: 700; color: var(--accent-a);">FEB 2026</div>
-          <div style="font-size: 11px; font-weight: 600; color: var(--text-primary); margin-top: 4px;">Sonnet 4.6</div>
-          <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">Opus-level at Sonnet price. 72.5% OSWorld.</div>
+          <div style="font-size: 11px; font-weight: 600; color: var(--text-primary); margin-top: 4px;">Sonnet 4.6 + Enterprise Agents</div>
+          <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">Opus-level at Sonnet price. 13 MCP connectors. Code Security.</div>
         </div>
       </div>
     </div>
@@ -3128,8 +3118,8 @@ section:last-of-type { border-bottom: none; }
           <div style="font-size: 12px; font-weight: 700; color: var(--text-secondary); margin-bottom: 10px;">OpenAI API (per M tokens)</div>
           <div style="display: flex; flex-direction: column; gap: 6px;">
             <div style="display: flex; justify-content: space-between; font-size: 11px;"><span style="color: var(--text-primary); font-weight: 600;">GPT-5.2</span><span style="color: var(--text-muted);">$1.75 in / $14 out</span></div>
-            <div style="display: flex; justify-content: space-between; font-size: 11px;"><span style="color: var(--text-primary); font-weight: 600;">GPT-5.2 Pro</span><span style="color: var(--text-muted);">$15 in / $60 out</span></div>
-            <div style="display: flex; justify-content: space-between; font-size: 11px;"><span style="color: var(--text-primary); font-weight: 600;">GPT-5 Instant</span><span style="color: var(--text-muted);">$1.25 in / $5 out</span></div>
+            <div style="display: flex; justify-content: space-between; font-size: 11px;"><span style="color: var(--text-primary); font-weight: 600;">GPT-5.2 Pro</span><span style="color: var(--text-muted);">$21 in / $168 out</span></div>
+            <div style="display: flex; justify-content: space-between; font-size: 11px;"><span style="color: var(--text-primary); font-weight: 600;">GPT-5.2-Codex</span><span style="color: var(--text-muted);">$1.75 in / $14 out</span></div>
           </div>
         </div>
       </div>
@@ -3359,15 +3349,20 @@ section:last-of-type { border-bottom: none; }
           <div class="fs-subind-header">
             <div class="fs-subind-icon">1</div>
             <div class="fs-subind-info">
-              <div class="fs-subind-name">Retail &amp; Commercial Banking <span style="font-size: 9px; background: rgba(217,119,87,0.15); color: var(--accent-a); padding: 2px 8px; border-radius: 10px; font-weight: 600; margin-left: 6px; vertical-align: middle;">HIGHEST REVENUE POTENTIAL</span></div>
-              <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.4; margin-bottom: 4px;">These companies help consumers and businesses open accounts, get loans, make payments, and manage their money. They make money on the spread between what they pay depositors and what they charge borrowers, plus fees on transactions and services.
-                <div style="margin-top: 4px; font-size: 10px; color: var(--accent-a); font-weight: 600; line-height: 1.4;">💰 Why #1 for Anthropic: Largest headcounts in finance (JPM alone = 300K+), massive IT budgets, and every bank needs AI for compliance automation, fraud detection APIs, and modernizing legacy systems. Seat volume + API consumption = biggest total contract values.</div></div>
-              <div class="fs-subind-cos">JPMorgan Chase · Bank of America · Wells Fargo · Citigroup · U.S. Bancorp · PNC · RBC</div>
+              <div class="fs-subind-name">Retail &amp; Commercial Banking <span style="font-size: 9px; background: rgba(217,119,87,0.15); color: var(--accent-a); padding: 2px 8px; border-radius: 10px; font-weight: 600; margin-left: 6px; vertical-align: middle;">#1 REVENUE POTENTIAL</span></div>
+              <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.4; margin-bottom: 2px;">Help consumers & businesses with accounts, loans, and payments. Revenue: interest rate spread + transaction fees.</div>
+              <div style="font-size: 10px; color: var(--accent-a); font-weight: 600; line-height: 1.4; margin-bottom: 4px;">💰 Largest headcounts in finance (JPM = 300K+), massive IT budgets, heavy compliance/API needs → biggest total contract values</div>
+              <div class="fs-subind-cos">JPMorgan Chase (310K) · <strong style="color: var(--accent-a);">Citigroup ✦</strong> (240K) · Wells Fargo (227K) · HSBC (220K) · Bank of America (213K) · TD Bank (95K) · <strong style="color: var(--accent-a);">RBC ✦</strong> (92K) · U.S. Bancorp (72K) · Capital One (57K) · PNC (54K) · <strong style="color: var(--accent-a);">Commonwealth Bank ✦</strong> (53K) · Truist (50K)</div>
             </div>
             <div class="fs-toggle-icon">＋</div>
           </div>
           <div class="fs-detail">
             <div class="fs-detail-inner">
+              <div style="font-size: 10px; color: var(--text-muted); margin-bottom: 10px; padding: 6px 8px; background: rgba(217,119,87,0.04); border-radius: 6px; line-height: 1.5;">
+                <span style="font-size: 9px; font-weight: 700; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em;">✦ How They Use Claude</span><br>
+                <strong style="color: var(--text-secondary);">Citi</strong> — <strong>Claude Code</strong> → AI-powered Developer Platform &amp; agentic coding<br>
+                <strong style="color: var(--text-secondary);">Commonwealth Bank</strong> — <strong>API</strong> → fraud prevention &amp; customer service agents (50% scam reduction, 30% fraud reduction, 40% call center reduction)
+              </div>
               <div class="fs-prod-grid">
                 <div class="fs-prod-card api">
                   <div class="fs-prod-label api">API</div>
@@ -3401,12 +3396,17 @@ section:last-of-type { border-bottom: none; }
                   <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Template</span> Financial Analysis</div>
                   <div class="fs-plugin-desc">Core plugin (install first) — shared modeling tools + all 11 data connectors.
                     <div class="fs-skill-grid">
-                      <div><strong>Comp analysis</strong> — benchmark vs. similar companies</div>
-                      <div><strong>DCF models</strong> — value a company by future cash flows</div>
-                      <div><strong>3-statement models</strong> — linked income/balance/cash flow</div>
-                      <div><strong>Company profiles</strong> — one-page financial summaries</div>
-                      <div><strong>PPT QC</strong> — format decks to firm standards</div>
+                      <div><strong>Comps analysis</strong> — benchmark vs. similar companies</div>
+                      <div><strong>DCF model</strong> — value a company by future cash flows</div>
+                      <div><strong>3-statements</strong> — linked income/balance/cash flow</div>
+                      <div><strong>LBO model</strong> — leveraged buyout returns analysis</div>
+                      <div><strong>Competitive analysis</strong> — market &amp; competitor research</div>
+                      <div><strong>Check-model</strong> — validate financial model accuracy</div>
+                      <div><strong>Check-deck</strong> — QC presentations to firm standards</div>
+                      <div><strong>PPT template creator</strong> — reusable slide templates</div>
+                      <div><strong>Skill creator</strong> — build custom skills for your firm</div>
                     </div>
+                    <div style="margin-top: 6px; font-size: 10px; color: var(--text-muted);"><strong>11 MCP connectors:</strong> FactSet · S&amp;P Global · LSEG · Moody's · Morningstar · Daloopa · PitchBook · Chronograph · Aiera · MT Newswires · Egnyte</div>
                   </div>
                 </div>
                 <div class="fs-plugin-row">
@@ -3415,97 +3415,35 @@ section:last-of-type { border-bottom: none; }
                 </div>
                 <div class="fs-plugin-row">
                   <div class="fs-plugin-name"><span class="fs-plugin-tag connector">Connector</span> S&amp;P Global · LSEG</div>
-                  <div class="fs-plugin-desc">S&amp;P Global provides credit ratings and research; LSEG (London Stock Exchange Group) provides market data and analytics. Anthropic co-developed finance plugins with both to bring their data into Cowork.</div>
+                  <div class="fs-plugin-desc">S&amp;P Global provides credit ratings and research; LSEG (London Stock Exchange Group) provides market data and analytics. Both co-developed partner plugins with Anthropic.<br>
+                    <strong style="color: #3782af;">S&amp;P Global skills:</strong> earnings-preview-beta · funding-digest · tear-sheet<br>
+                    <strong style="color: #3782af;">LSEG skills:</strong> fixed income pricing · yield curves · FX carry trades · options valuation · macro dashboards (8 commands)</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- ═══════════ 2. INVESTMENT BANKING & CAPITAL MARKETS ═══════════ -->
+        <!-- ═══════════ 2. INSURANCE ═══════════ -->
         <div class="fs-subind-row" onclick="this.classList.toggle('open')">
           <div class="fs-subind-header">
             <div class="fs-subind-icon">2</div>
             <div class="fs-subind-info">
-              <div class="fs-subind-name">Investment Banking &amp; Capital Markets <span style="font-size: 9px; background: rgba(120,140,93,0.15); color: var(--accent-b); padding: 2px 8px; border-radius: 10px; font-weight: 600; margin-left: 6px; vertical-align: middle;">HIGH — MOST PLUGINS</span></div>
-              <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.4; margin-bottom: 4px;">These firms help companies raise capital, buy and sell businesses, and trade securities in public markets. They make money through advisory fees on deals, underwriting commissions, and trading revenue.</div>
-              <div class="fs-subind-cos">Goldman Sachs · Morgan Stanley · Jefferies · Lazard · Evercore · NYSE</div>
+              <div class="fs-subind-name">Insurance <span style="font-size: 9px; background: rgba(217,119,87,0.15); color: var(--accent-a); padding: 2px 8px; border-radius: 10px; font-weight: 600; margin-left: 6px; vertical-align: middle;">#2 REVENUE POTENTIAL</span></div>
+              <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.4; margin-bottom: 2px;">Protect people & businesses against risk — pricing policies, processing claims. Revenue: premiums collected minus claims paid + investment income.</div>
+              <div style="font-size: 10px; color: var(--accent-a); font-weight: 600; line-height: 1.4; margin-bottom: 4px;">💰 Huge workforces (UnitedHealth = 400K+), millions of claims, every decision is document-heavy and compliance-governed → Cowork + API</div>
+              <div class="fs-subind-cos"><strong style="color: var(--accent-a);">Allianz ✦</strong> (160K) · AXA (93K) · Zurich (60K) · State Farm (57K) · Progressive (60K) · Allstate (54K) · Liberty Mutual (45K) · MetLife (43K) · Prudential (40K) · Manulife (38K) · Munich Re (40K) · Travelers (34K) · Hartford (19K) · Chubb (34K) · <strong style="color: var(--accent-a);">AIG ✦</strong> (26K) · <strong style="color: var(--accent-a);">HUB International ✦</strong> (20K)</div>
             </div>
             <div class="fs-toggle-icon">＋</div>
           </div>
           <div class="fs-detail">
             <div class="fs-detail-inner">
-              <div class="fs-prod-grid">
-                <div class="fs-prod-card api">
-                  <div class="fs-prod-label api">API</div>
-                  <div class="fs-uc">Helps these firms process filings, screen deals, and extract financial data at scale — automating work analysts do manually today.</div>
-                </div>
-                <div class="fs-prod-card code">
-                  <div class="fs-prod-label code">Claude Code</div>
-                  <div class="fs-uc">Helps their engineering teams build trading systems, analytics platforms, and quantitative models faster with AI-assisted development.</div>
-                </div>
-                <div class="fs-prod-card claude">
-                  <div class="fs-prod-label claude">Claude.ai</div>
-                  <div class="fs-uc">Helps senior bankers get instant research, precedent lookups, and market interpretation without waiting on the analyst team.</div>
-                </div>
-                <div class="fs-prod-card cowork">
-                  <div class="fs-prod-label cowork">Cowork</div>
-                  <div class="fs-uc">Helps bankers draft pitch books, memos, and deal materials — the document-heavy deliverables that consume most of junior banker time.</div>
-                </div>
-                <div class="fs-prod-card excel">
-                  <div class="fs-prod-label excel">Excel</div>
-                  <div class="fs-uc">Helps analysts build valuation models, run scenario analysis, and create financial projections with AI inside their spreadsheets.</div>
-                </div>
-                <div class="fs-prod-card pptx">
-                  <div class="fs-prod-label pptx">PowerPoint</div>
-                  <div class="fs-uc">Helps these firms turn financial models into client-ready presentations — pitch books and board materials in minutes instead of hours.</div>
-                </div>
+              <div style="font-size: 10px; color: var(--text-muted); margin-bottom: 10px; padding: 6px 8px; background: rgba(217,119,87,0.04); border-radius: 6px; line-height: 1.5;">
+                <span style="font-size: 9px; font-weight: 700; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em;">✦ How They Use Claude</span><br>
+                <strong style="color: var(--text-secondary);">AIG</strong> — <strong>API</strong> → underwriting automation agent (5x faster review, 75→90%+ accuracy). 500K+ E&amp;S submissions → $4B+ new premiums by 2030<br>
+                <strong style="color: var(--text-secondary);">Allianz</strong> — <strong>Claude Code</strong> → developer org · <strong>API</strong> → claims processing agents (motor &amp; health) · AI audit logging for regulators<br>
+                <strong style="color: var(--text-secondary);">HUB International</strong> — <strong>Claude Enterprise + Claude Code + API</strong> → full platform deploy to 20K+ employees. 85% productivity gain, 2.5 hrs saved/employee/week
               </div>
-              <div class="fs-cowork-section">
-                <div class="fs-cowork-section-title">New Cowork Templates &amp; Connectors (Announced Feb 24, 2026)</div>
-                <div class="fs-plugin-row">
-                  <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Template</span> Investment Banking</div>
-                  <div class="fs-plugin-desc">Add-on for IB — requires core Financial Analysis plugin.
-                    <div class="fs-skill-grid">
-                      <div><strong>CIMs &amp; teasers</strong> — marketing docs to pitch a company for sale</div>
-                      <div><strong>Buyer lists</strong> — potential acquirers by industry/size/fit</div>
-                      <div><strong>Merger models</strong> — what happens when two companies combine</div>
-                      <div><strong>Strip profiles</strong> — side-by-side company comparison sheets</div>
-                      <div><strong>Deal tracking</strong> — monitor deals from engagement to close</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="fs-plugin-row">
-                  <div class="fs-plugin-name"><span class="fs-plugin-tag connector">Connector</span> FactSet</div>
-                  <div class="fs-plugin-desc">FactSet is the financial data terminal that bankers use daily for company financials, deal comps, and market multiples. This connector pulls that data directly into Cowork.</div>
-                </div>
-                <div class="fs-plugin-row">
-                  <div class="fs-plugin-name"><span class="fs-plugin-tag connector">Connector</span> S&amp;P Global · LSEG</div>
-                  <div class="fs-plugin-desc">S&amp;P Global provides credit ratings and research; LSEG (London Stock Exchange Group) provides market data and transaction records. Anthropic co-developed finance plugins with both.</div>
-                </div>
-                <div class="fs-plugin-row">
-                  <div class="fs-plugin-name"><span class="fs-plugin-tag connector">Connector</span> MSCI</div>
-                  <div class="fs-plugin-desc">MSCI is the leading provider of ESG (environmental, social, governance) ratings and risk analytics. This connector brings those scores into Cowork for deal screening and investor presentations.</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- ═══════════ 3. INSURANCE ═══════════ -->
-        <div class="fs-subind-row" onclick="this.classList.toggle('open')">
-          <div class="fs-subind-header">
-            <div class="fs-subind-icon">3</div>
-            <div class="fs-subind-info">
-              <div class="fs-subind-name">Insurance <span style="font-size: 9px; background: rgba(217,119,87,0.15); color: var(--accent-a); padding: 2px 8px; border-radius: 10px; font-weight: 600; margin-left: 6px; vertical-align: middle;">VERY HIGH</span></div>
-              <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.4; margin-bottom: 4px;">These companies help people and businesses protect against risk — pricing policies, processing claims, and managing regulatory compliance. They make money by collecting premiums and investing that capital, profiting when claims paid out are less than premiums collected.
-                <div style="margin-top: 4px; font-size: 10px; color: var(--accent-a); font-weight: 600; line-height: 1.4;">💰 Why top 3 for Anthropic: Huge workforces processing millions of claims, every decision is document-heavy and compliance-governed — perfect for Cowork + API. UnitedHealth alone has 400K+ employees.</div></div>
-              <div class="fs-subind-cos">UnitedHealth · Anthem · Aetna · MetLife · AIG · Allstate · Allianz</div>
-            </div>
-            <div class="fs-toggle-icon">＋</div>
-          </div>
-          <div class="fs-detail">
-            <div class="fs-detail-inner">
               <div class="fs-prod-grid">
                 <div class="fs-prod-card api">
                   <div class="fs-prod-label api">API</div>
@@ -3538,12 +3476,16 @@ section:last-of-type { border-bottom: none; }
                   <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Template</span> Financial Analysis</div>
                   <div class="fs-plugin-desc">Core plugin (install first) — shared modeling tools + all 11 data connectors.
                     <div class="fs-skill-grid">
-                      <div><strong>Comp analysis</strong> — benchmark vs. peer insurers</div>
-                      <div><strong>DCF models</strong> — value a company by future cash flows</div>
-                      <div><strong>3-statement models</strong> — linked income/balance/cash flow</div>
-                      <div><strong>Market research</strong> — competitive data and industry trends</div>
-                      <div><strong>PPT QC</strong> — format decks to firm standards</div>
+                      <div><strong>Comps analysis</strong> — benchmark vs. peer insurers</div>
+                      <div><strong>DCF model</strong> — value a company by future cash flows</div>
+                      <div><strong>3-statements</strong> — linked income/balance/cash flow</div>
+                      <div><strong>LBO model</strong> — leveraged buyout returns analysis</div>
+                      <div><strong>Competitive analysis</strong> — market &amp; competitor research</div>
+                      <div><strong>Check-model</strong> — validate financial model accuracy</div>
+                      <div><strong>Check-deck</strong> — QC presentations to firm standards</div>
+                      <div><strong>PPT template creator</strong> — reusable slide templates</div>
                     </div>
+                    <div style="margin-top: 6px; font-size: 10px; color: var(--text-muted);"><strong>11 MCP connectors:</strong> FactSet · S&amp;P Global · LSEG · Moody's · Morningstar · Daloopa · PitchBook · Chronograph · Aiera · MT Newswires · Egnyte</div>
                   </div>
                 </div>
                 <div class="fs-plugin-row">
@@ -3555,20 +3497,27 @@ section:last-of-type { border-bottom: none; }
           </div>
         </div>
 
-        <!-- ═══════════ 4. WEALTH & ASSET MANAGEMENT ═══════════ -->
+        <!-- ═══════════ 3. WEALTH & ASSET MANAGEMENT ═══════════ -->
         <div class="fs-subind-row" onclick="this.classList.toggle('open')">
           <div class="fs-subind-header">
-            <div class="fs-subind-icon">4</div>
+            <div class="fs-subind-icon">3</div>
             <div class="fs-subind-info">
-              <div class="fs-subind-name">Wealth &amp; Asset Management <span style="font-size: 9px; background: rgba(120,140,93,0.15); color: var(--accent-b); padding: 2px 8px; border-radius: 10px; font-weight: 600; margin-left: 6px; vertical-align: middle;">HIGH — JJH FOCUS</span></div>
-              <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.4; margin-bottom: 4px;">These firms help individuals and institutions invest their money — from financial advisors managing retirement accounts to sovereign funds managing trillions. They make money through management fees (a percentage of assets under management) and performance fees on investment returns.
-                <div style="margin-top: 4px; font-size: 10px; color: var(--accent-a); font-weight: 600; line-height: 1.4;">💰 Why top 3 for Anthropic: Tens of thousands of advisors who each need meeting prep, client reports, and portfolio analysis — Cowork + Wealth Mgmt plugin is a perfect fit. JJH's co-presentation with Northwestern Mutual signals this is a priority vertical.</div></div>
-              <div class="fs-subind-cos">BlackRock · Vanguard · Fidelity · Charles Schwab · RBC Wealth Management · Northwestern Mutual · NBIM · LPL Financial</div>
+              <div class="fs-subind-name">Wealth &amp; Asset Management <span style="font-size: 9px; background: rgba(217,119,87,0.15); color: var(--accent-a); padding: 2px 8px; border-radius: 10px; font-weight: 600; margin-left: 6px; vertical-align: middle;">#3 REVENUE POTENTIAL</span></div>
+              <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.4; margin-bottom: 2px;">Help people & institutions invest money — advisors to sovereign funds. Revenue: management fees (% of AUM) + performance fees.</div>
+              <div style="font-size: 10px; color: var(--accent-a); font-weight: 600; line-height: 1.4; margin-bottom: 4px;">💰 Tens of thousands of advisors all needing the same workflows (meeting prep, client reports, rebalancing) → Cowork + Wealth plugin. JJH co-presented with Northwestern Mutual</div>
+              <div class="fs-subind-cos">Fidelity (74K) · Edward Jones (50K) · BNY Mellon (50K) · State Street (46K) · Charles Schwab (36K) · BlackRock (20K) · Vanguard (20K) · <strong style="color: var(--accent-a);">RBC Wealth Management ✦</strong> (16K) · Raymond James (16K) · Ameriprise (14K) · Franklin Templeton (10K) · Northwestern Mutual (8K) · T. Rowe Price (8K) · <strong style="color: var(--accent-a);">LPL Financial ✦</strong> (7K) · <strong style="color: var(--accent-a);">Bridgewater ✦</strong> (1.5K) · <strong style="color: var(--accent-a);">NBIM ✦</strong> (700)</div>
             </div>
             <div class="fs-toggle-icon">＋</div>
           </div>
           <div class="fs-detail">
             <div class="fs-detail-inner">
+              <div style="font-size: 10px; color: var(--text-muted); margin-bottom: 10px; padding: 6px 8px; background: rgba(217,119,87,0.04); border-radius: 6px; line-height: 1.5;">
+                <span style="font-size: 9px; font-weight: 700; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em;">✦ How They Use Claude</span><br>
+                <strong style="color: var(--text-secondary);">NBIM</strong> — <strong>Claude Enterprise</strong> → ESG screening agent (forced labor, corruption, fraud across 9K companies) · earnings call analysis · Snowflake data queries. 20% productivity = 213K hours. $100M+/yr trading cost savings<br>
+                <strong style="color: var(--text-secondary);">Bridgewater</strong> — <strong>API</strong> → Investment Analyst Assistant (Python code gen, data visualization, hypothesis stress-testing)<br>
+                <strong style="color: var(--text-secondary);">RBC Capital Markets</strong> — <strong>API (Bedrock) + Agentforce</strong> → workflow digitization across Capital Markets platform<br>
+                <strong style="color: var(--text-secondary);">LPL Financial</strong> — <strong>Cowork</strong> → wealth management plugins for 30K+ financial advisors (client prep, research rollups, compliance-controlled tools)
+              </div>
               <div class="fs-prod-grid">
                 <div class="fs-prod-card api">
                   <div class="fs-prod-label api">API</div>
@@ -3601,11 +3550,12 @@ section:last-of-type { border-bottom: none; }
                   <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Template</span> Wealth Mgmt</div>
                   <div class="fs-plugin-desc">Add-on for wealth advisors — requires Financial Analysis core plugin.
                     <div style="margin-top: 8px; font-size: 10px; line-height: 1.7;">
-                      <strong style="color: var(--accent-b);">Client meeting prep</strong> — pull portfolio data, recent activity, and talking points before every client meeting<br>
-                      <strong style="color: var(--accent-b);">Financial planning</strong> — build retirement projections, savings plans, and goal-based financial models<br>
-                      <strong style="color: var(--accent-b);">Portfolio rebalancing</strong> — identify when a client's portfolio has drifted from their target allocation and recommend trades<br>
-                      <strong style="color: var(--accent-b);">Client reports</strong> — generate personalized performance reports for each client automatically<br>
-                      <strong style="color: var(--accent-b);">Tax-loss harvesting</strong> — find opportunities to sell losing positions to offset gains and reduce a client's tax bill
+                      <strong style="color: var(--accent-b);">Client review</strong> — pull portfolio data, recent activity, and talking points before every client meeting<br>
+                      <strong style="color: var(--accent-b);">Client report</strong> — generate personalized performance reports for each client automatically<br>
+                      <strong style="color: var(--accent-b);">Financial plan</strong> — build retirement projections, savings plans, and goal-based financial models<br>
+                      <strong style="color: var(--accent-b);">Investment proposal</strong> — draft proposals with asset allocation recs customized to the client<br>
+                      <strong style="color: var(--accent-b);">Portfolio rebalance</strong> — identify drift from target allocation and recommend trades<br>
+                      <strong style="color: var(--accent-b);">Tax-loss harvesting</strong> — find opportunities to sell losing positions to offset gains and reduce tax
                     </div>
                   </div>
                 </div>
@@ -3613,12 +3563,15 @@ section:last-of-type { border-bottom: none; }
                   <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Template</span> Equity Research</div>
                   <div class="fs-plugin-desc">Add-on for research teams — requires Financial Analysis core plugin.
                     <div style="margin-top: 8px; font-size: 10px; line-height: 1.7;">
-                      <strong style="color: var(--accent-b);">Earnings updates</strong> — after a company reports quarterly results, quickly draft an analysis of what happened and why it matters<br>
-                      <strong style="color: var(--accent-b);">Initiating coverage</strong> — write the first deep-dive research report when a firm starts covering a new stock<br>
-                      <strong style="color: var(--accent-b);">Thesis tracking</strong> — maintain and update the investment case for why a stock should go up or down<br>
-                      <strong style="color: var(--accent-b);">Catalyst monitoring</strong> — track upcoming events (earnings, FDA approvals, regulation) that could move a stock price<br>
-                      <strong style="color: var(--accent-b);">Morning notes</strong> — draft the daily market briefing that research teams send to traders and portfolio managers<br>
-                      <strong style="color: var(--accent-b);">Idea screening</strong> — scan the market for new investment opportunities based on financial criteria
+                      <strong style="color: var(--accent-b);">Earnings analysis</strong> — after a company reports, draft analysis of what happened and why it matters<br>
+                      <strong style="color: var(--accent-b);">Earnings preview</strong> — pre-earnings expectations and key metrics to watch<br>
+                      <strong style="color: var(--accent-b);">Initiating coverage</strong> — write the first deep-dive report when a firm starts covering a new stock<br>
+                      <strong style="color: var(--accent-b);">Model update</strong> — update and maintain financial models after new data<br>
+                      <strong style="color: var(--accent-b);">Morning note</strong> — daily market briefing for traders and portfolio managers<br>
+                      <strong style="color: var(--accent-b);">Thesis tracker</strong> — maintain the investment case for why a stock should go up or down<br>
+                      <strong style="color: var(--accent-b);">Catalyst calendar</strong> — track events (earnings, FDA approvals, regulation) that could move a stock<br>
+                      <strong style="color: var(--accent-b);">Sector overview</strong> — cross-company sector analysis and positioning<br>
+                      <strong style="color: var(--accent-b);">Idea generation</strong> — scan the market for new investment opportunities based on criteria
                     </div>
                   </div>
                 </div>
@@ -3639,19 +3592,139 @@ section:last-of-type { border-bottom: none; }
           </div>
         </div>
 
-        <!-- ═══════════ 5. FINTECH & PAYMENTS ═══════════ -->
+        <!-- ═══════════ 4. INVESTMENT BANKING & CAPITAL MARKETS ═══════════ -->
         <div class="fs-subind-row" onclick="this.classList.toggle('open')">
           <div class="fs-subind-header">
-            <div class="fs-subind-icon">5</div>
+            <div class="fs-subind-icon">4</div>
             <div class="fs-subind-info">
-              <div class="fs-subind-name">Fintech &amp; Payments <span style="font-size: 9px; background: rgba(55,130,175,0.12); color: #3782af; padding: 2px 8px; border-radius: 10px; font-weight: 600; margin-left: 6px; vertical-align: middle;">MEDIUM-HIGH — API HEAVY</span></div>
-              <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.4; margin-bottom: 4px;">These companies use technology to reimagine how money moves — digital payments, online lending, and embedded financial services. They make money through transaction fees, interchange revenue, subscription pricing, and interest on loans.</div>
-              <div class="fs-subind-cos">PayPal · Stripe · Square · Plaid · Adyen · Marqeta · Klarna · Visa · Mastercard</div>
+              <div class="fs-subind-name">Investment Banking &amp; Capital Markets <span style="font-size: 9px; background: rgba(120,140,93,0.15); color: var(--accent-b); padding: 2px 8px; border-radius: 10px; font-weight: 600; margin-left: 6px; vertical-align: middle;">#4 — MOST PLUGINS BUILT</span></div>
+              <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.4; margin-bottom: 2px;">Help companies raise capital, buy/sell businesses, trade securities. Revenue: advisory fees + underwriting commissions + trading.</div>
+              <div style="font-size: 10px; color: var(--accent-a); font-weight: 600; line-height: 1.4; margin-bottom: 4px;">💰 Most document-intensive work in finance — every deal = pitch books, memos, models. Anthropic built the most plugins here. High willingness to pay per seat</div>
+              <div class="fs-subind-cos">Deutsche Bank (85K) · Barclays (85K) · Morgan Stanley (80K) · UBS (74K) · <strong style="color: var(--accent-a);">Goldman Sachs ✦</strong> (46K) · Nomura (27K) · <strong style="color: var(--accent-a);">LSEG ✦</strong> (25K) · Macquarie (20K) · <strong style="color: var(--accent-a);">Moody's ✦</strong> (15K) · Jefferies (7K) · Houlihan Lokey (7K) · <strong style="color: var(--accent-a);">NYSE ✦</strong> (6K)</div>
             </div>
             <div class="fs-toggle-icon">＋</div>
           </div>
           <div class="fs-detail">
             <div class="fs-detail-inner">
+              <div style="font-size: 10px; color: var(--text-muted); margin-bottom: 10px; padding: 6px 8px; background: rgba(217,119,87,0.04); border-radius: 6px; line-height: 1.5;">
+                <span style="font-size: 9px; font-weight: 700; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em;">✦ How They Use Claude</span><br>
+                <strong style="color: var(--text-secondary);">Goldman Sachs</strong> — <strong>API</strong> → trade/transaction accounting agents + KYC/AML onboarding · <strong>Claude Code</strong> → developer org. Embedded Anthropic engineers for 6 months<br>
+                <strong style="color: var(--text-secondary);">NYSE</strong> — <strong>Claude Code</strong> → engineering modernization · <strong>API</strong> → AI agents (Jira → committed code), proxy filing review, SEC audit, news classification<br>
+                <strong style="color: var(--text-secondary);">Moody's</strong> — <strong>MCP Connector</strong> → ratings, research &amp; company data accessible directly inside Claude<br>
+                <strong style="color: var(--text-secondary);">LSEG</strong> — <strong>MCP Connector</strong> → market data &amp; analytics integration
+              </div>
+              <div class="fs-prod-grid">
+                <div class="fs-prod-card api">
+                  <div class="fs-prod-label api">API</div>
+                  <div class="fs-uc">Helps these firms process filings, screen deals, and extract financial data at scale — automating work analysts do manually today.</div>
+                </div>
+                <div class="fs-prod-card code">
+                  <div class="fs-prod-label code">Claude Code</div>
+                  <div class="fs-uc">Helps their engineering teams build trading systems, analytics platforms, and quantitative models faster with AI-assisted development.</div>
+                </div>
+                <div class="fs-prod-card claude">
+                  <div class="fs-prod-label claude">Claude.ai</div>
+                  <div class="fs-uc">Helps senior bankers get instant research, precedent lookups, and market interpretation without waiting on the analyst team.</div>
+                </div>
+                <div class="fs-prod-card cowork">
+                  <div class="fs-prod-label cowork">Cowork</div>
+                  <div class="fs-uc">Helps bankers draft pitch books, memos, and deal materials — the document-heavy deliverables that consume most of junior banker time.</div>
+                </div>
+                <div class="fs-prod-card excel">
+                  <div class="fs-prod-label excel">Excel</div>
+                  <div class="fs-uc">Helps analysts build valuation models, run scenario analysis, and create financial projections with AI inside their spreadsheets.</div>
+                </div>
+                <div class="fs-prod-card pptx">
+                  <div class="fs-prod-label pptx">PowerPoint</div>
+                  <div class="fs-uc">Helps these firms turn financial models into client-ready presentations — pitch books and board materials in minutes instead of hours.</div>
+                </div>
+              </div>
+              <div class="fs-cowork-section">
+                <div class="fs-cowork-section-title">New Cowork Templates &amp; Connectors (Announced Feb 24, 2026)</div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Template</span> Investment Banking</div>
+                  <div class="fs-plugin-desc">Add-on for IB — requires core Financial Analysis plugin.
+                    <div class="fs-skill-grid">
+                      <div><strong>CIM builder</strong> — confidential information memorandums</div>
+                      <div><strong>Teaser</strong> — one-page marketing docs to pitch a company</div>
+                      <div><strong>Process letter</strong> — formal bid process documents</div>
+                      <div><strong>Buyer list</strong> — potential acquirers by industry/size/fit</div>
+                      <div><strong>Merger model</strong> — accretion/dilution when companies combine</div>
+                      <div><strong>Strip profile</strong> — side-by-side company comparison sheets</div>
+                      <div><strong>Pitch deck</strong> — build pitch books and presentations</div>
+                      <div><strong>Datapack builder</strong> — standardized data packages for deals</div>
+                      <div><strong>Deal tracker</strong> — monitor deals from engagement to close</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Template</span> Equity Research</div>
+                  <div class="fs-plugin-desc">Add-on for sell-side and buy-side research teams.
+                    <div class="fs-skill-grid">
+                      <div><strong>Earnings analysis</strong> — post-earnings draft and key takeaways</div>
+                      <div><strong>Earnings preview</strong> — pre-earnings expectations to watch</div>
+                      <div><strong>Initiating coverage</strong> — first deep-dive on a new stock</div>
+                      <div><strong>Model update</strong> — maintain financial models after new data</div>
+                      <div><strong>Morning note</strong> — daily market briefing for traders/PMs</div>
+                      <div><strong>Thesis tracker</strong> — investment case tracking</div>
+                      <div><strong>Catalyst calendar</strong> — events that could move a stock</div>
+                      <div><strong>Sector overview</strong> — cross-company sector analysis</div>
+                      <div><strong>Idea generation</strong> — scan for new opportunities</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Template</span> Private Equity</div>
+                  <div class="fs-plugin-desc">Add-on for PE deal teams and portfolio operations.
+                    <div class="fs-skill-grid">
+                      <div><strong>Deal sourcing</strong> — source and screen deals against criteria</div>
+                      <div><strong>Due diligence</strong> — run DD checklists on targets</div>
+                      <div><strong>Unit economics</strong> — analyze returns and unit economics</div>
+                      <div><strong>IC memo</strong> — draft investment committee memos</div>
+                      <div><strong>Portfolio KPIs</strong> — monitor portfolio company metrics</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag connector">Connector</span> FactSet</div>
+                  <div class="fs-plugin-desc">FactSet is the financial data terminal that bankers use daily for company financials, deal comps, and market multiples. This connector pulls that data directly into Cowork.</div>
+                </div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag connector">Connector</span> S&amp;P Global · LSEG</div>
+                  <div class="fs-plugin-desc">S&amp;P Global provides credit ratings and research; LSEG (London Stock Exchange Group) provides market data and transaction records. Both co-developed partner plugins with Anthropic.<br>
+                    <strong style="color: #3782af;">S&amp;P Global skills:</strong> earnings-preview-beta · funding-digest · tear-sheet<br>
+                    <strong style="color: #3782af;">LSEG skills:</strong> fixed income pricing · yield curves · FX carry trades · options valuation · macro dashboards (8 commands)</div>
+                </div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag connector">Connector</span> MSCI</div>
+                  <div class="fs-plugin-desc">MSCI is the leading provider of ESG (environmental, social, governance) ratings and risk analytics. This connector brings those scores into Cowork for deal screening and investor presentations.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ═══════════ 5. FINTECH & PAYMENTS ═══════════ -->
+        <div class="fs-subind-row" onclick="this.classList.toggle('open')">
+          <div class="fs-subind-header">
+            <div class="fs-subind-icon">5</div>
+            <div class="fs-subind-info">
+              <div class="fs-subind-name">Fintech &amp; Payments <span style="font-size: 9px; background: rgba(55,130,175,0.12); color: #3782af; padding: 2px 8px; border-radius: 10px; font-weight: 600; margin-left: 6px; vertical-align: middle;">#5 — API HEAVY</span></div>
+              <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.4; margin-bottom: 2px;">Reimagine how money moves — digital payments, online lending, embedded finance. Revenue: transaction fees + interchange + subscriptions.</div>
+              <div style="font-size: 10px; color: var(--accent-a); font-weight: 600; line-height: 1.4; margin-bottom: 4px;">💰 Engineering-first = massive API token consumption for fraud, credit scoring, platform features. Smaller orgs but heavy Claude Code + API</div>
+              <div class="fs-subind-cos">FIS (50K) · Fiserv (40K) · Mastercard (33K) · <strong style="color: var(--accent-a);">Visa ✦</strong> (30K) · Global Payments (27K) · PayPal (25K) · <strong style="color: var(--accent-a);">Intuit ✦</strong> (18K) · <strong style="color: var(--accent-a);">Block (Square) ✦</strong> (13K) · Stripe (8K) · Jack Henry (7K) · <strong style="color: var(--accent-a);">Klarna ✦</strong> (4K) · <strong style="color: var(--accent-a);">Coinbase ✦</strong> (3.7K) · <strong style="color: var(--accent-a);">Brex ✦</strong> (1.2K)</div>
+            </div>
+            <div class="fs-toggle-icon">＋</div>
+          </div>
+          <div class="fs-detail">
+            <div class="fs-detail-inner">
+              <div style="font-size: 10px; color: var(--text-muted); margin-bottom: 10px; padding: 6px 8px; background: rgba(217,119,87,0.04); border-radius: 6px; line-height: 1.5;">
+                <span style="font-size: 9px; font-weight: 700; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.05em;">✦ How They Use Claude</span><br>
+                <strong style="color: var(--text-secondary);">Block</strong> — <strong>API</strong> → Claude-powered SQL agent for engineers (75% save 8–10+ hrs/week)<br>
+                <strong style="color: var(--text-secondary);">Brex</strong> — <strong>API</strong> → enterprise AI for corporate card &amp; expense management<br>
+                <strong style="color: var(--text-secondary);">Coinbase</strong> — <strong>API</strong> → multi-cloud AI for customer segmentation &amp; crypto onboarding<br>
+                <strong style="color: var(--text-secondary);">Intuit</strong> — <strong>Cowork + API</strong> → custom AI agents for TurboTax, QuickBooks, Credit Karma · <strong>Claude Code</strong> → engineering org
+              </div>
               <div class="fs-prod-grid">
                 <div class="fs-prod-card api">
                   <div class="fs-prod-label api">API</div>
@@ -3684,12 +3757,15 @@ section:last-of-type { border-bottom: none; }
                   <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Template</span> Financial Analysis</div>
                   <div class="fs-plugin-desc">The core plugin — provides shared modeling tools and all 11 MCP data connectors.
                     <div style="margin-top: 8px; font-size: 10px; line-height: 1.7;">
-                      <strong style="color: var(--accent-b);">Comp analysis</strong> — compare a fintech's metrics against peers to benchmark growth, margins, and valuation<br>
-                      <strong style="color: var(--accent-b);">DCF models</strong> — estimate what a company is worth based on its projected future cash flows<br>
-                      <strong style="color: var(--accent-b);">Market research</strong> — pull competitive and market data to analyze industry trends and positioning<br>
-                      <strong style="color: var(--accent-b);">Company profiles</strong> — generate one-page summaries of any company with key financials and metrics<br>
-                      <strong style="color: var(--accent-b);">PPT quality check</strong> — review and format presentations to match firm templates and standards
+                      <strong style="color: var(--accent-b);">Comps analysis</strong> — benchmark a fintech's metrics against peers for growth, margins, valuation<br>
+                      <strong style="color: var(--accent-b);">DCF model</strong> — estimate company value based on projected future cash flows<br>
+                      <strong style="color: var(--accent-b);">3-statements</strong> — linked income statement, balance sheet, and cash flow<br>
+                      <strong style="color: var(--accent-b);">LBO model</strong> — leveraged buyout returns analysis<br>
+                      <strong style="color: var(--accent-b);">Competitive analysis</strong> — market &amp; competitor research and positioning<br>
+                      <strong style="color: var(--accent-b);">Check-model / Check-deck</strong> — validate models and QC presentations to firm standards<br>
+                      <strong style="color: var(--accent-b);">PPT template creator</strong> — create reusable slide templates
                     </div>
+                    <div style="margin-top: 6px; font-size: 10px; color: var(--text-muted);"><strong>11 MCP connectors:</strong> FactSet · S&amp;P Global · LSEG · Moody's · Morningstar · Daloopa · PitchBook · Chronograph · Aiera · MT Newswires · Egnyte</div>
                   </div>
                 </div>
               </div>
@@ -3697,71 +3773,6 @@ section:last-of-type { border-bottom: none; }
           </div>
         </div>
 
-        <!-- ═══════════ 6. PRIVATE EQUITY ═══════════ -->
-        <div class="fs-subind-row" onclick="this.classList.toggle('open')">
-          <div class="fs-subind-header">
-            <div class="fs-subind-icon">6</div>
-            <div class="fs-subind-info">
-              <div class="fs-subind-name">Private Equity &amp; Venture Capital <span style="font-size: 9px; background: rgba(55,130,175,0.12); color: #3782af; padding: 2px 8px; border-radius: 10px; font-weight: 600; margin-left: 6px; vertical-align: middle;">MEDIUM — HIGH PER-SEAT</span></div>
-              <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.4; margin-bottom: 4px;">These firms invest in and acquire companies — sourcing deals, running due diligence, and growing portfolio companies to generate returns for their investors. They make money through management fees (typically 2% of fund size) and carried interest (typically 20% of profits above a hurdle rate).</div>
-              <div class="fs-subind-cos">Blackstone · KKR · Apollo · Carlyle · Thoma Bravo · a16z · Sequoia</div>
-            </div>
-            <div class="fs-toggle-icon">＋</div>
-          </div>
-          <div class="fs-detail">
-            <div class="fs-detail-inner">
-              <div class="fs-prod-grid">
-                <div class="fs-prod-card api">
-                  <div class="fs-prod-label api">API</div>
-                  <div class="fs-uc">Helps these firms parse deal documents, extract financials, and score opportunities at scale across hundreds of inbound deals.</div>
-                </div>
-                <div class="fs-prod-card code">
-                  <div class="fs-prod-label code">Claude Code</div>
-                  <div class="fs-uc">Helps these firms run tech diligence on portfolio companies, assess codebases, and build internal tooling for their teams.</div>
-                </div>
-                <div class="fs-prod-card claude">
-                  <div class="fs-prod-label claude">Claude.ai</div>
-                  <div class="fs-uc">Helps investment professionals explore market theses, map competitive landscapes, and brainstorm deal ideas on demand.</div>
-                </div>
-                <div class="fs-prod-card cowork">
-                  <div class="fs-prod-label cowork">Cowork</div>
-                  <div class="fs-uc">Helps deal teams draft investment memos, diligence reports, and investor communications faster and more consistently.</div>
-                </div>
-                <div class="fs-prod-card excel">
-                  <div class="fs-prod-label excel">Excel</div>
-                  <div class="fs-uc">Helps analysts build returns models, run scenario analysis, and track fund performance with AI inside their spreadsheets.</div>
-                </div>
-                <div class="fs-prod-card pptx">
-                  <div class="fs-prod-label pptx">PowerPoint</div>
-                  <div class="fs-uc">Helps these firms create investment committee decks, LP meeting materials, and co-investment presentations for key stakeholders.</div>
-                </div>
-              </div>
-              <div class="fs-cowork-section">
-                <div class="fs-cowork-section-title">New Cowork Templates &amp; Connectors (Announced Feb 24, 2026)</div>
-                <div class="fs-plugin-row">
-                  <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Template</span> Private Equity</div>
-                  <div class="fs-plugin-desc">Add-on for PE workflows — requires Financial Analysis core plugin.
-                    <div style="margin-top: 8px; font-size: 10px; line-height: 1.7;">
-                      <strong style="color: var(--accent-b);">Deal sourcing</strong> — scan the market for potential acquisition targets based on size, industry, and financial criteria<br>
-                      <strong style="color: var(--accent-b);">Due diligence</strong> — run structured checklists to evaluate a target company's financials, operations, and risks<br>
-                      <strong style="color: var(--accent-b);">Returns analysis</strong> — model how much money investors would make under different scenarios (entry price, growth, exit)<br>
-                      <strong style="color: var(--accent-b);">IC memos</strong> — draft the investment committee memo that recommends whether the firm should do a deal<br>
-                      <strong style="color: var(--accent-b);">Portfolio KPIs</strong> — track key performance metrics across all the companies the firm already owns
-                    </div>
-                  </div>
-                </div>
-                <div class="fs-plugin-row">
-                  <div class="fs-plugin-name"><span class="fs-plugin-tag connector">Connector</span> FactSet · PitchBook</div>
-                  <div class="fs-plugin-desc">FactSet provides company financials and market data; PitchBook is the leading database for private company valuations, deal history, and investor activity. Anthropic integrated both as data sources in Cowork.</div>
-                </div>
-                <div class="fs-plugin-row">
-                  <div class="fs-plugin-name"><span class="fs-plugin-tag connector">Connector</span> S&amp;P Global</div>
-                  <div class="fs-plugin-desc">S&amp;P Global provides credit ratings, company research, and market intelligence used across the financial industry. Anthropic co-developed this connector to bring their data into Cowork.</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
       </div><!-- end fs-subind-col -->
     </div><!-- end fs-row -->
@@ -3776,7 +3787,7 @@ section:last-of-type { border-bottom: none; }
         </div>
         <div style="padding: 12px; background: #f0f3eb; border-radius: 8px; text-align: center;">
           <div style="font-size: 22px; font-weight: 800; color: var(--accent-b); font-family: var(--font-display);">Trust</div>
-          <div style="font-size: 10px; color: var(--text-muted); margin-top: 4px;">No training on customer data · Data residency controls · Constitutional AI for explainability</div>
+          <div style="font-size: 10px; color: var(--text-muted); margin-top: 4px;">Only model with a published Constitution — when compliance asks "how does your AI make decisions?" we point to a transparent governance framework no competitor has</div>
         </div>
         <div style="padding: 12px; background: #fdf5f0; border-radius: 8px; text-align: center;">
           <div style="font-size: 22px; font-weight: 800; color: var(--accent-a); font-family: var(--font-display);">AWS</div>
