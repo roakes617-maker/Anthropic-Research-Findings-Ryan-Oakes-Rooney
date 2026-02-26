@@ -3139,6 +3139,7 @@ section:last-of-type { border-bottom: none; }
 </section>
      ============================================================ -->
      ============================================================ -->
+     ============================================================ -->
 
 <!-- ============================================================
      FINANCIAL SERVICES — Left-to-Right Hierarchical Tree
@@ -3151,8 +3152,6 @@ section:last-of-type { border-bottom: none; }
     gap: 0;
     margin-bottom: 20px;
   }
-
-  /* Root node (left column) */
   .fs-root-col {
     display: flex;
     align-items: center;
@@ -3167,11 +3166,8 @@ section:last-of-type { border-bottom: none; }
     padding: 18px 24px;
     border-radius: 12px;
     text-align: center;
-    writing-mode: horizontal-tb;
     white-space: nowrap;
   }
-
-  /* Horizontal connector from root */
   .fs-h-connector {
     width: 24px;
     display: flex;
@@ -3186,16 +3182,12 @@ section:last-of-type { border-bottom: none; }
     height: 2px;
     background: var(--border-medium);
   }
-
-  /* Sub-industries column */
   .fs-subind-col {
     display: flex;
     flex-direction: column;
     gap: 12px;
     flex: 1;
   }
-
-  /* Each sub-industry row */
   .fs-subind-row {
     border: 1px solid var(--border-light);
     border-radius: 12px;
@@ -3204,11 +3196,7 @@ section:last-of-type { border-bottom: none; }
     box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     transition: border-color 0.2s;
   }
-  .fs-subind-row:hover {
-    border-color: rgba(217,119,87,0.3);
-  }
-
-  /* Sub-industry header (always visible) */
+  .fs-subind-row:hover { border-color: rgba(217,119,87,0.3); }
   .fs-subind-header {
     display: flex;
     align-items: center;
@@ -3217,49 +3205,30 @@ section:last-of-type { border-bottom: none; }
     cursor: pointer;
     user-select: none;
   }
-  .fs-subind-header:hover {
-    background: rgba(217,119,87,0.02);
-  }
+  .fs-subind-header:hover { background: rgba(217,119,87,0.02); }
   .fs-subind-icon {
-    width: 36px;
-    height: 36px;
+    width: 36px; height: 36px;
     border-radius: 8px;
     background: var(--accent-a);
     color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    font-weight: 700;
-    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 700; flex-shrink: 0;
     font-family: var(--font-display);
   }
   .fs-subind-info { flex: 1; min-width: 0; }
   .fs-subind-name {
     font-family: var(--font-display);
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 3px;
+    font-size: 16px; font-weight: 700;
+    color: var(--text-primary); margin-bottom: 3px;
   }
-  .fs-subind-cos {
-    font-size: 11px;
-    color: var(--text-muted);
-    line-height: 1.4;
-  }
+  .fs-subind-cos { font-size: 11px; color: var(--text-muted); line-height: 1.4; }
   .fs-toggle-icon {
-    width: 28px;
-    height: 28px;
+    width: 28px; height: 28px;
     border-radius: 50%;
     border: 1px solid var(--border-light);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    color: var(--text-muted);
-    transition: all 0.2s;
-    flex-shrink: 0;
-    background: transparent;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; color: var(--text-muted);
+    transition: all 0.2s; flex-shrink: 0; background: transparent;
   }
   .fs-subind-row.open .fs-toggle-icon {
     background: rgba(217,119,87,0.08);
@@ -3267,67 +3236,103 @@ section:last-of-type { border-bottom: none; }
     color: var(--accent-a);
     transform: rotate(45deg);
   }
-
-  /* Expandable detail panel */
   .fs-detail {
-    max-height: 0;
-    overflow: hidden;
+    max-height: 0; overflow: hidden;
     transition: max-height 0.5s ease;
   }
-  .fs-subind-row.open .fs-detail {
-    max-height: 3000px;
-  }
+  .fs-subind-row.open .fs-detail { max-height: 5000px; }
   .fs-detail-inner {
     padding: 0 20px 20px;
     border-top: 1px solid var(--border-light);
   }
 
-  /* Product cards inside detail */
+  /* Product cards */
   .fs-prod-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 12px;
     margin-top: 16px;
   }
   .fs-prod-card {
-    border-radius: 10px;
-    padding: 14px;
+    border-radius: 10px; padding: 14px;
     border: 1px solid transparent;
   }
   .fs-prod-card.api { background: rgba(217,119,87,0.06); border-color: rgba(217,119,87,0.15); }
   .fs-prod-card.code { background: rgba(100,100,180,0.06); border-color: rgba(100,100,180,0.15); }
   .fs-prod-card.cowork { background: rgba(120,140,93,0.06); border-color: rgba(120,140,93,0.15); }
   .fs-prod-card.excel { background: rgba(55,130,175,0.06); border-color: rgba(55,130,175,0.15); }
+  .fs-prod-card.claude { background: rgba(180,130,60,0.06); border-color: rgba(180,130,60,0.15); }
+  .fs-prod-card.pptx { background: rgba(200,80,50,0.06); border-color: rgba(200,80,50,0.15); }
 
   .fs-prod-label {
-    font-size: 12px;
-    font-weight: 700;
-    margin-bottom: 10px;
-    padding-bottom: 6px;
+    font-size: 12px; font-weight: 700;
+    margin-bottom: 10px; padding-bottom: 6px;
     border-bottom: 1px solid rgba(0,0,0,0.06);
   }
   .fs-prod-label.api { color: var(--accent-a); }
   .fs-prod-label.code { color: #5a5aa0; }
   .fs-prod-label.cowork { color: var(--accent-b); }
   .fs-prod-label.excel { color: #3782af; }
+  .fs-prod-label.claude { color: #9a7030; }
+  .fs-prod-label.pptx { color: #c85032; }
 
   .fs-uc {
-    font-size: 11px;
-    color: var(--text-secondary);
-    line-height: 1.5;
+    font-size: 11px; color: var(--text-secondary); line-height: 1.5;
     padding: 8px 10px;
     background: rgba(255,255,255,0.7);
-    border-radius: 6px;
-    margin-bottom: 6px;
+    border-radius: 6px; margin-bottom: 6px;
   }
   .fs-uc:last-child { margin-bottom: 0; }
 
-  /* Mobile responsive */
+  /* Plugin/skill tags */
+  .fs-plugin-tag {
+    display: inline-block;
+    font-size: 9px; font-weight: 600;
+    padding: 2px 7px; border-radius: 10px;
+    margin: 2px 2px 0 0;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .fs-plugin-tag.plugin { background: rgba(120,140,93,0.12); color: var(--accent-b); }
+  .fs-plugin-tag.connector { background: rgba(55,130,175,0.1); color: #3782af; }
+  .fs-plugin-tag.skill { background: rgba(180,130,60,0.1); color: #9a7030; }
+
+  /* Cowork section inside detail */
+  .fs-cowork-section {
+    margin-top: 16px;
+    background: rgba(120,140,93,0.04);
+    border: 1px solid rgba(120,140,93,0.15);
+    border-radius: 10px;
+    padding: 16px;
+  }
+  .fs-cowork-section-title {
+    font-size: 11px; font-weight: 700;
+    color: var(--accent-b);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 12px;
+  }
+  .fs-plugin-row {
+    display: flex; gap: 10px; align-items: flex-start;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(120,140,93,0.1);
+  }
+  .fs-plugin-row:last-child { border-bottom: none; }
+  .fs-plugin-name {
+    font-size: 11px; font-weight: 700; color: var(--text-primary);
+    min-width: 140px; flex-shrink: 0;
+  }
+  .fs-plugin-desc {
+    font-size: 11px; color: var(--text-muted); line-height: 1.5;
+  }
+
   @media (max-width: 768px) {
     .fs-root-col, .fs-h-connector { display: none; }
     .fs-prod-grid { grid-template-columns: 1fr 1fr; }
     .fs-subind-header { padding: 14px 16px; }
     .fs-detail-inner { padding: 0 16px 16px; }
+    .fs-plugin-row { flex-direction: column; gap: 2px; }
+    .fs-plugin-name { min-width: auto; }
   }
   @media (max-width: 480px) {
     .fs-prod-grid { grid-template-columns: 1fr; }
@@ -3340,28 +3345,22 @@ section:last-of-type { border-bottom: none; }
     <p class="fade-in" style="font-size: 15px; color: var(--text-secondary); line-height: 1.65; max-width: 750px; margin-bottom: 40px;">How Anthropic's products map to specific sub-industries, personas, and use cases across Financial Services — the vertical JJH is building out at Anthropic. Click any sub-industry to expand.</p>
 
     <div class="fade-in fs-row">
-
-      <!-- ROOT NODE — left side -->
       <div class="fs-root-col">
         <div>
           <div class="fs-root-node">Financial<br>Services</div>
           <div style="font-size: 10px; color: var(--text-muted); text-align: center; margin-top: 8px; max-width: 140px;">$1.1T IT spend by 2029<br>#1 CIO priority<br>Compliance required</div>
         </div>
       </div>
-
-      <!-- CONNECTOR -->
       <div class="fs-h-connector"></div>
-
-      <!-- SUB-INDUSTRIES — right side, stacked vertically -->
       <div class="fs-subind-col">
 
-        <!-- ── 1. Retail & Commercial Banking ── -->
+        <!-- ═══════════ 1. RETAIL & COMMERCIAL BANKING ═══════════ -->
         <div class="fs-subind-row" onclick="this.classList.toggle('open')">
           <div class="fs-subind-header">
             <div class="fs-subind-icon">1</div>
             <div class="fs-subind-info">
               <div class="fs-subind-name">Retail &amp; Commercial Banking</div>
-              <div class="fs-subind-cos">JPMorgan Chase · Bank of America · Wells Fargo · Citigroup · U.S. Bancorp · PNC</div>
+              <div class="fs-subind-cos">JPMorgan Chase · Bank of America · Wells Fargo · Citigroup · U.S. Bancorp · PNC · RBC</div>
             </div>
             <div class="fs-toggle-icon">＋</div>
           </div>
@@ -3379,6 +3378,11 @@ section:last-of-type { border-bottom: none; }
                   <div class="fs-uc">Legacy core banking modernization — COBOL mainframe to cloud migration</div>
                   <div class="fs-uc">Open banking API development — PSD2/FDX compliant integrations</div>
                 </div>
+                <div class="fs-prod-card claude">
+                  <div class="fs-prod-label claude">Claude.ai</div>
+                  <div class="fs-uc">Branch managers — policy interpretation, procedure lookups, exception handling guidance</div>
+                  <div class="fs-uc">Product teams — competitive research, market analysis, regulatory impact assessment</div>
+                </div>
                 <div class="fs-prod-card cowork">
                   <div class="fs-prod-label cowork">Cowork</div>
                   <div class="fs-uc">Loan officers — underwriting memos, credit analysis summaries, approval documentation</div>
@@ -3389,18 +3393,47 @@ section:last-of-type { border-bottom: none; }
                   <div class="fs-uc">Commercial lending — cash flow analysis, covenant tracking, portfolio stress testing</div>
                   <div class="fs-uc">Branch performance — revenue analytics, cost allocation, efficiency benchmarking</div>
                 </div>
+                <div class="fs-prod-card pptx">
+                  <div class="fs-prod-label pptx">PowerPoint</div>
+                  <div class="fs-uc">Quarterly business reviews — branch performance decks, portfolio summaries for leadership</div>
+                  <div class="fs-uc">Client proposals — commercial lending pitch decks, treasury services presentations</div>
+                </div>
+              </div>
+              <!-- Cowork Plugins & Skills -->
+              <div class="fs-cowork-section">
+                <div class="fs-cowork-section-title">Cowork Plugins, Skills &amp; Connectors for Retail &amp; Commercial Banking</div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Plugin</span> Finance</div>
+                  <div class="fs-plugin-desc">Core accounting &amp; compliance workflows — journal entries, reconciliations, variance analysis, audit support. Connects to Snowflake/BigQuery for transaction data. Banks run on financial controls; this plugin encodes the rigor.</div>
+                </div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Plugin</span> Legal</div>
+                  <div class="fs-plugin-desc">Contract review, NDA triage, compliance navigation. Banking runs on legal agreements — loan docs, regulatory filings, vendor contracts all benefit from structured review workflows.</div>
+                </div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Plugin</span> Customer Support</div>
+                  <div class="fs-plugin-desc">Ticket triage, response drafting, escalation packaging. Retail banks handle millions of customer interactions — this plugin helps support teams respond faster with policy-compliant answers.</div>
+                </div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag connector">Connector</span> FactSet</div>
+                  <div class="fs-plugin-desc">Real-time market data, company financials, economic indicators. Commercial bankers need current data for credit decisions and portfolio monitoring without leaving Cowork.</div>
+                </div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag connector">Connector</span> DocuSign</div>
+                  <div class="fs-plugin-desc">Document signing workflows for loan agreements, account openings, and compliance attestations — keeps the signature process in the Cowork flow.</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- ── 2. Investment Banking & Capital Markets ── -->
+        <!-- ═══════════ 2. INVESTMENT BANKING & CAPITAL MARKETS ═══════════ -->
         <div class="fs-subind-row" onclick="this.classList.toggle('open')">
           <div class="fs-subind-header">
             <div class="fs-subind-icon">2</div>
             <div class="fs-subind-info">
               <div class="fs-subind-name">Investment Banking &amp; Capital Markets</div>
-              <div class="fs-subind-cos">Goldman Sachs · Morgan Stanley · Jefferies · Lazard · Evercore · Moelis</div>
+              <div class="fs-subind-cos">Goldman Sachs · Morgan Stanley · Jefferies · Lazard · Evercore · NYSE</div>
             </div>
             <div class="fs-toggle-icon">＋</div>
           </div>
@@ -3417,6 +3450,11 @@ section:last-of-type { border-bottom: none; }
                   <div class="fs-uc">Quantitative trading models — backtesting, strategy development, risk factor analysis</div>
                   <div class="fs-uc">Market data platform development — real-time analytics, order management systems</div>
                 </div>
+                <div class="fs-prod-card claude">
+                  <div class="fs-prod-label claude">Claude.ai</div>
+                  <div class="fs-uc">Senior bankers — quick industry research, deal precedent lookups, talking point generation</div>
+                  <div class="fs-uc">Traders — market event interpretation, regulatory filing summaries, scenario brainstorming</div>
+                </div>
                 <div class="fs-prod-card cowork">
                   <div class="fs-prod-label cowork">Cowork</div>
                   <div class="fs-uc">Analysts — pitch books, CIMs, investment memos, due diligence reports</div>
@@ -3427,12 +3465,44 @@ section:last-of-type { border-bottom: none; }
                   <div class="fs-uc">DCF &amp; LBO modeling — scenario analysis, sensitivity tables, valuation buildouts</div>
                   <div class="fs-uc">M&amp;A integration — synergy modeling, cost savings projections, pro forma financials</div>
                 </div>
+                <div class="fs-prod-card pptx">
+                  <div class="fs-prod-label pptx">PowerPoint</div>
+                  <div class="fs-uc">Pitch books — turn Excel models into client-ready deal presentations in minutes</div>
+                  <div class="fs-uc">Board materials — merger presentations, shareholder decks, fairness opinion summaries</div>
+                </div>
+              </div>
+              <div class="fs-cowork-section">
+                <div class="fs-cowork-section-title">Cowork Plugins, Skills &amp; Connectors for Investment Banking</div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Template</span> Investment Banking</div>
+                  <div class="fs-plugin-desc">Purpose-built enterprise plugin (announced Feb 24, 2026) — review transaction documents, analyze comparable companies, prepare pitch materials. Encodes IB-specific workflows like deal comps, precedent analysis, and CIM drafting.</div>
+                </div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Plugin</span> Finance</div>
+                  <div class="fs-plugin-desc">Financial statement analysis, journal entries, reconciliations. The backbone for any team that lives in numbers — IB analysts spend 60%+ of their time in financial data.</div>
+                </div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Plugin</span> Data</div>
+                  <div class="fs-plugin-desc">SQL queries, statistical analysis, data visualization. Capital markets teams need to query large datasets for trade analysis, risk reporting, and regulatory submissions.</div>
+                </div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag connector">Connector</span> FactSet</div>
+                  <div class="fs-plugin-desc">Company financials, deal data, market multiples — the data layer that powers every comp table and valuation model. Pulling FactSet data directly into Cowork eliminates copy-paste from terminals.</div>
+                </div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag connector">Connector</span> MSCI</div>
+                  <div class="fs-plugin-desc">ESG ratings, risk analytics, index data. Critical for ESG-focused deal screening and investor presentations that now require sustainability metrics.</div>
+                </div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag connector">Connector</span> S&amp;P Global · LSEG</div>
+                  <div class="fs-plugin-desc">Anthropic co-developed finance plugins with S&amp;P Global and LSEG (announced Feb 24). Credit ratings, market intelligence, and transaction data — the institutional-grade data layer that powers capital markets workflows.</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- ── 3. Insurance ── -->
+        <!-- ═══════════ 3. INSURANCE ═══════════ -->
         <div class="fs-subind-row" onclick="this.classList.toggle('open')">
           <div class="fs-subind-header">
             <div class="fs-subind-icon">3</div>
@@ -3456,6 +3526,11 @@ section:last-of-type { border-bottom: none; }
                   <div class="fs-uc">Policy administration system modernization — legacy platform migration</div>
                   <div class="fs-uc">Telematics &amp; IoT integration — usage-based insurance platform development</div>
                 </div>
+                <div class="fs-prod-card claude">
+                  <div class="fs-prod-label claude">Claude.ai</div>
+                  <div class="fs-uc">Agents &amp; brokers — quick coverage comparisons, policy language interpretation, client Q&amp;A prep</div>
+                  <div class="fs-uc">Actuaries — research on emerging risk factors, regulatory change summaries</div>
+                </div>
                 <div class="fs-prod-card cowork">
                   <div class="fs-prod-label cowork">Cowork</div>
                   <div class="fs-uc">Adjusters — loss reports, coverage determination memos, subrogation analysis</div>
@@ -3466,18 +3541,50 @@ section:last-of-type { border-bottom: none; }
                   <div class="fs-uc">Actuarial analysis — loss reserving, premium adequacy, risk factor modeling</div>
                   <div class="fs-uc">Portfolio performance — combined ratio analysis, loss development triangles</div>
                 </div>
+                <div class="fs-prod-card pptx">
+                  <div class="fs-prod-label pptx">PowerPoint</div>
+                  <div class="fs-uc">Reinsurance presentations — treaty renewal decks, loss experience summaries</div>
+                  <div class="fs-uc">Board reporting — underwriting results, claims trends, strategic initiative updates</div>
+                </div>
+              </div>
+              <div class="fs-cowork-section">
+                <div class="fs-cowork-section-title">Cowork Plugins, Skills &amp; Connectors for Insurance</div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Plugin</span> Legal</div>
+                  <div class="fs-plugin-desc">Contract review, compliance navigation, risk assessment. Insurance is built on legal language — policy wording, coverage disputes, regulatory filings all require structured legal analysis.</div>
+                </div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Plugin</span> Customer Support</div>
+                  <div class="fs-plugin-desc">Claims triage, response drafting, escalation workflows. Policyholders expect fast, accurate answers — this plugin helps claims teams handle volume while maintaining compliance.</div>
+                </div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Plugin</span> Data</div>
+                  <div class="fs-plugin-desc">SQL queries, statistical analysis for actuarial teams. Loss development, risk segmentation, and pricing models require constant data exploration across massive datasets.</div>
+                </div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag connector">Connector</span> DocuSign</div>
+                  <div class="fs-plugin-desc">Policy binding, endorsement signatures, claims settlements — every insurance transaction ends with a signature. Keeping it in Cowork eliminates workflow breaks.</div>
+                </div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag connector">Connector</span> Google Workspace</div>
+                  <div class="fs-plugin-desc">Drive, Gmail, Calendar integration — insurance teams coordinate across agents, brokers, adjusters, and underwriters. Pulling context from email threads and shared docs into Cowork saves hours.</div>
+                </div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag connector">Connector</span> Harvey (Legal AI)</div>
+                  <div class="fs-plugin-desc">Anthropic connector for Harvey's legal AI platform. Insurance coverage disputes, regulatory filings, and compliance analysis benefit from Harvey's legal reasoning integrated into Cowork workflows.</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- ── 4. Wealth & Asset Management ── -->
+        <!-- ═══════════ 4. WEALTH & ASSET MANAGEMENT ═══════════ -->
         <div class="fs-subind-row" onclick="this.classList.toggle('open')">
           <div class="fs-subind-header">
             <div class="fs-subind-icon">4</div>
             <div class="fs-subind-info">
               <div class="fs-subind-name">Wealth &amp; Asset Management</div>
-              <div class="fs-subind-cos">BlackRock · Vanguard · Fidelity · Charles Schwab · T. Rowe Price · State Street</div>
+              <div class="fs-subind-cos">BlackRock · Vanguard · Fidelity · Charles Schwab · RBC Wealth Management · Northwestern Mutual</div>
             </div>
             <div class="fs-toggle-icon">＋</div>
           </div>
@@ -3494,6 +3601,11 @@ section:last-of-type { border-bottom: none; }
                   <div class="fs-uc">Algorithmic portfolio construction — factor models, rebalancing engines, ESG scoring</div>
                   <div class="fs-uc">Client portal modernization — digital onboarding, document management</div>
                 </div>
+                <div class="fs-prod-card claude">
+                  <div class="fs-prod-label claude">Claude.ai</div>
+                  <div class="fs-uc">Advisors — quick market research, client question prep, investment thesis brainstorming</div>
+                  <div class="fs-uc">Operations — trade settlement troubleshooting, NAV discrepancy investigation</div>
+                </div>
                 <div class="fs-prod-card cowork">
                   <div class="fs-prod-label cowork">Cowork</div>
                   <div class="fs-uc">Wealth advisors — client meeting prep, financial plans, investment proposals</div>
@@ -3504,12 +3616,44 @@ section:last-of-type { border-bottom: none; }
                   <div class="fs-uc">Portfolio analytics — performance attribution, risk decomposition, benchmark comparison</div>
                   <div class="fs-uc">Financial planning — retirement projections, tax optimization, estate modeling</div>
                 </div>
+                <div class="fs-prod-card pptx">
+                  <div class="fs-prod-label pptx">PowerPoint</div>
+                  <div class="fs-uc">Client review decks — portfolio performance, allocation changes, market outlook presentations</div>
+                  <div class="fs-uc">Investor communications — quarterly fund updates, strategy presentations, LP reports</div>
+                </div>
+              </div>
+              <div class="fs-cowork-section">
+                <div class="fs-cowork-section-title">Cowork Plugins, Skills &amp; Connectors for Wealth &amp; Asset Management</div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Template</span> Wealth Mgmt</div>
+                  <div class="fs-plugin-desc">Purpose-built enterprise plugin (announced Feb 24, 2026) — analyze portfolios, generate rebalancing recommendations, customize to mirror a firm's own voice. Turns every advisor into a team of analysts.</div>
+                </div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Template</span> Equity Research</div>
+                  <div class="fs-plugin-desc">Parse earnings transcripts, update financial models, draft research notes. Asset managers consume research at scale — this plugin automates the synthesis so PMs focus on decisions.</div>
+                </div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Plugin</span> Finance</div>
+                  <div class="fs-plugin-desc">Financial statement analysis, reconciliations, variance reporting. The analytical backbone for any team managing billions in AUM.</div>
+                </div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag connector">Connector</span> FactSet</div>
+                  <div class="fs-plugin-desc">Market data, company financials, portfolio analytics — the single most important data source for wealth managers. Direct integration means advisors prep client reviews without switching tools.</div>
+                </div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag connector">Connector</span> MSCI</div>
+                  <div class="fs-plugin-desc">ESG scores, factor analytics, benchmark indices. Every institutional mandate now requires ESG reporting — MSCI data piped into Cowork makes it native to the workflow.</div>
+                </div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag connector">Connector</span> S&amp;P Global · Morningstar</div>
+                  <div class="fs-plugin-desc">Fund ratings, credit research, market intelligence. Anthropic co-developed finance plugins with S&amp;P Global — advisors get institutional-grade data directly in client prep workflows.</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- ── 5. Fintech & Payments ── -->
+        <!-- ═══════════ 5. FINTECH & PAYMENTS ═══════════ -->
         <div class="fs-subind-row" onclick="this.classList.toggle('open')">
           <div class="fs-subind-header">
             <div class="fs-subind-icon">5</div>
@@ -3532,6 +3676,11 @@ section:last-of-type { border-bottom: none; }
                   <div class="fs-uc">Payment infrastructure — API integrations, webhook systems, compliance tooling</div>
                   <div class="fs-uc">Platform engineering — microservices, CI/CD pipelines, security scanning</div>
                 </div>
+                <div class="fs-prod-card claude">
+                  <div class="fs-prod-label claude">Claude.ai</div>
+                  <div class="fs-uc">Founders &amp; execs — competitive intelligence, regulatory research, strategy brainstorming</div>
+                  <div class="fs-uc">Support teams — complex merchant issue resolution, chargeback analysis guidance</div>
+                </div>
                 <div class="fs-prod-card cowork">
                   <div class="fs-prod-label cowork">Cowork</div>
                   <div class="fs-uc">Product managers — PRDs, competitive analysis, regulatory impact assessments</div>
@@ -3541,6 +3690,105 @@ section:last-of-type { border-bottom: none; }
                   <div class="fs-prod-label excel">Excel</div>
                   <div class="fs-uc">Transaction analytics — volume trends, take-rate analysis, merchant cohort performance</div>
                   <div class="fs-uc">Financial forecasting — revenue modeling, unit economics, burn rate analysis</div>
+                </div>
+                <div class="fs-prod-card pptx">
+                  <div class="fs-prod-label pptx">PowerPoint</div>
+                  <div class="fs-uc">Investor updates — board decks, fundraising presentations, growth metric summaries</div>
+                  <div class="fs-uc">Partner decks — integration proposals, co-marketing presentations, API capability overviews</div>
+                </div>
+              </div>
+              <div class="fs-cowork-section">
+                <div class="fs-cowork-section-title">Cowork Plugins, Skills &amp; Connectors for Fintech &amp; Payments</div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Plugin</span> Product Mgmt</div>
+                  <div class="fs-plugin-desc">Specs, roadmaps, user research synthesis, stakeholder updates. Fintechs ship fast — this plugin encodes the product development rigor that keeps velocity high without sacrificing quality.</div>
+                </div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Plugin</span> Data</div>
+                  <div class="fs-plugin-desc">SQL queries against Snowflake/BigQuery/Databricks, statistical analysis, dashboards. Fintechs are data-native companies — every decision from pricing to fraud thresholds is data-driven.</div>
+                </div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Plugin</span> Sales</div>
+                  <div class="fs-plugin-desc">Prospect research, call prep, pipeline review, competitive battlecards. B2B fintechs selling to banks and merchants need the same sales rigor as any enterprise — this plugin delivers it.</div>
+                </div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag connector">Connector</span> SimilarWeb</div>
+                  <div class="fs-plugin-desc">Web traffic, competitive benchmarking, market intelligence. Fintechs track competitor growth, user acquisition costs, and market share shifts — SimilarWeb data in Cowork enables real-time competitive analysis.</div>
+                </div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag connector">Connector</span> Clay + Outreach</div>
+                  <div class="fs-plugin-desc">Lead enrichment and outbound sequencing. Fintech sales teams prospect at volume — Clay enriches leads with firmographic data, Outreach automates follow-up, and Cowork orchestrates the whole workflow.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ═══════════ 6. PRIVATE EQUITY ═══════════ -->
+        <div class="fs-subind-row" onclick="this.classList.toggle('open')">
+          <div class="fs-subind-header">
+            <div class="fs-subind-icon">6</div>
+            <div class="fs-subind-info">
+              <div class="fs-subind-name">Private Equity &amp; Venture Capital</div>
+              <div class="fs-subind-cos">Blackstone · KKR · Apollo · Carlyle · Thoma Bravo · a16z · Sequoia</div>
+            </div>
+            <div class="fs-toggle-icon">＋</div>
+          </div>
+          <div class="fs-detail">
+            <div class="fs-detail-inner">
+              <div class="fs-prod-grid">
+                <div class="fs-prod-card api">
+                  <div class="fs-prod-label api">API</div>
+                  <div class="fs-uc">Deal flow screening — automated CIM parsing, financial data extraction, opportunity scoring against investment criteria</div>
+                  <div class="fs-uc">Portfolio monitoring — automated KPI collection, covenant compliance tracking across portfolio companies</div>
+                </div>
+                <div class="fs-prod-card code">
+                  <div class="fs-prod-label code">Claude Code</div>
+                  <div class="fs-uc">Portfolio company tech diligence — codebase assessment, technical debt analysis, architecture review</div>
+                  <div class="fs-uc">Internal tooling — deal pipeline dashboards, LP reporting automation, fund analytics platforms</div>
+                </div>
+                <div class="fs-prod-card claude">
+                  <div class="fs-prod-label claude">Claude.ai</div>
+                  <div class="fs-uc">Partners — market thesis exploration, deal memo brainstorming, portfolio company strategy sessions</div>
+                  <div class="fs-uc">Associates — industry research, competitive landscape mapping, management team background</div>
+                </div>
+                <div class="fs-prod-card cowork">
+                  <div class="fs-prod-label cowork">Cowork</div>
+                  <div class="fs-uc">Investment memos — due diligence reports, IC materials, 100-day plans</div>
+                  <div class="fs-uc">LP communications — quarterly letters, annual meeting materials, capital call notices</div>
+                </div>
+                <div class="fs-prod-card excel">
+                  <div class="fs-prod-label excel">Excel</div>
+                  <div class="fs-uc">LBO models — returns analysis, debt waterfall, management rollover scenarios</div>
+                  <div class="fs-uc">Fund performance — IRR/MOIC calculations, vintage year comparisons, J-curve analysis</div>
+                </div>
+                <div class="fs-prod-card pptx">
+                  <div class="fs-prod-label pptx">PowerPoint</div>
+                  <div class="fs-uc">Investment committee decks — deal summaries, risk/return analysis, recommendation presentations</div>
+                  <div class="fs-uc">LP meetings — fund performance reviews, strategy updates, co-investment opportunity decks</div>
+                </div>
+              </div>
+              <div class="fs-cowork-section">
+                <div class="fs-cowork-section-title">Cowork Plugins, Skills &amp; Connectors for Private Equity</div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Template</span> Private Equity</div>
+                  <div class="fs-plugin-desc">Purpose-built enterprise plugin (announced Feb 24, 2026) — review and extract financial data from large document sets, model scenarios, score opportunities against investment criteria. Turns CIM review from days to hours.</div>
+                </div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Plugin</span> Finance</div>
+                  <div class="fs-plugin-desc">Financial modeling, statement analysis, variance reporting. PE professionals live in financial data — this plugin structures the analytical workflows for consistency across the team.</div>
+                </div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag plugin">Plugin</span> Enterprise Search</div>
+                  <div class="fs-plugin-desc">Search across email, docs, wikis, and chat in one query. PE firms accumulate massive institutional knowledge across deals — finding the relevant precedent fast is a competitive advantage.</div>
+                </div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag connector">Connector</span> FactSet · PitchBook</div>
+                  <div class="fs-plugin-desc">Company financials, transaction comps, market data, and private company deal flow. Anthropic integrated PitchBook as a data source for Claude's financial analysis — PE associates get screening and modeling data directly in Cowork.</div>
+                </div>
+                <div class="fs-plugin-row">
+                  <div class="fs-plugin-name"><span class="fs-plugin-tag connector">Connector</span> Google Workspace</div>
+                  <div class="fs-plugin-desc">Drive, Gmail, Calendar — PE teams coordinate across deal teams, portfolio companies, and LPs. Pulling email threads and shared docs into Cowork contextualizes every deliverable.</div>
                 </div>
               </div>
             </div>
