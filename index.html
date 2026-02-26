@@ -3347,29 +3347,62 @@ section:last-of-type { border-bottom: none; }
     letter-spacing: 0.06em;
     margin-bottom: 10px;
   }
+
+  /* Template rows — keep stacked */
   .fsv2-plugin-row {
-    display: flex; gap: 10px; align-items: flex-start;
-    padding: 6px 0;
+    padding: 10px 0;
     border-bottom: 1px solid rgba(120,140,93,0.08);
-    font-size: 11px;
   }
   .fsv2-plugin-row:last-child { border-bottom: none; }
+  .fsv2-plugin-label {
+    font-size: 12px; font-weight: 700; color: var(--text-primary);
+    margin-bottom: 4px;
+    display: flex; align-items: center; gap: 8px;
+  }
   .fsv2-plugin-tag {
     display: inline-block;
     font-size: 8px; font-weight: 700;
-    padding: 2px 6px; border-radius: 8px;
+    padding: 2px 7px; border-radius: 8px;
     text-transform: uppercase; letter-spacing: 0.04em;
     white-space: nowrap;
+    flex-shrink: 0;
   }
   .fsv2-plugin-tag.template { background: rgba(120,140,93,0.12); color: var(--accent-b); }
   .fsv2-plugin-tag.connector { background: rgba(55,130,175,0.1); color: #3782af; }
-  .fsv2-plugin-label {
-    font-weight: 700; color: var(--text-primary);
-    min-width: 120px; flex-shrink: 0;
-  }
   .fsv2-plugin-detail {
-    color: var(--text-muted); line-height: 1.5;
+    font-size: 11px; color: var(--text-muted); line-height: 1.5;
+    padding-left: 0;
   }
+
+  /* Connector grid — side by side cards */
+  .fsv2-connector-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 8px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(120,140,93,0.08);
+  }
+  .fsv2-connector-card {
+    background: rgba(55,130,175,0.04);
+    border: 1px solid rgba(55,130,175,0.1);
+    border-radius: 8px;
+    padding: 10px 12px;
+  }
+  .fsv2-connector-name {
+    font-size: 11px; font-weight: 700; color: #3782af;
+    margin-bottom: 4px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .fsv2-connector-desc {
+    font-size: 10px; color: var(--text-muted); line-height: 1.5;
+  }
+  .fsv2-connector-skills {
+    margin-top: 5px; padding-top: 5px;
+    border-top: 1px solid rgba(55,130,175,0.08);
+    font-size: 10px; color: var(--text-secondary); line-height: 1.5;
+  }
+  .fsv2-connector-skills strong { color: #3782af; }
   .fsv2-skill-list {
     display: grid; grid-template-columns: 1fr 1fr; gap: 2px 14px;
     margin-top: 4px; font-size: 10px; line-height: 1.5;
@@ -3464,6 +3497,7 @@ section:last-of-type { border-bottom: none; }
   @media (max-width: 768px) {
     .fsv2-prod-grid { grid-template-columns: 1fr 1fr; }
     .fsv2-uc-row-2col { grid-template-columns: 1fr; }
+    .fsv2-connector-grid { grid-template-columns: 1fr; }
     .fsv2-header { padding: 14px 16px; }
     .fsv2-inner { padding: 0 16px 16px; }
     .fsv2-plugin-row { flex-direction: column; gap: 2px; }
@@ -3570,15 +3604,21 @@ section:last-of-type { border-bottom: none; }
                 <div style="margin-top: 6px; font-size: 10px; color: var(--text-muted);"><strong>11 MCP connectors</strong> (MCP = Model Context Protocol — lets Claude pull live data from external tools): FactSet · S&amp;P Global · LSEG · Moody's · Morningstar · Daloopa · PitchBook · Chronograph · Aiera · MT Newswires · Egnyte</div>
               </div>
             </div>
-            <div class="fsv2-plugin-row">
-              <div class="fsv2-plugin-label"><span class="fsv2-plugin-tag connector">Connector</span> FactSet</div>
-              <div class="fsv2-plugin-detail">Financial data platform banks use for stock prices, company financials, and economic data. Pulls data directly into Cowork.</div>
-            </div>
-            <div class="fsv2-plugin-row">
-              <div class="fsv2-plugin-label"><span class="fsv2-plugin-tag connector">Connector</span> S&amp;P Global · LSEG</div>
-              <div class="fsv2-plugin-detail">S&amp;P Global = credit ratings &amp; research (they rate whether companies/countries are likely to repay debt). LSEG = London Stock Exchange Group — market data &amp; analytics. Both co-developed partner plugins with Anthropic.<br>
-                <strong style="color: #3782af;">S&amp;P skills:</strong> earnings-preview-beta · funding-digest · tear-sheet (a tear-sheet is a one-page snapshot of a company's key financial data)<br>
-                <strong style="color: #3782af;">LSEG skills:</strong> fixed income pricing (bonds) · yield curves (interest rate expectations over time) · FX carry trades (currency trading strategy) · options valuation · macro dashboards
+
+            <div class="fsv2-connector-grid">
+              <div class="fsv2-connector-card">
+                <div class="fsv2-connector-name"><span class="fsv2-plugin-tag connector">Connector</span> FactSet</div>
+                <div class="fsv2-connector-desc">Financial data platform for stock prices, company financials, and economic data. Pulls live data directly into Cowork.</div>
+              </div>
+              <div class="fsv2-connector-card">
+                <div class="fsv2-connector-name"><span class="fsv2-plugin-tag connector">Connector</span> S&amp;P Global</div>
+                <div class="fsv2-connector-desc">Credit ratings &amp; research — they rate whether companies/countries are likely to repay debt. Co-developed with Anthropic.</div>
+                <div class="fsv2-connector-skills"><strong>Skills:</strong> earnings-preview-beta · funding-digest · tear-sheet (one-page company snapshot)</div>
+              </div>
+              <div class="fsv2-connector-card">
+                <div class="fsv2-connector-name"><span class="fsv2-plugin-tag connector">Connector</span> LSEG</div>
+                <div class="fsv2-connector-desc">London Stock Exchange Group — market data &amp; analytics. Co-developed with Anthropic.</div>
+                <div class="fsv2-connector-skills"><strong>Skills:</strong> fixed income pricing (bonds) · yield curves (interest rates over time) · FX carry trades (currency) · options valuation · macro dashboards</div>
               </div>
             </div>
           </div>
@@ -3682,9 +3722,12 @@ section:last-of-type { border-bottom: none; }
               <div class="fsv2-plugin-label"><span class="fsv2-plugin-tag template">Template</span> Financial Analysis</div>
               <div class="fsv2-plugin-detail">Core plugin — shared modeling tools + all 11 data connectors. Includes comps (company comparisons), DCF (future cash flow valuation), 3-statements (the 3 core financial reports), LBO (leveraged buyout analysis), competitive analysis, check-model, check-deck, PPT template creator.</div>
             </div>
-            <div class="fsv2-plugin-row">
-              <div class="fsv2-plugin-label"><span class="fsv2-plugin-tag connector">Connector</span> S&amp;P Global</div>
-              <div class="fsv2-plugin-detail">Credit ratings, risk assessments, and market intelligence. Insurers rely on this for pricing decisions and portfolio management.</div>
+
+            <div class="fsv2-connector-grid">
+              <div class="fsv2-connector-card">
+                <div class="fsv2-connector-name"><span class="fsv2-plugin-tag connector">Connector</span> S&amp;P Global</div>
+                <div class="fsv2-connector-desc">Credit ratings, risk assessments, and market intelligence. Insurers rely on this for pricing decisions and portfolio management.</div>
+              </div>
             </div>
           </div>
 
@@ -3807,13 +3850,23 @@ section:last-of-type { border-bottom: none; }
               <div class="fsv2-plugin-label"><span class="fsv2-plugin-tag template">Template</span> Equity Research</div>
               <div class="fsv2-plugin-detail">Add-on for research teams. Includes: earnings analysis (what happened after a company reports quarterly results), earnings preview (what to watch before they report), initiating coverage (the first deep-dive report when a firm starts following a new stock), model update, morning note (daily market briefing), thesis tracker (maintaining the case for why a stock should go up or down), catalyst calendar (upcoming events that could move a stock — earnings dates, FDA approvals, etc.), sector overview, idea generation.</div>
             </div>
-            <div class="fsv2-plugin-row">
-              <div class="fsv2-plugin-label"><span class="fsv2-plugin-tag connector">Connector</span> FactSet · S&amp;P · Morningstar</div>
-              <div class="fsv2-plugin-detail">Stock data, credit ratings, and fund ratings advisors use daily — brought directly into Cowork for client prep.</div>
-            </div>
-            <div class="fsv2-plugin-row">
-              <div class="fsv2-plugin-label"><span class="fsv2-plugin-tag connector">Connector</span> MSCI</div>
-              <div class="fsv2-plugin-detail">MSCI is the leading provider of ESG scores (Environmental, Social, Governance — ratings that measure how responsibly a company operates) and risk analytics. Big institutional investors increasingly <em>require</em> ESG reporting — this connector makes it native to Cowork.</div>
+            <div class="fsv2-connector-grid">
+              <div class="fsv2-connector-card">
+                <div class="fsv2-connector-name"><span class="fsv2-plugin-tag connector">Connector</span> FactSet</div>
+                <div class="fsv2-connector-desc">Stock data, company financials, and portfolio analytics. Used daily by investment professionals for client prep.</div>
+              </div>
+              <div class="fsv2-connector-card">
+                <div class="fsv2-connector-name"><span class="fsv2-plugin-tag connector">Connector</span> S&amp;P Global</div>
+                <div class="fsv2-connector-desc">Credit ratings and research that advisors reference for investment decisions.</div>
+              </div>
+              <div class="fsv2-connector-card">
+                <div class="fsv2-connector-name"><span class="fsv2-plugin-tag connector">Connector</span> Morningstar</div>
+                <div class="fsv2-connector-desc">Fund ratings and investment analysis — the go-to source advisors use to evaluate mutual funds and ETFs.</div>
+              </div>
+              <div class="fsv2-connector-card">
+                <div class="fsv2-connector-name"><span class="fsv2-plugin-tag connector">Connector</span> MSCI</div>
+                <div class="fsv2-connector-desc">ESG scores (Environmental, Social, Governance — how responsibly a company operates) and risk analytics. Big institutional investors now <em>require</em> ESG reporting.</div>
+              </div>
             </div>
           </div>
 
@@ -3949,13 +4002,25 @@ section:last-of-type { border-bottom: none; }
               <div class="fsv2-plugin-label"><span class="fsv2-plugin-tag template">Template</span> Private Equity</div>
               <div class="fsv2-plugin-detail">Deal sourcing, due diligence (DD — deep investigation before buying a company), unit economics, IC memo (Investment Committee memo — the document that gets the deal approved internally), portfolio KPIs (Key Performance Indicators — the metrics they track across companies they own).</div>
             </div>
-            <div class="fsv2-plugin-row">
-              <div class="fsv2-plugin-label"><span class="fsv2-plugin-tag connector">Connector</span> FactSet · S&amp;P · LSEG</div>
-              <div class="fsv2-plugin-detail">Full market data stack. S&amp;P skills: earnings-preview-beta, funding-digest, tear-sheet (one-page company snapshot). LSEG skills: fixed income pricing (bonds — "fixed income" because they pay a fixed interest rate), yield curves (a chart showing interest rates over time — key for predicting the economy), FX carry trades (FX = foreign exchange / currency trading), options valuation, macro dashboards (big-picture economic data).</div>
-            </div>
-            <div class="fsv2-plugin-row">
-              <div class="fsv2-plugin-label"><span class="fsv2-plugin-tag connector">Connector</span> MSCI</div>
-              <div class="fsv2-plugin-detail">ESG (Environmental, Social, Governance) ratings and risk analytics — used for deal screening and investor presentations.</div>
+            <div class="fsv2-connector-grid">
+              <div class="fsv2-connector-card">
+                <div class="fsv2-connector-name"><span class="fsv2-plugin-tag connector">Connector</span> FactSet</div>
+                <div class="fsv2-connector-desc">Stock prices, company financials, economic data. The analyst's primary data source for building models.</div>
+              </div>
+              <div class="fsv2-connector-card">
+                <div class="fsv2-connector-name"><span class="fsv2-plugin-tag connector">Connector</span> S&amp;P Global</div>
+                <div class="fsv2-connector-desc">Credit ratings &amp; research. Co-developed with Anthropic.</div>
+                <div class="fsv2-connector-skills"><strong>Skills:</strong> earnings-preview-beta · funding-digest · tear-sheet (one-page company snapshot)</div>
+              </div>
+              <div class="fsv2-connector-card">
+                <div class="fsv2-connector-name"><span class="fsv2-plugin-tag connector">Connector</span> LSEG</div>
+                <div class="fsv2-connector-desc">London Stock Exchange — market data &amp; analytics. Co-developed with Anthropic.</div>
+                <div class="fsv2-connector-skills"><strong>Skills:</strong> fixed income (bonds) · yield curves (interest rates over time) · FX (currency trading) · options valuation · macro dashboards (economic data)</div>
+              </div>
+              <div class="fsv2-connector-card">
+                <div class="fsv2-connector-name"><span class="fsv2-plugin-tag connector">Connector</span> MSCI</div>
+                <div class="fsv2-connector-desc">ESG (Environmental, Social, Governance) ratings and risk analytics — used for deal screening and investor presentations.</div>
+              </div>
             </div>
           </div>
 
