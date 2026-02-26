@@ -3498,7 +3498,7 @@ section:last-of-type { border-bottom: none; }
           <!-- What They Do -->
           <div class="fsv2-section-label orange">What This Sub-Industry Does</div>
           <div class="fsv2-explainer">
-            <p>These are the banks regular people and businesses use every day — checking accounts, savings, mortgages, business loans, credit cards. Think Chase, Wells Fargo, Bank of America. They make money two ways: <strong>spread</strong> (they borrow money cheaply and lend it out at higher rates — the difference is their profit) and <strong>fees</strong> (transaction fees, overdraft fees, service charges). They're massive employers — JPMorgan alone has 310K+ people — and every single one of them is buried in compliance requirements because they're federally regulated.</p>
+            <p>These are the banks regular people and businesses use every day — checking accounts, savings, mortgages, business loans, credit cards. Think Chase, Wells Fargo, Bank of America. They make money two ways: <strong>interest rate spread</strong> (they borrow money cheaply and lend it out at higher rates — the difference is their profit) and <strong>fees</strong> (transaction fees, overdraft fees, service charges). They're massive employers — JPMorgan alone has 310K+ people — and every single one of them is buried in compliance requirements because they're federally regulated.</p>
           </div>
 
           <!-- Use Cases = Revenue Driver + Product -->
@@ -3516,7 +3516,7 @@ section:last-of-type { border-bottom: none; }
                 <span class="fsv2-uc-product code">Claude Code</span>
                 <span class="fsv2-uc-driver">Legacy modernization = multi-year engagements</span>
               </div>
-              <div class="fsv2-uc-body">These banks run on <strong>decades-old COBOL mainframes</strong>. Modernizing core banking systems is a multi-year, multi-million dollar initiative — and Claude Code accelerates every sprint. Citi is already using it to power their AI Developer Platform.</div>
+              <div class="fsv2-uc-body">These banks run on <strong>decades-old COBOL mainframes</strong> (COBOL is a programming language from the 1960s — most bank core systems still run on it). Modernizing core banking systems is a multi-year, multi-million dollar initiative — and Claude Code accelerates every sprint. Citi is already using it to power their AI Developer Platform.</div>
             </div>
             <div class="fsv2-uc-block cowork">
               <div class="fsv2-uc-top">
@@ -3557,17 +3557,17 @@ section:last-of-type { border-bottom: none; }
               <div class="fsv2-plugin-label"><span class="fsv2-plugin-tag template">Template</span> Financial Analysis</div>
               <div class="fsv2-plugin-detail">Core plugin (install first) — shared modeling tools + all 11 data connectors.
                 <div class="fsv2-skill-list">
-                  <div><strong>Comps analysis</strong> — benchmark vs. similar companies</div>
-                  <div><strong>DCF model</strong> — value a company by future cash flows</div>
-                  <div><strong>3-statements</strong> — linked income/balance/cash flow</div>
-                  <div><strong>LBO model</strong> — leveraged buyout returns analysis</div>
+                  <div><strong>Comps analysis</strong> — "how does this company stack up vs. similar ones?"</div>
+                  <div><strong>DCF model</strong> — "what's this company worth based on future cash flows?"</div>
+                  <div><strong>3-statements</strong> — linked income statement, balance sheet, cash flow (the 3 core financial reports)</div>
+                  <div><strong>LBO model</strong> — "if we buy this company with debt, what's our return?" (leveraged buyout)</div>
                   <div><strong>Competitive analysis</strong> — market &amp; competitor research</div>
-                  <div><strong>Check-model</strong> — validate financial model accuracy</div>
+                  <div><strong>Check-model</strong> — validate a financial model for errors</div>
                   <div><strong>Check-deck</strong> — QC presentations to firm standards</div>
                   <div><strong>PPT template creator</strong> — reusable slide templates</div>
                   <div><strong>Skill creator</strong> — build custom skills for your firm</div>
                 </div>
-                <div style="margin-top: 6px; font-size: 10px; color: var(--text-muted);"><strong>11 MCP connectors:</strong> FactSet · S&amp;P Global · LSEG · Moody's · Morningstar · Daloopa · PitchBook · Chronograph · Aiera · MT Newswires · Egnyte</div>
+                <div style="margin-top: 6px; font-size: 10px; color: var(--text-muted);"><strong>11 MCP connectors</strong> (MCP = Model Context Protocol — lets Claude pull live data from external tools): FactSet · S&amp;P Global · LSEG · Moody's · Morningstar · Daloopa · PitchBook · Chronograph · Aiera · MT Newswires · Egnyte</div>
               </div>
             </div>
             <div class="fsv2-plugin-row">
@@ -3576,9 +3576,9 @@ section:last-of-type { border-bottom: none; }
             </div>
             <div class="fsv2-plugin-row">
               <div class="fsv2-plugin-label"><span class="fsv2-plugin-tag connector">Connector</span> S&amp;P Global · LSEG</div>
-              <div class="fsv2-plugin-detail">S&amp;P = credit ratings &amp; research. LSEG = London Stock Exchange market data. Both co-developed partner plugins with Anthropic.<br>
-                <strong style="color: #3782af;">S&amp;P skills:</strong> earnings-preview-beta · funding-digest · tear-sheet<br>
-                <strong style="color: #3782af;">LSEG skills:</strong> fixed income pricing · yield curves · FX carry trades · options valuation · macro dashboards
+              <div class="fsv2-plugin-detail">S&amp;P Global = credit ratings &amp; research (they rate whether companies/countries are likely to repay debt). LSEG = London Stock Exchange Group — market data &amp; analytics. Both co-developed partner plugins with Anthropic.<br>
+                <strong style="color: #3782af;">S&amp;P skills:</strong> earnings-preview-beta · funding-digest · tear-sheet (a tear-sheet is a one-page snapshot of a company's key financial data)<br>
+                <strong style="color: #3782af;">LSEG skills:</strong> fixed income pricing (bonds) · yield curves (interest rate expectations over time) · FX carry trades (currency trading strategy) · options valuation · macro dashboards
               </div>
             </div>
           </div>
@@ -3635,7 +3635,7 @@ section:last-of-type { border-bottom: none; }
                 <span class="fsv2-uc-product api">API</span>
                 <span class="fsv2-uc-driver">Millions of claims = millions of API calls</span>
               </div>
-              <div class="fsv2-uc-body">Claims intake, risk scoring, underwriting automation — every decision is an API call that follows compliance rules. AIG processes <strong>500K+ E&amp;S submissions</strong> through Claude, targeting $4B+ in new premiums by 2030. JP calls Allianz claims processing the example of why AI stakes are highest in regulated industries.</div>
+              <div class="fsv2-uc-body">Claims intake, risk scoring, underwriting automation (underwriting = deciding whether to insure someone and at what price) — every decision is an API call that follows compliance rules. AIG processes <strong>500K+ E&amp;S submissions</strong> (E&amp;S = Excess &amp; Surplus — high-risk insurance that's too complex for standard carriers, like insuring a skyscraper or a concert tour) through Claude, targeting $4B+ in new premiums by 2030. JP calls Allianz claims processing the example of why AI stakes are highest in regulated industries.</div>
             </div>
             <div class="fsv2-uc-block cowork">
               <div class="fsv2-uc-top">
@@ -3664,7 +3664,7 @@ section:last-of-type { border-bottom: none; }
                   <span class="fsv2-uc-product excel">Excel</span>
                   <span class="fsv2-uc-driver">Insurance is a math business</span>
                 </div>
-                <div class="fsv2-uc-body">Actuaries build pricing models, run loss analysis, track portfolio performance. AI inside their spreadsheets.</div>
+                <div class="fsv2-uc-body">Actuaries (the math people who calculate risk and set insurance prices) build pricing models, run loss analysis, track portfolio performance. AI inside their spreadsheets.</div>
               </div>
               <div class="fsv2-uc-block pptx">
                 <div class="fsv2-uc-top">
@@ -3680,7 +3680,7 @@ section:last-of-type { border-bottom: none; }
           <div class="fsv2-plugins">
             <div class="fsv2-plugin-row">
               <div class="fsv2-plugin-label"><span class="fsv2-plugin-tag template">Template</span> Financial Analysis</div>
-              <div class="fsv2-plugin-detail">Core plugin — shared modeling tools + all 11 data connectors. Comps, DCF, 3-statements, LBO, competitive analysis, check-model, check-deck, PPT template creator.</div>
+              <div class="fsv2-plugin-detail">Core plugin — shared modeling tools + all 11 data connectors. Includes comps (company comparisons), DCF (future cash flow valuation), 3-statements (the 3 core financial reports), LBO (leveraged buyout analysis), competitive analysis, check-model, check-deck, PPT template creator.</div>
             </div>
             <div class="fsv2-plugin-row">
               <div class="fsv2-plugin-label"><span class="fsv2-plugin-tag connector">Connector</span> S&amp;P Global</div>
@@ -3754,14 +3754,14 @@ section:last-of-type { border-bottom: none; }
                 <span class="fsv2-uc-product api">API</span>
                 <span class="fsv2-uc-driver">Automated research + reporting at institutional scale</span>
               </div>
-              <div class="fsv2-uc-body">NBIM (Norway's $1.7T sovereign wealth fund) uses Claude to screen 9K companies for ESG violations and analyze earnings calls. <strong>Bridgewater</strong> built an Investment Analyst Assistant for code gen, data viz, and hypothesis stress-testing. These are high-token, high-value API contracts.</div>
+              <div class="fsv2-uc-body">NBIM (Norway's $1.7T sovereign wealth fund — the largest in the world) uses Claude to screen 9K companies for ESG violations (ESG = Environmental, Social, Governance — basically checking if companies are behaving ethically) and analyze earnings calls (quarterly calls where company execs report financial results). <strong>Bridgewater</strong> (world's largest hedge fund) built an Investment Analyst Assistant for code gen, data viz, and hypothesis stress-testing. These are high-token, high-value API contracts.</div>
             </div>
             <div class="fsv2-uc-block code">
               <div class="fsv2-uc-top">
                 <span class="fsv2-uc-product code">Claude Code</span>
                 <span class="fsv2-uc-driver">Portfolio tools + client portals</span>
               </div>
-              <div class="fsv2-uc-body">Build portfolio tools, rebalancing engines, and modern client portals with AI-assisted development. Engineering teams at these firms are building the next generation of wealth platforms.</div>
+              <div class="fsv2-uc-body">Build portfolio tools, rebalancing engines (rebalancing = adjusting a client's investments back to their target mix — e.g. "you wanted 60% stocks, 40% bonds, but now you're at 70/30"), and modern client portals with AI-assisted development. Engineering teams at these firms are building the next generation of wealth platforms.</div>
             </div>
             <div class="fsv2-uc-block claude">
               <div class="fsv2-uc-top">
@@ -3776,7 +3776,7 @@ section:last-of-type { border-bottom: none; }
                   <span class="fsv2-uc-product excel">Excel</span>
                   <span class="fsv2-uc-driver">Portfolio analytics</span>
                 </div>
-                <div class="fsv2-uc-body">Performance attribution, financial planning models, portfolio analytics — AI inside the spreadsheets analysts live in.</div>
+                <div class="fsv2-uc-body">Performance attribution (answering "why did the portfolio go up or down and which investments drove it"), financial planning models, portfolio analytics — AI inside the spreadsheets analysts live in.</div>
               </div>
               <div class="fsv2-uc-block pptx">
                 <div class="fsv2-uc-top">
@@ -3798,14 +3798,14 @@ section:last-of-type { border-bottom: none; }
                   <div><strong>Client report</strong> — generate personalized performance reports</div>
                   <div><strong>Financial plan</strong> — retirement projections &amp; savings models</div>
                   <div><strong>Investment proposal</strong> — asset allocation recs customized to client</div>
-                  <div><strong>Portfolio rebalance</strong> — identify drift &amp; recommend trades</div>
-                  <div><strong>Tax-loss harvesting</strong> — find opportunities to offset gains</div>
+                  <div><strong>Portfolio rebalance</strong> — identify drift from target allocation and recommend trades to get back on track</div>
+                  <div><strong>Tax-loss harvesting</strong> — sell losing investments to offset gains and reduce the client's tax bill</div>
                 </div>
               </div>
             </div>
             <div class="fsv2-plugin-row">
               <div class="fsv2-plugin-label"><span class="fsv2-plugin-tag template">Template</span> Equity Research</div>
-              <div class="fsv2-plugin-detail">Add-on for research teams. Earnings analysis, earnings preview, initiating coverage, model update, morning note, thesis tracker, catalyst calendar, sector overview, idea generation.</div>
+              <div class="fsv2-plugin-detail">Add-on for research teams. Includes: earnings analysis (what happened after a company reports quarterly results), earnings preview (what to watch before they report), initiating coverage (the first deep-dive report when a firm starts following a new stock), model update, morning note (daily market briefing), thesis tracker (maintaining the case for why a stock should go up or down), catalyst calendar (upcoming events that could move a stock — earnings dates, FDA approvals, etc.), sector overview, idea generation.</div>
             </div>
             <div class="fsv2-plugin-row">
               <div class="fsv2-plugin-label"><span class="fsv2-plugin-tag connector">Connector</span> FactSet · S&amp;P · Morningstar</div>
@@ -3813,7 +3813,7 @@ section:last-of-type { border-bottom: none; }
             </div>
             <div class="fsv2-plugin-row">
               <div class="fsv2-plugin-label"><span class="fsv2-plugin-tag connector">Connector</span> MSCI</div>
-              <div class="fsv2-plugin-detail">Leading provider of ESG scores and risk analytics. Institutional investors increasingly require ESG reporting — native to Cowork.</div>
+              <div class="fsv2-plugin-detail">MSCI is the leading provider of ESG scores (Environmental, Social, Governance — ratings that measure how responsibly a company operates) and risk analytics. Big institutional investors increasingly <em>require</em> ESG reporting — this connector makes it native to Cowork.</div>
             </div>
           </div>
 
@@ -3824,7 +3824,7 @@ section:last-of-type { border-bottom: none; }
                 <div class="fsv2-story-co">NBIM (Norway's Sovereign Wealth Fund)</div>
                 <span class="fsv2-story-product enterprise">Claude Enterprise</span>
               </div>
-              <div class="fsv2-story-body">ESG screening agent scans 9K companies for forced labor, corruption, and fraud. Also used for earnings call analysis and Snowflake data queries.</div>
+              <div class="fsv2-story-body">ESG screening agent (checking if companies engage in forced labor, corruption, or fraud) scans 9K companies automatically. Also used for earnings call analysis and querying data in Snowflake (their data warehouse).</div>
               <div><span class="fsv2-story-metric">20% productivity gain = 213K hours</span> <span class="fsv2-story-metric">$100M+/yr trading cost savings</span></div>
             </div>
             <div class="fsv2-story">
@@ -3882,14 +3882,14 @@ section:last-of-type { border-bottom: none; }
                 <span class="fsv2-uc-product cowork">Cowork</span>
                 <span class="fsv2-uc-driver">Most document-intensive work in all of finance</span>
               </div>
-              <div class="fsv2-uc-body">Every deal = pitch books, CIMs, memos, models. Junior bankers spend <strong>80% of their time producing documents</strong> that Cowork can now automate. Banks pay $150K-$200K per junior analyst — high willingness to pay per seat. Anthropic built IB, Equity Research, and PE templates specifically for this sub-industry.</div>
+              <div class="fsv2-uc-body">Every deal = pitch books (presentations to win client business), CIMs (Confidential Information Memorandums — the "sales brochure" for a company being sold), memos, models. Junior bankers spend <strong>80% of their time producing documents</strong> that Cowork can now automate. Banks pay $150K-$200K per junior analyst — high willingness to pay per seat. Anthropic built IB (Investment Banking), Equity Research, and PE (Private Equity) templates specifically for this sub-industry.</div>
             </div>
             <div class="fsv2-uc-block api">
               <div class="fsv2-uc-top">
                 <span class="fsv2-uc-product api">API</span>
                 <span class="fsv2-uc-driver">Deal processing, KYC/AML, and accounting at scale</span>
               </div>
-              <div class="fsv2-uc-body">Process filings, screen deals, extract financial data at scale. <strong>Goldman embedded Anthropic engineers for 6 months</strong> — the deepest integration in FS. API powers trade/transaction accounting and KYC/AML onboarding.</div>
+              <div class="fsv2-uc-body">Process filings, screen deals, extract financial data at scale. <strong>Goldman embedded Anthropic engineers for 6 months</strong> — the deepest integration in FS. API powers trade/transaction accounting and KYC/AML onboarding (KYC = Know Your Customer, AML = Anti-Money Laundering — the legally required checks banks must do before taking on new clients).</div>
             </div>
             <div class="fsv2-uc-block code">
               <div class="fsv2-uc-top">
@@ -3929,12 +3929,12 @@ section:last-of-type { border-bottom: none; }
               <div class="fsv2-plugin-label"><span class="fsv2-plugin-tag template">Template</span> Investment Banking</div>
               <div class="fsv2-plugin-detail">Add-on for IB (requires Financial Analysis core).
                 <div class="fsv2-skill-list">
-                  <div><strong>CIM builder</strong> — confidential information memorandums</div>
-                  <div><strong>Teaser</strong> — one-page marketing docs to pitch a company</div>
-                  <div><strong>Process letter</strong> — formal bid process documents</div>
+                  <div><strong>CIM builder</strong> — Confidential Information Memorandum (the "sales brochure" when selling a company)</div>
+                  <div><strong>Teaser</strong> — one-page marketing doc to pitch a company to potential buyers</div>
+                  <div><strong>Process letter</strong> — formal bid process documents sent to buyers</div>
                   <div><strong>Buyer list</strong> — potential acquirers by industry/size/fit</div>
-                  <div><strong>Merger model</strong> — accretion/dilution when companies combine</div>
-                  <div><strong>Strip profile</strong> — side-by-side company comparison sheets</div>
+                  <div><strong>Merger model</strong> — accretion/dilution analysis (will this acquisition increase or decrease the buyer's earnings per share?)</div>
+                  <div><strong>Strip profile</strong> — side-by-side comparison of multiple companies on the same metrics</div>
                   <div><strong>Pitch deck</strong> — build pitch books and presentations</div>
                   <div><strong>Datapack builder</strong> — standardized data packages for deals</div>
                   <div><strong>Deal tracker</strong> — monitor deals from engagement to close</div>
@@ -3947,15 +3947,15 @@ section:last-of-type { border-bottom: none; }
             </div>
             <div class="fsv2-plugin-row">
               <div class="fsv2-plugin-label"><span class="fsv2-plugin-tag template">Template</span> Private Equity</div>
-              <div class="fsv2-plugin-detail">Deal sourcing, due diligence, unit economics, IC memo, portfolio KPIs.</div>
+              <div class="fsv2-plugin-detail">Deal sourcing, due diligence (DD — deep investigation before buying a company), unit economics, IC memo (Investment Committee memo — the document that gets the deal approved internally), portfolio KPIs (Key Performance Indicators — the metrics they track across companies they own).</div>
             </div>
             <div class="fsv2-plugin-row">
               <div class="fsv2-plugin-label"><span class="fsv2-plugin-tag connector">Connector</span> FactSet · S&amp;P · LSEG</div>
-              <div class="fsv2-plugin-detail">Full market data stack. S&amp;P skills: earnings-preview-beta, funding-digest, tear-sheet. LSEG skills: fixed income pricing, yield curves, FX carry trades, options valuation, macro dashboards.</div>
+              <div class="fsv2-plugin-detail">Full market data stack. S&amp;P skills: earnings-preview-beta, funding-digest, tear-sheet (one-page company snapshot). LSEG skills: fixed income pricing (bonds — "fixed income" because they pay a fixed interest rate), yield curves (a chart showing interest rates over time — key for predicting the economy), FX carry trades (FX = foreign exchange / currency trading), options valuation, macro dashboards (big-picture economic data).</div>
             </div>
             <div class="fsv2-plugin-row">
               <div class="fsv2-plugin-label"><span class="fsv2-plugin-tag connector">Connector</span> MSCI</div>
-              <div class="fsv2-plugin-detail">ESG ratings and risk analytics for deal screening and investor presentations.</div>
+              <div class="fsv2-plugin-detail">ESG (Environmental, Social, Governance) ratings and risk analytics — used for deal screening and investor presentations.</div>
             </div>
           </div>
 
@@ -3966,14 +3966,14 @@ section:last-of-type { border-bottom: none; }
                 <div class="fsv2-story-co">Goldman Sachs</div>
                 <span class="fsv2-story-product multi">API + Claude Code</span>
               </div>
-              <div class="fsv2-story-body">API powers trade/transaction accounting agents + KYC/AML onboarding automation. Claude Code across their developer org. <strong>Anthropic embedded engineers at Goldman for 6 months</strong> — the deepest customer integration partnership in financial services.</div>
+              <div class="fsv2-story-body">API powers trade/transaction accounting agents + KYC/AML onboarding automation (the legally required identity checks before taking on new clients). Claude Code across their developer org. <strong>Anthropic embedded engineers at Goldman for 6 months</strong> — the deepest customer integration partnership in financial services.</div>
             </div>
             <div class="fsv2-story">
               <div class="fsv2-story-header">
                 <div class="fsv2-story-co">NYSE (New York Stock Exchange)</div>
                 <span class="fsv2-story-product multi">Claude Code + API</span>
               </div>
-              <div class="fsv2-story-body">Engineering modernization via Claude Code. API powers AI agents: Jira → committed code, proxy filing review, SEC audit analysis, news classification.</div>
+              <div class="fsv2-story-body">Engineering modernization via Claude Code. API powers AI agents: Jira → committed code, proxy filing review (proxy filings = documents companies send shareholders before votes), SEC audit analysis (SEC = Securities and Exchange Commission, the federal regulator for markets), news classification.</div>
             </div>
             <div class="fsv2-story">
               <div class="fsv2-story-header">
@@ -3987,7 +3987,7 @@ section:last-of-type { border-bottom: none; }
                 <div class="fsv2-story-co">LSEG (London Stock Exchange)</div>
                 <span class="fsv2-story-product connector">MCP Connector</span>
               </div>
-              <div class="fsv2-story-body">Co-developed market data &amp; analytics connector — 8 commands for fixed income, yield curves, FX, options, and macro dashboards.</div>
+              <div class="fsv2-story-body">Co-developed market data &amp; analytics connector — 8 commands covering bonds (fixed income), interest rate curves (yield curves), currency trading (FX), options, and economic dashboards (macro).</div>
             </div>
           </div>
 
@@ -4013,7 +4013,7 @@ section:last-of-type { border-bottom: none; }
           <div class="fsv2-section-label orange">What This Sub-Industry Does</div>
           <div class="fsv2-explainer">
             
-            <p>Fintechs are the companies reimagining how money moves — <strong>digital payments</strong> (Stripe, Square, PayPal), <strong>online lending</strong> (Klarna's buy-now-pay-later), <strong>embedded finance</strong> (banking features built into non-bank apps), and <strong>crypto</strong> (Coinbase). They make money on <strong>transaction fees</strong> (every time you tap your card, someone takes a cut — usually 2-3%), <strong>interchange</strong> (fees merchants pay to accept cards), and <strong>subscriptions</strong> (SaaS pricing for their platforms). They're engineering-first companies — smaller headcounts but massive API consumers because everything is automated and real-time.</p>
+            <p>Fintechs are the companies reimagining how money moves — <strong>digital payments</strong> (Stripe, Square, PayPal), <strong>online lending</strong> (Klarna's buy-now-pay-later), <strong>embedded finance</strong> (banking features built into non-bank apps), and <strong>crypto</strong> (Coinbase). They make money on <strong>transaction fees</strong> (every time you tap your card, someone takes a cut — usually 2-3%), <strong>interchange</strong> (the specific fee merchants pay to the card-issuing bank each time a card is swiped), and <strong>subscriptions</strong> (SaaS pricing for their platforms). They're engineering-first companies — smaller headcounts but massive API consumers because everything is automated and real-time.</p>
           </div>
 
           <div class="fsv2-section-label orange">Why This Drives Revenue — By Use Case</div>
@@ -4068,7 +4068,7 @@ section:last-of-type { border-bottom: none; }
           <div class="fsv2-plugins">
             <div class="fsv2-plugin-row">
               <div class="fsv2-plugin-label"><span class="fsv2-plugin-tag template">Template</span> Financial Analysis</div>
-              <div class="fsv2-plugin-detail">Core plugin — comps, DCF, 3-statements, LBO, competitive analysis, check-model, check-deck, PPT templates + 11 MCP connectors.</div>
+              <div class="fsv2-plugin-detail">Core plugin — comps (company comparisons), DCF (cash flow valuation), 3-statements (income/balance/cash flow), LBO (leveraged buyout), competitive analysis, check-model, check-deck, PPT templates + 11 MCP connectors (live data from FactSet, S&amp;P, Moody's, etc.).</div>
             </div>
           </div>
 
@@ -4124,26 +4124,71 @@ section:last-of-type { border-bottom: none; }
           <div class="fsv2-jp-text">
             <strong>"Anthropic is a Platform, Not a Product"</strong><br>
             <span class="muted">Customers bring the context, data, compliance, and access controls. They own what they build and deploy it where they want — Bedrock, Foundry, or Vertex. The customer decides. Anthropic's product roadmap comes directly from customer input, not off-the-shelf assumptions.</span>
-            <span class="fsv2-jp-myangle">→ My angle: I've lived this for 9 years at Salesforce and especially the last 12 months focused on Agentforce. Platform selling is about enabling the customer's vision, not pushing your product.</span>
           </div>
         </div>
 
         <div class="fsv2-jp-point">
           <div class="fsv2-jp-icon">2</div>
           <div class="fsv2-jp-text">
-            <strong>"Regulated Industries is Where AI Proves Itself"</strong><br>
-            <span class="muted">Financial services is the hardest, highest-stakes test for AI — where impact is massive but trust comes first. Example: Allianz claims processing agents — you get it wrong, it can really impact someone's life. AI model reasoning transparency is critical. Claude's published Constitution = competitive advantage in regulated sales. When compliance or legal asks "how does your AI make decisions?" during evaluations, you can actually point to a transparent, detailed governance framework that no other model provider has published.</span>
-            <span class="fsv2-jp-myangle">→ My angle: This is exactly how I sold Manufacturing Cloud at Flex — trust first, product second. Regulated industries need a vendor they can defend to their board.</span>
+            <strong>"AI Augments, Doesn't Replace"</strong><br>
+            <span class="muted">AI handles the busy work — document processing, data analysis, repetitive compliance tasks — while freeing up people to spend more time with people. It enables them to be faster, smarter, and more focused on judgment calls, helping clients and the business. The goal is augmentation, not displacement.</span>
           </div>
         </div>
 
         <div class="fsv2-jp-point">
           <div class="fsv2-jp-icon">3</div>
           <div class="fsv2-jp-text">
-            <strong>"AI Augments, Doesn't Replace"</strong><br>
-            <span class="muted">AI handles the busy work — document processing, data analysis, repetitive compliance tasks — while freeing up people to spend more time with people. It enables them to be faster, smarter, and more focused on judgment calls, helping clients and the business. The goal is augmentation, not displacement.</span>
-            <span class="fsv2-jp-myangle">→ My angle: Every customer story above proves this — NBIM's 213K hours freed up, HUB's 2.5 hrs/employee/week, Block's 8-10 hrs/week saved. The pitch isn't "AI replaces your team." It's "AI gives your team superpowers."</span>
+            <strong>"Regulated Industries is Where AI Proves Itself"</strong><br>
+            <span class="muted">Financial services is the hardest, highest-stakes test for AI — where impact is massive but trust comes first. Example: Allianz claims processing agents — you get it wrong, it can really impact someone's life. AI model reasoning transparency is critical. Claude's published Constitution = competitive advantage in regulated sales. When compliance or legal asks "how does your AI make decisions?" during evaluations, you can actually point to a transparent, detailed governance framework that no other model provider has published.</span>
           </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         MY QUESTIONS FOR THE INTERVIEW
+         ═══════════════════════════════════════════════════════════ -->
+    <div class="fade-in" style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 14px; padding: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin-top: 16px;">
+      <div style="font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">My Questions for the Team</div>
+      <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 20px;">Questions that show I've done the work and understand the business — not softballs.</div>
+
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+
+        <!-- Q1 -->
+        <div style="padding: 16px 18px; background: #fdf8f4; border: 1px solid rgba(217,119,87,0.1); border-radius: 10px;">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+            <span style="font-size: 11px; font-weight: 700; color: #fff; background: var(--accent-a); width: 24px; height: 24px; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</span>
+            <span style="font-size: 13px; font-weight: 700; color: var(--text-primary);">How First Conversations Actually Work</span>
+          </div>
+          <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.65;">With the Cowork financial services plugins just launching on top of products like API and Claude Code that are already deeply embedded at places like Goldman and Citi — what does demand look like right now from senior FS executives? How much of that inbound is customers coming to you with specific use cases they want to build together vs. needing education on where to start? And honestly, how much of it is executives trying to get ahead of the narrative — showing their board and the market that they're leveraging AI, not being disrupted by it? When you get on that first call with a new prospect, walk me through how it typically goes.</div>
+        </div>
+
+        <!-- Q2 -->
+        <div style="padding: 16px 18px; background: #fdf8f4; border: 1px solid rgba(217,119,87,0.1); border-radius: 10px;">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+            <span style="font-size: 11px; font-weight: 700; color: #fff; background: var(--accent-a); width: 24px; height: 24px; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</span>
+            <span style="font-size: 13px; font-weight: 700; color: var(--text-primary);">Closing the Gap from Education to Token Consumption</span>
+          </div>
+          <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.65;">For custom API builds, going from initial education to actually running in production is a big lift — architecture decisions, security reviews, integration work. How are you supporting customers through that gap today? Are forward-deployed engineers deeply involved with reference architectures and best practices, or are you leaning on SIs? I'm trying to understand the success motion that gets a customer from "we signed a deal" to actually consuming tokens at scale — vs. getting stuck in the build phase.</div>
+        </div>
+
+        <!-- Q3 -->
+        <div style="padding: 16px 18px; background: #fdf8f4; border: 1px solid rgba(217,119,87,0.1); border-radius: 10px;">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+            <span style="font-size: 11px; font-weight: 700; color: #fff; background: var(--accent-a); width: 24px; height: 24px; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</span>
+            <span style="font-size: 13px; font-weight: 700; color: var(--text-primary);">Competitive Risk from Agent Platforms</span>
+          </div>
+          <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.65;">Anthropic doesn't have a native agent platform the way Salesforce, OpenAI, Google, or AWS do. How real is the threat from platforms where customers can build agents end-to-end without Anthropic as the model underneath? At Salesforce, for example, we had a hyperscale data platform connected to the agent builder — all clicks, no code. When a customer has to piece together multiple vendors, time to value slows down. How do you think about that competitive dynamic?</div>
+        </div>
+
+        <!-- Q4 -->
+        <div style="padding: 16px 18px; background: #fdf8f4; border: 1px solid rgba(217,119,87,0.1); border-radius: 10px;">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+            <span style="font-size: 11px; font-weight: 700; color: #fff; background: var(--accent-a); width: 24px; height: 24px; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">4</span>
+            <span style="font-size: 13px; font-weight: 700; color: var(--text-primary);">Deal Structure &amp; Pricing Levers</span>
+          </div>
+          <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.65;">I'd love to understand what deal structures are working. Are most deals minimum annual commitments with monthly billing based on consumption and a true-up at renewal? Are you having customers buy forward tokens at a discount to improve cash flow predictability? For larger transactions, what levers do you use beyond token rates — default model language, term length, volume tiers? Trying to understand the commercial playbook.</div>
         </div>
 
       </div>
