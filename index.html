@@ -3533,21 +3533,30 @@ section:last-of-type { border-bottom: none; }
 <section id="fs-deep-dive" style="background: var(--bg-secondary); padding: 60px 0;">
   <div class="container">
     <h2 class="fade-in" style="font-family: var(--font-display); font-size: 28px; color: var(--text-primary); font-weight: 700; line-height: 1.2; margin-bottom: 6px;">Financial Services — Sub-Industry Deep Dive</h2>
-    <p class="fade-in" style="font-size: 13px; color: var(--text-muted); margin-bottom: 28px; max-width: 700px;">Each sub-industry broken down: what they do, how they make money, which Anthropic products fit, the new Cowork plugins, and real customer stories. Built for quick scanning before interviews.</p>
+
 
 
     <!-- ═══════════════════════════════════════════════════════════
          WHAT I BRING TO THIS ROLE
          ═══════════════════════════════════════════════════════════ -->
 
-    <!-- CALL GOAL -->
-    <div class="fade-in" style="background: #fff; border: 1px solid var(--border-light); border-left: 4px solid var(--accent-a); border-radius: 0 10px 10px 0; padding: 16px 20px; margin-bottom: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
-      <div style="font-size: 10px; font-weight: 700; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 6px;">My Goal for This Call — 25 Minutes With JP</div>
-      <div style="font-size: 13px; font-weight: 700; color: var(--text-primary); line-height: 1.65;">
-        • Answer your questions and address any concerns<br>
-        • Help you understand why I've received 9 promotions in my 9 years at Salesforce<br>
-        • Why I'm tasked with managing our most strategic clients and selling our most strategic product<br>
-        • How I've been a force multiplier for Salesforce — and why JJH is recommending me for this role
+    <!-- CALL GOAL - COLLAPSIBLE -->
+    <div class="fade-in" id="call-goal-toggle" onclick="document.getElementById('call-goal-content').classList.toggle('cg-open'); this.classList.toggle('cg-active')" style="background: #fff; border: 1px solid var(--border-light); border-left: 4px solid var(--accent-a); border-radius: 0 10px 10px 0; padding: 16px 20px; margin-bottom: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+      <div style="font-size: 10px; font-weight: 700; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.12em;">My Goal for This Call — 25 Minutes With JP</div>
+      <div id="call-goal-arrow" style="font-size: 24px; color: var(--accent-a); font-weight: 300; transition: transform 0.3s;">＋</div>
+    </div>
+    <div id="call-goal-content" style="display: none; margin-top: -20px; margin-bottom: 28px;">
+    <style>
+      #call-goal-content.cg-open { display: block !important; }
+      #call-goal-toggle.cg-active #call-goal-arrow { transform: rotate(45deg); }
+    </style>
+      <div style="background: #fff; border: 1px solid var(--border-light); border-left: 4px solid var(--accent-a); border-radius: 0 0 10px 0; padding: 4px 20px 16px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+        <div style="font-size: 13px; font-weight: 700; color: var(--text-primary); line-height: 1.65;">
+          • Answer your questions and address any concerns<br>
+          • Help you understand why I've received 9 promotions in my 9 years at Salesforce<br>
+          • Why I'm tasked with managing our most strategic clients and selling our most strategic product<br>
+          • How I've been a force multiplier for Salesforce — and why JJH is recommending me for this role
+        </div>
       </div>
     </div>
 
