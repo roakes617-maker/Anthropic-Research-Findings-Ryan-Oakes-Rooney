@@ -3138,377 +3138,429 @@ section:last-of-type { border-bottom: none; }
   </div>
 </section>
      ============================================================ -->
+     ============================================================ -->
 
 <!-- ============================================================
-     FINANCIAL SERVICES — Hierarchical Use Case Tree
+     FINANCIAL SERVICES — Left-to-Right Hierarchical Tree
      ============================================================ -->
 <style>
-  .fs-tree { position: relative; }
+  /* FS Tree — Left to Right layout */
+  .fs-row {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    margin-bottom: 20px;
+  }
 
-  /* Root node */
-  .fs-root {
+  /* Root node (left column) */
+  .fs-root-col {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .fs-root-node {
     background: var(--accent-a);
     color: #fff;
     font-family: var(--font-display);
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 700;
-    padding: 20px 32px;
+    padding: 18px 24px;
     border-radius: 12px;
     text-align: center;
-    display: inline-block;
+    writing-mode: horizontal-tb;
+    white-space: nowrap;
   }
 
-  /* Sub-industry nodes */
-  .fs-subind {
-    background: var(--bg-card);
-    border: 2px solid var(--accent-a);
-    border-radius: 10px;
-    padding: 14px 16px;
-    text-align: center;
-  }
-  .fs-subind-title {
-    font-family: var(--font-display);
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--accent-a);
-    margin-bottom: 6px;
-  }
-  .fs-subind-companies {
-    font-size: 10px;
-    color: var(--text-muted);
-    line-height: 1.5;
-  }
-
-  /* Product nodes */
-  .fs-product {
-    background: rgba(120,140,93,0.08);
-    border: 1px solid rgba(120,140,93,0.25);
-    border-radius: 8px;
-    padding: 10px 14px;
-    text-align: center;
-  }
-  .fs-product-name {
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--accent-b);
-  }
-
-  /* Use case leaf nodes */
-  .fs-usecase {
-    background: var(--bg-card);
-    border: 1px solid var(--border-light);
-    border-radius: 8px;
-    padding: 10px 12px;
-    font-size: 11px;
-    color: var(--text-secondary);
-    line-height: 1.5;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-  }
-
-  /* Tree layout helpers */
-  .fs-level { display: flex; justify-content: center; gap: 16px; position: relative; }
-  .fs-branch { display: flex; flex-direction: column; align-items: center; gap: 0; flex: 1; min-width: 0; }
-  .fs-vline { width: 2px; height: 20px; background: var(--border-light); flex-shrink: 0; }
-  .fs-hline { height: 2px; background: var(--border-light); }
-
-  /* Collapsible sub-industry sections */
-  .fs-expand-btn {
-    background: none;
-    border: 1px solid var(--border-light);
-    border-radius: 50%;
+  /* Horizontal connector from root */
+  .fs-h-connector {
     width: 24px;
-    height: 24px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .fs-h-connector::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--border-medium);
+  }
+
+  /* Sub-industries column */
+  .fs-subind-col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+  }
+
+  /* Each sub-industry row */
+  .fs-subind-row {
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    background: var(--bg-card);
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    transition: border-color 0.2s;
+  }
+  .fs-subind-row:hover {
+    border-color: rgba(217,119,87,0.3);
+  }
+
+  /* Sub-industry header (always visible) */
+  .fs-subind-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .fs-subind-header:hover {
+    background: rgba(217,119,87,0.02);
+  }
+  .fs-subind-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: var(--accent-a);
+    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: 700;
+    flex-shrink: 0;
+    font-family: var(--font-display);
+  }
+  .fs-subind-info { flex: 1; min-width: 0; }
+  .fs-subind-name {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 3px;
+  }
+  .fs-subind-cos {
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+  .fs-toggle-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid var(--border-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
     color: var(--text-muted);
     transition: all 0.2s;
-    margin: 8px auto;
+    flex-shrink: 0;
+    background: transparent;
   }
-  .fs-expand-btn:hover { background: rgba(217,119,87,0.08); border-color: var(--accent-a); color: var(--accent-a); }
-  .fs-detail-panel {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease;
-    width: 100%;
-  }
-  .fs-detail-panel.open {
-    max-height: 2000px;
+  .fs-subind-row.open .fs-toggle-icon {
+    background: rgba(217,119,87,0.08);
+    border-color: var(--accent-a);
+    color: var(--accent-a);
+    transform: rotate(45deg);
   }
 
-  /* Mobile: stack everything */
+  /* Expandable detail panel */
+  .fs-detail {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+  }
+  .fs-subind-row.open .fs-detail {
+    max-height: 3000px;
+  }
+  .fs-detail-inner {
+    padding: 0 20px 20px;
+    border-top: 1px solid var(--border-light);
+  }
+
+  /* Product cards inside detail */
+  .fs-prod-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .fs-prod-card {
+    border-radius: 10px;
+    padding: 14px;
+    border: 1px solid transparent;
+  }
+  .fs-prod-card.api { background: rgba(217,119,87,0.06); border-color: rgba(217,119,87,0.15); }
+  .fs-prod-card.code { background: rgba(100,100,180,0.06); border-color: rgba(100,100,180,0.15); }
+  .fs-prod-card.cowork { background: rgba(120,140,93,0.06); border-color: rgba(120,140,93,0.15); }
+  .fs-prod-card.excel { background: rgba(55,130,175,0.06); border-color: rgba(55,130,175,0.15); }
+
+  .fs-prod-label {
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .fs-prod-label.api { color: var(--accent-a); }
+  .fs-prod-label.code { color: #5a5aa0; }
+  .fs-prod-label.cowork { color: var(--accent-b); }
+  .fs-prod-label.excel { color: #3782af; }
+
+  .fs-uc {
+    font-size: 11px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    padding: 8px 10px;
+    background: rgba(255,255,255,0.7);
+    border-radius: 6px;
+    margin-bottom: 6px;
+  }
+  .fs-uc:last-child { margin-bottom: 0; }
+
+  /* Mobile responsive */
   @media (max-width: 768px) {
-    .fs-level { flex-direction: column; align-items: stretch; gap: 12px; }
-    .fs-subind { min-width: auto; }
-    .fs-hline { display: none; }
-    .fs-products-grid { grid-template-columns: 1fr 1fr !important; }
-    .fs-usecases-grid { grid-template-columns: 1fr !important; }
+    .fs-root-col, .fs-h-connector { display: none; }
+    .fs-prod-grid { grid-template-columns: 1fr 1fr; }
+    .fs-subind-header { padding: 14px 16px; }
+    .fs-detail-inner { padding: 0 16px 16px; }
+  }
+  @media (max-width: 480px) {
+    .fs-prod-grid { grid-template-columns: 1fr; }
   }
 </style>
 
 <section id="fs-deep-dive" style="background: var(--bg-secondary); padding: 60px 0;">
   <div class="container">
     <h2 class="fade-in" style="font-family: var(--font-display); font-size: 28px; color: var(--text-primary); font-weight: 700; line-height: 1.2; margin-bottom: 8px;">Financial Services — Use Case Deep Dive</h2>
-    <p class="fade-in" style="font-size: 15px; color: var(--text-secondary); line-height: 1.65; max-width: 750px; margin-bottom: 40px;">A hierarchical view of how Anthropic's products map to specific sub-industries, personas, and use cases across Financial Services — the vertical JJH is building out at Anthropic.</p>
+    <p class="fade-in" style="font-size: 15px; color: var(--text-secondary); line-height: 1.65; max-width: 750px; margin-bottom: 40px;">How Anthropic's products map to specific sub-industries, personas, and use cases across Financial Services — the vertical JJH is building out at Anthropic. Click any sub-industry to expand.</p>
 
-    <!-- ===== ROOT NODE ===== -->
-    <div class="fade-in" style="text-align: center; margin-bottom: 0;">
-      <div class="fs-root">Financial Services</div>
-      <div style="font-size: 11px; color: var(--text-muted); margin-top: 8px;">$1.1T IT spend by 2029 · #1 CIO spend priority · Regulators require explainability &amp; auditability</div>
-    </div>
+    <div class="fade-in fs-row">
 
-    <div class="fs-vline" style="margin: 0 auto;"></div>
-
-    <!-- Horizontal connector line -->
-    <div style="max-width: 900px; margin: 0 auto;">
-      <div class="fs-hline" style="margin: 0 calc(10% + 8px);"></div>
-    </div>
-
-    <!-- ===== LEVEL 2: SUB-INDUSTRIES ===== -->
-    <div class="fade-in fs-level" style="max-width: 1100px; margin: 0 auto; align-items: flex-start;">
-
-      <!-- ── Retail & Commercial Banking ── -->
-      <div class="fs-branch">
-        <div class="fs-vline"></div>
-        <div class="fs-subind">
-          <div class="fs-subind-title">Retail &amp; Commercial Banking</div>
-          <div class="fs-subind-companies">JPMorgan Chase · Bank of America · Wells Fargo · Citigroup · U.S. Bancorp · PNC</div>
+      <!-- ROOT NODE — left side -->
+      <div class="fs-root-col">
+        <div>
+          <div class="fs-root-node">Financial<br>Services</div>
+          <div style="font-size: 10px; color: var(--text-muted); text-align: center; margin-top: 8px; max-width: 140px;">$1.1T IT spend by 2029<br>#1 CIO priority<br>Compliance required</div>
         </div>
-        <button class="fs-expand-btn" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.textContent === '＋' ? '−' : '＋'">＋</button>
-        <div class="fs-detail-panel">
-          <div style="padding: 16px; background: #fdf5f0; border: 1px solid rgba(217,119,87,0.15); border-radius: 10px; margin-top: 4px;">
-            <div style="font-size: 10px; font-weight: 700; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px;">Products → Use Cases</div>
-            <div class="fs-products-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-              <div class="fs-product">
-                <div class="fs-product-name">API</div>
-                <div class="fs-usecases-grid" style="display: grid; gap: 6px; margin-top: 8px;">
-                  <div class="fs-usecase">Fraud detection &amp; transaction monitoring — real-time pattern analysis across millions of transactions</div>
-                  <div class="fs-usecase">KYC/AML compliance automation — document verification, risk scoring, suspicious activity reports</div>
-                  <div class="fs-usecase">Customer service agents — handle account inquiries, disputes, loan status with policy compliance</div>
+      </div>
+
+      <!-- CONNECTOR -->
+      <div class="fs-h-connector"></div>
+
+      <!-- SUB-INDUSTRIES — right side, stacked vertically -->
+      <div class="fs-subind-col">
+
+        <!-- ── 1. Retail & Commercial Banking ── -->
+        <div class="fs-subind-row" onclick="this.classList.toggle('open')">
+          <div class="fs-subind-header">
+            <div class="fs-subind-icon">1</div>
+            <div class="fs-subind-info">
+              <div class="fs-subind-name">Retail &amp; Commercial Banking</div>
+              <div class="fs-subind-cos">JPMorgan Chase · Bank of America · Wells Fargo · Citigroup · U.S. Bancorp · PNC</div>
+            </div>
+            <div class="fs-toggle-icon">＋</div>
+          </div>
+          <div class="fs-detail">
+            <div class="fs-detail-inner">
+              <div class="fs-prod-grid">
+                <div class="fs-prod-card api">
+                  <div class="fs-prod-label api">API</div>
+                  <div class="fs-uc">Fraud detection &amp; transaction monitoring — real-time pattern analysis across millions of transactions</div>
+                  <div class="fs-uc">KYC/AML compliance — document verification, risk scoring, suspicious activity reports</div>
+                  <div class="fs-uc">Customer service agents — account inquiries, disputes, loan status with policy guardrails</div>
                 </div>
-              </div>
-              <div class="fs-product">
-                <div class="fs-product-name">Claude Code</div>
-                <div class="fs-usecases-grid" style="display: grid; gap: 6px; margin-top: 8px;">
-                  <div class="fs-usecase">Legacy core banking modernization — COBOL mainframe to cloud migration</div>
-                  <div class="fs-usecase">Open banking API development — PSD2/FDX compliant integrations</div>
+                <div class="fs-prod-card code">
+                  <div class="fs-prod-label code">Claude Code</div>
+                  <div class="fs-uc">Legacy core banking modernization — COBOL mainframe to cloud migration</div>
+                  <div class="fs-uc">Open banking API development — PSD2/FDX compliant integrations</div>
                 </div>
-              </div>
-              <div class="fs-product">
-                <div class="fs-product-name">Cowork</div>
-                <div class="fs-usecases-grid" style="display: grid; gap: 6px; margin-top: 8px;">
-                  <div class="fs-usecase">Loan officers — underwriting memos, credit analysis summaries, approval documentation</div>
-                  <div class="fs-usecase">Compliance officers — regulatory change monitoring, policy gap analysis, audit prep</div>
+                <div class="fs-prod-card cowork">
+                  <div class="fs-prod-label cowork">Cowork</div>
+                  <div class="fs-uc">Loan officers — underwriting memos, credit analysis summaries, approval documentation</div>
+                  <div class="fs-uc">Compliance officers — regulatory change monitoring, policy gap analysis, audit prep</div>
                 </div>
-              </div>
-              <div class="fs-product">
-                <div class="fs-product-name">Excel</div>
-                <div class="fs-usecases-grid" style="display: grid; gap: 6px; margin-top: 8px;">
-                  <div class="fs-usecase">Commercial lending — cash flow analysis, covenant tracking, portfolio stress testing</div>
-                  <div class="fs-usecase">Branch performance — revenue analytics, cost allocation, efficiency benchmarking</div>
+                <div class="fs-prod-card excel">
+                  <div class="fs-prod-label excel">Excel</div>
+                  <div class="fs-uc">Commercial lending — cash flow analysis, covenant tracking, portfolio stress testing</div>
+                  <div class="fs-uc">Branch performance — revenue analytics, cost allocation, efficiency benchmarking</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- ── Investment Banking & Capital Markets ── -->
-      <div class="fs-branch">
-        <div class="fs-vline"></div>
-        <div class="fs-subind">
-          <div class="fs-subind-title">Investment Banking &amp; Capital Markets</div>
-          <div class="fs-subind-companies">Goldman Sachs · Morgan Stanley · Jefferies · Lazard · Evercore · Moelis</div>
-        </div>
-        <button class="fs-expand-btn" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.textContent === '＋' ? '−' : '＋'">＋</button>
-        <div class="fs-detail-panel">
-          <div style="padding: 16px; background: #fdf5f0; border: 1px solid rgba(217,119,87,0.15); border-radius: 10px; margin-top: 4px;">
-            <div style="font-size: 10px; font-weight: 700; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px;">Products → Use Cases</div>
-            <div class="fs-products-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-              <div class="fs-product">
-                <div class="fs-product-name">API</div>
-                <div class="fs-usecases-grid" style="display: grid; gap: 6px; margin-top: 8px;">
-                  <div class="fs-usecase">Deal sourcing intelligence — market screening, comparable analysis, precedent transactions</div>
-                  <div class="fs-usecase">Earnings &amp; SEC filing analysis — extract key metrics, flag anomalies, generate summaries at scale</div>
+        <!-- ── 2. Investment Banking & Capital Markets ── -->
+        <div class="fs-subind-row" onclick="this.classList.toggle('open')">
+          <div class="fs-subind-header">
+            <div class="fs-subind-icon">2</div>
+            <div class="fs-subind-info">
+              <div class="fs-subind-name">Investment Banking &amp; Capital Markets</div>
+              <div class="fs-subind-cos">Goldman Sachs · Morgan Stanley · Jefferies · Lazard · Evercore · Moelis</div>
+            </div>
+            <div class="fs-toggle-icon">＋</div>
+          </div>
+          <div class="fs-detail">
+            <div class="fs-detail-inner">
+              <div class="fs-prod-grid">
+                <div class="fs-prod-card api">
+                  <div class="fs-prod-label api">API</div>
+                  <div class="fs-uc">Deal sourcing intelligence — market screening, comparable analysis, precedent transactions</div>
+                  <div class="fs-uc">Earnings &amp; SEC filing analysis — extract key metrics, flag anomalies, generate summaries at scale</div>
                 </div>
-              </div>
-              <div class="fs-product">
-                <div class="fs-product-name">Claude Code</div>
-                <div class="fs-usecases-grid" style="display: grid; gap: 6px; margin-top: 8px;">
-                  <div class="fs-usecase">Quantitative trading models — backtesting, strategy development, risk factor analysis</div>
-                  <div class="fs-usecase">Market data platform development — real-time analytics, order management systems</div>
+                <div class="fs-prod-card code">
+                  <div class="fs-prod-label code">Claude Code</div>
+                  <div class="fs-uc">Quantitative trading models — backtesting, strategy development, risk factor analysis</div>
+                  <div class="fs-uc">Market data platform development — real-time analytics, order management systems</div>
                 </div>
-              </div>
-              <div class="fs-product">
-                <div class="fs-product-name">Cowork</div>
-                <div class="fs-usecases-grid" style="display: grid; gap: 6px; margin-top: 8px;">
-                  <div class="fs-usecase">Analysts — pitch books, CIMs, investment memos, due diligence reports</div>
-                  <div class="fs-usecase">Managing Directors — client prep, board presentations, deal committee materials</div>
+                <div class="fs-prod-card cowork">
+                  <div class="fs-prod-label cowork">Cowork</div>
+                  <div class="fs-uc">Analysts — pitch books, CIMs, investment memos, due diligence reports</div>
+                  <div class="fs-uc">Managing Directors — client prep, board presentations, deal committee materials</div>
                 </div>
-              </div>
-              <div class="fs-product">
-                <div class="fs-product-name">Excel</div>
-                <div class="fs-usecases-grid" style="display: grid; gap: 6px; margin-top: 8px;">
-                  <div class="fs-usecase">DCF &amp; LBO modeling — scenario analysis, sensitivity tables, valuation buildouts</div>
-                  <div class="fs-usecase">M&amp;A integration analysis — synergy modeling, cost savings projections</div>
+                <div class="fs-prod-card excel">
+                  <div class="fs-prod-label excel">Excel</div>
+                  <div class="fs-uc">DCF &amp; LBO modeling — scenario analysis, sensitivity tables, valuation buildouts</div>
+                  <div class="fs-uc">M&amp;A integration — synergy modeling, cost savings projections, pro forma financials</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- ── Insurance ── -->
-      <div class="fs-branch">
-        <div class="fs-vline"></div>
-        <div class="fs-subind">
-          <div class="fs-subind-title">Insurance</div>
-          <div class="fs-subind-companies">UnitedHealth · Anthem · Aetna · MetLife · AIG · Progressive · Allstate</div>
-        </div>
-        <button class="fs-expand-btn" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.textContent === '＋' ? '−' : '＋'">＋</button>
-        <div class="fs-detail-panel">
-          <div style="padding: 16px; background: #fdf5f0; border: 1px solid rgba(217,119,87,0.15); border-radius: 10px; margin-top: 4px;">
-            <div style="font-size: 10px; font-weight: 700; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px;">Products → Use Cases</div>
-            <div class="fs-products-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-              <div class="fs-product">
-                <div class="fs-product-name">API</div>
-                <div class="fs-usecases-grid" style="display: grid; gap: 6px; margin-top: 8px;">
-                  <div class="fs-usecase">Claims processing automation — intake, triage, damage assessment, fraud detection</div>
-                  <div class="fs-usecase">Underwriting risk assessment — policy analysis, risk scoring, pricing recommendations</div>
-                  <div class="fs-usecase">Customer self-service agents — policy questions, claims status, coverage explanations</div>
+        <!-- ── 3. Insurance ── -->
+        <div class="fs-subind-row" onclick="this.classList.toggle('open')">
+          <div class="fs-subind-header">
+            <div class="fs-subind-icon">3</div>
+            <div class="fs-subind-info">
+              <div class="fs-subind-name">Insurance</div>
+              <div class="fs-subind-cos">UnitedHealth · Anthem · Aetna · MetLife · AIG · Progressive · Allstate</div>
+            </div>
+            <div class="fs-toggle-icon">＋</div>
+          </div>
+          <div class="fs-detail">
+            <div class="fs-detail-inner">
+              <div class="fs-prod-grid">
+                <div class="fs-prod-card api">
+                  <div class="fs-prod-label api">API</div>
+                  <div class="fs-uc">Claims processing automation — intake, triage, damage assessment, fraud detection</div>
+                  <div class="fs-uc">Underwriting risk assessment — policy analysis, risk scoring, pricing recommendations</div>
+                  <div class="fs-uc">Customer self-service agents — policy questions, claims status, coverage explanations</div>
                 </div>
-              </div>
-              <div class="fs-product">
-                <div class="fs-product-name">Claude Code</div>
-                <div class="fs-usecases-grid" style="display: grid; gap: 6px; margin-top: 8px;">
-                  <div class="fs-usecase">Policy administration system modernization — legacy platform migration</div>
-                  <div class="fs-usecase">Telematics &amp; IoT integration — usage-based insurance platform development</div>
+                <div class="fs-prod-card code">
+                  <div class="fs-prod-label code">Claude Code</div>
+                  <div class="fs-uc">Policy administration system modernization — legacy platform migration</div>
+                  <div class="fs-uc">Telematics &amp; IoT integration — usage-based insurance platform development</div>
                 </div>
-              </div>
-              <div class="fs-product">
-                <div class="fs-product-name">Cowork</div>
-                <div class="fs-usecases-grid" style="display: grid; gap: 6px; margin-top: 8px;">
-                  <div class="fs-usecase">Adjusters — loss reports, coverage determination memos, subrogation analysis</div>
-                  <div class="fs-usecase">Compliance — regulatory filings, state-by-state requirement tracking, audit documentation</div>
+                <div class="fs-prod-card cowork">
+                  <div class="fs-prod-label cowork">Cowork</div>
+                  <div class="fs-uc">Adjusters — loss reports, coverage determination memos, subrogation analysis</div>
+                  <div class="fs-uc">Compliance — regulatory filings, state-by-state requirement tracking, audit documentation</div>
                 </div>
-              </div>
-              <div class="fs-product">
-                <div class="fs-product-name">Excel</div>
-                <div class="fs-usecases-grid" style="display: grid; gap: 6px; margin-top: 8px;">
-                  <div class="fs-usecase">Actuarial analysis — loss reserving, premium adequacy, risk factor modeling</div>
-                  <div class="fs-usecase">Portfolio performance — combined ratio analysis, loss development triangles</div>
+                <div class="fs-prod-card excel">
+                  <div class="fs-prod-label excel">Excel</div>
+                  <div class="fs-uc">Actuarial analysis — loss reserving, premium adequacy, risk factor modeling</div>
+                  <div class="fs-uc">Portfolio performance — combined ratio analysis, loss development triangles</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- ── Wealth & Asset Management ── -->
-      <div class="fs-branch">
-        <div class="fs-vline"></div>
-        <div class="fs-subind">
-          <div class="fs-subind-title">Wealth &amp; Asset Management</div>
-          <div class="fs-subind-companies">BlackRock · Vanguard · Fidelity · Charles Schwab · T. Rowe Price · State Street</div>
-        </div>
-        <button class="fs-expand-btn" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.textContent === '＋' ? '−' : '＋'">＋</button>
-        <div class="fs-detail-panel">
-          <div style="padding: 16px; background: #fdf5f0; border: 1px solid rgba(217,119,87,0.15); border-radius: 10px; margin-top: 4px;">
-            <div style="font-size: 10px; font-weight: 700; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px;">Products → Use Cases</div>
-            <div class="fs-products-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-              <div class="fs-product">
-                <div class="fs-product-name">API</div>
-                <div class="fs-usecases-grid" style="display: grid; gap: 6px; margin-top: 8px;">
-                  <div class="fs-usecase">Investment research agents — earnings analysis, market commentary, portfolio attribution</div>
-                  <div class="fs-usecase">Client reporting automation — personalized portfolio updates, tax lot analysis, performance summaries</div>
+        <!-- ── 4. Wealth & Asset Management ── -->
+        <div class="fs-subind-row" onclick="this.classList.toggle('open')">
+          <div class="fs-subind-header">
+            <div class="fs-subind-icon">4</div>
+            <div class="fs-subind-info">
+              <div class="fs-subind-name">Wealth &amp; Asset Management</div>
+              <div class="fs-subind-cos">BlackRock · Vanguard · Fidelity · Charles Schwab · T. Rowe Price · State Street</div>
+            </div>
+            <div class="fs-toggle-icon">＋</div>
+          </div>
+          <div class="fs-detail">
+            <div class="fs-detail-inner">
+              <div class="fs-prod-grid">
+                <div class="fs-prod-card api">
+                  <div class="fs-prod-label api">API</div>
+                  <div class="fs-uc">Investment research agents — earnings analysis, market commentary, portfolio attribution</div>
+                  <div class="fs-uc">Client reporting automation — personalized portfolio updates, tax lot analysis, performance summaries</div>
                 </div>
-              </div>
-              <div class="fs-product">
-                <div class="fs-product-name">Claude Code</div>
-                <div class="fs-usecases-grid" style="display: grid; gap: 6px; margin-top: 8px;">
-                  <div class="fs-usecase">Algorithmic portfolio construction — factor models, rebalancing engines, ESG scoring</div>
-                  <div class="fs-usecase">Client portal modernization — digital onboarding, document management</div>
+                <div class="fs-prod-card code">
+                  <div class="fs-prod-label code">Claude Code</div>
+                  <div class="fs-uc">Algorithmic portfolio construction — factor models, rebalancing engines, ESG scoring</div>
+                  <div class="fs-uc">Client portal modernization — digital onboarding, document management</div>
                 </div>
-              </div>
-              <div class="fs-product">
-                <div class="fs-product-name">Cowork</div>
-                <div class="fs-usecases-grid" style="display: grid; gap: 6px; margin-top: 8px;">
-                  <div class="fs-usecase">Wealth advisors — client meeting prep, financial plans, investment proposals</div>
-                  <div class="fs-usecase">Fund managers — fund commentary, investor letters, quarterly reports</div>
+                <div class="fs-prod-card cowork">
+                  <div class="fs-prod-label cowork">Cowork</div>
+                  <div class="fs-uc">Wealth advisors — client meeting prep, financial plans, investment proposals</div>
+                  <div class="fs-uc">Fund managers — fund commentary, investor letters, quarterly reports</div>
                 </div>
-              </div>
-              <div class="fs-product">
-                <div class="fs-product-name">Excel</div>
-                <div class="fs-usecases-grid" style="display: grid; gap: 6px; margin-top: 8px;">
-                  <div class="fs-usecase">Portfolio analytics — performance attribution, risk decomposition, benchmark comparison</div>
-                  <div class="fs-usecase">Financial planning — retirement projections, tax optimization, estate modeling</div>
+                <div class="fs-prod-card excel">
+                  <div class="fs-prod-label excel">Excel</div>
+                  <div class="fs-uc">Portfolio analytics — performance attribution, risk decomposition, benchmark comparison</div>
+                  <div class="fs-uc">Financial planning — retirement projections, tax optimization, estate modeling</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- ── Fintech & Payments ── -->
-      <div class="fs-branch">
-        <div class="fs-vline"></div>
-        <div class="fs-subind">
-          <div class="fs-subind-title">Fintech &amp; Payments</div>
-          <div class="fs-subind-companies">PayPal · Stripe · Square · Plaid · Adyen · Marqeta · Klarna</div>
-        </div>
-        <button class="fs-expand-btn" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.textContent === '＋' ? '−' : '＋'">＋</button>
-        <div class="fs-detail-panel">
-          <div style="padding: 16px; background: #fdf5f0; border: 1px solid rgba(217,119,87,0.15); border-radius: 10px; margin-top: 4px;">
-            <div style="font-size: 10px; font-weight: 700; color: var(--accent-a); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px;">Products → Use Cases</div>
-            <div class="fs-products-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-              <div class="fs-product">
-                <div class="fs-product-name">API</div>
-                <div class="fs-usecases-grid" style="display: grid; gap: 6px; margin-top: 8px;">
-                  <div class="fs-usecase">Payment fraud prevention — real-time transaction scoring, merchant risk assessment</div>
-                  <div class="fs-usecase">Embedded financial product agents — lending decisions, insurance quotes, credit scoring</div>
+        <!-- ── 5. Fintech & Payments ── -->
+        <div class="fs-subind-row" onclick="this.classList.toggle('open')">
+          <div class="fs-subind-header">
+            <div class="fs-subind-icon">5</div>
+            <div class="fs-subind-info">
+              <div class="fs-subind-name">Fintech &amp; Payments</div>
+              <div class="fs-subind-cos">PayPal · Stripe · Square · Plaid · Adyen · Marqeta · Klarna</div>
+            </div>
+            <div class="fs-toggle-icon">＋</div>
+          </div>
+          <div class="fs-detail">
+            <div class="fs-detail-inner">
+              <div class="fs-prod-grid">
+                <div class="fs-prod-card api">
+                  <div class="fs-prod-label api">API</div>
+                  <div class="fs-uc">Payment fraud prevention — real-time transaction scoring, merchant risk assessment</div>
+                  <div class="fs-uc">Embedded financial product agents — lending decisions, insurance quotes, credit scoring</div>
                 </div>
-              </div>
-              <div class="fs-product">
-                <div class="fs-product-name">Claude Code</div>
-                <div class="fs-usecases-grid" style="display: grid; gap: 6px; margin-top: 8px;">
-                  <div class="fs-usecase">Payment infrastructure development — API integrations, webhook systems, compliance tooling</div>
-                  <div class="fs-usecase">Platform engineering — microservices, CI/CD pipelines, security scanning</div>
+                <div class="fs-prod-card code">
+                  <div class="fs-prod-label code">Claude Code</div>
+                  <div class="fs-uc">Payment infrastructure — API integrations, webhook systems, compliance tooling</div>
+                  <div class="fs-uc">Platform engineering — microservices, CI/CD pipelines, security scanning</div>
                 </div>
-              </div>
-              <div class="fs-product">
-                <div class="fs-product-name">Cowork</div>
-                <div class="fs-usecases-grid" style="display: grid; gap: 6px; margin-top: 8px;">
-                  <div class="fs-usecase">Product managers — PRDs, competitive analysis, regulatory impact assessments</div>
-                  <div class="fs-usecase">Risk &amp; compliance — BSA/AML programs, vendor due diligence, policy documentation</div>
+                <div class="fs-prod-card cowork">
+                  <div class="fs-prod-label cowork">Cowork</div>
+                  <div class="fs-uc">Product managers — PRDs, competitive analysis, regulatory impact assessments</div>
+                  <div class="fs-uc">Risk &amp; compliance — BSA/AML programs, vendor due diligence, policy documentation</div>
                 </div>
-              </div>
-              <div class="fs-product">
-                <div class="fs-product-name">Excel</div>
-                <div class="fs-usecases-grid" style="display: grid; gap: 6px; margin-top: 8px;">
-                  <div class="fs-usecase">Transaction analytics — volume trends, take-rate analysis, merchant cohort performance</div>
-                  <div class="fs-usecase">Financial forecasting — revenue modeling, unit economics, burn rate analysis</div>
+                <div class="fs-prod-card excel">
+                  <div class="fs-prod-label excel">Excel</div>
+                  <div class="fs-uc">Transaction analytics — volume trends, take-rate analysis, merchant cohort performance</div>
+                  <div class="fs-uc">Financial forecasting — revenue modeling, unit economics, burn rate analysis</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-    </div>
+      </div><!-- end fs-subind-col -->
+    </div><!-- end fs-row -->
 
-    <!-- ===== WHY ANTHROPIC WINS IN FINANCIAL SERVICES ===== -->
-    <div class="fade-in" style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 14px; padding: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin-top: 40px; max-width: 900px; margin-left: auto; margin-right: auto;">
+    <!-- ===== WHY ANTHROPIC WINS ===== -->
+    <div class="fade-in" style="background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 14px; padding: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin-top: 24px;">
       <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-a); margin-bottom: 12px;">Why Anthropic Wins in Financial Services</div>
       <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;">
         <div style="padding: 12px; background: #fdf5f0; border-radius: 8px; text-align: center;">
           <div style="font-size: 22px; font-weight: 800; color: var(--accent-a); font-family: var(--font-display);">60.7%</div>
-          <div style="font-size: 10px; color: var(--text-muted); margin-top: 4px;">Opus 4.6 on financial services benchmarks — #1 vs GPT-5.2 (56.6%) and Gemini 3 Pro (44.1%)</div>
+          <div style="font-size: 10px; color: var(--text-muted); margin-top: 4px;">Opus 4.6 on finance benchmarks — #1 vs GPT-5.2 (56.6%) &amp; Gemini 3 Pro (44.1%)</div>
         </div>
         <div style="padding: 12px; background: #f0f3eb; border-radius: 8px; text-align: center;">
           <div style="font-size: 22px; font-weight: 800; color: var(--accent-b); font-family: var(--font-display);">Trust</div>
-          <div style="font-size: 10px; color: var(--text-muted); margin-top: 4px;">Doesn't train on customer data · Data residency controls · Constitutional AI for explainability</div>
+          <div style="font-size: 10px; color: var(--text-muted); margin-top: 4px;">No training on customer data · Data residency controls · Constitutional AI for explainability</div>
         </div>
         <div style="padding: 12px; background: #fdf5f0; border-radius: 8px; text-align: center;">
           <div style="font-size: 22px; font-weight: 800; color: var(--accent-a); font-family: var(--font-display);">AWS</div>
@@ -3516,7 +3568,7 @@ section:last-of-type { border-bottom: none; }
         </div>
         <div style="padding: 12px; background: #f0f3eb; border-radius: 8px; text-align: center;">
           <div style="font-size: 22px; font-weight: 800; color: var(--accent-b); font-family: var(--font-display);">Safe AI</div>
-          <div style="font-size: 10px; color: var(--text-muted); margin-top: 4px;">"The company whose mission is building safe, reliable AI" — easy for CIOs to defend to the board</div>
+          <div style="font-size: 10px; color: var(--text-muted); margin-top: 4px;">"The company whose mission is safe, reliable AI" — easy for CIOs to defend to the board</div>
         </div>
       </div>
     </div>
